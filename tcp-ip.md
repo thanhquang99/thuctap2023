@@ -105,7 +105,7 @@ Một số port thông dụng
 |Nội dung| Mô hình OSI | Mô hình TCP/IP |
 |--------| ----------- |----------------|
 |Độ tin cậy và phổ biến| Ít người sử dụng(chỉ dùng để tham chiếu) | Được chuẩn hóa, nhiều người tin cậy và được sử dụng phổ biến|
-|Số tầng| 7  | 4   |
+|Số tầng|    7   |     4    |
 |Sự kết hợp giữa các tầng| Không có   | Tầng applicaton có tầng session và tầng presentation kết hợp lại với nhau  |
 |Truyền thông| HỖ trợ cả kết nối định tuyến và không dây  | Hỗ trợ truyền thông không kết nối từ tầng mạng   |
 |Tính phụ thuộc| Giao thức độc lập  | phụ thuộc vào giao thức |
