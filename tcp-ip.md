@@ -104,6 +104,9 @@ Một số port thông dụng
 ### Khác nhau 
 |Nội dung| Mô hình OSI | Mô hình TCP/IP |
 |--------| ----------- |:--------------:|
+|Phổ biến| Ít người sử dụng(chỉ dùng để tham chiếu) | right foo      |
+|hhhhhhhh| left bar    | right bar      |
+|jjjjjjjj| left baz    | right baz      |
 |hhhhhhhh| left foo    | right foo      |
 |hhhhhhhh| left bar    | right bar      |
 |jjjjjjjj| left baz    | right baz      |
