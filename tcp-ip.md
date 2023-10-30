@@ -103,7 +103,7 @@ Một số port thông dụng
 - cả 2 mô hình cùng sử dụng kỹ thuật chuyển packet
 ### Khác nhau 
 |Nội dung| Mô hình OSI | Mô hình TCP/IP |
-|--------| ----------- |:--------------:|
+|--------| ----------- |----------------|
 |Độ tin cậy và phổ biến| Ít người sử dụng(chỉ dùng để tham chiếu) | Được chuẩn hóa, nhiều người tin cậy và được sử dụng phổ biến|
 |Số tầng| 7  | 4   |
 |Sự kết hợp giữa các tầng| Không có   | Tầng applicaton có tầng session và tầng presentation kết hợp lại với nhau  |
