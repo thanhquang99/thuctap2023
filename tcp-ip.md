@@ -23,3 +23,8 @@ Nếu ta định nghĩa máy 1 là máy gửi và máy 2 là máy nhận thì qu
 
 
 ![Alt text](images-1.jpg)
+
+### Mô hình TCP/IP:
+MÔ hinhf TCP/IP cũng tương tự mô hình OSI nhưng nó đã được gộp lại và rút gọn thành 4 tầng. (application, Presentation,sesion) chuyển thành tầng (application).(transport)giữ nguyên là (transport).(Network) chuyển thành (internet).(data link ,physical) chuyển thành (network access).
+
+![Alt text](Screenshot_2.png)
