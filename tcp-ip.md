@@ -36,3 +36,15 @@ MÔ hinhf TCP/IP cũng tương tự mô hình OSI nhưng nó đã được gộp
 ##### Remote login : Telnet, rlogin
 ##### Network management: SNMP
 ##### Name management : Domain name system
+#### Transport :
+Các tính chất của tầng transport
+- Tổ chức ghép nối các phiên làm việc
+- Phân mảnh dữ liệu :chia nhỏ dữ liệu thành nhiều segment
+- Điều khiển luồng : Khi các đường truyền quá tải hoặc lỗi thì sẽ được gọi ra
+- Truyền theo hướng kết nối và truyền không theo hướng kết nối :khi truyền theo hướng kết nối ta cần phải thiết lập một kết nối luận lý còn cái kia thì không
+- Truyền theo hướng tin cậy : Dữ liệu bên B nhận phải hoàn chỉnh và thông báo lại cho bên A là nhận được rồi
+
+
+Hai giao thưcs quan trọng TCP và UDP
+- TCP là truyền theo hướng tin cậy , phải có kết nối luận lý rồi mới bắt dầu truyền . Ứng dụng cho e-mail,dowloading,file sharing
+- UDP là truyền theo hướng tổng lực, như tên nó sẽ không cần kết nối luận lý mà cứ thế tổng lực truyền gói tin không cần biết bên kia có nhận được đày đủ không. Ứng dụng cho voice streaming , video streaming
