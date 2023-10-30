@@ -1,4 +1,4 @@
- Tìm hiểu về mô hình OSI và TCP/IP
+# Tìm hiểu về mô hình OSI và TCP/IP
 ## Mô hình OSI
 MÔ hình OSI(Open systems Interconnection) là mô hình tham chiếu kết nối hệ thống mở. Nó được chia làm 7 tầng để ta tham chiếu các quá trình kết nối truyền thông và giao thức mạng giữa các máy tính
 
@@ -102,6 +102,14 @@ Một số port thông dụng
 - Cả 2 mô hình đều có tầng network và transport
 - cả 2 mô hình cùng sử dụng kỹ thuật chuyển packet
 ### Khác nhau 
+- TCP/IP chỉ sử dụng tầng ứng dụng (Application) để xác định chức năng của các tầng trên. Trong khi đó, OSI sử dụng đến 3 tầng (Application, Presentation, Session).
+- TCP/IP sử dụng Link Layer để xác định các chức năng tầng dưới cùng. Đối với OSI, nó sử dụng 2 tầng là Physical và Data link.
+- OSI sử dụng lớp Network để xác định các tiêu chuẩn và giao thức định tuyến. Chức năng này được quản lý bởi tầng Internet trong TCP/IP.
+- Mô hình TCP/IP là một tiêu chuẩn Oriented Protocol. Còn OSI là một mô hình chung dựa trên chức năng của mỗi lớp.
+- Trong TCP/IP, các giao thức được phát triển trước mô hình. Quá trình này ngược lại so với OSI.
+- TCP/IP giúp thiết lập kết nối giữa các loại máy tính với nhau. OSI giúp chuẩn hóa router, switch, bo mạch chủ và các phần cứng khác.
+
+
 |Nội dung| Mô hình OSI | Mô hình TCP/IP |
 |--------| ----------- |----------------|
 |Độ tin cậy và phổ biến| Ít người sử dụng(chỉ dùng để tham chiếu) | Được chuẩn hóa, nhiều người tin cậy và được sử dụng phổ biến|
