@@ -1,22 +1,32 @@
-# Tìm hiểu về mô hình OSI và TCP/IP
+ Tìm hiểu về mô hình OSI và TCP/IP
 ## Mô hình OSI
 MÔ hình OSI(Open systems Interconnection) là mô hình tham chiếu kết nối hệ thống mở. Nó được chia làm 7 tầng để ta tham chiếu các quá trình kết nối truyền thông và giao thức mạng giữa các máy tính
 
 ![Alt text](Screenshot_1.png)
 ### Mô hình OSI sẽ gồm 7 tầng :
-#### Application: 
-Cung cấp ứng dụng kết nối giao tiếp với người dùng và còn cung cấp cả cơ chế tiếp cận người dùng. 
-#### Presentation: 
-Thông ngôn dữ liệu,cấu trúc dữ liệu ,định dạng dữ liệu và cung cấp vài cơ chế mã hóa.
-#### Session: 
-Truyền thông giữa 2 host.Quản lý các phiên làm việc, nó duy trì cho các phiên làm việc nào truyền đúng dữ liệu về phiên đấy như nghe nhạc thì dữ liệu sẽ truyền đúng về phần nghe nhạc
-#### Transport: 
-Quản lý các thiết bị đầu cuối end to end.Thiết lập và duy trì một kết nối ảo
-#### Network(Tầng mạng): 
+#### 1.Application: 
+- Cung cấp giao diện sử dụng cho người dùng (như chorme,facebook,...)
+- Thực hiện chức năng chuyển file , trong đó giải quyết các vấn đề như không tương thích cách đặt tên
+- Cung cấp các dịch vụ tiêu biểu cho người dùng như Web ,mail,dns,dhcp,ftp.
+
+#### 2.Presentation: 
+- Giải quyết vấn đề liên quan đến cú pháp ,ngữ nghĩa của thông tin như chuyển đổi thông tin theo một chuẩn nào đó được 2 bên sử dụng (mã ASCII - EBCDIC)
+- Nén, giãn dữ liệu để giản số bit truyền trên mạng
+- Mã hóa dữ liệu để thực hiện quyền truy cập
+- Các giao thức tiêu biểu tầng Presentation sử dụng : XDR(Extreme Dynamic Range), ASN.1 (Abstract Syntax Notation One), SMB (Server Message Block), AFP (Alpha-fetoprotein), NCP (Network Control Protocol).
+#### 3.Session: 
+- Tầng này cho phép người sử dụng trên các máy khác nhau thiết lập ,duy trì, hủy bỏ ,đồng bộ phiên truyền thông giữa họ
+- Quản lý token : Cơ chế thẻ bài được phiên cung cấp tránh hiện tượng tranh chấp đường truyền trên mạng
+- Thực hiện đồng bộ : Thực hiện với các dữ liệu lớn băngf cách thêm vào các thông tin kiểm tra sửa lỗi.
+- Các giao thức tiêu biểu tầng Session sử dụng : ASAP, TLS, ISO 8327 / CCITT X.225, RPC, NetBIOS, ASP
+#### 4.Transport: 
+- Kiểm soát việc truyền tin từ nút tới nút (end to end),bắt đầu từ tầng này các thực thể đã có thể nói chuyện logic với nhau
+- 
+#### 5.Network(Tầng mạng): 
 Phân phối dữ liệu trên đường truyền vật lý. Định vị đường đi tối ưu của các gói tin.Đánh địa chỉ logic(ip)
-#### Data link : 
+#### 6.Data link : 
 Giúp dữ liêuj truy cập vào đường truyền vật lý ở phía dưới.Quy định các loại dữ liệu sẽ được truyền đi như thế nào
-#### Physical(Tầng vật lý): 
+#### 7.Physical(Tầng vật lý): 
 Nó định nghiac về phần cơ , điện ,quang.
 ### Quá trình truyền dữ liệu đi của dữa liệu thông qua tham chiếu OSI
 Nếu ta định nghĩa máy 1 là máy gửi và máy 2 là máy nhận thì quá trình sẽ được gửi đi như sau: Ở mỗi tầng ở máy 1 sẽ được gắn vào 1 header để định nghĩa tầng đó và sẽ được gửi tới máy 2 và ở máy 2 sẽ phá vỡ header ở từng tầng và từ đó ta nhận được 1 gói tin hoàn chỉnh 
@@ -30,13 +40,13 @@ MÔ hinhf TCP/IP cũng tương tự mô hình OSI nhưng nó đã được gộp
 ![Alt text](Screenshot_2.png)
 
 ### Chi tiết các tầng trong TCP/IP
-#### Tầng Applicayion trong TCP:
+#### Tầng Applicayion trong TCP/IP:
 - File transfer : FTP, TFTP, Network file system
 - E- mail : SMTP
 - Remote login : Telnet, rlogin
 - Network management: SNMP
 - Name management : Domain name system
-#### Tầng Transport trong TCP:
+#### Tầng Transport trong TCP/IP:
 Các tính chất của tầng transport
 - Tổ chức ghép nối các phiên làm việc
 - Phân mảnh dữ liệu :chia nhỏ dữ liệu thành nhiều segment
@@ -72,7 +82,7 @@ Quá trình của một kết nối luận lý
 ![Alt text](4-buoc-ket-thuc-ket-noi-TCP.png)
 
 Quá trình này gọi là bắt tay 3 bước :bên A sẽ gưi send1 và bên B nhận được vẽ gửi ACK 2 về A thông báo rằng đã nhận đc và bên A sẽ gửi tiếp send2 tiếp tục. Quas trình này sẽ liên tục.
- ### Tầng Internet trong TCP
+ ### Tầng Internet trong TCP/ip
  Giao thức IPv4 là quan trọng nhất của tầng này 
 
  Định nghĩa
@@ -132,5 +142,5 @@ là một phương pháp sử dụng các địa chỉ mạng và định tuyế
 - Số subnet : 2^n
 - Số host/subnet 2^m - 2 (m là số bit làm Host )
 
-### Tầng access network
+### Tầng access network trong TCP/IP
 Tầng này mô tả về phần vật lý được sử dụng như cable ,điện, thiết bị model... Các gói tin sẽ được chuyển thành nhị phân và được truyền đi dưới dạng tín hiệu điện .Tầng này không quá tập trung nhiều
