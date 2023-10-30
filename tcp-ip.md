@@ -102,9 +102,9 @@ Một số port thông dụng
 - Cả 2 mô hình đều có tầng network và transport
 - cả 2 mô hình cùng sử dụng kỹ thuật chuyển packet
 ### Khác nhau 
-| Mô hình OSI | Mô hình TCP/IP |
-| ----------- |:--------------:|
-| left foo    | right foo      |
-| left bar    | right bar      |
-| left baz    | right baz      |
+|Nội dung| Mô hình OSI | Mô hình TCP/IP |
+|--------| ----------- |:--------------:|
+|hhhhhhhh| left foo    | right foo      |
+|hhhhhhhh| left bar    | right bar      |
+|jjjjjjjj| left baz    | right baz      |
  
