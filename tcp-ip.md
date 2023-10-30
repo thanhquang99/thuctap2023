@@ -20,4 +20,6 @@ Giúp dữ liêuj truy cập vào đường truyền vật lý ở phía dưới
 Nó định nghiac về phần cơ , điện ,quang.
 ### Quá trình truyền dữ liệu đi của dữa liệu thông qua tham chiếu OSI
 Nếu ta định nghĩa máy 1 là máy gửi và máy 2 là máy nhận thì quá trình sẽ được gửi đi như sau: Ở mỗi tầng ở máy 1 sẽ được gắn vào 1 header để định nghĩa tầng đó và sẽ được gửi tới máy 2 và ở máy 2 sẽ phá vỡ header ở từng tầng và từ đó ta nhận được 1 gói tin hoàn chỉnh 
-![alt](C:\Users\ADMIN\Desktop\scrennshort)
+
+
+![Alt text](images-1.jpg)
