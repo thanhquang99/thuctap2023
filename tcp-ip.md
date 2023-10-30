@@ -48,3 +48,22 @@ Các tính chất của tầng transport
 Hai giao thưcs quan trọng TCP và UDP
 - TCP là truyền theo hướng tin cậy , phải có kết nối luận lý rồi mới bắt dầu truyền . Ứng dụng cho e-mail,dowloading,file sharing
 - UDP là truyền theo hướng tổng lực, như tên nó sẽ không cần kết nối luận lý mà cứ thế tổng lực truyền gói tin không cần biết bên kia có nhận được đày đủ không. Ứng dụng cho voice streaming , video streaming
+
+![Alt text](1.png)
+
+![Alt text](HEADER-768x432.png)
+
+Một số port thông dụng
+- TCP 20 : FTP (Data)
+- TCP 21 : FTP (Control)
+- TCP 22 : SSH.
+- TCP 23 : Telnet.
+- TCP 25 : SMTP.
+- UDP 53 : DNS.
+- UDP 67 : DHCP（Server）
+- UDP 68 : DHCP（Client）
+- TCP 80 : HTTP
+- TCP 110 : POP3
+- UDP 123 : NTP
+- TCP 443 : HTTPS
+- WELL KNOWN PORT NUMBERS 0~1023
