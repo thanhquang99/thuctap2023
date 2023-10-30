@@ -85,10 +85,6 @@ Một số port thông dụng
 - TCP 443 : HTTPS
 - WELL KNOWN PORT NUMBERS 0~1023
 
-Quá trình của một kết nối luận lý
-![Alt text](4-buoc-ket-thuc-ket-noi-TCP.png)
-
-Quá trình này gọi là bắt tay 3 bước :bên A sẽ gưi send1 và bên B nhận được vẽ gửi ACK 2 về A thông báo rằng đã nhận đc và bên A sẽ gửi tiếp send2 tiếp tục. Quas trình này sẽ liên tục.
  ### 3 Tầng Internet trong TCP/ip
  - Chức năng quan trọng nhất của tầng Internet chịu trách nhiệm định tuyến (dẫn đường) cho các gói tin và chọn lựa con đường tối ưu để truyền các gói tin từ trạm nguồn tới trạm đích
  - Chức năng tiếp theo đóng gói dữ liệu thành các gói được gọi là IP Packet
