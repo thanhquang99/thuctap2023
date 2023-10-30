@@ -50,9 +50,13 @@ MÔ hình OSI(Open systems Interconnection) là mô hình tham chiếu kết n�
 - Bước 5 :Ở máy nhận bên kia sau khi nhận được gói tin sẽ truyền theo hướng ngược lại từ tầng vật lý lên application.Ở mỗi tầng tương ứng nó sẽ gỡ các header mà mỗi tầng đã gắn vào nó khi đến tầng application ta sẽ nhận được đúng những thứ mà ta gửi đi ở tầng application
 
 ### Mô hình TCP/IP:
-MÔ hinhf TCP/IP cũng tương tự mô hình OSI nhưng nó đã được gộp lại và rút gọn thành 4 tầng. (application, Presentation,sesion) chuyển thành tầng (application).(transport)giữ nguyên là (transport).(Network) chuyển thành (internet).(data link ,physical) chuyển thành (network access).
+MÔ hinhf TCP/IP cũng tương tự mô hình OSI nhưng nó đã được gộp lại và rút gọn thành 4 tầng. 
+- (application, Presentation,sesion) chuyển thành tầng (application).
+- (transport)giữ nguyên là (transport).
+- (Network) chuyển thành (internet).
+- (data link ,physical) chuyển thành (network access).
 
-![Alt text](Screenshot_2.png)
+![Alt text](image-1.png)
 
 ### Chi tiết các tầng trong TCP/IP
 #### Tầng Applicayion trong TCP/IP:
