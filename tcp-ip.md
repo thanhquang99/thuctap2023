@@ -50,7 +50,7 @@ MÔ hình OSI(Open systems Interconnection) là mô hình tham chiếu kết n�
 - Bước 5 :Ở máy nhận bên kia sau khi nhận được gói tin sẽ truyền theo hướng ngược lại từ tầng vật lý lên application.Ở mỗi tầng tương ứng nó sẽ gỡ các header mà mỗi tầng đã gắn vào nó khi đến tầng application ta sẽ nhận được đúng những thứ mà ta gửi đi ở tầng application
 
 ### Mô hình TCP/IP:
-MÔ hinhf TCP/IP cũng tương tự mô hình OSI nhưng nó đã được gộp lại và rút gọn thành 4 tầng. 
+Mô hình TCP/IP cũng tương tự mô hình OSI nhưng nó đã được gộp lại và rút gọn thành 4 tầng. 
 - (application, Presentation,sesion) chuyển thành tầng (application).
 - (transport)giữ nguyên là (transport).
 - (Network) chuyển thành (internet).
@@ -85,14 +85,14 @@ Một số port thông dụng
 - TCP 443 : HTTPS
 - WELL KNOWN PORT NUMBERS 0~1023
 
- ### 3 Tầng Internet trong TCP/ip
+ ### 3 Tầng Internet
  - Chức năng quan trọng nhất của tầng Internet chịu trách nhiệm định tuyến (dẫn đường) cho các gói tin và chọn lựa con đường tối ưu để truyền các gói tin từ trạm nguồn tới trạm đích
  - Chức năng tiếp theo đóng gói dữ liệu thành các gói được gọi là IP Packet
  - IP Packet chứa địa chỉ IP nguồn và  địa chỉ IP đích (nó giống như việc 1 bức thư có địa chỉ người gửi và địa chỉ người nhận).
  - Khi các gói tin được gửi tới địa chỉ IP đích các gói dữ liệu có thể xuất hiện theo thứ tự khác với thứ tự được gửi đi. Nhiệm vụ của các lớp cao hơn là sắp xếp lại chúng để đưa chúng đến các ứng dụng mạng thích hợp hoạt động ở lớp Application
  - Các giao thức chính ở tầng internet :IP (Internet Protocol) ,ICMP (Internet Control Message Protocol) ,ARP (Address Resolution Protocol) ,RARP (Reverse Address Resolution Protocol) ,IGMP (Internet Group Management Protocol).
 
-### Tầng access network trong TCP/IP
+### Tầng access network
 - Bao gồm các giao thức chỉ hoạt động trên một liên kết - thành phần mạng kết nối các nút hoặc máy chủ trong mạng. Các giao thức trong lớp thấp nhất này bao gồm Ethernet cho mạng cục bộ và Giao thức phân giải địa chỉ .
 - Chức năng chính của tầng này là đóng gói thông tin packet của tầng internet thành các frame được truyền dẫn trên mạng và chuyển địa chỉ ip thành địa chỉ vậy lý sử dụng bơi bởi mạng máy tính
 - Một trong số các điểm mạnh của bộ  Giao thức TCP/IP là địa chỉ của nó được phối hợp sao cho trên mạng Internet không có một thiết bị mạng nào cùng tên. Địa chỉ này phải được chuyển đổi thích hợp với địa chỉ mạng vật lý nơi mà dữ liệu được truyền đi.
@@ -115,7 +115,7 @@ Một số port thông dụng
 |Độ tin cậy và phổ biến| Ít người sử dụng(chỉ dùng để tham chiếu) | Được chuẩn hóa, nhiều người tin cậy và được sử dụng phổ biến|
 |Số tầng|    7   |     4    |
 |Sự kết hợp giữa các tầng| Không có   | Tầng applicaton có tầng session và tầng presentation kết hợp lại với nhau  |
-|Truyền thông| HỖ trợ cả kết nối định tuyến và không dây  | Hỗ trợ truyền thông không kết nối từ tầng mạng   |
+|Truyền thông| Hỗ trợ cả kết nối định tuyến và không dây  | Hỗ trợ truyền thông không kết nối từ tầng mạng   |
 |Tính phụ thuộc| Giao thức độc lập  | phụ thuộc vào giao thức |
 |Phương pháp tiếp cận| Chiều dọc | Chiều ngang |
  
