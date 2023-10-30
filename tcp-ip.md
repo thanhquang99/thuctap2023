@@ -2,7 +2,6 @@
 ## Mô hình OSI
 MÔ hình OSI(Open systems Interconnection) là mô hình tham chiếu kết nối hệ thống mở. Nó được chia làm 7 tầng để ta tham chiếu các quá trình kết nối truyền thông và giao thức mạng giữa các máy tính
 
-![Alt text](Screenshot_1.png)
 ### Mô hình OSI sẽ gồm 7 tầng :
 #### 1.Application: 
 - Cung cấp giao diện sử dụng cho người dùng (như chorme,facebook,...)
@@ -42,6 +41,7 @@ MÔ hình OSI(Open systems Interconnection) là mô hình tham chiếu kết n�
 - Tầng vật lý quan tâm đến mối ghép cơ khí .điện tử và môi trường truyền bên dưới nó
 - Các thông tin được mã hóa thành các bit 0-1 tương tự như tín hiệu bật tắt điện
 ### Quá trình truyền dữ liệu đi của dữa liệu thông qua tham chiếu OSI
+![Alt text](image.png)
 Nếu ta định nghĩa máy 1 là máy gửi và máy 2 là máy nhận thì quá trình sẽ được gửi đi như sau: Ở mỗi tầng ở máy 1 sẽ được gắn vào 1 header để định nghĩa tầng đó và sẽ được gửi tới máy 2 và ở máy 2 sẽ phá vỡ header ở từng tầng và từ đó ta nhận được 1 gói tin hoàn chỉnh 
 
 
