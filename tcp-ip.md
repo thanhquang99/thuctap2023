@@ -97,3 +97,9 @@ Một số port thông dụng
 - Chức năng chính của tầng này là đóng gói thông tin packet của tầng internet thành các frame được truyền dẫn trên mạng và chuyển địa chỉ ip thành địa chỉ vậy lý sử dụng bơi bởi mạng máy tính
 - Một trong số các điểm mạnh của bộ  Giao thức TCP/IP là địa chỉ của nó được phối hợp sao cho trên mạng Internet không có một thiết bị mạng nào cùng tên. Địa chỉ này phải được chuyển đổi thích hợp với địa chỉ mạng vật lý nơi mà dữ liệu được truyền đi.
 ## So sánh hai mô hinh OSI và TCP/IP
+### Giống nhau
+- Cả 2 mô hình đều có kiến trúc phân lớp
+- Cả 2 mô hình đều có tầng network và transport
+- cả 2 mô hình cùng sử dụng kỹ thuật chuyển packet
+### Khác nhau 
+|Nội dung |Mô hình OSI|Mô hình TCP/IP|
