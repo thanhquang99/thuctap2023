@@ -124,13 +124,21 @@ MÔ hình OSI(Open systems Interconnection) là mô hình tham chiếu kết n�
 - Các thông tin được mã hóa thành các bit 0-1 tương tự như tín hiệu bật tắt điện
 - Topology vật lý:
     - Mạng hình sao :Là một mô hình mạng gồm thiết bị làm trung tâm và các nút thông tin chịu sự điều khiển của trung tâm đó. Các nút ở đây có thể là máy trạm, các thiết bị đầu cuối hay các thiết bị khác trong mạng LAN.
+
      ![Alt](/thuctap/anh/Screenshot_10.png)
+
     - Bus Topology: Là kiểu kết nối mà tất cả các thiết bị như máy chủ máy trạm, các nút thông tin đều được liên kết với nhau trên một đường dây cáp chính để truyền dữ liệu. Các dữ liệu và tín hiệu truyền qua dây cáp đều đến được tất cả điểm đến.
+
     ![Alt](/thuctap/anh/Screenshot_11.png)
+
     - Mạng dạng vòng :Đây là kiểu Topology các thiết bị được kết nối thành vòng tròn khép kín thông qua dây cáp. Tín hiệu sẽ được truyền đi theo một chiều cố định. Tại một thời điểm, chỉ có một nút được truyền tin qua một nút khác.
+
     ![Alt](/thuctap/anh/Screenshot_12.png)
+
     - Mạng dạng lưới :Đây là kiểu topology mà trong đó một máy tính sẽ được liên kết với tất cả các máy còn lại trong hệ thống mà không cần phải thông qua Hub hay Switch.
+
     ![Alt](/thuctap/anh/Screenshot_13.png)
+    
     - Mạng phân cấp :Là dạng topology hình sao mở rộng. Các máy trong hệ thống được sắp xếp theo từng lớp tuỳ thuộc vào chức năng của chúng.
 ### Quá trình truyền dữ liệu đi của dữa liệu thông qua tham chiếu OSI
 ![Alt](/thuctap/anh/image.png)
