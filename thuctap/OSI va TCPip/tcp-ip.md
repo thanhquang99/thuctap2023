@@ -68,19 +68,19 @@ MÔ hình OSI(Open systems Interconnection) là mô hình tham chiếu kết n�
     Sau khi quá trình Three Handshake được thiết lập lúc này hai host A và B có thể trao đổi dữ liệu với nhau
 
 #### 5.Network(Tầng mạng): 
+- data unit :Packets
 - Vấn đề chủ chốt của tầng mạng là định tuyến , định rõ các gói tin được truyền theo những con đường nào từ nguồn tới đích
 - Con đường này có thể cố định, ít bị thay đổi, được thiết lập khi bắt đầu liên kết hay thay đổi tùy theo trạng thái của mạng
 - Nếu có nhiều gói tin truyền trên mạng có thể gây ra tắc nghẽn ,tầng mạng giải quyết vấn đề này
 - Thực hiện chức năng giao tiếp với các mạng bao gồm đánh địa chỉ IP ,cắt hợp gói tin sao cho phù hợp với các mạng, Xác định đường đi từ nguồn tới đich bằng địa chỉ IP
 - Ngoài ra tầng mạng còn thực hiện một số các chức năng kế toán khác như một số firewall được cài đặt trên tầng này để hệ thống thống kê các gói tin truyền qua hay ngăn cấm hoặc cho phép gói tin của giao thức nào đó
-- Các lớp con của data link
-    - LLC (logical link control)
-    Lớp con LLC là phần trên so với các giao thức truy cập đường truyền khác, nó cung cấp sự mềm dẻo về giao tiếp. Bởi vì lớp con LLC hoạt động độc lập với các giao thức truy cập đường truyền, cho nên các giao thức lớp trên hơn (ví dụ như IP ở lớp mạng) có thể hoạt động mà không phụ thuộc vào loại phương tiện LAN. Lớp con LLC có thể lệ thuộc vào các lớp thấp hơn trong việc cung cấp truy cập đường truyền.
-    - Lớp con MAC (media access control)
-    Lớp con MAC cung cấp tính thứ tự truy cập vào môi trường LAN. Khi nhiều trạm cùng truy cập chia sẻ môi trường truyền, để định danh mỗi trạm, lớp cho MAC định nghĩa một trường địa chỉ phần cứng, gọi là địa chỉ MAC address. Địa chỉ MAC là một con số đơn nhất đối với mỗi giao tiếp LAN (card mạng).
-- Các giao thức tiêu biểu network sử dụng : IP,ICMP,IGMP,IPX...
+
+- Các giao thức tiêu biểu network sử dụng : 
+    -  IPv4 (IPv6 mở rộng của IPv4): sẽ đề cập ở 1 mục riêng
+
 #### 6.Data link : 
-- Tầng này có nhiệm vụ truyền dữ liệu giữa các mạng kề nhau trong một mạng diện rộng hoặc giữac các nút trong một segment mạng cục bộ
+- data unit :Frames
+- Tầng này có nhiệm vụ truyền dữ liệu giữa các mạng kề nhau trong một mạng diện rộng hoặc giữa các nút trong một segment mạng cục bộ
 - Ngoài ra tầng data link còn kiểm soát lỗi đường truyền , thông lượng
 - Tầng này thực hiện việc đóng gói thông tin thành các frame ,gửi các frame một cách tuần tự trên mạng , xử lý các thông báo xác nhận (Acknowleggement frame) do bên nhận gửi về
 - Xác định ranh giới giữa các frame bằng cách ghi một số byte đặc biệt vào đầu và cuối frame.
@@ -115,10 +115,21 @@ MÔ hình OSI(Open systems Interconnection) là mô hình tham chiếu kết n�
     + Data: Trường dữ liệu gồm tuần tự n bytes. Chiều dài tối thiểu và lớn nhất của dữ liệu là từ 46 bytes đến 1500 bytes. Dữ liệu được gửi qua lớp mạng với một vài thông tin điều khiển. Nếu dữ liệu có chiều dài ít hơn 46 byte trong một gói, một cơ chế đặt biệt sẽ đệm để đủ tối thiểu 46 bytes.
 
     + Trường FCS( Frame Check Sequence): gồm 4 bytes chứa mã kiểm tra lỗi CRC được tạo ra ở bên gửi, giá trị CRC này sẽ được tính lại ở phía nhận và so sánh xem có khớp với giá trị ban đầu để biết các khung có xảy ra lỗi trong quá trình truyền hay không.
-#### 7.Physical(Tầng vật lý): 
+#### 7.Physical(Tầng vật lý):
+- data unit : bit 
 - Tầng vật lý liên quan đến truyền các bit giữa các máy bằng truyền thông vật lý, cấu trúc của dữ liệu không được quan tâm đến
 - Tầng vật lý quan tâm đến mối ghép cơ khí .điện tử và môi trường truyền bên dưới nó
 - Các thông tin được mã hóa thành các bit 0-1 tương tự như tín hiệu bật tắt điện
+- Topology vật lý:
+    - Mạng hình sao :Là một mô hình mạng gồm thiết bị làm trung tâm và các nút thông tin chịu sự điều khiển của trung tâm đó. Các nút ở đây có thể là máy trạm, các thiết bị đầu cuối hay các thiết bị khác trong mạng LAN.
+     ![Alt](/thuctap/anh/Screenshot_10.png)
+    - Bus Topology: Là kiểu kết nối mà tất cả các thiết bị như máy chủ máy trạm, các nút thông tin đều được liên kết với nhau trên một đường dây cáp chính để truyền dữ liệu. Các dữ liệu và tín hiệu truyền qua dây cáp đều đến được tất cả điểm đến.
+    ![Alt](/thuctap/anh/Screenshot_11.png)
+    - Mạng dạng vòng :Đây là kiểu Topology các thiết bị được kết nối thành vòng tròn khép kín thông qua dây cáp. Tín hiệu sẽ được truyền đi theo một chiều cố định. Tại một thời điểm, chỉ có một nút được truyền tin qua một nút khác.
+    ![Alt](/thuctap/anh/Screenshot_12.png)
+    - Mạng dạng lưới :Đây là kiểu topology mà trong đó một máy tính sẽ được liên kết với tất cả các máy còn lại trong hệ thống mà không cần phải thông qua Hub hay Switch.
+    ![Alt](/thuctap/anh/Screenshot_13.png)
+    - Mạng phân cấp :Là dạng topology hình sao mở rộng. Các máy trong hệ thống được sắp xếp theo từng lớp tuỳ thuộc vào chức năng của chúng.
 ### Quá trình truyền dữ liệu đi của dữa liệu thông qua tham chiếu OSI
 ![Alt](/thuctap/anh/image.png)
 
