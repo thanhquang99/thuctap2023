@@ -41,7 +41,7 @@ MÔ hình OSI(Open systems Interconnection) là mô hình tham chiếu kết n�
 - Tầng vật lý quan tâm đến mối ghép cơ khí .điện tử và môi trường truyền bên dưới nó
 - Các thông tin được mã hóa thành các bit 0-1 tương tự như tín hiệu bật tắt điện
 ### Quá trình truyền dữ liệu đi của dữa liệu thông qua tham chiếu OSI
-![Alt text](image.png)
+![Alt](/thuctap/anh/image.png)
 
 - Bước 1: ở tầng application người dùng sẽ đưa thông tin cần gửi vào máy tính như văn bản, hình ảnh sau đó dữ liệu sẽ được chuyển xuống tầng 6 để chuyển dữ liệu thành dạng chung, mã hóa dữ liệu và nén dữ liệu. Dữ liệu tiếp tục đi xuống tầng session tầng này bổ xung thông tin cho phiên giao dịch 
 - Bước 2: Tiếp theo đóng gói toàn bộ thông tin ở tầng session đưa xuống tầng transport .Lúc này toàn bộ goí tin ở tầng trên sẽ được tầng transport coi như là data và bắt đầu đóng gói các header (TCP/UDP header) , phần này sẽ được gọi là segment và segment sẽ được đưa xuống tầng network
@@ -56,7 +56,7 @@ Mô hình TCP/IP cũng tương tự mô hình OSI nhưng nó đã được gộp
 - (Network) chuyển thành (internet).
 - (data link ,physical) chuyển thành (network access).
 
-![Alt text](image-1.png)
+![Alt](/thuctap/anh/image-1.png)
 
 ### Chi tiết các tầng trong TCP/IP
 #### 1 Tầng Application 

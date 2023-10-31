@@ -1,1 +1,0 @@
-![alt](/test/anh/Screenshot_1.png)
