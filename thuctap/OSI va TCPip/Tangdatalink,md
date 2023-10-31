@@ -1,0 +1,21 @@
+## Tầng datalink
+### Chức năng và nhiệm vụ
+- Cung cấp khả năng chuyển dữ liệu tin cậy xuyên qua một liên kết vật lý. Lớp này liên quan đến:
+- Địa chỉ vật lý.
+- Mô hình mạng.
+- Cơ chế truy cập đường truyền.
+- Thông báo lỗi.
+- Thứ tự phân phối frame.
+- Điều khiển dòng
+- Tại lớp datalink, các bít đến từ lớp vật lý được chuyển thành các frame dữ liệu bằng cách dùng một số nghi thức tại lớp này. Lớp data linkđược chia thành hai lớp con: Lớp con LLC (logical link control), lớp con MAC (media access control).
+### Các lớp con của data link
+#### LLC (logical link control)
+Lớp con LLC là phần trên so với các giao thức truy cập đường truyền khác, nó cung cấp sự mềm dẻo về giao tiếp. Bởi vì lớp con LLC hoạt động độc lập với các giao thức truy cập đường truyền, cho nên các giao thức lớp trên hơn (ví dụ như IP ở lớp mạng) có thể hoạt động mà không phụ thuộc vào loại phương tiện LAN. Lớp con LLC có thể lệ thuộc vào các lớp thấp hơn trong việc cung cấp truy cập đường truyền.
+####  Lớp con MAC (media access control)
+Lớp con MAC cung cấp tính thứ tự truy cập vào môi trường LAN. Khi nhiều trạm cùng truy cập chia sẻ môi trường truyền, để định danh mỗi trạm, lớp cho MAC định nghĩa một trường địa chỉ phần cứng, gọi là địa chỉ MAC address. Địa chỉ MAC là một con số đơn nhất đối với mỗi giao tiếp LAN (card mạng).
+### Các giao thức 
+Giao thức PPP (Point-to-point Protocol)
+- PPP là giao thức lớp 2 phổ biến cho mạng WAN. Hai thành phần của PPP tồn tại: LCP (Link Control Protocol) đàm phán kết nối và NCP (Network Control Protocol) đóng gói lưu lượng.
++  Giao thức kiểm soát liên kết (Link Control Protocol): LCP được sử dụng để thiết lập, định cấu hình và kiểm tra kết nối liên kết dữ liệu. Nó linh hoạt trong việc xử lý các kích cỡ khác nhau của các gói, phát hiện một liên kết ngược, lỗi cấu hình và chấm dứt liên kết.
++ Giao thức điều khiển mạng (Network Control Protocol): NCP được sử dụng để thiết lập và định cấu hình các giao thức lớp Mạng khác nhau.
+PPP cho phép sử dụng đồng thời nhiều giao thức lớp Mạng.
