@@ -1,4 +1,4 @@
-Tầng datalink
+## Tầng datalink
 ### Chức năng và nhiệm vụ
 - Cung cấp khả năng chuyển dữ liệu tin cậy xuyên qua một liên kết vật lý. Lớp này liên quan đến:
 - Địa chỉ vật lý.
