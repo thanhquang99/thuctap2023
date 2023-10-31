@@ -118,6 +118,3 @@ Một số port thông dụng
 |Truyền thông| Hỗ trợ cả kết nối định tuyến và không dây  | Hỗ trợ truyền thông không kết nối từ tầng mạng   |
 |Tính phụ thuộc| Giao thức độc lập  | phụ thuộc vào giao thức |
 |Phương pháp tiếp cận| Chiều dọc | Chiều ngang |
- 
-
- ![alt](\image\Screenshot_3.png)
