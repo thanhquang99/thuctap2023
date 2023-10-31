@@ -56,16 +56,18 @@ MÔ hình OSI(Open systems Interconnection) là mô hình tham chiếu kết n�
     - ví dụ :Sau khi nhận được yêu cầu bên máy Client, Server sẽ truyền dữ liệu qua máy Client . Như ví dụ trên, máy Server thực hiện truyền dữ liệu với địa chỉ Port 2003 phía Client cho dịch vụ HTTPS, địa chỉ port 2004 cho dịch vụ FTP.Sau khi dữ liệu đến lớp Transport sẽ thực hiện quá trình phân kênh, chuyển giao dữ liệu cho các tiến trình theo địa chỉ port.
 - Các giao thức tiêu biểu ở tầng transport sử dụng :
     - UDP (User Datagram Protocol): Là một giao thức truyền tải theo phương thức connectionless điển hình. Giao thức của phương thức này không xây dựng kết nối trước khi truyền mà truyền trực tiếp ngay lập tức – truyền theo kiểu best effort (truyền tổng lực)
+
     ![Alt](/thuctap/anh/Screenshot_7.png)
+
     - TCP (Transmission Control Protocol) : TCP là giao thức truyền tải hướng kết nối (connection-oriented), nghĩa là phải thực hiện thiết lập kết nối với đầu xa trước khi thực hiện truyền dữ liệu. Tiến trình thiết lập kết nối ở TCP được gọi là tiến trình bắt tay 3 bước (threeway handshake).Cung cấp cơ chế báo nhận (Acknowledgement): Khi A gửi dữ liệu cho B, B nhận được thì gửi gói tin cho A xác nhận là đã nhận. Nếu không nhận được tin xác nhận thì A sẽ gửi cho đến khi B báo nhận thì thôi. 
+
      ![Alt](/thuctap/anh/Screenshot_8.png)
+
      - Quy trình băt tay 3 bước :
+
      ![Alt](/thuctap/anh/Screenshot_9.png)
-     Giả sử Host A muốn kết nối với Host B
-    Host A sẽ gửi cho Host B 1 cờ SYN thăm dò xem Host B có sẵn sàng kết nối để thực hiện quá trình truyền dữ liệu hay không
-    Nếu Host B đã sẵn sàng quá trình truyền, Host B sẽ gửi lại một cờ SYN/ACK để hỏi lại host A xem, Host A đã sẵn sàng quá trình truyền chưa?
-    Nếu Host A sẵn sàng rồi thì Host A sẽ gửi lại cờ ACK để xác nhận quá trình truyền.
-    Sau khi quá trình Three Handshake được thiết lập lúc này hai host A và B có thể trao đổi dữ liệu với nhau
+
+    Giả sử Host A muốn kết nối với Host B.Host A sẽ gửi cho Host B 1 cờ SYN thăm dò xem Host B có sẵn sàng kết nối để thực hiện quá trình truyền dữ liệu hay không.Nếu Host B đã sẵn sàng quá trình truyền, Host B sẽ gửi lại một cờ SYN/ACK để hỏi lại host A xem, Host A đã sẵn sàng quá trình truyền chưa?. Nếu Host A sẵn sàng rồi thì Host A sẽ gửi lại cờ ACK để xác nhận quá trình truyền. Sau khi quá trình Three Handshake được thiết lập lúc này hai host A và B có thể trao đổi dữ liệu với nhau
 
 #### 5.Network(Tầng mạng): 
 - data unit :Packets
