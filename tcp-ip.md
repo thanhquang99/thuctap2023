@@ -119,3 +119,5 @@ Một số port thông dụng
 |Tính phụ thuộc| Giao thức độc lập  | phụ thuộc vào giao thức |
 |Phương pháp tiếp cận| Chiều dọc | Chiều ngang |
  
+
+ ![alt](\image\Screenshot_3.png)
