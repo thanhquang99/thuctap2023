@@ -118,3 +118,5 @@ Một số port thông dụng
 |Truyền thông| Hỗ trợ cả kết nối định tuyến và không dây  | Hỗ trợ truyền thông không kết nối từ tầng mạng   |
 |Tính phụ thuộc| Giao thức độc lập  | phụ thuộc vào giao thức |
 |Phương pháp tiếp cận| Chiều dọc | Chiều ngang |
+### Một số lưu ý khi dùng đến OSI và TCP/IP
+- OSI vầ TCP/IP đều là mô hình tham chiếu nhưng OSI đã cũ rồi và OSI thường được sử dụng để tham chiếu sửa lỗi còn TCP/IP dùng để làm tham chiếu cho các ứng dụng hiện nay khi OSI đã không còn được tin cậy
