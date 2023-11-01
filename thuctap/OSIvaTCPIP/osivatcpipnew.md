@@ -252,3 +252,5 @@ https://www.mindomo.com/mindmap/osi-model-bd81b1a4982d462abffa98328058449d
 https://xmind.app/m/7iS7/
 
 https://vi.wikipedia.org/wiki
+
+https://byjus.com/free-ias-prep/difference-between-tcp-ip-and-osi-model/
