@@ -239,7 +239,7 @@ Khác nhau
 
 ## Tại sao khi đã có OSI lại sinh ra TCP/IP
 Tuy 2 mô hình không có sự khác biệt lớn nhưng về mục đích sử dụng của cả 2 là khác nhau
-- Mô hình TCP/IP là bộ giao thức truyền thông sử dụng các thiết bị mạng nào có thể được kết nối với Internet. Mặt khác, Mô hình OSI là một khung khái niệm sử dụng để mô tả chức năng của mạng
+- Mô hình TCP/IP là bộ giao thức truyền thông sử dụng các thiết bị mạng nào có thể được kết nối với Internet. Mặt khác, Mô hình OSI là một khung khái niệm sử dụng để mô tả chức năng của mạng dùng để tham chiếu.
 - Mô hình TCP/IP ra đời trước 10 năm so với mô hình OSI 
 ## Tài liệu tham khảo
 
