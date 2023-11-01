@@ -75,8 +75,15 @@ Nói đến firewall thì tác dụng của nó sẽ là lọc gói tin,từ đ�
     - Giao thức này lại đáp ứng được nhu cầu TCP không có như truyền tải audio,video stream với tốc độ nhanh
 - SSL(Secure Sockets Layer): Nó được sử dụng để mã hóa đường truyền http
 - TLS(Transport Layer Security): Đây là phiên bản mới nhất của SSL và cũng được sử dụng để mã hóa đường truyền http
-  
-
+### 1.8 Tầng network
+### 1.8.1 Chức năng của tầng network
+- Nó chịu trách nghiệm cho việc cung cấp địa chỉ logic (ipv4),định tuyến đường đi ,ngoài ra tầng mạng còn thực hiện một số các chức năng kế toán khác như một số firewall được cài đặt trên tầng này để hệ thống thống kê các gói tin truyền qua hay ngăn cấm hoặc cho phép gói tin của giao thức nào đó
+- IP được sinh ra từ tầng này
+### 1.8.2 Device
+- Router : Dùng để chuyển tiếp gói tin giữa các phân đoạn mạng và sử dụng địa chỉ ip để truyền tải gói tin
+- Packet-filtering firewalls Tường lửa thực hiện kiểm tra đơn giản các gói dữ liệu đi qua bộ định tuyến — kiểm tra thông tin như địa chỉ IP đích và nguồn gốc, loại gói, số cổng và thông tin cấp bề mặt khác mà không cần mở gói để kiểm tra nội dung của nó.
+### 1.8.3 Các giao thức của tầng network
+- ICMP (Packet-filtering firewalls): 
 
 
 
