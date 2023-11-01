@@ -213,8 +213,9 @@ Mô hình này hoạt động tương tự mô hình OSI nhưng mà nó được
  Giống nhau
 - Cả 2 mô hình đều có kiến trúc phân lớp
 - Cả 2 mô hình đều có tầng network và transport
-- cả 2 mô hình cùng sử dụng kỹ thuật chuyển packet
+
 Khác nhau 
+
 - TCP/IP chỉ sử dụng tầng ứng dụng (Application) để xác định chức năng của các tầng trên. Trong khi đó, OSI sử dụng đến 3 tầng (Application, Presentation, Session).
 - TCP/IP sử dụng Link Layer để xác định các chức năng tầng dưới cùng. Đối với OSI, nó sử dụng 2 tầng là Physical và Data link.
 - OSI sử dụng lớp Network để xác định các tiêu chuẩn và giao thức định tuyến. Chức năng này được quản lý bởi tầng Internet trong TCP/IP.
