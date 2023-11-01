@@ -195,15 +195,17 @@ Mô hình này hoạt động tương tự mô hình OSI nhưng mà nó được
 ### 2.5 Tầng Application
 - Ta hãy đối chiếu vào mô hình OSI thì tầng application ở TCP/IP chính là sự kết hợp của 3 tầng application, presentation và session của mô hình TCP/IP
 ### 2.5.1 Chức năng của tầng application 
-- Đảm nhận vai trò giao tiếp dữ liệu giữa 2 máy khác nhau thông qua các dịch vụ mạng khác nhau (duyệt web, chay hay các giao thức trao đổi dữ liệu SMTP, SSH, FTP…)
+- Tầng này có vai trò giao tiếp dữ liệu giữa 2 máy khác nhau
+- Cung cấp cho các ứng dụng các trao đổi chuẩn hóa ,giao tiếp dữ liệu giữa 2 máy khác nhau thông qua các dịch vụ mạng khác nhau
 ### 2.6 Tầng Transport
 - Tầng transport thì giữ nguyên giống mô hình OSI
 ### 2.5.1 Chức năng của tầng Transport
-- Nhiệm vụ của tầng giao vận là duy trì liên lạc đầu cuối trên toàn mạng
+- Nhiệm vụ của tầng giao vận là duy trì liên lạc đầu cuối trên toàn mạng. Ở tầng này, TCP và UDP sẽ hỗ trợ nhau phân luồng dữ liệu
 ### 2.7 Tầng Internet
 - Tầng network của mô hình OSI được đổi tên thành tầng Internet trong mô hình TCP/IP
 ### 2.5.1 Chức năng của tầng Internet
-- Nhiệm vụ của tầng Internet là xử lý các gói tin, sau đó kết nối với các mạng độc lập để vận chuyển các gói dữ liệu đã được mã hóa qua các ranh giới mạng.
+- Chức năng quan trọng nhất của tầng Internet chịu trách nhiệm định tuyến (dẫn đường) cho các gói tin và chọn lựa con đường tối ưu để truyền các gói tin từ trạm nguồn tới trạm đích
+- Chức năng tiếp theo đóng gói dữ liệu thành các gói được gọi là IP Packet
 ### 2.8 Tầng Link
 - Tầng data link và tầng physical của mô hình OSI được gộp lại và đổi tên thành tầng Link của mô hình TCP/IP
 ### 2.5.1 Chức năng của tầng Link
