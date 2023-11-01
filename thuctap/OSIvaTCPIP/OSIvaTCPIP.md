@@ -20,6 +20,7 @@
     - [Giống nhau](#giống-nhau)
     - [Khác nhau](#khác-nhau)
     - [Một số lưu ý khi dùng đến OSI và TCP/IP](#một-số-lưu-ý-khi-dùng-đến-osi-và-tcpip)
+    - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
 
 ## Mô hình OSI
 MÔ hình OSI(Open systems Interconnection) là mô hình tham chiếu kết nối hệ thống mở. Nó được chia làm 7 tầng để ta tham chiếu các quá trình kết nối truyền thông và giao thức mạng giữa các máy tính
@@ -242,3 +243,5 @@ Một số port thông dụng
 |Phương pháp tiếp cận| Chiều dọc | Chiều ngang |
 ### Một số lưu ý khi dùng đến OSI và TCP/IP
 - OSI vầ TCP/IP đều là mô hình tham chiếu nhưng OSI đã cũ rồi và OSI thường được sử dụng để tham chiếu sửa lỗi còn TCP/IP dùng để làm tham chiếu cho các ứng dụng hiện nay khi OSI đã không còn được tin cậy
+### Tài liệu tham khảo
+https://drive.google.com/drive/folders/1jgK20MU3-D9caYRcc9JPbnHs7AxTm-vV
