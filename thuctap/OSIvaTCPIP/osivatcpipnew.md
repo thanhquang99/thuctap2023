@@ -10,7 +10,7 @@ Muc lục
     - [1.4.1 Chức năng tầng Application](#141-chức-năng-tầng-application)
     - [1.4.2 Devices](#142-devices)
       - [Application firewalls](#application-firewalls)
-      - [1.4.3 Các giao thức tầng application](#143-các-giao-thức-tầng-application)
+    - [1.4.3 Các giao thức tầng application](#143-các-giao-thức-tầng-application)
     - [1.5 Tầng presentation](#15-tầng-presentation)
     - [1.5.1 Chức năng của tầng presentation](#151-chức-năng-của-tầng-presentation)
     - [1.6 Tầng Session](#16-tầng-session)
@@ -82,7 +82,7 @@ Tầng application sẽ là tầng giao tiếp với người dùng và từ đ�
     - Đưa ra quyết định nâng cao
     - Kiểm tra gói sâu
     - Độ trễ cao,có thể chậm
-#### 1.4.3 Các giao thức tầng application
+### 1.4.3 Các giao thức tầng application
 - HTTP(Hypertext Transfer Protocol): được gọi với cái tên là giao thức truyền siêu văn bản. Mục đích của giap thức này cho phép các client yêu cầu các trang web từ webserver
 - HTTPS(Hypertext Transfer Protocol Security): Nó là bản nâng cao của http và có thêm tính chất bảo mật là được mã hóa.
 - DNS(Domain Name System): Hệ thống phân giải tên miền dịch tên miền thành địa chỉ IP
