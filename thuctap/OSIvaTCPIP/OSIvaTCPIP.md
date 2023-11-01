@@ -1,4 +1,26 @@
 # Tìm hiểu về mô hình OSI và TCP/IP
+- [Tìm hiểu về mô hình OSI và TCP/IP](#tìm-hiểu-về-mô-hình-osi-và-tcpip)
+  - [Mô hình OSI](#mô-hình-osi)
+    - [Mô hình OSI sẽ gồm 7 tầng :](#mô-hình-osi-sẽ-gồm-7-tầng-)
+      - [1.Application:](#1application)
+      - [2.Presentation:](#2presentation)
+      - [3.Session:](#3session)
+      - [4.Transport:](#4transport)
+      - [5.Network(Tầng mạng):](#5networktầng-mạng)
+      - [6.Data link :](#6data-link-)
+      - [7.Physical(Tầng vật lý):](#7physicaltầng-vật-lý)
+    - [Quá trình truyền dữ liệu đi của dữa liệu thông qua tham chiếu OSI](#quá-trình-truyền-dữ-liệu-đi-của-dữa-liệu-thông-qua-tham-chiếu-osi)
+    - [Mô hình TCP/IP:](#mô-hình-tcpip)
+    - [Chi tiết các tầng trong TCP/IP](#chi-tiết-các-tầng-trong-tcpip)
+      - [1 Tầng Application](#1-tầng-application)
+      - [2 Tầng Transport](#2-tầng-transport)
+    - [3 Tầng Internet](#3-tầng-internet)
+    - [Tầng access network](#tầng-access-network)
+  - [So sánh hai mô hinh OSI và TCP/IP](#so-sánh-hai-mô-hinh-osi-và-tcpip)
+    - [Giống nhau](#giống-nhau)
+    - [Khác nhau](#khác-nhau)
+    - [Một số lưu ý khi dùng đến OSI và TCP/IP](#một-số-lưu-ý-khi-dùng-đến-osi-và-tcpip)
+
 ## Mô hình OSI
 MÔ hình OSI(Open systems Interconnection) là mô hình tham chiếu kết nối hệ thống mở. Nó được chia làm 7 tầng để ta tham chiếu các quá trình kết nối truyền thông và giao thức mạng giữa các máy tính
 
