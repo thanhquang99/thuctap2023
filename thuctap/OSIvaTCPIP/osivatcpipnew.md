@@ -28,5 +28,7 @@ Tầng application sẽ là tầng giao tiếp với người dùng và từ đ�
 
 
 ## Tài liệu tham khảo
+
 https://drive.google.com/drive/folders/1rZZvtadhlfc6JESp9qT_d9KRoI7ZGUYv
+
 https://www.youtube.com/watch?v=g9U9-bpXV30&list=PLnaGQB5hLTI6Y20FjqCsTO63efmE0_zZJ
