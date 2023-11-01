@@ -83,10 +83,53 @@ Nói đến firewall thì tác dụng của nó sẽ là lọc gói tin,từ đ�
 - Router : Dùng để chuyển tiếp gói tin giữa các phân đoạn mạng và sử dụng địa chỉ ip để truyền tải gói tin
 - Packet-filtering firewalls Tường lửa thực hiện kiểm tra đơn giản các gói dữ liệu đi qua bộ định tuyến — kiểm tra thông tin như địa chỉ IP đích và nguồn gốc, loại gói, số cổng và thông tin cấp bề mặt khác mà không cần mở gói để kiểm tra nội dung của nó.
 ### 1.8.3 Các giao thức của tầng network
-- ICMP (Packet-filtering firewalls): 
+- ICMP ( Internet Control Message Protocol): Giao thức điều khiển truyền tin lên mạng . Ta có thể hiểu đơn giản giao thức này cho phép các thiết bị mạng gửi thông báo lỗi trong quá trình truyền đi hay còn để quản lý quá trình hoạt động của mạng. Ta có thể thấy câu lệnh ` ping ` được sử dụng phổ biến.
+- IPSEC(Internet Protocol Security): Đây là bảo mật giao thức thiết lập kết nối an toàn qua mạng,cách nó làm dùng để đảm bảo an toàn chính là mã hóa.Hai máy muốn thực hiện giao thức này cũng làm tương tự quy tắc bắt tay 3 bước. bên A sẽ gửi yêu cầu mã hóa và bên B xác nhận sau đó sẽ thiết lập một đường truyền bảo mật.
+- IGMP (Internet Group Management Protocol):Là giao thức quản lý nhóm internet.Nó có khả năng thiết tạo thành các group và cho phép truyền 1 packet tới nhiều hệ thống có trong group đó
+### 1.9 Tầng data link 
+### 1.9.1 Chức năng cùa tầng data link
+- Ta có thể hiểu nôm na là mỗi một phần cứng của thiết bị trên máy của chúng ta đều cần phải có địa chỉ và chính tầng data link này có nhiệm vụ làm cho các phần cứng của ta có địa chỉ để mà dư liệu có thể nhận biết địa chỉ vật lý trên máy cần đi vào mà thực hiện nhiệm vụ của chúng.
+Ta có thể giải thích như này người dùng cần kết nối internet thì card mạng cần phải hoạt động, để mà card mạng bật thì ta phải cho nó mottj cái địa chỉ để máy có thể nhận biết mà thao tác với nó.
+- Từ những điều trên thì bây giờ sinh ra địa chỉ MAC . Địa chỉ MAC hay còn được gọi là địa chỉ của các phần cứng trong máy của các bạn.
+  Địa chỉ này do các nhà sản xuất nhúng vào và nó phải là duy nhất như IP vậy.
+### 1.9.2 LLC (logical link control) và MAC (media access control)
+Tầng data link lại phân chia thành 2 lớp con là LLC và MAC mỗi lớp lại đảm nhiệm 1 vai trò khác nhau
+- LLC (logical link control) : ta có thể hiểu nôm na rằng những thứ ở các tầng trên là ảo thì cái LLC này chính là thứ quản lý và giao tiếp những cái ảo đó như là điều khiển lưu lượng ,hay khôi phục lỗi... Tại sao tôi lại gọi là ảo thì là bỏi vì tôi nghĩ logic sẽ là ảo(Dùng từ ảo có thể không đúng nhưng các bạn có thể hiểu là nó dùng để giao tiếp với các tầng trên là được)
+- MAC (media access control): Lớp Mac này nằm dưới LLC và dùng để giao tiếp với các phần vật lý và điều khiển nó. MAC ở trên tôi cũng đã nói rồi
+### 1.9.3 Device 
+- Witches :Nó dùng kể kết nối với nhiều thiết bị, nó dựa vào MAC để xác định đường truyền data
+- Bridges :Nó dùng để kết nối các mạng lại với nhau
+### 1.9.4 Các giao thức của tầng Data link
+- 802.1x :là một tiêu chuẩn IEEE để kiểm soát truy cập mạng và xác thực các thiết bị với mạng
+- ARP(Address Resolution Protocol): Giao thức phân giải địa chỉ IP thành địa chỉ MAC (rất quan trọng) 
+- RARP (Reverse Address Resolution Protocol) : giao thức này thì lại ngược lại với ARP sẽ chuyển địa chỉ vật lý thành địa chỉ IP
+- PPP(Point to point protocol) :là giao thức điểm tới điểm ,nó có tác dụng đóng gói lưu lượng IP và cung cấp mã hóa và nén xác thực
+- Ngoài ra còn có một số giao thức khác các bạn có thể tự tìm hiểu như: EAP(Network Access Control), CHAP, PAP
+### 1.10 Tầng Physical
+### 1.10.1 Chức năng của tầng physical
+Chỉ cần nghe tên là ta có thể hiểu chức năng của tầng này luôn rồi. Tầng này chính là tầng vật lý ,quản lý tất cả những cái gì liên quan đến vật lý như dây carb,wifi,... Nói tóm lại là nó phụ trách đường truyền vật lý từ máy này sang máy kia.
+### 1.10.2 Topologies 
+- Mạng hình sao :Là một mô hình mạng gồm thiết bị làm trung tâm và các nút thông tin chịu sự điều khiển của trung tâm đó. Các nút ở đây có thể là máy trạm, các thiết bị đầu cuối hay các thiết bị khác trong mạng LAN.
 
+     ![Alt](/thuctap/anh/Screenshot_10.png)
 
+- Bus Topology: Là kiểu kết nối mà tất cả các thiết bị như máy chủ máy trạm, các nút thông tin đều được liên kết với nhau trên một đường dây cáp chính để truyền dữ liệu. Các dữ liệu và tín hiệu truyền qua dây cáp đều đến được tất cả điểm đến.
 
+    ![Alt](/thuctap/anh/Screenshot_11.png)
+
+- Mạng dạng vòng :Đây là kiểu Topology các thiết bị được kết nối thành vòng tròn khép kín thông qua dây cáp. Tín hiệu sẽ được truyền đi theo một chiều cố định. Tại một thời điểm, chỉ có một nút được truyền tin qua một nút khác.
+
+    ![Alt](/thuctap/anh/Screenshot_12.png)
+
+- Mạng dạng lưới :Đây là kiểu topology mà trong đó một máy tính sẽ được liên kết với tất cả các máy còn lại trong hệ thống mà không cần phải thông qua Hub hay Switch.
+
+    ![Alt](/thuctap/anh/Screenshot_13.png)
+    
+- Mạng phân cấp :Là dạng topology hình sao mở rộng. Các máy trong hệ thống được sắp xếp theo từng lớp tuỳ thuộc vào chức năng của chúng.
+### 1.10.3 Giao thức tầng physical
+- 802.11 :là một chuẩn giao tiếp giữa các nhóm mạng cục bộ không dây
+- CSMA/CA (Carrier Sense Multiple Access/Collision Avoidance) và CSMA/CD : Khi nhiều trạm tín hiệu đi qua data link sẽ có sự xùng đột thì 2 giao thức trên sinh ra để tránh sự xung đột đó .Nó hoạt động bằng cách trước khi truyền dữ liệu phải phải kiểm tra xem thiết bị có đang bận không
+## 
 
 
 ## Tài liệu tham khảo
