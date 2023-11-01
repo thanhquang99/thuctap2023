@@ -243,5 +243,6 @@ Một số port thông dụng
 |Phương pháp tiếp cận| Chiều dọc | Chiều ngang |
 ### Một số lưu ý khi dùng đến OSI và TCP/IP
 - OSI vầ TCP/IP đều là mô hình tham chiếu nhưng OSI đã cũ rồi và OSI thường được sử dụng để tham chiếu sửa lỗi còn TCP/IP dùng để làm tham chiếu cho các ứng dụng hiện nay khi OSI đã không còn được tin cậy
+
 ### Tài liệu tham khảo
 https://drive.google.com/drive/folders/1jgK20MU3-D9caYRcc9JPbnHs7AxTm-vV
