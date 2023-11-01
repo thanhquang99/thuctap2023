@@ -129,8 +129,57 @@ Chỉ cần nghe tên là ta có thể hiểu chức năng của tầng này lu�
 ### 1.10.3 Giao thức tầng physical
 - 802.11 :là một chuẩn giao tiếp giữa các nhóm mạng cục bộ không dây
 - CSMA/CA (Carrier Sense Multiple Access/Collision Avoidance) và CSMA/CD : Khi nhiều trạm tín hiệu đi qua data link sẽ có sự xùng đột thì 2 giao thức trên sinh ra để tránh sự xung đột đó .Nó hoạt động bằng cách trước khi truyền dữ liệu phải phải kiểm tra xem thiết bị có đang bận không
-## 
+## 2. Mô hình TCP/IP
+### 2.1 Mô hình TCP/IP là gì
+- Nó tương tự như mô hình tham chiếu OSI và đúng như tên của nó , nó sử dụng 2 giao thức chính là TCP và IP
+- Nó có vai trò quan trọng trong internet
+### 2.3 Các tầng của mô hình TCP/IP
+Mô hình TCP/IP sẽ gồm 4 tầng ,4 tầng đó được rút ngắn và kết hợp lại từ các tầng của mô hình OSI
+- Application
+- Transport
+- Internet
+- Link
+### 2.4 Mô hình TCP/IP hoạt động như thế nào?
+Mô hình này hoạt động tương tự mô hình OSI nhưng mà nó được gộp lại thành 4 tầng. Cũng tương tự OSI ở mỗi tầng nó sẽ đóng vào data một header để nhận biết tầng của mình và khi chuyển đến máy nhận ở đúng tầng của mình chúng sẽ tháo các header đó ra .Từ đó ta được 1 gói tin hoàn chỉnh.
+![Alt](/thuctap/anh/Screenshot_16.png)
+### 2.5 Tầng Application
+- Ta hãy đối chiếu vào mô hình OSI thì tầng application ở TCP/IP chính là sự kết hợp của 3 tầng application, presentation và session của mô hình TCP/IP
+### 2.5.1 Chức năng của tầng application 
+- Đảm nhận vai trò giao tiếp dữ liệu giữa 2 máy khác nhau thông qua các dịch vụ mạng khác nhau (duyệt web, chay hay các giao thức trao đổi dữ liệu SMTP, SSH, FTP…)
+### 2.6 Tầng Transport
+- Tầng transport thì giữ nguyên giống mô hình OSI
+### 2.5.1 Chức năng của tầng Transport
+- Nhiệm vụ của tầng giao vận là duy trì liên lạc đầu cuối trên toàn mạng
+### 2.7 Tầng Internet
+- Tầng network của mô hình OSI được đổi tên thành tầng Internet trong mô hình TCP/IP
+### 2.5.1 Chức năng của tầng Internet
+- Nhiệm vụ của tầng Internet là xử lý các gói tin, sau đó kết nối với các mạng độc lập để vận chuyển các gói dữ liệu đã được mã hóa qua các ranh giới mạng.
+### 2.8 Tầng Link
+- Tầng data link và tầng physical của mô hình OSI được gộp lại và đổi tên thành tầng Link của mô hình TCP/IP
+### 2.5.1 Chức năng của tầng Link
+- là tầng thấp nhất trong mô hình TCP/IP. Tầng này chịu trách nhiệm truyền dữ liệu giữa hai thiết bị trong cùng một mạng
 
+## So sánh 2 mô hình OSI và TCP/IP
+ Giống nhau
+- Cả 2 mô hình đều có kiến trúc phân lớp
+- Cả 2 mô hình đều có tầng network và transport
+- cả 2 mô hình cùng sử dụng kỹ thuật chuyển packet
+Khác nhau 
+- TCP/IP chỉ sử dụng tầng ứng dụng (Application) để xác định chức năng của các tầng trên. Trong khi đó, OSI sử dụng đến 3 tầng (Application, Presentation, Session).
+- TCP/IP sử dụng Link Layer để xác định các chức năng tầng dưới cùng. Đối với OSI, nó sử dụng 2 tầng là Physical và Data link.
+- OSI sử dụng lớp Network để xác định các tiêu chuẩn và giao thức định tuyến. Chức năng này được quản lý bởi tầng Internet trong TCP/IP.
+- Mô hình TCP/IP là một tiêu chuẩn Oriented Protocol. Còn OSI là một mô hình chung dựa trên chức năng của mỗi lớp.
+- Trong TCP/IP, các giao thức được phát triển trước mô hình. Quá trình này ngược lại so với OSI.
+- TCP/IP giúp thiết lập kết nối giữa các loại máy tính với nhau. OSI giúp chuẩn hóa router, switch, bo mạch chủ và các phần cứng khác.
+
+|Nội dung| Mô hình OSI | Mô hình TCP/IP |
+|--------| ----------- |----------------|
+|Độ tin cậy và phổ biến| Ít người sử dụng(chỉ dùng để tham chiếu) | Được chuẩn hóa, nhiều người tin cậy và được sử dụng phổ biến|
+|Số tầng|    7   |     4    |
+|Sự kết hợp giữa các tầng| Không có   | Tầng applicaton có tầng session và tầng presentation kết hợp lại với nhau  |
+|Truyền thông| Hỗ trợ cả kết nối định tuyến và không dây  | Hỗ trợ truyền thông không kết nối từ tầng mạng   |
+|Tính phụ thuộc| Giao thức độc lập  | phụ thuộc vào giao thức |
+|Phương pháp tiếp cận| Chiều dọc | Chiều ngang |
 
 ## Tài liệu tham khảo
 
@@ -139,5 +188,7 @@ https://drive.google.com/drive/folders/1rZZvtadhlfc6JESp9qT_d9KRoI7ZGUYv
 https://www.youtube.com/watch?v=g9U9-bpXV30&list=PLnaGQB5hLTI6Y20FjqCsTO63efmE0_zZJ
 
 https://www.mindomo.com/mindmap/osi-model-bd81b1a4982d462abffa98328058449d
+
+https://xmind.app/m/7iS7/
 
 https://vi.wikipedia.org/wiki
