@@ -209,6 +209,8 @@ Mô hình này hoạt động tương tự mô hình OSI nhưng mà nó được
 ### 2.5.1 Chức năng của tầng Link
 - là tầng thấp nhất trong mô hình TCP/IP. Tầng này chịu trách nhiệm truyền dữ liệu giữa hai thiết bị trong cùng một mạng
 
+`Ở đây tôi sẽ không đi sâu vào các giao thức của các tầng này vì mô hình OSI và TCP/IP đều là 2 mô hình tham chiếu nên khi chúng gộp các tầng lại với nhau thì giao thức cũng sẽ tương tự `
+
 ## So sánh 2 mô hình OSI và TCP/IP
  Giống nhau
 - Cả 2 mô hình đều có kiến trúc phân lớp
