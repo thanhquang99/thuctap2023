@@ -191,8 +191,11 @@ Mô hình TCP/IP sẽ gồm 4 tầng ,4 tầng đó được rút ngắn và k�
 - Internet
 - Link
 ### 2.4 Mô hình TCP/IP hoạt động như thế nào?
+
 Mô hình này hoạt động tương tự mô hình OSI nhưng mà nó được gộp lại thành 4 tầng. Cũng tương tự OSI ở mỗi tầng nó sẽ đóng vào data một header để nhận biết tầng của mình và khi chuyển đến máy nhận ở đúng tầng của mình chúng sẽ tháo các header đó ra .Từ đó ta được 1 gói tin hoàn chỉnh.
+
 ![Alt](/thuctap/anh/Screenshot_16.png)
+
 ### 2.5 Tầng Application
 - Ta hãy đối chiếu vào mô hình OSI thì tầng application ở TCP/IP chính là sự kết hợp của 3 tầng application, presentation và session của mô hình TCP/IP
 ### 2.5.1 Chức năng của tầng application 
