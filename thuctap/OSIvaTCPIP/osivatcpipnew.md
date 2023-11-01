@@ -48,6 +48,7 @@ Muc lục
     - [2.8 Tầng Link](#28-tầng-link)
     - [2.5.1 Chức năng của tầng Link](#251-chức-năng-của-tầng-link)
   - [So sánh 2 mô hình OSI và TCP/IP](#so-sánh-2-mô-hình-osi-và-tcpip)
+  - [Tại sao khi đã có OSI lại sinh ra TCP/IP](#tại-sao-khi-đã-có-osi-lại-sinh-ra-tcpip)
   - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
 
 ## 1 Mô hình OSI
@@ -236,6 +237,10 @@ Khác nhau
 |Tính phụ thuộc| Giao thức độc lập  | phụ thuộc vào giao thức |
 |Phương pháp tiếp cận| Chiều dọc | Chiều ngang |
 
+## Tại sao khi đã có OSI lại sinh ra TCP/IP
+Tuy 2 mô hình không có sự khác biệt lớn nhưng về mục đích sử dụng của cả 2 là khác nhau
+- Mô hình TCP/IP là bộ giao thức truyền thông sử dụng các thiết bị mạng nào có thể được kết nối với Internet. Mặt khác, Mô hình OSI là một khung khái niệm sử dụng để mô tả chức năng của mạng
+- Mô hình TCP/IP ra đời trước 10 năm so với mô hình OSI 
 ## Tài liệu tham khảo
 
 https://drive.google.com/drive/folders/1rZZvtadhlfc6JESp9qT_d9KRoI7ZGUYv
