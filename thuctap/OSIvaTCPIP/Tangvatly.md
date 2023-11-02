@@ -35,7 +35,7 @@ Còn được gọi là cheapernet, thin Ethernet, thinnet và thinwire là mộ
 ### 10BaseT (Cat3 và Cat5)
 Là một chuẩn cáp xoắn đôi có tốc độ truyền dẫn 10Mbit/s, trong đó 10 tương ứng với tốc độ truyền tối đa 10 [Megabit] trên giây (Mb/s), BASE là viết gọn của [baseband], T là loại cáp xoắn đôi (Twisted Pairs)
 
-### 00BaseTX
+### 100BaseTX
 Là một chuẩn thông dụng của Fast Ethernet, hoạt động trên 2 đôi dây của cáp xoắn đôi Cat5.
 
 ### 1000BaseT
