@@ -201,7 +201,7 @@ Mô hình này hoạt động tương tự mô hình OSI nhưng mà nó được
 ![Alt](/thuctap/anh/Screenshot_17.png)
 
 ### 2.5 Tầng Application
-- Ta hãy đối chiếu vào mô hình OSI thì tầng application ở TCP/IP chính là sự kết hợp của 3 tầng application, presentation và session của mô hình TCP/IP
+- Ta hãy đối chiếu vào mô hình OSI thì tầng application ở TCP/IP chính là sự kết hợp của 3 tầng application, presentation và session của mô hình OSI
 ### 2.5.1 Chức năng của tầng application 
 - Tầng này có vai trò giao tiếp dữ liệu giữa 2 máy khác nhau
 - Cung cấp cho các ứng dụng các trao đổi chuẩn hóa ,giao tiếp dữ liệu giữa 2 máy khác nhau thông qua các dịch vụ mạng khác nhau
