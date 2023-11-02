@@ -48,8 +48,8 @@ Muc lục
     - [2.5.1 Chức năng của tầng Transport](#251-chức-năng-của-tầng-transport)
     - [2.7 Tầng Internet](#27-tầng-internet)
     - [2.5.1 Chức năng của tầng Internet](#251-chức-năng-của-tầng-internet)
-    - [2.8 Tầng Link](#28-tầng-link)
-    - [2.5.1 Chức năng của tầng Link](#251-chức-năng-của-tầng-link)
+    - [2.8 Tầng Access network](#28-tầng-access-network)
+    - [2.5.1 Chức năng của tầng access network](#251-chức-năng-của-tầng-access-network)
   - [3. So sánh 2 mô hình OSI và TCP/IP](#3-so-sánh-2-mô-hình-osi-và-tcpip)
   - [4. Tại sao hai mô hình OSI và TCP/IP có đặc điểm gần giống nhau lại cùng tồn tại](#4-tại-sao-hai-mô-hình-osi-và-tcpip-có-đặc-điểm-gần-giống-nhau-lại-cùng-tồn-tại)
   - [5. Các tìm hiểu thêm](#5-các-tìm-hiểu-thêm)
@@ -193,7 +193,7 @@ Mô hình TCP/IP sẽ gồm 4 tầng ,4 tầng đó được rút ngắn và k�
 - Application
 - Transport
 - Internet
-- Link
+- Access network
 ### 2.4 Mô hình TCP/IP hoạt động như thế nào?
 
 Mô hình này hoạt động tương tự mô hình OSI nhưng mà nó được gộp lại thành 4 tầng. Cũng tương tự OSI ở mỗi tầng nó sẽ đóng vào data một header để nhận biết tầng của mình và khi chuyển đến máy nhận ở đúng tầng của mình chúng sẽ tháo các header đó ra .Từ đó ta được 1 gói tin hoàn chỉnh.
@@ -214,9 +214,9 @@ Mô hình này hoạt động tương tự mô hình OSI nhưng mà nó được
 ### 2.5.1 Chức năng của tầng Internet
 - Chức năng quan trọng nhất của tầng Internet chịu trách nhiệm định tuyến (dẫn đường) cho các gói tin và chọn lựa con đường tối ưu để truyền các gói tin từ trạm nguồn tới trạm đích
 - Chức năng tiếp theo đóng gói dữ liệu thành các gói được gọi là IP Packet
-### 2.8 Tầng Link
-- Tầng data link và tầng physical của mô hình OSI được gộp lại và đổi tên thành tầng Link của mô hình TCP/IP
-### 2.5.1 Chức năng của tầng Link
+### 2.8 Tầng Access network
+- Tầng data link và tầng physical của mô hình OSI được gộp lại và đổi tên thành tầng Access network của mô hình TCP/IP
+### 2.5.1 Chức năng của tầng access network
 - là tầng thấp nhất trong mô hình TCP/IP. Tầng này chịu trách nhiệm truyền dữ liệu giữa hai thiết bị trong cùng một mạng
 
 `Ở đây tôi sẽ không đi sâu vào các giao thức của các tầng này vì mô hình OSI và TCP/IP đều là 2 mô hình tham chiếu nên khi chúng gộp các tầng lại với nhau thì giao thức cũng sẽ tương tự `
@@ -265,3 +265,5 @@ https://xmind.app/m/7iS7/
 https://vi.wikipedia.org/wiki
 
 https://byjus.com/free-ias-prep/difference-between-tcp-ip-and-osi-model/
+
+https://www.totolink.vn/article/149-mo-hinh-tcp-ip-la-gi-chuc-nang-cua-cac-tang-trong-mo-hinh-tcp-ip.html
