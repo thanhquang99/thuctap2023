@@ -203,8 +203,9 @@ Mô hình này hoạt động tương tự mô hình OSI nhưng mà nó được
 ### 2.5 Tầng Application
 - Ta hãy đối chiếu vào mô hình OSI thì tầng application ở TCP/IP chính là sự kết hợp của 3 tầng application, presentation và session của mô hình OSI
 ### 2.5.1 Chức năng của tầng application 
-- Tầng này có vai trò giao tiếp dữ liệu giữa 2 máy khác nhau
-- Cung cấp cho các ứng dụng các trao đổi chuẩn hóa ,giao tiếp dữ liệu giữa 2 máy khác nhau thông qua các dịch vụ mạng khác nhau
+- Nó cung cấp giao tiếp đến người dùng.
+- Cung cấp các ứng dụng cho phép người dùng trao đổi dữ liệu ứng dụng thông qua các dịch vụ mạng khác nhau (như duyệt web, chat, gửi email,...).
+- Dữ liệu khi đến đây sẽ được định dạng theo kiểu byte nối byte, cùng với đó là các thông tin định tuyến giúp xác định đường đi đúng của một gói tin.
 ### 2.6 Tầng Transport
 - Tầng transport thì giữ nguyên giống mô hình OSI
 ### 2.5.1 Chức năng của tầng Transport
@@ -217,7 +218,8 @@ Mô hình này hoạt động tương tự mô hình OSI nhưng mà nó được
 ### 2.8 Tầng Access network
 - Tầng data link và tầng physical của mô hình OSI được gộp lại và đổi tên thành tầng Access network của mô hình TCP/IP
 ### 2.5.1 Chức năng của tầng access network
-- là tầng thấp nhất trong mô hình TCP/IP. Tầng này chịu trách nhiệm truyền dữ liệu giữa hai thiết bị trong cùng một mạng
+- là tầng thấp nhất trong mô hình TCP/IP. 
+- Chịu trách nhiệm truyền dữ liệu giữa các thiết bị trong cùng một mạng. Tại đây, các gói dữ liệu được đóng vào khung (Frame) và được định tuyến đi đến đích được chỉ định ban đầu
 
 `Ở đây tôi sẽ không đi sâu vào các giao thức của các tầng này vì mô hình OSI và TCP/IP đều là 2 mô hình tham chiếu nên khi chúng gộp các tầng lại với nhau thì giao thức cũng sẽ tương tự `
 
@@ -267,3 +269,5 @@ https://vi.wikipedia.org/wiki
 https://byjus.com/free-ias-prep/difference-between-tcp-ip-and-osi-model/
 
 https://www.totolink.vn/article/149-mo-hinh-tcp-ip-la-gi-chuc-nang-cua-cac-tang-trong-mo-hinh-tcp-ip.html
+
+https://viblo.asia/p/tim-hieu-co-ban-ve-mo-hinh-tcpip-RQqKLkJp57z
