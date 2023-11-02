@@ -253,6 +253,9 @@ Tuy 2 mô hình không có sự khác biệt lớn nhưng về mục đích sử
 
 ## 5. Các tìm hiểu thêm
 - Nhược điểm của mô hình TCP/IP so với mô hình OSI là TCP/IP nó kém an toàn đáng tin cậy hơn mô hình OSI,TCP/IP không có lớp chuyên dụng để mã hóa ,xác thực hoặc sửa lỗi.
+- Mọi nguời hãy nhìn vào mô hình của TCP/IP tại sao lại có mũi tên tương tác giữa tầng application và application? Nó có ý nghĩa rằng các application có thể nói chuyện với nhau trong cùng một môi trường.
+
+![Alt](/thuctap/anh/Screenshot_17.png)
  
 ## 6. Tài liệu tham khảo
 
@@ -263,6 +266,8 @@ https://www.youtube.com/watch?v=g9U9-bpXV30&list=PLnaGQB5hLTI6Y20FjqCsTO63efmE0_
 https://www.mindomo.com/mindmap/osi-model-bd81b1a4982d462abffa98328058449d
 
 https://xmind.app/m/7iS7/
+
+
 
 https://vi.wikipedia.org/wiki
 
