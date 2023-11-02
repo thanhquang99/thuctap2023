@@ -267,7 +267,7 @@ https://www.mindomo.com/mindmap/osi-model-bd81b1a4982d462abffa98328058449d
 
 https://xmind.app/m/7iS7/
 
-
+https://datech.vn/mo-hinh-tcp-ip-la-gi-chuc-nang-cua-cac-tang-trong-mo-hinh
 
 https://vi.wikipedia.org/wiki
 
