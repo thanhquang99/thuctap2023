@@ -257,6 +257,8 @@ Tuy 2 mô hình không có sự khác biệt lớn nhưng về mục đích sử
 - Tại sao mỗi tầng người ta lại gắn cho nó các giao thức mà không phải tầng nào cũng có đủ các giao thức đó? 
   - Tôi sẽ lấy ví dụ về HTTP , theo tôi tìm hiểu thì http phát triển mà không liên quan đến mô hình OSI, Nó không tuân theo các thông số kỹ thuật .Và IP cũng thế nó cũng không được thiết kế theo mô hình OSI. Nhưng nó giải quyết được vấn đề mà các tầng trong mô hình OSI đề ra.
   - Ta có thể mở rộng ra như này cả 2 mô hình OSI và TCP/IP chỉ là mô hình tham chiếu . Nhưng TCP/IP phù hợp để các nhà sản xuất phát triển ứng dụng còn OSI lại phù hợp với việc sửa lỗi.
+-  Về phần device thì nó được sản xuất tuân thủ theo mô hình OSI hay TCP/IP
+  - Cái này là lý giải của riêng tôi(Có thể đúng có thể sai): Cả 2 mô hình đều là mô hình tham chiếu nên khi sản xuất device thì nó sẽ đáp ứng đủ cả 2 mô hình OSI và TCP/IP (Một số trường hợp đặc biệt có thể khác)
 
 ![Alt](/thuctap/anh/Screenshot_17.png)
  
