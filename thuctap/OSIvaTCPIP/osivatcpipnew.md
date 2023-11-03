@@ -77,8 +77,8 @@ Tầng application sẽ là tầng giao tiếp với người dùng và từ đ�
 
 ### 1.4 Tầng Application
 ### 1.4.1 Chức năng tầng Application
-  -Tầng application có chức năng tương tác giữa máy tính và con người
-  -Cho phép ứng dụng truy cập vào các dịch vụ mạng
+  - Tầng application có chức năng tương tác giữa máy tính và con người. Nó là giao diện giữa các chương trình ứng dụng của người dùng và mạng
+  - Cho phép ứng dụng truy cập vào các dịch vụ mạng
 ### 1.4.2 Devices 
 #### Application firewalls
 - Applicaton firewall : Là một ứng dụng kiểm soát các lệnh đầu vào và đầu ra hoặc hệ thống của một ứng dụng hoặc dịch vụ.Nó hoạt động bằng cách giám sát hoặc chặn thông tin liên lạc dựa một chính sách đã thiết lập trước đó
