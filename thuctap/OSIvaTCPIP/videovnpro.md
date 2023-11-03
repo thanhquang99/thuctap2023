@@ -5,11 +5,65 @@
 ## Cisco
 - cisco packet tracer là phần mềm giúp ta mô phỏng quá trình logic các mạng máy tính trên đường truyền mạng
 - Hub :ghép nối các máy lại với nhau( chỉ hoạt động được ở layer 1 )
+- Bridge : Là bản nâng cấp của hub giúp các máy tính liên lạc với nhau (Có thể hoạt động ở layer 2)
+- Switch :Cũng hoạt động ở layer 2 nhưng nó tiến tiến hơn 2 con trên ,có nhiều port hơn, Nó có thê giữ lại hay gửi đi các dữ liệu tùy data
+  - Học địa chỉ Mac ngay khi mới bắt đầu , Khi A gửi cho B 1 gói tin thì nó sẽ học Mac của máy a sau đó khi chưa biết Mac đích thì nó sẽ gửi toàn bộ đến các cổng và khi cổng nào trùng Mac thì sẽ có phản hồi và nó lại tiếp tục lưu địa chỉ Mac vào bẳng
+ ## Thực hành
+ - đổi password console
 
+![Alt](/thuctap/anh/Screenshot_18.png)
+
+- Mật khẩu enable thì làm tương tự
+
+![Alt](/thuctap/anh/Screenshot_19.png)
+
+- Mã hóa password để không bị ai biết khi nhập
+
+![Alt](/thuctap/anh/Screenshot_20.png)
+
+- Mô hình thiết lập
+
+![Alt](/thuctap/anh/Screenshot_21.png)
+
+  - CDP là gì : CDP là dữ liệu khách hàng ta có thể kiểm tra bằng câu lệnh` show cdp neighbors` ở trên router hoặc switch
+
+![Alt](/thuctap/anh/Screenshot_22.png)
+
+Ta có thể tắt đi bằng câu lệnh `no cdp run`
+
+![Alt](/thuctap/anh/Screenshot_23.png)
+
+thiết lập trên router cho phép telnet trên laptop khác `line vty 0-X` trong ddos x+1 là số telnet có thể truy cập đến tiếp theo ta sẽ đặt password để truy cập.
+
+![Alt](/thuctap/anh/Screenshot_25.png)
+
+Bây giờ ta có thể từ máy tính kết nối trong mạng và tiến hành telnet đến router(ip:192.168.10.1)
+
+![Alt](/thuctap/anh/Screenshot_26.png)
+
+SSH lên router: Để có thể ssh lên router ta cần đảm bảo 2 điều kiện là có public key và privatie key . Để có được thứ đó đầu tiên ta cần đặt tên cho router, sau đó tạo user và password 
+
+`
+hostname R1
+ip domain-name thanhquang.com
+crypto key generate rsa
+username thanhquang password 123456
+line vty 0
+login local
+transport input ssh 
+exit
+enable password 123456
+
+`
+![Alt](/thuctap/anh/Screenshot_27.png)
+
+Dưới đây là hình ảnh mà switch ssh đến router
+
+![Alt](/thuctap/anh/Screenshot_28.png)
 
 
 
 
 ## Tài liệu tham khảo :
-https://www.youtube.com/watch?v=zNEpPOiGbuo&list=PLnaGQB5hLTI6nQP8MqlTCCJE3wc4g1Q0B&index=7
+https://www.youtube.com/watch?v=55YDCAfz75k&list=PLnaGQB5hLTI6Y20FjqCsTO63efmE0_zZJ&index=4
 
