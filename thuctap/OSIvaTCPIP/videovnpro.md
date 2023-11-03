@@ -56,7 +56,15 @@ exit
 enable password 123456
 
 ```
-
+- Khôi phục lại hệ điều hành của router khi lỡ xóa file flash:
+  ```
+rommon 5 > IP_ADDRESS=10.10.10.2
+rommon 6 > IP_SUBNET_MASK=255.0.0.0
+rommon 7 > DEFAULT_GATEWAY=10.10.10.1
+rommon 8 > TFTP_SERVER=10.10.10.2
+rommon 9 > TFTP_FILE=c2900-universalk9-mz.SPA.151-4.M4.bin
+rommon 10 >tftpdnld
+  ```
 ![Alt](/thuctap/anh/Screenshot_27.png)
 
 Dưới đây là hình ảnh mà switch ssh đến router
