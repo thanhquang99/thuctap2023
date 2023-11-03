@@ -4,5 +4,12 @@
 - Tìm hiểu về cisco
 ## Cisco
 - cisco packet tracer là phần mềm giúp ta mô phỏng quá trình logic các mạng máy tính trên đường truyền mạng
-###
+- Hub :ghép nối các máy lại với nhau( chỉ hoạt động được ở layer 1 )
+
+
+
+
+
+## Tài liệu tham khảo :
+https://www.youtube.com/watch?v=zNEpPOiGbuo&list=PLnaGQB5hLTI6nQP8MqlTCCJE3wc4g1Q0B&index=7
 
