@@ -96,7 +96,7 @@ Tầng application sẽ là tầng giao tiếp với người dùng và từ đ�
 - DHCP(Dynamic Host Configuration Protocol): Là một giao thức cấp pháp ip tự dộng cho máy khi có yêu cầu thêm vào dải mạng mà trước khi đó ta đã định nghĩa sắn subnet mark ,gateway. Nó đảm bảo không có sự trùng lặp ip
 ### 1.5 Tầng presentation
 ### 1.5.1 Chức năng của tầng presentation
--Đây là tầng dưới của tầng application ,Khi tầng application nhận được dữ liệu mà người dùng muốn tương tác thì cần phải qua thêm 1 quy trình nữa là phải phiên dịch cho máy hiểu.Tàng presentation sinh ra là để làm điều đó. Nó có tác dụng chuyển đổi kí tự hoặc chuyển đổi và định dạng hình ảnh hay nén và giải nén dữ liệu(như stream audio hay video).
+-Đây là tầng dưới của tầng application ,Khi tầng application nhận được dữ liệu mà người dùng muốn tương tác thì cần phải qua thêm 1 quy trình nữa là phải phiên dịch cho máy hiểu.Tầng presentation sinh ra là để làm điều đó. Nó có tác dụng chuyển đổi kí tự hoặc chuyển đổi và định dạng hình ảnh hay nén và giải nén dữ liệu(như stream audio hay video).
 ### 1.6 Tầng Session 
 ### 1.6.1 Chức năng của tầng session
 - Đây là tầng dưới của tầng presentation .Tầng này chịu trách nghiệm việc thiết lập ,duy trì, hủy bỏ , đồng bộ các phiên làm việc giữa các máy khác nhau.Ta có thể hiểu rằng khi ta bật trang youtube từ 1 tab ở trên chorme thì tầng session có tác dụng duy trì sao cho dữ liệu truyền đi và tải về phải đúng tab youtube mà không bị nhầm sang các tab hay trình duyệt khác.
@@ -254,6 +254,9 @@ Tuy 2 mô hình không có sự khác biệt lớn nhưng về mục đích sử
 ## 5. Các tìm hiểu thêm
 - Nhược điểm của mô hình TCP/IP so với mô hình OSI là TCP/IP nó kém an toàn đáng tin cậy hơn mô hình OSI,TCP/IP không có lớp chuyên dụng để mã hóa ,xác thực hoặc sửa lỗi.
 - Mọi nguời hãy nhìn vào mô hình của TCP/IP tại sao lại có mũi tên tương tác giữa tầng application và application? Nó có ý nghĩa rằng các application có thể nói chuyện với nhau trong cùng một môi trường.
+- Tại sao mỗi tầng người ta lại gắn cho nó các giao thức mà không phải tầng nào cũng có đủ các giao thức đó? 
+  - Tôi sẽ lấy ví dụ về HTTP , theo tôi tìm hiểu thì http phát triển mà không liên quan đến mô hình OSI, Nó không tuân theo các thông số kỹ thuật .Và IP cũng thế nó cũng không được thiết kế theo mô hình OSI. Nhưng nó giải quyết được vấn đề mà các tầng trong mô hình OSI đề ra.
+  - Ta có thể mở rộng ra như này cả 2 mô hình OSI và TCP/IP chỉ là mô hình tham chiếu . Nhưng TCP/IP phù hợp để các nhà sản xuất phát triển ứng dụng còn OSI lại phù hợp với việc sửa lỗi.
 
 ![Alt](/thuctap/anh/Screenshot_17.png)
  
@@ -276,3 +279,5 @@ https://byjus.com/free-ias-prep/difference-between-tcp-ip-and-osi-model/
 https://www.totolink.vn/article/149-mo-hinh-tcp-ip-la-gi-chuc-nang-cua-cac-tang-trong-mo-hinh-tcp-ip.html
 
 https://viblo.asia/p/tim-hieu-co-ban-ve-mo-hinh-tcpip-RQqKLkJp57z
+
+https://networkengineering.stackexchange.com/questions/6380/osi-model-and-networking-protocols-relationship
