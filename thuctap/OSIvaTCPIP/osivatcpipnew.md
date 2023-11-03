@@ -109,7 +109,7 @@ Nói đến firewall thì tác dụng của nó sẽ là lọc gói tin,từ đ�
 ### 1.7 Tầng transport 
 ### 1.7.1 Chức năng của tầng transport
 - Tầng này chịu trách nghiệm cho việc quản lý các thiết bị đầu cuối với việc phát hiện lỗi và sửa lỗi
-- Ta có thể hiểu transport nhuư một người kiểm tra và điều hướng các phiên làm việc vậy(Ở đây tôi hiêur nó như là csgt vậy)
+- Ta có thể hiểu transport như một người kiểm tra và điều hướng các phiên làm việc vậy(Ở đây tôi hiểu nó như là csgt vậy)
 ### 1.7.2 Port 
 - Port chính là từ tầng này mà sinh ra . Ta có thể hiểu port như là một cái cổng vậy. Mỗi port khác nhau sẽ cung cấp các dịch vụ khác nhau
 - Port trên máy có rất nhiều ,có tới 65535 port cơ.
@@ -123,10 +123,10 @@ Nói đến firewall thì tác dụng của nó sẽ là lọc gói tin,từ đ�
 - TCP(Transmission Control Protocol) : Là giao thức điều khiển truyền dẫn 
     - Giao thức này là giao thức đáng tin cậy, được sắp xếp theo thứ tự và kiểm tra lỗi gửi gói tin
     - Trước gửi gói tin thì giao thức này thực hiện theo quy trình bắt tay 3 bước
-    - Bắt tay 3 bước là gì: đầu tiên bên A sẽ gửi 1 kết nối thăm dò cho bên B ,Khi bên B nhận được phải gửi lại cho bên A là đã nhận được rồi và bên A nhận được sẽ bắt dầu gửi gói tin tiếp.
+    - Bắt tay 3 bước là gì: đầu tiên bên A sẽ gửi 1 kết nối thăm dò cho bên B ,Khi bên B nhận được phải gửi lại cho bên A là đã nhận được rồi và bên A nhận được sẽ bắt đầu gửi gói tin tiếp.
     - Giao thức TCP là một giao thức tin cậy tránh mất mát dữ liệu nên thường dùng trong việc download, upload cái file.
 - UDP (User Datagram Protocol): giao thức gói dữ liệu người dùng
-    - Giao thức này tương tư TCP nhưng lại thiếu tin cậy hơn và kiểu truyền của nó là truyền tổng lực không quan tâm đến sự mất mát dữ liệu
+    - Giao thức này tương tự TCP nhưng lại thiếu tin cậy hơn và kiểu truyền của nó là truyền tổng lực không quan tâm đến sự mất mát dữ liệu
     - Giao thức này lại đáp ứng được nhu cầu TCP không có như truyền tải audio,video stream với tốc độ nhanh
 - SSL(Secure Sockets Layer): Nó được sử dụng để mã hóa đường truyền http
 - TLS(Transport Layer Security): Đây là phiên bản mới nhất của SSL và cũng được sử dụng để mã hóa đường truyền http
@@ -143,8 +143,8 @@ Nói đến firewall thì tác dụng của nó sẽ là lọc gói tin,từ đ�
 - IGMP (Internet Group Management Protocol):Là giao thức quản lý nhóm internet.Nó có khả năng thiết tạo thành các group và cho phép truyền 1 packet tới nhiều hệ thống có trong group đó
 ### 1.9 Tầng data link 
 ### 1.9.1 Chức năng cùa tầng data link
-- Ta có thể hiểu nôm na là mỗi một phần cứng của thiết bị trên máy của chúng ta đều cần phải có địa chỉ và chính tầng data link này có nhiệm vụ làm cho các phần cứng của ta có địa chỉ để mà dư liệu có thể nhận biết địa chỉ vật lý trên máy cần đi vào mà thực hiện nhiệm vụ của chúng.
-Ta có thể giải thích như này người dùng cần kết nối internet thì card mạng cần phải hoạt động, để mà card mạng bật thì ta phải cho nó mottj cái địa chỉ để máy có thể nhận biết mà thao tác với nó.
+- Ta có thể hiểu nôm na là mỗi một phần cứng của thiết bị trên máy của chúng ta đều cần phải có địa chỉ và chính tầng data link này có nhiệm vụ làm cho các phần cứng của ta có địa chỉ để mà dữ liệu có thể nhận biết địa chỉ vật lý trên máy cần đi vào mà thực hiện nhiệm vụ của chúng.
+Ta có thể giải thích như này người dùng cần kết nối internet thì card mạng cần phải hoạt động, để mà card mạng bật thì ta phải cho nó một cái địa chỉ để máy có thể nhận biết mà thao tác với nó.
 - Từ những điều trên thì bây giờ sinh ra địa chỉ MAC . Địa chỉ MAC hay còn được gọi là địa chỉ của các phần cứng trong máy của các bạn.
   Địa chỉ này do các nhà sản xuất nhúng vào và nó phải là duy nhất như IP vậy.
 ### 1.9.2 LLC (logical link control) và MAC (media access control)
@@ -152,7 +152,7 @@ Tầng data link lại phân chia thành 2 lớp con là LLC và MAC mỗi lớp
 - LLC (logical link control) : ta có thể hiểu nôm na rằng những thứ ở các tầng trên là ảo thì cái LLC này chính là thứ quản lý và giao tiếp những cái ảo đó như là điều khiển lưu lượng ,hay khôi phục lỗi... Tại sao tôi lại gọi là ảo thì là bỏi vì tôi nghĩ logic sẽ là ảo(Dùng từ ảo có thể không đúng nhưng các bạn có thể hiểu là nó dùng để giao tiếp với các tầng trên là được)
 - MAC (media access control): Lớp Mac này nằm dưới LLC và dùng để giao tiếp với các phần vật lý và điều khiển nó. MAC ở trên tôi cũng đã nói rồi
 ### 1.9.3 Device 
-- Witches :Nó dùng kể kết nối với nhiều thiết bị, nó dựa vào MAC để xác định đường truyền data
+- SWitches :Nó dùng kể kết nối với nhiều thiết bị, nó dựa vào MAC để xác định đường truyền data
 - Bridges :Nó dùng để kết nối các mạng lại với nhau
 ### 1.9.4 Các giao thức của tầng Data link
 - 802.1x :là một tiêu chuẩn IEEE để kiểm soát truy cập mạng và xác thực các thiết bị với mạng
@@ -183,7 +183,7 @@ Chỉ cần nghe tên là ta có thể hiểu chức năng của tầng này lu�
 - Mạng phân cấp :Là dạng topology hình sao mở rộng. Các máy trong hệ thống được sắp xếp theo từng lớp tuỳ thuộc vào chức năng của chúng.
 ### 1.10.3 Giao thức tầng physical
 - 802.11 :là một chuẩn giao tiếp giữa các nhóm mạng cục bộ không dây
-- CSMA/CA (Carrier Sense Multiple Access/Collision Avoidance) và CSMA/CD : Khi nhiều trạm tín hiệu đi qua data link sẽ có sự xùng đột thì 2 giao thức trên sinh ra để tránh sự xung đột đó .Nó hoạt động bằng cách trước khi truyền dữ liệu phải phải kiểm tra xem thiết bị có đang bận không
+- CSMA/CA (Carrier Sense Multiple Access/Collision Avoidance) và CSMA/CD : Khi nhiều trạm tín hiệu đi qua data link sẽ có sự xung đột thì 2 giao thức trên sinh ra để tránh sự xung đột đó .Nó hoạt động bằng cách trước khi truyền dữ liệu phải phải kiểm tra xem thiết bị có đang bận không
 ## 2. Mô hình TCP/IP
 ### 2.1 Mô hình TCP/IP là gì
 - Nó tương tự như mô hình tham chiếu OSI và đúng như tên của nó , nó sử dụng 2 giao thức chính là TCP và IP
@@ -254,13 +254,14 @@ Tuy 2 mô hình không có sự khác biệt lớn nhưng về mục đích sử
 ## 5. Các tìm hiểu thêm
 - Nhược điểm của mô hình TCP/IP so với mô hình OSI là TCP/IP nó kém an toàn đáng tin cậy hơn mô hình OSI,TCP/IP không có lớp chuyên dụng để mã hóa ,xác thực hoặc sửa lỗi.
 - Mọi nguời hãy nhìn vào mô hình của TCP/IP tại sao lại có mũi tên tương tác giữa tầng application và application? Nó có ý nghĩa rằng các application có thể nói chuyện với nhau trong cùng một môi trường.
+![Alt](/thuctap/anh/Screenshot_17.png)
 - Tại sao mỗi tầng người ta lại gắn cho nó các giao thức mà không phải tầng nào cũng có đủ các giao thức đó? 
   - Tôi sẽ lấy ví dụ về HTTP , theo tôi tìm hiểu thì http phát triển mà không liên quan đến mô hình OSI, Nó không tuân theo các thông số kỹ thuật .Và IP cũng thế nó cũng không được thiết kế theo mô hình OSI. Nhưng nó giải quyết được vấn đề mà các tầng trong mô hình OSI đề ra.
   - Ta có thể mở rộng ra như này cả 2 mô hình OSI và TCP/IP chỉ là mô hình tham chiếu . Nhưng TCP/IP phù hợp để các nhà sản xuất phát triển ứng dụng còn OSI lại phù hợp với việc sửa lỗi.
 -  Về phần device thì nó được sản xuất tuân thủ theo mô hình OSI hay TCP/IP
   - Cái này là lý giải của riêng tôi(Có thể đúng có thể sai): Cả 2 mô hình đều là mô hình tham chiếu nên khi sản xuất device thì nó sẽ đáp ứng đủ cả 2 mô hình OSI và TCP/IP (Một số trường hợp đặc biệt có thể khác)
 
-![Alt](/thuctap/anh/Screenshot_17.png)
+
  
 ## 6. Tài liệu tham khảo
 
