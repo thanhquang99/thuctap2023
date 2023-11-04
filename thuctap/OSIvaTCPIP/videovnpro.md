@@ -71,7 +71,28 @@ Dưới đây là hình ảnh mà switch ssh đến router
 
 ![Alt](/thuctap/anh/Screenshot_28.png)
 
+- Copy file config của router vào server
 
+![Alt](/thuctap/anh/Screenshot_29.png)
+
+- khôi phục lại hệ điều hành cho router
+
+Router có bộ nhớ flash để chạy hệ điều hành chính và bộ nhớ Rom đề phòng khi hệ điều hành chính trong flash bị mất
+
+Ta có thể xóa hệ điều hành chính đi bằng câu lệnh `delete flash [tên file]`
+sau đó `reload` từ router sẽ chuyển về rommon
+
+ta bắt đầu cấu hình như sau:
+```
+IP_ADDRESS=10.0.0.1
+IP_SUBNET-MASK=255.0.0.0
+DEFAULT_GATEWAY=10.0.0.2
+TFTP_SERVER=10.0.0.2
+TFTP_FILE=[TÊN FILE CAU HÌNH]
+tftpdnld
+```
+Trong đó `10.0.0.1`là ip router `10.0.0.2`là ip server tftp dùng để chứa file tftp dùng cấp lại hệ điều hành.Sau khi thành công ta `reset`để router trở lại bình thường
+`hệ điều hành không liên quan đến cấu hình mà router ta đã cấu hình trc đó`
 
 
 ## Tài liệu tham khảo :
