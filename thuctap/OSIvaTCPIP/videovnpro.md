@@ -95,6 +95,46 @@ Trong đó `10.0.0.1`là ip router `10.0.0.2`là ip server tftp dùng để ch�
 `hệ điều hành không liên quan đến cấu hình mà router ta đã cấu hình trc đó`
 
 
+## Định tuyến đường đi
+
+![Alt](/thuctap/anh/Screenshot_30.png)
+
+Ta hãy phân tích sơ đồ trên : Sơ đồ này gồm 4 dải mạng , 3 máy tính 3 dải mạng ,3 router 1 dải mạng. Theo mặc định các máy tính chỉ có thể liên lạc với nhau trong cùng 1 dải mạng.Nhưng router có thể định tuyến đường đi để các dải mạng không cùng 1 dải liên lạc với nhau
+- Ví dụ dải `192.168.1.0/24` liên lạc với `192.168.2.0/24` thì cần qua `10.0.0.2/8` thì ta ở router 1 thực hiện lệnh sau
+```
+ip route 192.168.2.0 255.255.255.0 10.0.0.2
+```
+- Nếu mới chỉ như vậy thì chưa đủ mới chỉ có dải  `192.168.1.0/24` liên lạc với `192.168.2.0/24` còn dải `192.168.2.0/24` chưa liên lạc được với `192.168.1.0/24`, để xử lý điều đó chúng ta sẽ ở router 2 cấu hình ngược lại
+```
+ip route 192.168.1.0 255.255.255.0 10.0.0.1
+```
+Đây chính là kết quả khi ta ping từ laptp `192.168.1.2` đến `192.168.2.2`. và có 1 lưu ý nữa `ta phải thiết lập default cho các laptop tuy theo từng dải mạng`
+
+![Alt](/thuctap/anh/Screenshot_31.png)
+
+### Cấp dhcp cho laptop
+-  đế cấp dhcp thì ta phải mode `config` ở mỗi router để cấu hình
+```
+service dhcp 
+ip dhcp excluded-address 192.168.1.1 192.168.1.2 /để loại bỏ 2 ip ko được cấp vì đã dùng/
+ip dhcp pool LAN1
+network 192.168.1.0 255.255.255.0
+default-router 192.168.1.1
+dns-server 8.8.8.8
+```
+- Ta có thể cấp 1 ip cố định cho 1 server (có thể khác) bằng cách biết địa chỉ Mac của nó
+
+Trên router ta cấu hình như sau:
+```
+ip dhcp pool [tên server mình tự đặt]
+client-indentifier [Mac]
+host [ip cần cấp cố định] [subnet mask]
+dns-server 8.8.8.8
+default-router 192.168.1.1
+```
+
+
+
 ## Tài liệu tham khảo :
 https://www.youtube.com/watch?v=55YDCAfz75k&list=PLnaGQB5hLTI6Y20FjqCsTO63efmE0_zZJ&index=4
 
