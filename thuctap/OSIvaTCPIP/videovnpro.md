@@ -94,13 +94,6 @@ tftpdnld
 Trong đó `10.0.0.1`là ip router `10.0.0.2`là ip server tftp dùng để chứa file tftp dùng cấp lại hệ điều hành.Sau khi thành công ta `reset`để router trở lại bình thường
 `hệ điều hành không liên quan đến cấu hình mà router ta đã cấu hình trc đó`
 
-## Cấu hình định tuyến 
-
-![Alt](/thuctap/anh/Screenshot_30.png)
-
-- Ta phân tích mô hình như sau: Sau mỗi router sẽ có 2 dải mạng ,1 dải để cấp cho laptop còn 1 dải để cho các router liên lạc với nhau. Tổng cộng có 4 dải mạng , 3 dải cho 3 laptop và 1 dải cho 3 router.
-- 
-
 
 ## Tài liệu tham khảo :
 https://www.youtube.com/watch?v=55YDCAfz75k&list=PLnaGQB5hLTI6Y20FjqCsTO63efmE0_zZJ&index=4
