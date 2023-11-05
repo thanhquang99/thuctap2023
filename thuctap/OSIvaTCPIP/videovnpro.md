@@ -132,6 +132,13 @@ host [ip cần cấp cố định] [subnet mask]
 dns-server 8.8.8.8
 default-router 192.168.1.1
 ```
+### Mangj Vlan
+- Mạng vlan laf gì? 
+- Vlan(virtual local area network) :Mạng lan được định nghĩa là một mạng cục bộ, ta có thể hiểu là 1 dải mạng và nó bao gồm tất cả các mạng con nằm trong nó. Vlan chính là mạng cục bộ ảo. Nó được tạo ra để từ 1 con switch chia ra thành nhiều switch ảo tránh lãng phí tài nguyên.
+- Cấu hình vlan trên sisco
+```
+
+```
 
 
 
