@@ -137,10 +137,19 @@ default-router 192.168.1.1
 - Vlan(virtual local area network) :Mạng lan được định nghĩa là một mạng cục bộ, ta có thể hiểu là 1 dải mạng và nó bao gồm tất cả các mạng con nằm trong nó. Vlan chính là mạng cục bộ ảo. Nó được tạo ra để từ 1 con switch chia ra thành nhiều switch ảo tránh lãng phí tài nguyên.
 - Cấu hình vlan trên sisco
 ```
+SW(config)#vlan n​ /tao vlan n
+Switch(config-vlan)#name test / đặt tên cho vlan
+Switch(config)#interface f0/1 / Truy cập vào interface
+Switch(config-if)#switchport mode access /Bật mode cho phép truy cập
+Switch(config-if)#switchport access vlan n
 
 ```
-
-
+Ta có thể gắn 1 dải interface thay bằng 1 interface bằng cú pháp sau:
+```
+Switch(config)#interface range f0/1-8
+Switch(config-if)#switchport mode access
+Switch(config-if)#switchport access vlan n
+```
 
 ## Tài liệu tham khảo :
 https://www.youtube.com/watch?v=55YDCAfz75k&list=PLnaGQB5hLTI6Y20FjqCsTO63efmE0_zZJ&index=4
