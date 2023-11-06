@@ -1,3 +1,13 @@
+Mục lục
+- [Tổng hợp lại kiến thức xem video vnpro](#tổng-hợp-lại-kiến-thức-xem-video-vnpro)
+- [Cisco](#cisco)
+- [Thực hành](#thực-hành)
+- [Định tuyến đường đi](#định-tuyến-đường-đi)
+  - [Cấp dhcp cho laptop](#cấp-dhcp-cho-laptop)
+  - [Mangj Vlan](#mangj-vlan)
+- [Tài liệu tham khảo :](#tài-liệu-tham-khảo-)
+
+
 ## Tổng hợp lại kiến thức xem video vnpro
 - Mô hình OSI
   https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/OSIvaTCPIP/osivatcpipnew.md#m%C3%B4-h%C3%ACnh-osi-v%C3%A0-tcpip
