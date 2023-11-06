@@ -17,8 +17,8 @@ Lan là chính là một mạng cục bộ ,tập hợp tất cả các máy mà
 
 |Đặc điểm|Vlan|Subnet|
 |--------|----|------|
-|Phần thấy đươc|Vlan là mạng ảo hay là mạng logic, được tạo ra nhằm mục đích giúp các máy trong cùng 1 Lan liên lạc với nhau  | Nó chia dải IP lớn thành dải ip nhỏ hơn ,nó giúp các máy chủ giao tiếp lớp network|
-||Được cấu hình trên switch và cho phép cổng ethernet nào được đi sử dụng vlan nào|Mạng con được quyết định bằng địa chỉ IP và prefix ,nó được gắn vào router|
+|Định nghĩa|Vlan là mạng ảo hay là mạng logic, được tạo ra nhằm mục đích giúp các máy trong cùng 1 Lan liên lạc với nhau  | Nó chia dải IP lớn thành dải ip nhỏ hơn ,nó giúp các máy chủ giao tiếp lớp network|
+|Tính năng|Được cấu hình trên switch và cho phép cổng ethernet nào được đi sử dụng vlan nào|Mạng con được quyết định bằng địa chỉ IP và prefix ,nó được gắn vào router|
 |Hoạt động ở lớp nào|Vlan dựa trên địa chỉ Mac nên là hoạt động ở lớp data link|Mạng con hoạt động dựa trên địa chỉ IP nên nó ở lớp network|
 |Phần mềm hay phần cứng|Vlan hoạt đôngj chủ yếu dựa trên phần mềm mà ta cấu hình|Subnet dựa trên phần cứng nhiều hơn, subnet sẽ được gắn vào phần cứng|
 
