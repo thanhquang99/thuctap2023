@@ -5,7 +5,8 @@
 - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
 
 # Vlan là gì?
-- Vlan (vitual local area network) : Đầu tiên ta phải hiểu Lan là gì?
+- Vlan (vitual local area network) :
+    - Đầu tiên ta phải hiểu Lan là gì?
 
 Lan là chính là một mạng cục bộ ,tập hợp tất cả các máy mà dùng chung broadcast chính là Lan. Và Vlan là công nghệ được sinh ra để ảo hóa các mạng Lan ,nó cho phép các mạng từ 1 mạng Lan trên máy vật lý tạo thành nhiều mạng Lan ảo nhằm mục đích tiết kiệm chi phí về phần cúng , vì chẳng lẽ cứ mỗi mạng Lan ta phải dùng 1 switch riêng ư?
 
