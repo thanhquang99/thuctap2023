@@ -3,4 +3,4 @@
 
 [2.Tổng hợp nội dung video vnpro ](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/OSIvaTCPIP/videovnpro.md)
 
-[3.So sánh Vlan và subnet] ()
+[3.So sánh Vlan và subnet] (https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/OSIvaTCPIP/vlan-and-subnet.md)
