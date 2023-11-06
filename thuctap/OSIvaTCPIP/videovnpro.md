@@ -2,9 +2,11 @@ Mục lục
 - [Tổng hợp lại kiến thức xem video vnpro](#tổng-hợp-lại-kiến-thức-xem-video-vnpro)
 - [Cisco](#cisco)
 - [Thực hành](#thực-hành)
+  - [đổi password console (hoặc enable)](#đổi-password-console-hoặc-enable)
 - [Định tuyến đường đi](#định-tuyến-đường-đi)
-  - [Cấp dhcp cho laptop](#cấp-dhcp-cho-laptop)
-  - [Mangj Vlan](#mangj-vlan)
+  - [Cấp dhcp từ router cho máy tính](#cấp-dhcp-từ-router-cho-máy-tính)
+  - [Tìm hiểu về Vlan](#tìm-hiểu-về-vlan)
+  - [Tìm hiểu về vlan trunk](#tìm-hiểu-về-vlan-trunk)
 - [Tài liệu tham khảo :](#tài-liệu-tham-khảo-)
 
 
@@ -14,12 +16,15 @@ Mục lục
 - Tìm hiểu về cisco
 ## Cisco
 - cisco packet tracer là phần mềm giúp ta mô phỏng quá trình logic các mạng máy tính trên đường truyền mạng
-- Hub :ghép nối các máy lại với nhau( chỉ hoạt động được ở layer 1 )
-- Bridge : Là bản nâng cấp của hub giúp các máy tính liên lạc với nhau (Có thể hoạt động ở layer 2)
-- Switch :Cũng hoạt động ở layer 2 nhưng nó tiến tiến hơn 2 con trên ,có nhiều port hơn, Nó có thê giữ lại hay gửi đi các dữ liệu tùy data
-  - Học địa chỉ Mac ngay khi mới bắt đầu , Khi A gửi cho B 1 gói tin thì nó sẽ học Mac của máy a sau đó khi chưa biết Mac đích thì nó sẽ gửi toàn bộ đến các cổng và khi cổng nào trùng Mac thì sẽ có phản hồi và nó lại tiếp tục lưu địa chỉ Mac vào bẳng
+- Có một vài lưu ý chúng ta cần nhớ:
+  - switch là bản nâng cấp của hub, Nó có tác dụng ghép nối các laptop lại với nhau. Ta có thể tưởng tượng rằng máy tính là 1 họ người văn phòng vậy ,nó là tập hợp 1 số người có cùng điểm chung với nhau
+  - Router: Đúng như tên gọi của nó thì nó định tuyến đường đi . Như switch là 1 họ người có chung 1 đặc điểm thì router lại được coi như là cái cửa mỗi cái cửa sẽ dẫn đến 1 họ người khác nhau. 
+- Trong router và switch sẽ có 2 mode quan trọng là mode`#` và mode `config` 
+  - Để vào mode `#` ta gõ lệnh `enable`
+  - Để vào mode `config` ta gõ `conf t` .Đây là mode quan trọng khi chúng ta cần cấu hình gì thì bắt buộc phải vào mode này
+  - Lưu ý : Ta muốn làm gì thì cần phải vào đúng vị trí đó để thực hiện, Như khi cần cấu hình interface f0/0 thì ta phải đứng đúng interface f0/0
  ## Thực hành
- - đổi password console
+ ### đổi password console (hoặc enable)
 
 ![Alt](/thuctap/anh/Screenshot_18.png)
 
@@ -122,7 +127,7 @@ ip route 192.168.1.0 255.255.255.0 10.0.0.1
 
 ![Alt](/thuctap/anh/Screenshot_31.png)
 
-### Cấp dhcp cho laptop
+### Cấp dhcp từ router cho máy tính
 -  đế cấp dhcp thì ta phải mode `config` ở mỗi router để cấu hình
 ```
 service dhcp 
@@ -142,7 +147,7 @@ host [ip cần cấp cố định] [subnet mask]
 dns-server 8.8.8.8
 default-router 192.168.1.1
 ```
-### Mangj Vlan
+### Tìm hiểu về Vlan
 - Mạng vlan laf gì? 
 - Vlan(virtual local area network) :Mạng lan được định nghĩa là một mạng cục bộ, ta có thể hiểu là 1 dải mạng và nó bao gồm tất cả các mạng con nằm trong nó. Vlan chính là mạng cục bộ ảo. Nó được tạo ra để từ 1 con switch chia ra thành nhiều switch ảo tránh lãng phí tài nguyên.
 - Cấu hình vlan trên sisco
@@ -160,7 +165,9 @@ Switch(config)#interface range f0/1-8
 Switch(config-if)#switchport mode access
 Switch(config-if)#switchport access vlan n
 ```
-
+### Tìm hiểu về vlan trunk
+- Đầu tiên ta đã biết Vlan là chia ra các Lan ảo từ 1 Lan thật , vậy để các Vlan liên lạc với nhau chẳng lẽ ta lại phải nối nhiều đây lên router để chúng liên lạc với nhau? Vlan trunk sinh ra là để giải quyết điều đó, Nó có tác dụng gộp các Vlan thành 1 dây nối và để biết kết nối đó thuộc Vlan nào thì nó sẽ được đánh dấu bằng thẻ tag để phân biệt
+- Để có thể kết nối trunking thì ta phải kết nối vào trunking port
 ## Tài liệu tham khảo :
 https://www.youtube.com/watch?v=55YDCAfz75k&list=PLnaGQB5hLTI6Y20FjqCsTO63efmE0_zZJ&index=4
 
