@@ -16,7 +16,7 @@ Lan là chính là một mạng cục bộ ,tập hợp tất cả các máy mà
 - Khác nhau:
 
 |Đặc điểm|Vlan|Subnet|
-|:------:|:--:|:....:|
+|--------|----|------|
 |Phần thấy đươc|Vlan là mạng ảo hay là mạng logic, được tạo ra nhằm mục đích giúp các máy trong cùng 1 Lan liên lạc với nhau  | Nó chia dải IP lớn thành dải ip nhỏ hơn ,nó giúp các máy chủ giao tiếp lớp network|
 
 ## Tài liệu tham khảo
