@@ -115,6 +115,7 @@ Trong đó `10.0.0.1`là ip router `10.0.0.2`là ip server tftp dùng để ch�
 ![Alt](/thuctap/anh/Screenshot_30.png)
 
 Ta hãy phân tích sơ đồ trên : Sơ đồ này gồm 4 dải mạng , 3 máy tính 3 dải mạng ,3 router 1 dải mạng. Theo mặc định các máy tính chỉ có thể liên lạc với nhau trong cùng 1 dải mạng.Nhưng router có thể định tuyến đường đi để các dải mạng không cùng 1 dải liên lạc với nhau
+`Lưu ý đây là định tuyến trên router và switch layer 2`
 - Ví dụ dải `192.168.1.0/24` liên lạc với `192.168.2.0/24` thì cần qua `10.0.0.2/8` thì ta ở router 1 thực hiện lệnh sau
 ```
 ip route 192.168.2.0 255.255.255.0 10.0.0.2
@@ -155,6 +156,8 @@ default-router 192.168.1.1
   - Khai báo địa chỉ ip cho Vlan
   - Gắn cổng cho Vlan 
   - Tắt bật công đã gắn cho Vlan để Vlan chuyển từ trạng thái down lên up
+
+`Lưu ý: đây là đang thực hiện trên switch layer 3`
 ```
 int vlan 1
 ip address 192.168.1.1
@@ -177,6 +180,7 @@ Switch(config-if)#switchport access vlan n
 ### Tìm hiểu về vlan trunk
 - Đầu tiên ta đã biết Vlan là chia ra các Lan ảo từ 1 Lan thật , vậy để các Vlan liên lạc với nhau chẳng lẽ ta lại phải nối nhiều đây lên router để chúng liên lạc với nhau? Vlan trunk sinh ra là để giải quyết điều đó, Nó có tác dụng gộp các Vlan thành 1 dây nối và để biết kết nối đó thuộc Vlan nào thì nó sẽ được đánh dấu bằng thẻ tag để phân biệt
 - Để có thể kết nối trunking thì ta phải kết nối vào trunking port
+
 ## Tài liệu tham khảo :
 https://www.youtube.com/watch?v=55YDCAfz75k&list=PLnaGQB5hLTI6Y20FjqCsTO63efmE0_zZJ&index=4
 
