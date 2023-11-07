@@ -3,7 +3,7 @@
 
 [2.Tổng hợp nội dung video vnpro ](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/OSIvaTCPIP/videovnpro.md)
 
-[3. Router và switch ](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/OSIvaTCPIP/videovnpro.md)
+[3. Router và switch ](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/OSIvaTCPIP/routervaswitch.md)
 
 [4.So sánh vlan và subnet ](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/OSIvaTCPIP/vlan-and-subnet.md)
 
