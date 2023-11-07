@@ -8,7 +8,7 @@
 - Vlan (vitual local area network) :
     - Đầu tiên ta phải hiểu Lan là gì?
 
-Lan là chính là một mạng cục bộ ,tập hợp tất cả các máy mà dùng chung broadcast chính là Lan. Và Vlan là công nghệ được sinh ra để ảo hóa các mạng Lan ,nó cho phép các mạng từ 1 mạng Lan trên máy vật lý tạo thành nhiều mạng Lan ảo nhằm mục đích tiết kiệm chi phí về phần cúng , vì chẳng lẽ cứ mỗi mạng Lan ta phải dùng 1 switch riêng ư?
+Lan là chính là một mạng cục bộ ,tập hợp tất cả các máy mà dùng chung broadcast chính là Lan. Và Vlan là công nghệ được sinh ra để ảo hóa các mạng Lan ,nó cho phép các mạng từ 1 mạng Lan trên máy vật lý tạo thành nhiều mạng Lan ảo nhằm mục đích tiết kiệm chi phí về phần cứng , vì chẳng lẽ cứ mỗi mạng Lan ta phải dùng 1 switch riêng ư?
 
 # Subnet là gì
 - Subnet được gọi là mạng con . Ví dụ 1 ip 123.68.0.0/16 sẽ cung cấp cho ta `2^16-2` host , ta không thể dùng hết mạng này để tập chung cho một chỗ được nên ta sẽ ra thành nhiều mạng con khác nhau nhằm mục đích tạo ra nhiều mạng con được đặt ở nhiều vị trí khác nhau và mỗi mạng con sẽ có số lượng host phù hợp với mục đích dùng.
@@ -27,7 +27,7 @@ Lan là chính là một mạng cục bộ ,tập hợp tất cả các máy mà
 
 # Các swich hoạt động trên tầng nào?
 - Switch có thể coi là bộ chuyển chuyển mạch , có thể hiểu nôm na rằng nó có tác dụng mở rộng số lượng các cổng ethernet ra
-- Từ đây ta có thể thấy rằng hầu hết các switch hoạt động trên tầng 2 (data link) nhưng có 1 số switch hoạt động trên tầng 3(netwwork), những switch hoạt động trên tầng 3 thì tương tự như 1 router vậy
+- Từ đây ta có thể thấy rằng hầu hết các switch hoạt động trên tầng 2 (data link) nhưng có 1 số switch hoạt động trên tầng 3(netwwork), những switch hoạt động trên tầng 3 có thể nói là sự kết hợp của switch và router
 - Switch hoạt động trên lớp 3 sẽ tốn rất nhiều chi phí so với switch lớp 2 vì nó yêu cầu cấu hình cao hơn nhưng nó sẽ cung cấp thông lượng cao hơn và tốc độ truy cập cao hơn.
 ![Alt](/thuctap/anh/Screenshot_32.png)
 
