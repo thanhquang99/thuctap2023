@@ -6,7 +6,7 @@
 
 # Router và switch
 ## Router là gì
-- Router hay còn được gọi là bộ định tuyến hoạt động ở layer 4 trong mô hình OSI , Nó kết hợp nhiều mạng lại với nhau nhờ sự trợ giúp của các ip của chúng.
+- Router hay còn được gọi là bộ định tuyến hoạt động ở layer 4 trong mô hình OSI , Nó kết hợp nhiều mạng lại với nhau nhờ sự trợ giúp của các ip của chúng.Có thể nói router là thiết bị kết nối các `mạng` với nhau
 
 ![Alt](/thuctap/anh/Screenshot_34.png)
 - Giá của router cisco cũng khá là cao đó ,có những router 27tr -vài trăm triệu.[Bảng giá tham khảo](https://netsystem.vn/bang-gia-router-cisco-4221-4321-4331-4351-4431-4451-4461-price-list/)
@@ -15,7 +15,15 @@
 
 
 ## Switch là gì
+- Switch hay còn được gọi là bộ chuyển mạch, nó thường được hoạt động ở layer 2 trong mo hình OSI . Nó sử dụng địa chỉ Mac hay địa chỉ vật lý để xác định các địa chỉ mạng. Có thể nói switch là dùng để mở rộng các kết nối với các `thiết bị mạng`
 
+![Alt](/thuctap/anh/Screenshot_35.png)
+
+- Giá của switch cisco cũng tương đối cao đó.[Bảng giá tham khảo](https://switchcisco.vn/Bao-gia.html)
+
+![Alt](/thuctap/anh/Screenshot_36.png)
+
+- Switch là một thiết bị đặc biệt , có cả
 
 
 

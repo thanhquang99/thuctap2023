@@ -1,3 +1,20 @@
+- [IPv4- Internet Protocol version 4](#ipv4--internet-protocol-version-4)
+  - [Định nghĩa](#định-nghĩa)
+  - [Phân loại ipv4](#phân-loại-ipv4)
+    - [Lớp A](#lớp-a)
+    - [Lớp B](#lớp-b)
+    - [Lớp C](#lớp-c)
+    - [Lớp D](#lớp-d)
+    - [Lớp E](#lớp-e)
+  - [IP public và ip private](#ip-public-và-ip-private)
+  - [Các kiểu định tuyến](#các-kiểu-định-tuyến)
+    - [Broadcast](#broadcast)
+  - [Anycast](#anycast)
+  - [Multicast](#multicast)
+  - [unicast](#unicast)
+  - [Chia subnet](#chia-subnet)
+  - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
+
 # IPv4- Internet Protocol version 4
 ## Định nghĩa
 - Là giao thức internet phiên bản 4 và là phương thức đầu tiên được sử dụng rộng rãi
@@ -41,3 +58,7 @@ là một phương pháp sử dụng các địa chỉ mạng và định tuyế
 - Mượn n bit từ Host để lấy làm Network.
 - Số subnet : 2^n
 - Số host/subnet 2^m - 2 (m là số bit làm Host )
+
+## Tài liệu tham khảo 
+
+https://vnpro.vn/thu-vien/chuong-1-dia-chi-ipv4-chia-subnet-vlsm-summary-4108.html
