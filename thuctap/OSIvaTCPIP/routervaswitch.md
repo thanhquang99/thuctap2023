@@ -35,11 +35,16 @@
 |Giá|Rẻ |Đắt|
 |Thiết lập và cấu hình ban đầu|Rất dễ thiết lập ta chỉ cần cắm dây vào các cổng trong switch là xong|Yêu cầu cấu hình nâng cao để thiết lập , Ta cần thiết lập địa chỉa IP cho 1 số cổng và thiết lập 1 số Vlan cho các cổng sau đó định tuyến đường đi cho chúng|
 
-
-
+![Alt](/thuctap/anh/Screenshot_37.png)
 
 ## So sánh router và switch
-
+|Đặc điểm|Switch|Router|
+|--------|------|------|
+|Tầng hoạt động|có cả 2 tầng data link và network trong mô hình OSI|Hoạt động ở tầng network trong mô hình OSI|
+|Số lượng port|Trên switch có rất nhiều port|Số lượng cổng hạn chế|
+|Data unit|ở layer 2 thì là frame, ở layer 3 thì là packet|packet|
+|Tác dụng|Kết nối các thiết bị mạng như máy tính,... vào mạng|Kết nối các dải mạng lại với nhau|
+|Được dùng cho|Lan|Cả Lan và Wan|
 
 ## Tài liệu tham khảo
 
