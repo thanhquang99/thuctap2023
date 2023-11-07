@@ -91,8 +91,8 @@ Tầng application sẽ là tầng giao tiếp với người dùng và từ đ�
 - HTTP(Hypertext Transfer Protocol): được gọi với cái tên là giao thức truyền siêu văn bản. Mục đích của giap thức này cho phép các client yêu cầu các trang web từ webserver
 - HTTPS(Hypertext Transfer Protocol Security): Nó là bản nâng cao của http và có thêm tính chất bảo mật là được mã hóa.
 - DNS(Domain Name System): Hệ thống phân giải tên miền dịch tên miền thành địa chỉ IP
-- SNMP(Simple Network Monitoring Protocol): Giao thức giám sát mạng đơn giản, nó là một giao thức để truyền thông tin trên mạng,cho phép thu thập dữ liệu và quản lý các thiết bị từ xa. Giao thức này được sử dụng trong cấu hình các router và switch
-- LDAP(Lightweight Directory Access Protocol):Giao thức truy cập trực tiếp lightweight ,nó có tác dụng truy cập và duy trì thông tin trên thư mục phân tán (như connecting, accessing,modifying, searching)
+- SNMP(Simple Network Monitoring Protocol): Giao thức giám sát mạng đơn giản, Nó hoạt động như mornitoring giám sát mọi thứ như host name ,cpu,ram...
+- LDAP(Lightweight Directory Access Protocol):Giao thức truy cập trực tiếp lightweight ,Ta có thể hiểu như này LDAP được sử dụng để quản lý các thư mục cây(Các thư mục có thuộc tính liên quan hay tương đương nhau được nhớm thành 1 nhóm hay là một nhánh cây),LDAP dùng để quản lý người dùng trên 1 hệ thống mạng, các thông tin về người dùng sẽ đươcj lưu dưới dạng thư mục cây và ta có thể truy suất nó bằng cách gửi request đến LDAP server.
 - DHCP(Dynamic Host Configuration Protocol): Là một giao thức cấp pháp ip tự dộng cho máy khi có yêu cầu thêm vào dải mạng mà trước khi đó ta đã định nghĩa sắn subnet mark ,gateway. Nó đảm bảo không có sự trùng lặp ip
 ### 1.5 Tầng presentation
 ### 1.5.1 Chức năng của tầng presentation
