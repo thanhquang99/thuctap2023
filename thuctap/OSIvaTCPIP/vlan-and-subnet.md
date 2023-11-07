@@ -1,4 +1,6 @@
 - [Vlan là gì?](#vlan-là-gì)
+  - [Phân loại Vlan](#phân-loại-vlan)
+  - [Các kiểu cấu hình Vlan](#các-kiểu-cấu-hình-vlan)
 - [Subnet là gì](#subnet-là-gì)
 - [So sánh subnet và vlan](#so-sánh-subnet-và-vlan)
 - [Các swich hoạt động trên tầng nào?](#các-swich-hoạt-động-trên-tầng-nào)
@@ -8,8 +10,26 @@
 - Vlan (vitual local area network) :
     - Đầu tiên ta phải hiểu Lan là gì?
 
-Lan là chính là một mạng cục bộ ,tập hợp tất cả các máy mà dùng chung broadcast chính là Lan. Và Vlan là công nghệ được sinh ra để ảo hóa các mạng Lan ,nó cho phép các mạng từ 1 mạng Lan trên máy vật lý tạo thành nhiều mạng Lan ảo nhằm mục đích tiết kiệm chi phí về phần cứng , vì chẳng lẽ cứ mỗi mạng Lan ta phải dùng 1 switch riêng ư?
+    - Lan là một tập hợp các hệ thống mạng máy tính được kết nối nội bộ với nhau và được giới hạn trong 1 khu vực nhất định. Vlan là công nghệ được sinh ra để ảo hóa các mạng Lan ,nó cho phép từ 1 switch tạo thành nhiều mạng Lan ảo nhằm mục đích tiết kiệm chi phí về phần cứng , vì chẳng lẽ cứ mỗi mạng Lan ta phải dùng 1 switch riêng ư?
 
+- Tối đa số Vlan có thể tạo trên switch :0-4095 =2^12
+## Phân loại Vlan 
+- VLAN 1 :Đây là kiểu mặc định của tất cả switch có hỗ trợ vlan. mặc định tất cả các cổng khi chưa thiết lập đều thuộc vlan này. khi ta thêm cổng vào vlan khác thì cổng đó sẽ bị xóa khỏi vlan 1
+- Default VLAN : mặc định ban đầu tất car các cổng đều thuộc vlan này ,ta có thể hiểu nó tương tự như vlan 1 vậy
+- User VLAN (hay Data VLAN) :là VLAN trong đó chứa các tài khoản người dùng thành từng nhóm
+- Native VLAN : là vlan dùng để cấu hình trunking vlan ,giúp các thiết bị không tương thích với nhau có thể giao tiếp với nhau
+- Management VLAN :Là VLAN được gán địa chỉ IP dùng để giám sát, truy cập từ xa vào thiết bị.
+- Voice VLAN :Là VLAN dành riêng cho lưu lượng thoại
+## Các kiểu cấu hình Vlan
+- Port based Vlan :Đây là cách cấu hình Vlan đơn giản và phổ biến nhất.Ta tiến hành tạo vlan và gắn các port vào Vlan .Các host nào cắm vào port chứa Vlan nào thì sẽ mặc định ở Vlan đó
+- Trunking Vlan :Dùng để kết nối các switch với nhau hoặc giữa switch và router.Khi Vlan từ switch này muốn giao tiếp với cùng vlan switch khác thì phải có 1 dây kết nối,nhưng khi ta kết nối qua cổng trunk thì sẽ cho phép nhiều Vlan kết nối qua cổng trunk này. Để phân biệt kết nối nào thuộc vlan nào nó sẽ dán nhãn của vlan đó lên. Nó sẽ tuân theo chuẩn `dot1q/802.1Q`
+  
+![Alt](/thuctap/anh/Screenshot_38.png)
+
+![Alt](/thuctap/anh/Screenshot_39.png)
+
+- VTP :Khi trên hệ thống mạng có nhiều con switch ta không thể thiết lập thủ công các vlan trên từng con switch được (nhưng vẫn phải thủ công quy định port nào thuộc vlan nào) thì ta có giao thức VTP ta sẽ từ 1 con switch làm server và dạy thông tin vlan cho các con switch khác.
+![Alt](/thuctap/anh/Screenshot_40.png)
 # Subnet là gì
 - Subnet được gọi là mạng con . Ví dụ 1 ip 123.68.0.0/16 sẽ cung cấp cho ta `2^16-2` host , ta không thể dùng hết mạng này để tập chung cho một chỗ được nên ta sẽ ra thành nhiều mạng con khác nhau nhằm mục đích tạo ra nhiều mạng con được đặt ở nhiều vị trí khác nhau và mỗi mạng con sẽ có số lượng host phù hợp với mục đích dùng.
 
@@ -50,3 +70,6 @@ https://www.fibermall.com/blog/layer-3-switch-router.htm
 
 https://www.geeksforgeeks.org/difference-between-router-and-layer-3-switch/
 
+https://docs.google.com/document/d/1nUvh11oZFP7lUvYg8t6NxwtzaJYXwvbTZvfloCL2ByM/edit
+
+https://vnpro.vn/thu-vien/co-nhung-loai-vlan-nao-2124.html
