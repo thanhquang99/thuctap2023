@@ -14,16 +14,16 @@ Lan là chính là một mạng cục bộ ,tập hợp tất cả các máy mà
 - Subnet được gọi là mạng con . Ví dụ 1 ip 123.68.0.0/16 sẽ cung cấp cho ta `2^16-2` host , ta không thể dùng hết mạng này để tập chung cho một chỗ được nên ta sẽ ra thành nhiều mạng con khác nhau nhằm mục đích tạo ra nhiều mạng con được đặt ở nhiều vị trí khác nhau và mỗi mạng con sẽ có số lượng host phù hợp với mục đích dùng.
 
 # So sánh subnet và vlan
-- giống nhau : subnet và vlan được tạo ra nhằm mục đích để chia nhỏ các máy thành các tập hợp nhỏ hơn để dễ dàng quản lý
+- giống nhau : subnet và vlan được tạo ra nhằm mục đích để chia nhỏ các mạng thành các tập hợp nhỏ hơn để dễ dàng quản lý
 - Khác nhau:
 
 |Đặc điểm|Vlan|Subnet|
 |--------|----|------|
-|Định nghĩa|Vlan là mạng ảo hay là mạng logic, được tạo ra nhằm mục đích giúp các máy trong cùng 1 Lan liên lạc với nhau  | Nó chia dải IP lớn thành dải ip nhỏ hơn ,nó giúp các máy chủ giao tiếp lớp network|
+|Định nghĩa|Vlan là mạng ảo hay là mạng logic, được tạo ra nhằm mục đích giúp tạo ra các Lan ảo tránh lãng phí phần cứng | Nó chia dải IP lớn thành dải ip nhỏ hơn ,nó giúp các máy chủ giao tiếp lớp network|
 |Tính năng|Được cấu hình trên switch và cho phép cổng ethernet nào được đi sử dụng vlan nào|Mạng con được quyết định bằng địa chỉ IP và prefix ,nó được gắn vào router|
 |Hoạt động ở lớp nào|Vlan dựa trên địa chỉ Mac nên là hoạt động ở lớp data link|Mạng con hoạt động dựa trên địa chỉ IP nên nó ở lớp network|
-|Phần mềm hay phần cứng|Vlan hoạt đôngj chủ yếu dựa trên phần mềm mà ta cấu hình|Subnet dựa trên phần cứng nhiều hơn, subnet sẽ được gắn vào phần cứng|
-|bảo mật|vlan cung cấp bảo mật tốt hơn vì nó cho phép các máy trong cùng 1 vlan trao đổi với nhau|Subnet không được bảo mật bằng Vlan nhưng để các subnet giao tiếp với nhau thì nó cần có định tuyến|
+|Phần mềm hay phần cứng|Vlan hoạt động chủ yếu dựa trên phần mềm mà ta cấu hình|Subnet dựa trên phần cứng nhiều hơn, subnet sẽ được gắn vào phần cứng|
+|bảo mật|vlan cung cấp bảo mật tốt hơn vì nó cho phép các máy trong cùng 1 vlan trao đổi với nhau|Subnet không được bảo mật bằng Vlan và để các subnet giao tiếp với nhau thì nó cần có định tuyến|
 
 # Các swich hoạt động trên tầng nào?
 - Switch có thể coi là bộ chuyển chuyển mạch , có thể hiểu nôm na rằng nó có tác dụng mở rộng số lượng các cổng ethernet ra
