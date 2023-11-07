@@ -1,6 +1,8 @@
 - [Router và switch](#router-và-switch)
   - [Router là gì](#router-là-gì)
   - [Switch là gì](#switch-là-gì)
+    - [Switch hoạt động trên lớp 3 là gì?](#switch-hoạt-động-trên-lớp-3-là-gì)
+    - [so sánh switch layer 2 và layer 3](#so-sánh-switch-layer-2-và-layer-3)
   - [So sánh router và switch](#so-sánh-router-và-switch)
   - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
 
@@ -23,7 +25,16 @@
 
 ![Alt](/thuctap/anh/Screenshot_36.png)
 
-- Switch là một thiết bị đặc biệt , có cả
+- Switch là một thiết bị đặc biệt , có 2 loại switch hoạt động trên lớp 2 và 3
+### Switch hoạt động trên lớp 3 là gì?
+- Là thiết bị kết hợp giữa switch và router . Ta có thể hiểu như này, chân kết nối của router rất là ít nên ta cần switch layer 2 để mở rộng số lượng cổng kết nối đến các thiết bị mạng , Tiếp sau đó lại sinh ra công nghệ Vlan trên switch nên bây giờ trên switch cần có ip để định tuyến các đường đi in/out cho Vlan trong switch nên từ đây sinh ra switch layer 3.
+### so sánh switch layer 2 và layer 3
+|Đặc điểm|Switch layer 2|switch layer 3|
+|--------|--------------|--------------|
+|Lớp hoạt động|Tầng datalink trong mô hình OSI|Tầng network trong mô hình OSI|
+|Giá|Rẻ |Đắt|
+|Thiết lập và cấu hình ban đầu|Rất dễ thiết lập ta chỉ cần cắm dây vào các cổng trong switch là xong|Yêu cầu cấu hình nâng cao để thiết lập , Ta cần thiết lập địa chỉa IP cho 1 số cổng và thiết lập 1 số Vlan cho các cổng sau đó định tuyến đường đi cho chúng|
+
 
 
 
@@ -37,3 +48,7 @@
 https://netsystem.com.vn/goc-tu-van/10-diem-khac-biet-giua-bo-dinh-tuyen-router-va-bo-chuyen-mach-switch-cisco.html
 
 https://netsystem.vn/bang-gia-router-cisco-4221-4321-4331-4351-4431-4451-4461-price-list/
+
+https://viettuans.vn/switch-layer-3-la-gi
+
+https://www.manageengine.com/products/oputils/tech-topics/layer2-vs-layer3-switch.html#:~:text=Layer%202%20switches%20offer%20limited,routing%20between%20different%20network%20segments.&text=Limited%20scalability.,cross%20network%20segment%20routing%20capabilities.
