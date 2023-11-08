@@ -2,6 +2,7 @@
   - [Phân loại Vlan](#phân-loại-vlan)
   - [Cách tạo đường dây kết nối trunk hoặc access](#cách-tạo-đường-dây-kết-nối-trunk-hoặc-access)
   - [Các kiểu cấu hình Vlan](#các-kiểu-cấu-hình-vlan)
+    - [Bài thực hành](#bài-thực-hành)
 - [Subnet là gì](#subnet-là-gì)
 - [So sánh subnet và vlan](#so-sánh-subnet-và-vlan)
 - [Các swich hoạt động trên tầng nào?](#các-swich-hoạt-động-trên-tầng-nào)
@@ -42,6 +43,9 @@
 
 - VTP :Khi trên hệ thống mạng có nhiều con switch ta không thể thiết lập thủ công các vlan trên từng con switch được (nhưng vẫn phải thủ công quy định port nào thuộc vlan nào) thì ta có giao thức VTP ta sẽ từ 1 con switch làm server và dạy thông tin vlan cho các con switch khác.
 ![Alt](/thuctap/anh/Screenshot_40.png)
+
+### Bài thực hành 
+![Alt](/thuctap/anh/Screenshot_41.png)
 # Subnet là gì
 - Subnet được gọi là mạng con . Ví dụ 1 ip 123.68.0.0/16 sẽ cung cấp cho ta `2^16-2` host , ta không thể dùng hết mạng này để tập chung cho một chỗ được nên ta sẽ ra thành nhiều mạng con khác nhau nhằm mục đích tạo ra nhiều mạng con được đặt ở nhiều vị trí khác nhau và mỗi mạng con sẽ có số lượng host phù hợp với mục đích dùng.
 
