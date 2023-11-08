@@ -24,6 +24,9 @@
 - Giá của switch cisco cũng tương đối cao đó.[Bảng giá tham khảo](https://switchcisco.vn/Bao-gia.html)
 
 ![Alt](/thuctap/anh/Screenshot_36.png)
+- Hiện nay mọi người đang chuộm 2 dòng switch là 2960 và c1000.
+  - Đặc điểm của 2 loại switch này là giá thành phù hợp, bền và đủ đáp ứng những nhu cầu switch cần có.
+  - Switch 2960 đáp ứng cho công việc cần số cổng cao (24 hoặc 48 cổng) và switch c1000 đáp ứng cho các doanh nghiệp nhỏ (8 cổng). 
 
 - Switch là một thiết bị đặc biệt , có 2 loại switch hoạt động trên lớp 2 và 3
 ### Switch hoạt động trên lớp 3 là gì?
