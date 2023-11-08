@@ -1,5 +1,6 @@
 - [Vlan là gì?](#vlan-là-gì)
   - [Phân loại Vlan](#phân-loại-vlan)
+  - [Cách tạo đường dây kết nối trunk hoặc access](#cách-tạo-đường-dây-kết-nối-trunk-hoặc-access)
   - [Các kiểu cấu hình Vlan](#các-kiểu-cấu-hình-vlan)
 - [Subnet là gì](#subnet-là-gì)
 - [So sánh subnet và vlan](#so-sánh-subnet-và-vlan)
@@ -17,9 +18,18 @@
 - VLAN 1 :Đây là kiểu mặc định của tất cả switch có hỗ trợ vlan. mặc định tất cả các cổng khi chưa thiết lập đều thuộc vlan này. khi ta thêm cổng vào vlan khác thì cổng đó sẽ bị xóa khỏi vlan 1
 - Default VLAN : mặc định ban đầu tất car các cổng đều thuộc vlan này ,ta có thể hiểu nó tương tự như vlan 1 vậy
 - User VLAN (hay Data VLAN) :là VLAN trong đó chứa các tài khoản người dùng thành từng nhóm
-- Native VLAN : là vlan dùng để cấu hình trunking vlan ,giúp các thiết bị không tương thích với nhau có thể giao tiếp với nhau, ví dụ như khi ta cấu ở switch 1 cấu hình native vlan vào vlan 1 còn ở switch 2 ta cấu hình native vlan vào vlan 2 thì vlan 1 và vlan 2 sẽ thông nhau,lúc này native vlan được coi như kiểu kết nối access ,các gói gửi đi sẽ không chứa id vlan 
+- Native VLAN : là vlan dùng để cấu hình trunking vlan ,giúp các thiết bị không tương thích với nhau có thể giao tiếp với nhau, ví dụ như khi switch kết nối với switch thì ta cần kết nối trunking ,nhưng khi ta muốn đổi switch thành 1 máy tính thì ở cổng của switch cố định ta sẽ gắn thêm `native vlan ` vào để giải quyết vấn đề này.
 - Management VLAN :Là VLAN được gán địa chỉ IP dùng để giám sát, truy cập từ xa vào thiết bị.
 - Voice VLAN :Là VLAN dành riêng cho lưu lượng thoại
+
+## Cách tạo đường dây kết nối trunk hoặc access
+|   |Access|Desirable|Auto|Trunk|
+|---|------|---------|----|-----|
+|Access|Access|Access|Access|X|
+|Desirable|Access|Trunk|Trunk|Trunk|
+|Auto|Access|Trunk|Access|Trunk|
+|Trunk|X|Trunk|Trunk|Trunk|
+
 ## Các kiểu cấu hình Vlan
 - Port based Vlan :Đây là cách cấu hình Vlan đơn giản và phổ biến nhất.Ta tiến hành tạo vlan và gắn các port vào Vlan .Các host nào cắm vào port chứa Vlan nào thì sẽ mặc định ở Vlan đó
 - Trunking Vlan :Dùng để kết nối các switch với nhau hoặc giữa switch và router.Khi Vlan từ switch này muốn giao tiếp với cùng vlan switch khác thì phải có 1 dây kết nối,nhưng khi ta kết nối qua cổng trunk thì sẽ cho phép nhiều Vlan kết nối qua cổng trunk này. Để phân biệt kết nối nào thuộc vlan nào nó sẽ dán nhãn của vlan đó lên. Nó sẽ tuân theo chuẩn `dot1q/802.1Q`
@@ -27,6 +37,8 @@
 ![Alt](/thuctap/anh/Screenshot_38.png)
 
 ![Alt](/thuctap/anh/Screenshot_39.png)
+   - Native Vlan : đã nói ở trên
+   - allowed vlan : cho phép các vlan nào được đi qua kết nối trunking
 
 - VTP :Khi trên hệ thống mạng có nhiều con switch ta không thể thiết lập thủ công các vlan trên từng con switch được (nhưng vẫn phải thủ công quy định port nào thuộc vlan nào) thì ta có giao thức VTP ta sẽ từ 1 con switch làm server và dạy thông tin vlan cho các con switch khác.
 ![Alt](/thuctap/anh/Screenshot_40.png)
