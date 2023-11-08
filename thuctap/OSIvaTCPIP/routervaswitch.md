@@ -25,8 +25,8 @@
 
 ![Alt](/thuctap/anh/Screenshot_36.png)
 - Hiện nay mọi người đang chuộm 2 dòng switch là 2960 và c1000.
-  - Đặc điểm của 2 loại switch này là giá thành phù hợp, bền và đủ đáp ứng những nhu cầu switch cần có.
-  - Switch 2960 đáp ứng cho công việc cần số cổng cao (24 hoặc 48 cổng) và switch c1000 đáp ứng cho các doanh nghiệp nhỏ (8 cổng). 
+  - Đặc điểm của 2 loại switch này là giá thành phù hợp, bền, khả năng truyền tải tốt,nó còn thêm các cổng cấu hình và đủ đáp ứng những nhu cầu switch cần có.
+  - Switch 2960 đáp ứng cho công việc cần số cổng cao (24 hoặc 48 cổng, 6-10tr) và switch c1000 đáp ứng cho các doanh nghiệp nhỏ (8-24-48 cổng,6-10 tr ). 
 
 - Switch là một thiết bị đặc biệt , có 2 loại switch hoạt động trên lớp 2 và 3
 ### Switch hoạt động trên lớp 3 là gì?

@@ -17,7 +17,7 @@
 - VLAN 1 :Đây là kiểu mặc định của tất cả switch có hỗ trợ vlan. mặc định tất cả các cổng khi chưa thiết lập đều thuộc vlan này. khi ta thêm cổng vào vlan khác thì cổng đó sẽ bị xóa khỏi vlan 1
 - Default VLAN : mặc định ban đầu tất car các cổng đều thuộc vlan này ,ta có thể hiểu nó tương tự như vlan 1 vậy
 - User VLAN (hay Data VLAN) :là VLAN trong đó chứa các tài khoản người dùng thành từng nhóm
-- Native VLAN : là vlan dùng để cấu hình trunking vlan ,giúp các thiết bị không tương thích với nhau có thể giao tiếp với nhau
+- Native VLAN : là vlan dùng để cấu hình trunking vlan ,giúp các thiết bị không tương thích với nhau có thể giao tiếp với nhau, ví dụ như khi ta cấu ở switch 1 cấu hình native vlan vào vlan 1 còn ở switch 2 ta cấu hình native vlan vào vlan 2 thì vlan 1 và vlan 2 sẽ thông nhau,lúc này native vlan được coi như kiểu kết nối access ,các gói gửi đi sẽ không chứa id vlan 
 - Management VLAN :Là VLAN được gán địa chỉ IP dùng để giám sát, truy cập từ xa vào thiết bị.
 - Voice VLAN :Là VLAN dành riêng cho lưu lượng thoại
 ## Các kiểu cấu hình Vlan
