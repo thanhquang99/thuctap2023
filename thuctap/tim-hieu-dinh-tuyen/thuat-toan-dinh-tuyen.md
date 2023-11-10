@@ -67,7 +67,53 @@ R(config-if)#ip rip authentication key-chain <name>
 ```
 ip rip authentication mode md5
 ```
+#### EIGRP(Enhanced Interior Gateway Routing Protocol)
+##### Tổng quan
+- Là giao thức định tuyến do Cisco tạo ra và chỉ hoạt động trên thiết bị của cisco
+- Là một giao thức định tuyến vừa mang đặc điểm của distance vector và mang đặc điểm của link-state
+- Cách tính metric 
 
+![Alt](/thuctap/anh/Screenshot_67.png)
 
+#### Cách thức hoạt động 
+- Các router tìm kiếm các láng giềng của nó và lưu giữ trong neighbor table.
+- Mỗi router sẽ trao đổi các thông tin về cấu trúc mạng với các láng giềng của nó , lưu trữ vào cơ sở dữ liệu về cấu trúc mạng (topology table)
+- Router chạy thuật toán DUAL với cơ sở dữ liệu đã thu thập được ở bước trên để tính toán tìm ra đường đi tốt nhật đến mỗi một mạng trong cơ sở dữ liệu
+- Router đặt các đường đi tốt nhất đến mỗi mạng đích vào bảng định tuyến.
+- Trong EIGRP có hai tuyến ta cần quan tâm là “successor route” và “feasible successor route”
+  - Successor route:
+Là tuyến đường đi chính được sử dụng để chuyển dữ liệu đến đích
+Được lưu trong bảng định tuyến.
+EIGRP cho phép chia tải tối đa trên 16 đường (mặc định là 4 đường) đến mỗi mạng đích.
+  - Feasible successor route:
+Là đường đi dự phòng cho đường đi chính
+Được lưu trong bảng cấu trúc mạng (topology table).
+- EIGRP chống "routing loop"
+  - “Routing loop” là một trở ngại rất lớn trong các giao thức định tuyến dạng “distance vector”.
+  - Các giao thức định tuyến dạng “link-state” vượt qua vấn đề này bằng cách mỗi router đều nắm giữ toàn bộ cấu trúc mạng.
+  - Trong giao thức EIGRP, khi tuyến đường đi chính gặp sự cố, router có thể kịp thời đặt đường đi dự phòng vào bảng định tuyến đóng vai trò như đường đi chính.
+  - Trường hợp không có đường đi dự phòng, sử dụng thuật toán DUAL cho phép router gửi các yêu cầu và tính toán lại các đường đi đến đích.
 
+#### Cấu hình EIGRP
+```
+Router(config)#router eigrp <autonomous-system>
+Router(config-router)#network <network-number>
+Router(config-router)#no auto-summary
+```
+Trong đó: 
+- autonomous-system: có giá trị từ 1 đến 65535, giá trị này phải giống nhau ở tất cả các router trong hệ thống chạy EIGRP
+- network-number là địa chỉ cổng theo đúng lớp mạng của nó.
+#### Chứng thực trong EIGRP
+- Chỉ hỗ trợ MD5
 
+```
+R(config)#key chain <keychain>
+R(config-keychain)#key <key-id>
+R(config-keychain-key)#key-string <password>
+
+R(config)#interface <interface>
+R(config-if)#ip authentication mode eigrp <AS> md5
+R(config-if)#ip authentication key-chain eigrp <AS> <keychain>
+```
+
+## Tài liệu tham khảo
