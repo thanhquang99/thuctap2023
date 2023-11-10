@@ -9,4 +9,5 @@
 
 [5.So sánh vlan và subnet ](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/OSIvaTCPIP/vlan-and-subnet.md)
 
+[6.Tìm hiểu về định tuyến](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/tim-hieu-dinh-tuyen/thuat-toan-dinh-tuyen.md)
 
