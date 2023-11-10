@@ -53,7 +53,18 @@ Muc lục
   - [3. So sánh 2 mô hình OSI và TCP/IP](#3-so-sánh-2-mô-hình-osi-và-tcpip)
   - [4. Tại sao hai mô hình OSI và TCP/IP có đặc điểm gần giống nhau lại cùng tồn tại](#4-tại-sao-hai-mô-hình-osi-và-tcpip-có-đặc-điểm-gần-giống-nhau-lại-cùng-tồn-tại)
   - [5. Các tìm hiểu thêm](#5-các-tìm-hiểu-thêm)
-  - [6. Tài liệu tham khảo](#6-tài-liệu-tham-khảo)
+  - [6.Tìm hiểu sâu về một số giao thức trên các tầng của mô hình OSI và TCP/IP](#6tìm-hiểu-sâu-về-một-số-giao-thức-trên-các-tầng-của-mô-hình-osi-và-tcpip)
+    - [6.1Giao thức FTP (File transfer protocol)](#61giao-thức-ftp-file-transfer-protocol)
+    - [6.2 Giao thức DNS](#62-giao-thức-dns)
+      - [6.2.1 Tổng quan về DNS](#621-tổng-quan-về-dns)
+      - [6.2.2 Phân loại DNS](#622-phân-loại-dns)
+      - [6.2.3 Hoạt động của DNS](#623-hoạt-động-của-dns)
+      - [6.2.4 DNS caching](#624-dns-caching)
+      - [6.2.5 cấu trúc của gói tin DNS](#625-cấu-trúc-của-gói-tin-dns)
+    - [6.3 Giao thức ICMP](#63-giao-thức-icmp)
+      - [6.3.1 Tổng quan về giao thức ICMP](#631-tổng-quan-về-giao-thức-icmp)
+      - [6.3.2 các loại ICMP thường thấy](#632-các-loại-icmp-thường-thấy)
+  - [7. Tài liệu tham khảo](#7-tài-liệu-tham-khảo)
 
 ## 1 Mô hình OSI
 ### 1.1 Mô hình OSI là gì
@@ -261,9 +272,84 @@ Tuy 2 mô hình không có sự khác biệt lớn nhưng về mục đích sử
 -  Về phần device thì nó được sản xuất tuân thủ theo mô hình OSI hay TCP/IP
   - Cái này là lý giải của riêng tôi(Có thể đúng có thể sai): Cả 2 mô hình đều là mô hình tham chiếu nên khi sản xuất device thì nó sẽ đáp ứng đủ cả 2 mô hình OSI và TCP/IP (Một số trường hợp đặc biệt có thể khác)
 
+## 6.Tìm hiểu sâu về một số giao thức trên các tầng của mô hình OSI và TCP/IP
+### 6.1Giao thức FTP (File transfer protocol)
+- Là giao thức truyền tải tập tin được dùng để trao đổi dữ liệu của client và server FTP thông qua giao thức TCP/IP. Nó hoạt động trên 2 port với port 20(data) và port 21(control).Với giao thức này giúp các máy client có thể truy cập đến máy chủ FTP để gửi và lấy dữ liệu kể cả gần hay xa.
 
- 
-## 6. Tài liệu tham khảo
+![Alt](/thuctap/anh/Screenshot_42.png)
+
+- Cách thức hoạt động của giao thức FTP
+  - Quá trình trao đổi tập tin sẽ gồm 2 tiến trình logic là `data connection` và `control connetion` .`control connetion` kiểm soát các thông tin điều khiển đi qua nó và được đặt ở chế độ luôn duy trì trong phiên làm việc.`data connection` đóng vai trò truyền dữ liệu từ client đến server và nó sẽ tự động ngắt khi quá trình truyền tải dữ liệu hoàn tất.
+- Các phương thức truyền dữ liệu
+  - Stream mode :dữ liệu sẽ được truyền đi dưới dạng các byte không liên tiếp
+  - Block mode : chia dữ liệu thành các khối nhỏ và được đóng gói thành các FTP block mỗi block chứa thông tin dữ liệu về các khối đang được gửi đi 
+  - Compressed mode :Phương thức truyền sử dụng kỹ thuật nén dữ liệu khá đơn giản là “run-length encoding”. Với thuật toán này, các đoạn dữ liệu bị lặp sẽ được phát hiện và loại bỏ để giảm chiều dài của toàn bộ thông điệp khi gửi đi.
+- Chế độ hoạt động của FTP server
+  - Active FTP
+
+![Alt](/thuctap/anh/Screenshot_43.png)
+
+Client sẽ mở port 1026 (>1023) kết nối tới port 21 của server và gửi command port là 1027.Server sẽ gửi gói tin ACK lá đã chấp nhận về cho clinet. Server kết nối port 20 của mình với port 1027 của client và cuối cùng client gửi gói tin ACK về cho server.Vấn đề gặp phải khi sử dụng active ftp là có thể bị mất kết nối ở phía client vì port data ở phía client không khởi tạo kết nối với server mà chỉ lắng nghe nên khi có firewall đứng giữa thì connetion có thể bị blocked 
+ - Passive FTP 
+
+![Alt](/thuctap/anh/Screenshot_44.png)
+
+Ở  phần này chỉ khác active là client sẽ gửi thêm lệnh `pasv` cho server để server khỏi tạo port 2024 để lắng nghe từ đó client tự động tạo ra connetion với port 2024 tránh tình trạng có firewall ở client (vì server là cái ta có thể cấu hình mà bắt các client nghe theo điều ngược lại là không đúng)
+
+### 6.2 Giao thức DNS
+#### 6.2.1 Tổng quan về DNS
+- DNS là giao thức chuyển đổi tên miền mà chúng ta đnag sử dụng sang địa chỉ IP dạng số tương ứng với tên miền và ngược lại.
+- DNS sử dụng port 53 để truyền tải
+- Nó sử dụng giao thức TCP và UDP. sử dụng TCP để truy cập thông tin với server khác. sử dụng UDP để trả lời truy vấn của client.
+#### 6.2.2 Phân loại DNS
+- Root Name Server :là máy chủ tên miền chứa các thông tin, để tìm kiếm các máy chủ tên miền lưu trữ (authority) cho các tên miền thuộc mức cao nhất (top-level-domain)
+- Local Name Servers: là máy chủ tên miền chứa thông tin, để tìm kiếm máy chủ tên miền lưu trữ cho các tên miền thấp hơn. Nó thường được duy trì bởi các doanh nghiệp, các nhà cung cấp dịch vụ Internet (ISPs).
+  - DNS Recursor:Server này chứa thông tin và tìm kiếm tên miền lưu trữ thấp. Nó thường được duy trì bởi các doanh nghiệp, các nhà cung cấp dịch vụ Internet (ISPs) .Ví dụ như: Viettel,VNPT,FPT.
+  - TLD Nameserver: Là nhóm máy chủ DNS thấp hơn một bước so với máy chủ gốc trong hệ thống phân cấp DNS.Máy TLDs được chia dựa trên các khu vực địa lý(quốc gia) hoặc các lĩnh vực liên quan.
+  - Authoritative Nameserver: Là nameserver luôn lưu dữ bản ghi DNS cho phép xác định địa chỉ IP của máy tính đó từ tên
+
+
+#### 6.2.3 Hoạt động của DNS
+- Client sẽ gửi một truy vấn đến local name server nếu local name server không biết nó sẽ gửi tiếp truy vấn đến Root name server, Root name server cũng không biết chính xác IP nhưng nó sẽ biết local name server nào biết và nó gửi thông tin local name server biết cho local name server cũ để local name server cũ truy suất đến đó ,Sau khi local name server mới trả lời thì local name server cũ sẽ trả lời client và client tiến hành truy cập đến web server bằng địa chỉ IP đã hỏi đc
+
+![Alt](/thuctap/anh/Screenshot_44.png)
+#### 6.2.4 DNS caching
+Nó lưu trữ lại kết quả truy suất nhằm tránh mất thêm thời gian phải truy suất nhiều lần cho cùng 1 tên miền.
+- Bộ nhớ đệm DNS, một tính năng quan trọng của hệ thống DNS
+- Các phản hồi DNS được lưu vào bộ nhớ đệm
+- DNS servers sẽ loại bỏ thông tin được lưu trong bộ nhớ cache sau một khoảng thời gian (thường được đặt thành hai ngày).
+
+- các loại DNS caching
+  - CNAME Record (Bản ghi CNAME): tên miền chính muốn đặt một hoặc nhiều tên khác thì cần có bản ghi này
+  - A Record:Bản ghi này được sử dụng phổ biến để trỏ tên Website tới một địa chỉ IP cụ thể. Đây là bản ghi DNS đơn giản nhất, cho phép bạn thêm Time to Live (thời gian tự động tái lại bản ghi), một tên mới và Points To ( Trỏ tới IP nào).
+  - MX Record: Với bản ghi này, bạn có thể trỏ Domain đến Mail Server, đặt TTL, mức độ ưu tiên (Priority). MX Record chỉ định Server nào quản lý các dịch vụ Email của tên miền đó
+  - AAAA Record: Để trỏ tên miền đến một địa chỉ IPV6 Address, bạn sẽ cần sử dụng AAA Record. Nó cho phép bạn thêm Host mới, TTL,IPv6.
+  - TXT Record: Bạn cũng có thể thêm giá trị TXT, Host mới, Points To, TTL. Để chứa các thông tin định dạng văn bản của Domain, bạn sẽ cần đến bản ghi này
+  - SRV Record: Là bản ghi dùng để xác định chính xác dịch vụ nào chạy Port nào. Đay là Record đặc biệt trong DNS. Thông qua nó, bạn có thể thêm Name, Priority, Port, Weight, Points to, TTL
+  - NS Record: Với bản ghi này, bạn có thể chỉ định Name Server cho từng Domain phụ. Bạn có thể tạo tên Name Server, Host mới, TTL
+#### 6.2.5 cấu trúc của gói tin DNS
+Thông điệp truy vấn DNS bao gồm một `header` và `question record`; thông báo phản hồi DNS bao gồm một `header`, `question record`, `answer records`, các bản ghi có thẩm quyền và các bản ghi bổ sung.
+
+![Alt](/thuctap/anh/Screenshot_45.png)
+
+### 6.3 Giao thức ICMP
+#### 6.3.1 Tổng quan về giao thức ICMP
+- ICMP (Internet Control Message Protocol) là một giao thức ở tầng Network, nó không phải là giao thức truyền tải dữ liệu giữa các hệ thống với nhau mà chúng được xem như bộ định tuyến mạng.
+- Chức năng :
+  - Thông báo các lỗi xảy ra trong quá trình truyền đi của các gói dữ liệu trên mạng
+  - Thăm dò và quản lý quá trình hoạt động mạng
+  - Ngay sau khi phát hiện lỗi, ICMP sẽ tạo và gửi thông báo đến IP nguồn ngay lập tức
+- Cấu trúc của gói tin 
+
+![Alt](/thuctap/anh/Screenshot_46.png)
+
+  - TYPE (8 bit): là một số nguyên 8 bit để xác định thông điệp.
+  - CODE (8bit):cung cấp thêm thông tin về kiểu thông điệp.
+  - CHECKSUM(16 bit) : ICMP checksum như IP, nhưng ICMP checksum chỉ tính đến thông điệp ICMP.
+#### 6.3.2 các loại ICMP thường thấy
+- ICMP echo 
+
+## 7. Tài liệu tham khảo
 
 https://drive.google.com/drive/folders/1rZZvtadhlfc6JESp9qT_d9KRoI7ZGUYv
 
