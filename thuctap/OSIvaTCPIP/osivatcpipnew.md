@@ -64,6 +64,7 @@ Muc lục
     - [6.3 Giao thức ICMP](#63-giao-thức-icmp)
       - [6.3.1 Tổng quan về giao thức ICMP](#631-tổng-quan-về-giao-thức-icmp)
       - [6.3.2 các loại ICMP thường thấy](#632-các-loại-icmp-thường-thấy)
+    - [6.4 Giao thức RIP](#64-giao-thức-rip)
   - [7. Tài liệu tham khảo](#7-tài-liệu-tham-khảo)
 
 ## 1 Mô hình OSI
@@ -349,6 +350,11 @@ Thông điệp truy vấn DNS bao gồm một `header` và `question record`; th
 #### 6.3.2 các loại ICMP thường thấy
 - ICMP echo 
 
+### 6.4 Giao thức RIP
+![Alt](/thuctap/anh/Screenshot_64.png)
+- RIP(Routing information protocol): Là giao thức định tuyến dộng có khả năng tương thích với sự thay đổi của hệ thống mạng ,Khi ta định tuyến từ router R3 đi đến ip 172.16.0.0/16 thì sẽ có 2 con đường là 192.168.2.1 và 192.168.1.1 nhưng khi con router chứa 192.168.1.1 bị đứt mất cab đên con ip 172.16.0.0/16 thì các truy vấn cần đi qua R1 để đến 172.16.0.0 bị mất ,để khắc phục điều này thì người ta dùng giao thức RIP ,lúc này router R1 sẽ tự động quảng bá 172.16.0.0 cho R1 mỗi 30s 1 lần tương tự R2 cũng vậy.Nếu R1 gặp sự cố thì nó sẽ báo cho R3 để xóa định tuyến qua R1
+ 
+
 ## 7. Tài liệu tham khảo
 
 https://drive.google.com/drive/folders/1rZZvtadhlfc6JESp9qT_d9KRoI7ZGUYv
@@ -370,3 +376,5 @@ https://www.totolink.vn/article/149-mo-hinh-tcp-ip-la-gi-chuc-nang-cua-cac-tang-
 https://viblo.asia/p/tim-hieu-co-ban-ve-mo-hinh-tcpip-RQqKLkJp57z
 
 https://networkengineering.stackexchange.com/questions/6380/osi-model-and-networking-protocols-relationship
+
+https://www.youtube.com/watch?v=SsQzc7Hwwgg
