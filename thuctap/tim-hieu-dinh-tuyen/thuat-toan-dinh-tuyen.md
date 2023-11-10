@@ -1,3 +1,22 @@
+- [Định tuyến là gì?](#định-tuyến-là-gì)
+- [Phân loại định tuyến](#phân-loại-định-tuyến)
+- [Tìm hiểu chi tiết](#tìm-hiểu-chi-tiết)
+  - [Định tuyến tĩnh](#định-tuyến-tĩnh)
+  - [Định tuyến động](#định-tuyến-động)
+    - [Interior](#interior)
+    - [Exterior](#exterior)
+  - [Các giao thức được sử dụng rộng rãi](#các-giao-thức-được-sử-dụng-rộng-rãi)
+    - [RIP(Routing Information Protocol)](#riprouting-information-protocol)
+      - [Tổng quan về RIP](#tổng-quan-về-rip)
+      - [RIP 2](#rip-2)
+      - [Chứng thực trong RIP 2](#chứng-thực-trong-rip-2)
+    - [EIGRP(Enhanced Interior Gateway Routing Protocol)](#eigrpenhanced-interior-gateway-routing-protocol)
+      - [Tổng quan](#tổng-quan)
+    - [Cách thức hoạt động](#cách-thức-hoạt-động)
+    - [Cấu hình EIGRP](#cấu-hình-eigrp)
+    - [Chứng thực trong EIGRP](#chứng-thực-trong-eigrp)
+- [Tài liệu tham khảo](#tài-liệu-tham-khảo)
+
 ## Định tuyến là gì?
 Định tuyến là quá trình xác định đường đi tốt nhất trên một mạng máy tính nhằm giúp gói tin tới được đích tuân theo thủ tục nhất định nào đó ,thông qua các nút trung gian của bộ định tuyến router.Thông tin về những con đường này có thể được cập nhật tự động từ các router khác hoặc là do người quản trị mạng chỉ định cho router
 ## Phân loại định tuyến
@@ -13,6 +32,13 @@
 ### Định tuyến động
 - Là 1 dạng định tuyến mà khi ta cấu hình ở dạng này, Router sẽ thực hiện định tuyến 1 cách tự động (Automatically) mà ta không cần phải chỉ ra từng đường đi như định tuyến tĩnh nữa.
 - Định tuyến động có 2 dạng chính là Interior và Exterior
+
+![Alt](/thuctap/anh/Screenshot_68.png)
+
+Trước khi đi vào ta cần tìm hiểu trước về matric đã
+  - Matric là giá trị của đường đi 
+  - FD(Feasiable distance): Là khoảng cách khả thi ví dụ từ RE đến network mà qua router C thì FD=20
+  - AD(Advertised distance ): khoảng cách quảng cáo,Ví dụ từ từ RB đến network thì AD=10
 
 #### Interior
 - được triển khai bên trong 1 khu vực đặc biệt gọi là Autonomous System (AS)
@@ -117,3 +143,6 @@ R(config-if)#ip authentication key-chain eigrp <AS> <keychain>
 ```
 
 ## Tài liệu tham khảo
+https://www.youtube.com/watch?v=g9U9-bpXV30&list=PLnaGQB5hLTI6Y20FjqCsTO63efmE0_zZJ
+
+https://docs.google.com/document/d/1C1mkI4JabSQbQqNjUJyeSL9oJJLpRhI6L0fukaMbSEo/edit#heading=h.we3fcjb5u5te

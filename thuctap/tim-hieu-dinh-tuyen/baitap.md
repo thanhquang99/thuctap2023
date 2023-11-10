@@ -60,3 +60,9 @@ int f0/6
 switchport mode trunk
 switchport trunk native vlan 40
 ```
+
+- Bài tập 2
+
+![Alt](/thuctap/anh/Screenshot_69.png)
+
+![Alt](/thuctap/anh/Screenshot_70.png)
