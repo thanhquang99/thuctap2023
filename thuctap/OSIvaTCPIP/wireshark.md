@@ -40,9 +40,12 @@ Màu xanh nhạt|UDP|
 ## Thực hành phân tích gói tin trong wireshark
 - Phân tích gói tin TCP
 
-![Alt](/thuctap/anh/Screenshot_53.png)
+![Alt](/thuctap/anh/Screenshot_54.png)
 
 - Phân tích trong ảnh ta có thể nhìn thấy số thứ tự của gói tin, thời gian, ip source,ip destination, protocol ,kích thước gói tin,thông tin gói tin
 
 - Ví dụ ở gói tin thứ 34 thì ip nguồn là 192.168.68.54 ,ip đích là 172.67.134.232 ,sử dụng giao thức TCP,kích thước 54 byte ,port 50361 đến port 443, kèm theo ACK ,máy gửi có gửi 1 segment với độ dài là 0
+
+![Alt](/thuctap/anh/Screenshot_55.png)
+
 - Ở phần dưới cùng bên tay trái ta có thể thấy các tầng đã sử dụng của gói tin này(tham chiếu mô hình TCP/IP) :Frame, ethernet ,Internet,Transmission control protocol(TCP). Ta có thể thấy trong mô hình TCP/IP thì giao thức TCP sẽ nằm ở tầng trasport,nên quá trình truyền tin sử dụng giao thức TCP sẽ đi từ tầng transport xuống các tầng thấp hơn.
