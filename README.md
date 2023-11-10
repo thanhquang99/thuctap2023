@@ -7,4 +7,5 @@
 
 [4.So sánh vlan và subnet ](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/OSIvaTCPIP/vlan-and-subnet.md)
 
+[5.Tìm hiểu về wireshark](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/OSIvaTCPIP/wireshark.md)
 
