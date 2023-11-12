@@ -1,3 +1,6 @@
+- [Timf hiểu trước](#timf-hiểu-trước)
+  - [STP](#stp)
+  - [VTP](#vtp)
 - [Định tuyến là gì?](#định-tuyến-là-gì)
 - [Phân loại định tuyến](#phân-loại-định-tuyến)
 - [Tìm hiểu chi tiết](#tìm-hiểu-chi-tiết)
@@ -28,6 +31,17 @@
     - [Phân cấp](#phân-cấp)
     - [Cấu hình cơ bản](#cấu-hình-cơ-bản)
 - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
+## Timf hiểu trước
+### STP
+Trước khi tìm hiểu về giao thức chúng ta cần phải biết về `loop`
+- 127.0.0.1 được coi là địa chỉ loopback trên host . Loopback là một dạng tín hiệu mà khi ta gửi đi sẽ có tín hiệu phản hồi lại ,là cách tốt nhất để xác định thiết bị trong mạng ,dùng để chuẩn đoán và khắc phục sự cố trong mạng
+
+![Alt](/thuctap/anh/Screenshot_71.png)
+
+Nhìn vào hình ta có thể hiểu như này, khi PC gửi 1 gói tin quảng bá ra S1 thì S1 sẽ gửi gói tin quảng bá ra tất cả các cổng và khi S2 nhận được nó cũng sẽ gửi gói tin quảng bá ra tất cả các cổng,nhưng vấn đề ở đây đã sảy ra lag S1 gửi đến S2 rồi S2 lại gửi đến S1 thì sẽ tạo ra các vòng lặp vô hạn. Từ đây ta có cách giải quyết bằng địa chỉ loopback là xác định địa chỉ loopback của các thiết bị trong mạng vì mỗi thiết bị trong mạng có địa chỉ loopback là duy nhất. Khi xác định được rồi nó sẽ khóa cổng G0/2 ở S3 để chống vong lặp vô hạn đó. Trong Cisco có 1 giao là STP(Spanning Tree Protocol) sẽ giúp chúng ta làm điều đó.
+### VTP
+
+
 
 ## Định tuyến là gì?
 Định tuyến là quá trình xác định đường đi tốt nhất trên một mạng máy tính nhằm giúp gói tin tới được đích tuân theo thủ tục nhất định nào đó ,thông qua các nút trung gian của bộ định tuyến router.Thông tin về những con đường này có thể được cập nhật tự động từ các router khác hoặc là do người quản trị mạng chỉ định cho router
@@ -335,3 +349,5 @@ Router(config-router)# area-password MYPASSWORD
 https://www.youtube.com/watch?v=g9U9-bpXV30&list=PLnaGQB5hLTI6Y20FjqCsTO63efmE0_zZJ
 
 https://docs.google.com/document/d/1C1mkI4JabSQbQqNjUJyeSL9oJJLpRhI6L0fukaMbSEo/edit#heading=h.we3fcjb5u5te
+
+https://www.youtube.com/watch?v=MnbIYToBcv0
