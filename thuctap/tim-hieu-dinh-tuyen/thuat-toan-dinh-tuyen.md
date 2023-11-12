@@ -1,4 +1,4 @@
-- [Timf hiểu trước](#timf-hiểu-trước)
+- [Tìm hiểu trước về các khái niệm](#tìm-hiểu-trước-về-các-khái-niệm)
   - [STP](#stp)
   - [VTP](#vtp)
 - [Định tuyến là gì?](#định-tuyến-là-gì)
@@ -31,7 +31,7 @@
     - [Phân cấp](#phân-cấp)
     - [Cấu hình cơ bản](#cấu-hình-cơ-bản)
 - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
-## Timf hiểu trước
+## Tìm hiểu trước về các khái niệm
 ### STP
 Trước khi tìm hiểu về giao thức chúng ta cần phải biết về `loop`
 - 127.0.0.1 được coi là địa chỉ loopback trên host . Loopback là một dạng tín hiệu mà khi ta gửi đi sẽ có tín hiệu phản hồi lại ,là cách tốt nhất để xác định thiết bị trong mạng ,dùng để chuẩn đoán và khắc phục sự cố trong mạng
@@ -40,7 +40,7 @@ Trước khi tìm hiểu về giao thức chúng ta cần phải biết về `lo
 
 Nhìn vào hình ta có thể hiểu như này, khi PC gửi 1 gói tin quảng bá ra S1 thì S1 sẽ gửi gói tin quảng bá ra tất cả các cổng và khi S2 nhận được nó cũng sẽ gửi gói tin quảng bá ra tất cả các cổng,nhưng vấn đề ở đây đã sảy ra lag S1 gửi đến S2 rồi S2 lại gửi đến S1 thì sẽ tạo ra các vòng lặp vô hạn. Từ đây ta có cách giải quyết bằng địa chỉ loopback là xác định địa chỉ loopback của các thiết bị trong mạng vì mỗi thiết bị trong mạng có địa chỉ loopback là duy nhất. Khi xác định được rồi nó sẽ khóa cổng G0/2 ở S3 để chống vong lặp vô hạn đó. Trong Cisco có 1 giao là STP(Spanning Tree Protocol) sẽ giúp chúng ta làm điều đó.
 ### VTP
-
+VTP viết tắt của từ VLAN Trunking Protocol là giao thức độc quyền của Cisco hoạt động ở lớp 2 của mô hình OSI. VTP giúp cho việc cấu hình VLAN luôn đồng nhất khi thêm, xóa, sửa thông tin về VLAN trong một hệ thống mạng. VTP được thiết lập để giải quyết các vấn đề nằm bên trong hoạt động của môi trường mạng VLAN.
 
 
 ## Định tuyến là gì?
@@ -350,4 +350,4 @@ https://www.youtube.com/watch?v=g9U9-bpXV30&list=PLnaGQB5hLTI6Y20FjqCsTO63efmE0_
 
 https://docs.google.com/document/d/1C1mkI4JabSQbQqNjUJyeSL9oJJLpRhI6L0fukaMbSEo/edit#heading=h.we3fcjb5u5te
 
-https://www.youtube.com/watch?v=MnbIYToBcv0
+https://www.youtube.com/watch?v=ooVUeO_WCqw
