@@ -180,22 +180,28 @@ R(config-if)#ip authentication key-chain eigrp <AS> <keychain>
 - Sử dụng area để giảm yêu cầu về CPU, memory của OSPF router và lưu lượng định tuyến.
 - Hỗ trợ chứng thực Plain text và MD5.
 #### Quá trình xây dựng bảng định tuyến (hoạt động của OSPF)
-- Bước 1: Thiết lập neighbor (hàng xóm): 
+- Bước 1: Bầu router ID :
+  - Khi bật OSPF các router bầu 1 giá trị router id để định danh duy nhất cho nó trong 1 vùng OSPF
+  - Nó có địa chỉ giống như 1 địa chỉ IP :`1.1.1.1`
+  - Nó sẽ tự động so sánh ai có IP cao nhất sẽ làm routẻr ID ,ưu tiêm loopback  làm router ID
 
-  - Được gửi theo chu kỳ 10s/lần
-  - Gửi đến địa chỉ Multicast dành riêng cho OFPF là 224.0.0.5 đến tất cả router chạy OSPF
-  - Mục đích: tìm kiếm hàng xóm, thiết lập và duy trì mối quan hệ này.
-  - chứa các điều kiện router thiết lập mối quan hệ láng giềng bao gồm:
-  - Router_ID: Giá trị định danh duy nhất cho Router khi chạy OSPF. Có định dạng của 1 địa chỉ IP (A.B.C.D)
-  - Area-ID: Có giá trị từ 0-65535. Được định nghĩa các miền Router chạy OSPF
-  - Các Router trong cùng miền OSPF mới có thể thiết lập mối quan hệ với nhau.
-  - Area 0: back bone area
-  - Subnetmask: 2 router cùng kết nối với nhau trên cùng subnet mask
-  - Tham số xác thực(nếu có)
 
-- Bước2: Cập nhật thông tin định tuyến
-  - Các router gửi các bản tin (link state update) gửi tới 224.0.0.5
-  - Khi Router nhận được bản tin ,phản hồi lại bằng bản tin LSACK - Link state ACK, đồng thời tạo bản sao gửi cho các router còn lại trong miền OSPF, Đồng bộ cơ sở dữ liệu
+- Bước 2:Thiết lập láng giềng
+  - Các router sẽ bắt đầu gửi các gói tin hello để xác định các neighbor của nó
+  - Các thông số có trong gói tin hello:
+  - Aria ID : Khi 1 con router chạy 0SPF thì nó phải ghi nhớ tất cả bản đồ mạng cảu các con router khác nên ta chia ra các vùng nhỏ nhằm mục đích giảm lưu trữ và chỉ cần 1 con router giao giữa các aria phải nhớ toàn bộ của các vùng giao nhau thôi
+  - IP subnet: nó phải cung ip subnet mask
+  - Hello timer - dead timer : 10s -40s
+  - Authurtication :Xác thực trên OSPF để khi có 1 con router lạ cắm vào mạng cần phải thiết lập quá trình tham gia
+  - Stub: Vùng đặc biệt như 1 ngõ cụt (thường không được bật)
+- Bước 3 : Xây dựng bảng LSDB
+
+Khi các con router có rất nhiều láng giềng thì không thể con nào cũng gủi định tuyến cho nhau đc ,cần phải giamr thiểu quá trình này xuống nên ta cần bầu lớp truỏng và lớp phó để quản lý,DR là lớp trưởng , BDR là lớp phó, DR other là thành viên
+
+  - DR :gửi cho BDR và DR other
+  - BDR:gửi cho DR và DR other 
+  - DR other : chỉ gửi thông tin cho DR và BDR thông qua 224.0.0.6
+- Bước 4 :Thiết lập bảng định tuyến: Xây dựng bảng định tuyến bằng metric dựa vào bandwith , mỗi 1 công ethernet hay gigabit hay fastethernet sẽ có metric khác nhau, từ đó tìm ra đường đi ngắn nhất. OSPF sử dụng thuật toán Shortest Path First (Dijkstra) để xây dựng và tính toán đường đi ngắn nhất tới mạng đích
 
 #### Cấu hình OSPF
 ```
