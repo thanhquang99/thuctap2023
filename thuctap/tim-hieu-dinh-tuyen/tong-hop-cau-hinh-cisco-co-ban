@@ -1,7 +1,7 @@
 - [Tổng hợp cấu hình cisco cơ bản](#tổng-hợp-cấu-hình-cisco-cơ-bản)
   - [Công nghệ Ethernet Lan](#công-nghệ-ethernet-lan)
     - [Mạng Lan là gì?](#mạng-lan-là-gì)
-    - [Cách xác định địa chỉ Mac trong windows: Địa chỉ Mac trên mỗi card mạng là duy nhất, ta có thể vào `cmd` của máy tính và gõ dòng lệnh `ipconfig/all` .Nó sẽ show cho tất cả các card mạng (cả thật và ảo)](#cách-xác-định-địa-chỉ-mac-trong-windows-địa-chỉ-mac-trên-mỗi-card-mạng-là-duy-nhất-ta-có-thể-vào-cmd-của-máy-tính-và-gõ-dòng-lệnh-ipconfigall-nó-sẽ-show-cho-tất-cả-các-card-mạng-cả-thật-và-ảo)
+    - [Cách xác định địa chỉ Mac trong windows:](#cách-xác-định-địa-chỉ-mac-trong-windows)
     - [Phân tích quá trình trao đổi dữ liệu giữa các hệ thống trong mạng Lan](#phân-tích-quá-trình-trao-đổi-dữ-liệu-giữa-các-hệ-thống-trong-mạng-lan)
     - [Chuyển mạch ethernet switch :](#chuyển-mạch-ethernet-switch-)
     - [Các kiểu truyền thông](#các-kiểu-truyền-thông)
@@ -19,7 +19,8 @@
 ## Công nghệ Ethernet Lan
 ### Mạng Lan là gì?
 Lan là một tập hợp các hệ thống mạng máy tính được kết nối nội bộ với nhau và được giới hạn trong 1 khu vực nhất định. Vlan là công nghệ được sinh ra để ảo hóa các mạng Lan ,nó cho phép từ 1 switch tạo thành nhiều mạng Lan ảo nhằm mục đích tiết kiệm chi phí về phần cứng , vì chẳng lẽ cứ mỗi mạng Lan ta phải dùng 1 switch riêng ư?
-### Cách xác định địa chỉ Mac trong windows: Địa chỉ Mac trên mỗi card mạng là duy nhất, ta có thể vào `cmd` của máy tính và gõ dòng lệnh `ipconfig/all` .Nó sẽ show cho tất cả các card mạng (cả thật và ảo)
+### Cách xác định địa chỉ Mac trong windows:
+ Địa chỉ Mac trên mỗi card mạng là duy nhất, ta có thể vào `cmd` của máy tính và gõ dòng lệnh `ipconfig/all` .Nó sẽ show cho tất cả các card mạng (cả thật và ảo)
 
 ![Alt](/thuctap/anh/Screenshot_73.png)
 ### Phân tích quá trình trao đổi dữ liệu giữa các hệ thống trong mạng Lan
