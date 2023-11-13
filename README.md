@@ -3,11 +3,11 @@
 
 [2.Tìm hiểu về wireshark](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/OSIvaTCPIP/wireshark.md)
 
-[3.Tổng hợp nội dung video vnpro ](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/OSIvaTCPIP/videovnpro.md)
+[3.Tổng hợp nội dung video vnpro ](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/tim-hieu-dinh-tuyen/videovnpro.md)
 
-[4. Router và switch ](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/OSIvaTCPIP/routervaswitch.md)
+[4. Router và switch ](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/tim-hieu-dinh-tuyen/routervaswitch.md)
 
-[5.So sánh vlan và subnet ](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/OSIvaTCPIP/vlan-and-subnet.md)
+[5.So sánh vlan và subnet ](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/tim-hieu-dinh-tuyen/vlan-and-subnet.md)
 
 [6.Tìm hiểu về định tuyến](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/tim-hieu-dinh-tuyen/thuat-toan-dinh-tuyen.md)
 

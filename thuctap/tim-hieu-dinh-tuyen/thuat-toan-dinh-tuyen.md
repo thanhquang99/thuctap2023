@@ -30,6 +30,7 @@
     - [IS-IS Neighbors](#is-is-neighbors)
     - [Phân cấp](#phân-cấp)
     - [Cấu hình cơ bản](#cấu-hình-cơ-bản)
+  - [Một vài câu lệnh hay](#một-vài-câu-lệnh-hay)
 - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
 ## Tìm hiểu trước về các khái niệm
 ### STP
@@ -350,7 +351,11 @@ Router(config-router)# area-password MYPASSWORD
 
 ```
 
+### Một vài câu lệnh hay
+- `ping` dùng để xem 2 lớp mạng hay 2 máy tính có thông nhau ko gồm 2 quá trình gửi đi và gửi về
+- `tracert` dùng để xem quá trình truyền gói tin đi qua những địa chỉ nào
 
+![Alt](/thuctap/anh/Screenshot_72.png)
 ## Tài liệu tham khảo
 https://www.youtube.com/watch?v=g9U9-bpXV30&list=PLnaGQB5hLTI6Y20FjqCsTO63efmE0_zZJ
 

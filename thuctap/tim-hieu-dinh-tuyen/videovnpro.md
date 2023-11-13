@@ -6,7 +6,9 @@ Mục lục
 - [Định tuyến đường đi](#định-tuyến-đường-đi)
   - [Cấp dhcp từ router cho máy tính](#cấp-dhcp-từ-router-cho-máy-tính)
   - [Tìm hiểu về Vlan](#tìm-hiểu-về-vlan)
+  - [Back up file cấu hình và IOS](#back-up-file-cấu-hình-và-ios)
   - [Tìm hiểu về vlan trunk](#tìm-hiểu-về-vlan-trunk)
+  - [Tìm hiểu về VTP trong vlan trunking](#tìm-hiểu-về-vtp-trong-vlan-trunking)
 - [Tài liệu tham khảo :](#tài-liệu-tham-khảo-)
 
 
@@ -177,9 +179,41 @@ Switch(config)#interface range f0/1-8
 Switch(config-if)#switchport mode access
 Switch(config-if)#switchport access vlan n
 ```
+
+### Back up file cấu hình và IOS
+- Để back up file cấu hình ta có 2 sựa lựa chọn là `tftp server` hoặc `ftp server`
+- `ftp server` là sự lựa chọn tốt hơn vì nó tránh làm mất mát và có khả năng khôi phục được file trong quá trình gửi đi
+- Để cấu hình `ftp server` ta cần đặt `user name` và `password` còn `tftp server thì không`
+- Ta cần phải hiểu thêm về bộ nhớ `Ram` và `NVRam`
+  - Ram là bộ nhớ tạm thời nếu mất điện thì sẽ mất hết dữ liệu : file `running config`
+  - NVRam là bộ nhớ mà mất mất điện đi vẫn còn lưu :file `startup config`
+copy running config vào ftp server
+```
+Router(config)#ip ftp username thanhquang
+Router(config)#ip ftp password 123456
+Router(config)#end
+Router#copy running-config ftp:
+Address or name of remote host []? 192.168.1.2
+Destination filename [Router-confg]? runningconfig.cfg
+```
+copy trở lại router
+```
+Router#copy ftp: running-config 
+Address or name of remote host []? 192.168.1.2
+Source filename []? runningconfig.cfg
+Destination filename [running-config]? 
+```
+
+- Còn tftp server thì làm  tương tự nhưng không cần đặt user và password
+- Hệ điều hành đã làm ở trên
+
+
 ### Tìm hiểu về vlan trunk
 - Đầu tiên ta đã biết Vlan là chia ra các Lan ảo từ 1 Lan thật , vậy để các Vlan liên lạc với nhau chẳng lẽ ta lại phải nối nhiều đây lên router để chúng liên lạc với nhau? Vlan trunk sinh ra là để giải quyết điều đó, Nó có tác dụng gộp các Vlan thành 1 dây nối và để biết kết nối đó thuộc Vlan nào thì nó sẽ được đánh dấu bằng thẻ tag để phân biệt
 - Để có thể kết nối trunking thì ta phải kết nối vào trunking port
+
+### Tìm hiểu về VTP trong vlan trunking
+
 
 ## Tài liệu tham khảo :
 https://www.youtube.com/watch?v=55YDCAfz75k&list=PLnaGQB5hLTI6Y20FjqCsTO63efmE0_zZJ&index=4
