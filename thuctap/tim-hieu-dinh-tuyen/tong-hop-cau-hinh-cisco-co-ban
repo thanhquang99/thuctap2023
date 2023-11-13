@@ -20,7 +20,7 @@
 ### Mạng Lan là gì?
 Lan là một tập hợp các hệ thống mạng máy tính được kết nối nội bộ với nhau và được giới hạn trong 1 khu vực nhất định. Vlan là công nghệ được sinh ra để ảo hóa các mạng Lan ,nó cho phép từ 1 switch tạo thành nhiều mạng Lan ảo nhằm mục đích tiết kiệm chi phí về phần cứng , vì chẳng lẽ cứ mỗi mạng Lan ta phải dùng 1 switch riêng ư?
 ### Cách xác định địa chỉ Mac trong windows:
- Địa chỉ Mac trên mỗi card mạng là duy nhất, ta có thể vào `cmd` của máy tính và gõ dòng lệnh `ipconfig/all` .Nó sẽ show cho tất cả các card mạng (cả thật và ảo)
+Địa chỉ Mac trên mỗi card mạng là duy nhất, ta có thể vào cmd của máy tính và gõ dòng lệnh ipconfig/all .Nó sẽ show cho tất cả các card mạn(cả thật và ảo)
 
 ![Alt](/thuctap/anh/Screenshot_73.png)
 
@@ -42,7 +42,7 @@ Ban đầu máy gửi sẽ không có địa chỉ MAC của máy nhận,vậy �
 ### Cấu trúc địa chỉ MAC :
  1 địa chỉ MAC sẽ gồm 48 bit trong đó chia ra 24 bit đầu để xác định hãng sản xuất,24 bit sau để định danh từng card mạng
   - 48 Bit này được biểu diễn thành các số hecxa, mỗi 4 bit tạo thành 1 số hecxa
-  - Cấu trúc biểu diễn: thường được biểu diễn thành 2 số hecxa , cách nhau bới `:`hoặc `-`
+  - Cấu trúc biểu diễn: thường được biểu diễn thành 2 số hecxa , cách nhau bới : hoặc - 
 
 ### Tiêu chuẩn công nghệ Ethernet Lan
   - IEEE 802.3: là cổng ethernet và có tốc độ là 10MB
@@ -80,29 +80,37 @@ Ban đầu máy gửi sẽ không có địa chỉ MAC của máy nhận,vậy �
 
 ### Thực hành
 - Đặt lại hostname
+
+
 ```
 Router(config)#hostname [name]
 ```
+
+
 - Đặt password enable và console
 
 ```
 Router(config)#line console 0
 Router(config-line)#password 123456
 ```
+
 ```
 Router(config)#enable password 123456
 ```
+
 - Mã hóa password để không hiện khi thực hiện câu lệnh show
 
 ```
 Router(config)#service password-encryption 
 ```
+
 - Tính năng tự động đăng xuất Exec-Timeout trên kết nối Console: Do có thể khi ta cấu hình xong mà quên không ngắt kết nối console với timer 1p30s
 
 ```
 Router(config)#line console 0
 Router(config-line)#exec-timeout 1 30
 ```
+
 - Khai báo địa chỉ ip trên các cổng
 
 ```
@@ -110,10 +118,13 @@ Router(config)#interface GigabitEthernet0/0/0
 Router(config-if)#ip address 192.168.1.1 255.255.255.0
 Router(config-if)#no shutdown 
 ```
+
 ta cũng có thể cấu hình 1 nhóm các cổng bằng cách sau:
+
 ```
 Router(config)#interface range gigabitEthernet 0/0/0-2
 ```
+
 - Các cổng trên router cũng có thể xin ip tự động bằng dhcp
 
 ```
@@ -127,6 +138,7 @@ Router(config-if)#ip address dhcp
 Router(config)#line console 0
 Router(config-line)#logging synchronous 
 ```
+
 - Không tự động phân giải tên miên: Khi ta không may gõ một vài chữ linh tinh thì cisco sẽ tự động hiểu rằng tự động phân giải tên miền ,quá trình này sẽ tốn rất nhiều thời gian ,để kết thúc quá trình đó thì ta có thể gõ`Ctrl+shift+6`,để tắt chế độ này ta có thể cấu hình
 
 ```
