@@ -23,10 +23,12 @@ Lan là một tập hợp các hệ thống mạng máy tính được kết n�
  Địa chỉ Mac trên mỗi card mạng là duy nhất, ta có thể vào `cmd` của máy tính và gõ dòng lệnh `ipconfig/all` .Nó sẽ show cho tất cả các card mạng (cả thật và ảo)
 
 ![Alt](/thuctap/anh/Screenshot_73.png)
+
 ### Phân tích quá trình trao đổi dữ liệu giữa các hệ thống trong mạng Lan
+
 ![Alt](/thuctap/anh/Screenshot_74.png)
 
-Ta có thể nhìn vào hình và phân tích: Từ PC1 muốn gửi gói tin sang PC2 thì sẽ bao gồm `data` và được gắn thêm header của các tầng trong mô hình OSI gồm `source ip`,`destination ip`,`source MAC`,`Destination MAC`
+Ta có thể nhìn vào hình và phân tích: Từ PC1 muốn gửi gói tin sang PC2 thì sẽ bao gồm `data` và được gắn thêm header của các tầng trong mô hình OSI gồm  source ip ,destination ip , source MAC , Destination MAC
 
 ### Chuyển mạch ethernet switch :
   - Để biết tập tin sẽ gửi đến đâu thì cần phải có địa chỉ nguồn và đích, và bảng `Mac table` là bảng lưu lại địa chỉ MAC của đích ứng với từng port của switch, địa chỉ đó chỉ lưu được tầm 5p nếu không có phản hồi sẽ tự động bị xóa nhằm tiết kiệm dữ liệu
@@ -130,34 +132,7 @@ Router(config-line)#logging synchronous
 ```
 Router(config)#no ip domain-lookup 
 ```
-- Back up file cấu hình và IOS
-  - Để back up file cấu hình ta có 2 sựa lựa chọn là `tftp server` hoặc `ftp server`
-  - `ftp server` là sự lựa chọn tốt hơn vì nó tránh làm mất mát và có khả năng khôi phục được file trong quá trình gửi đi
-  - Để cấu hình `ftp server` ta cần đặt `user name` và `password` còn `tftp server thì không`
-  - Ta cần phải hiểu thêm về bộ nhớ `Ram` và `NVRam`
-  - Ram là bộ nhớ tạm thời nếu mất điện thì sẽ mất hết dữ liệu : file `running config`
-  - NVRam là bộ nhớ mà mất mất điện đi vẫn còn lưu :file `startup config`
 
-
-copy running config vào ftp server
-```
-Router(config)#ip ftp username thanhquang
-Router(config)#ip ftp password 123456
-Router(config)#end
-Router#copy running-config ftp:
-Address or name of remote host []? 192.168.1.2
-Destination filename [Router-confg]? runningconfig.cfg
-```
-copy trở lại router
-```
-Router#copy ftp: running-config 
-Address or name of remote host []? 192.168.1.2
-Source filename []? runningconfig.cfg
-Destination filename [running-config]? 
-```
-
-  - Còn tftp server thì làm  tương tự nhưng không cần đặt user và password
-  - Hệ điều hành đã làm ở trên
 
 
 ## Tài liệu tham khảo 
