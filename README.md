@@ -11,3 +11,4 @@
 
 [6.Tìm hiểu về định tuyến](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/tim-hieu-dinh-tuyen/thuat-toan-dinh-tuyen.md)
 
+[7.Tổng hợp cấu hình cisco cơ bản](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/tim-hieu-dinh-tuyen/tong-hop-cau-hinh-cisco-co-ban)
