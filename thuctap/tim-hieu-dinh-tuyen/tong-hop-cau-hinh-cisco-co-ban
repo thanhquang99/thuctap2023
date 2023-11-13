@@ -1,0 +1,163 @@
+- [Tổng hợp cấu hình cisco cơ bản](#tổng-hợp-cấu-hình-cisco-cơ-bản)
+  - [Công nghệ Ethernet Lan](#công-nghệ-ethernet-lan)
+    - [Mạng Lan là gì?](#mạng-lan-là-gì)
+    - [Cách xác định địa chỉ Mac trong windows: Địa chỉ Mac trên mỗi card mạng là duy nhất, ta có thể vào `cmd` của máy tính và gõ dòng lệnh `ipconfig/all` .Nó sẽ show cho tất cả các card mạng (cả thật và ảo)](#cách-xác-định-địa-chỉ-mac-trong-windows-địa-chỉ-mac-trên-mỗi-card-mạng-là-duy-nhất-ta-có-thể-vào-cmd-của-máy-tính-và-gõ-dòng-lệnh-ipconfigall-nó-sẽ-show-cho-tất-cả-các-card-mạng-cả-thật-và-ảo)
+    - [Phân tích quá trình trao đổi dữ liệu giữa các hệ thống trong mạng Lan](#phân-tích-quá-trình-trao-đổi-dữ-liệu-giữa-các-hệ-thống-trong-mạng-lan)
+    - [Chuyển mạch ethernet switch :](#chuyển-mạch-ethernet-switch-)
+    - [Các kiểu truyền thông](#các-kiểu-truyền-thông)
+    - [Giao thức ARP :](#giao-thức-arp-)
+    - [Cấu trúc địa chỉ MAC :](#cấu-trúc-địa-chỉ-mac-)
+    - [Tiêu chuẩn công nghệ Ethernet Lan](#tiêu-chuẩn-công-nghệ-ethernet-lan)
+    - [Cơ chế truyền half và full duplex](#cơ-chế-truyền-half-và-full-duplex)
+    - [Các chuẩn carb dồng](#các-chuẩn-carb-dồng)
+  - [Cấu hình Cisco](#cấu-hình-cisco)
+    - [cách cấu hình thiết bị](#cách-cấu-hình-thiết-bị)
+    - [Thực hành](#thực-hành)
+  - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
+
+# Tổng hợp cấu hình cisco cơ bản
+## Công nghệ Ethernet Lan
+### Mạng Lan là gì?
+Lan là một tập hợp các hệ thống mạng máy tính được kết nối nội bộ với nhau và được giới hạn trong 1 khu vực nhất định. Vlan là công nghệ được sinh ra để ảo hóa các mạng Lan ,nó cho phép từ 1 switch tạo thành nhiều mạng Lan ảo nhằm mục đích tiết kiệm chi phí về phần cứng , vì chẳng lẽ cứ mỗi mạng Lan ta phải dùng 1 switch riêng ư?
+### Cách xác định địa chỉ Mac trong windows: Địa chỉ Mac trên mỗi card mạng là duy nhất, ta có thể vào `cmd` của máy tính và gõ dòng lệnh `ipconfig/all` .Nó sẽ show cho tất cả các card mạng (cả thật và ảo)
+
+![Alt](/thuctap/anh/Screenshot_73.png)
+### Phân tích quá trình trao đổi dữ liệu giữa các hệ thống trong mạng Lan
+![Alt](/thuctap/anh/Screenshot_74.png)
+
+Ta có thể nhìn vào hình và phân tích: Từ PC1 muốn gửi gói tin sang PC2 thì sẽ bao gồm `data` và được gắn thêm header của các tầng trong mô hình OSI gồm `source ip`,`destination ip`,`source MAC`,`Destination MAC`
+
+### Chuyển mạch ethernet switch :
+  - Để biết tập tin sẽ gửi đến đâu thì cần phải có địa chỉ nguồn và đích, và bảng `Mac table` là bảng lưu lại địa chỉ MAC của đích ứng với từng port của switch, địa chỉ đó chỉ lưu được tầm 5p nếu không có phản hồi sẽ tự động bị xóa nhằm tiết kiệm dữ liệu
+  - Ban đầu bảng Mac sẽ không có ,và khi ta muốn gửi tập tin đi thì sẽ gửi broadcast đẩy ra tất cả các cổng trừ nó ra,khi nào ip trùng thì sẽ gửi lại MAC của nó về và bổ xung vào bảng MAC
+### Các kiểu truyền thông 
+- Broadcast : là nhân bản tập tin và đẩy ra tất cả host cùng lớp mạng
+- unicast : Là từ 1 máy gửi đến 1 máy trong cùng 1 lớp mạng
+- Multicast: Là từ 1 máy gửi đến 1 nhóm máy trong cùng 1 lớp mạng
+### Giao thức ARP : 
+Ban đầu máy gửi sẽ không có địa chỉ MAC của máy nhận,vậy để có địa chỉ MAC của máy nhận thì nó sẽ gửi đi broadcast đến tất cả các cổng trừ nó để hỏi xem ai có địa chỉ IP này thì gửi địa chỉ MAC về đây
+### Cấu trúc địa chỉ MAC :
+ 1 địa chỉ MAC sẽ gồm 48 bit trong đó chia ra 24 bit đầu để xác định hãng sản xuất,24 bit sau để định danh từng card mạng
+  - 48 Bit này được biểu diễn thành các số hecxa, mỗi 4 bit tạo thành 1 số hecxa
+  - Cấu trúc biểu diễn: thường được biểu diễn thành 2 số hecxa , cách nhau bới `:`hoặc `-`
+
+### Tiêu chuẩn công nghệ Ethernet Lan
+  - IEEE 802.3: là cổng ethernet và có tốc độ là 10MB
+  - IEEE 802.3u :Được làm từ carb đồng và có tốc độ 100MB
+  - IEEE 802.3z : Được làm từ carb quang và có tốc độ lên đến 1GB
+  - IEEE 802.3ab : Được làm từ carb đồng và có tốc độ 1GB
+### Cơ chế truyền half và full duplex
+- Cơ chế truyền `half duplex`: Là cơ chế truyền mà chỉ có 1 máy truyền trên sơ đồ mạng này
+- Cơ chế truyền `full duplex`: Là cơ chế cho phép nhiều máy truyền trong sơ đồ mạng
+- CSMA/CD : khi ta truyền ở chế độ `half duplex` thì các máy sẽ gửi tín hiệu xem có máy nào đang gửi không để tránh đụng độ,nhưng khi cả 2 máy cùng nhận đc đường truyền đang rảnh và gửi đi cùng lúc sẽ dẫn đến việc đụng độ thì CSMA/CD sẽ tạo ra độ trễ để các máy không thể cùng lúc gửi được do có timer nên thời gian sẽ cách nhau và không cùng thời điểm
+
+### Các chuẩn carb dồng
+- Chuẩn carb đồng : Carb đồng có 2 loại là có bọc chống nhiều và không bọc ,bọc chống nhiễu dùng trong các trường hợp từ trường ảnh hướng đến việc truyền dữ liệu.
+- Chuẩn T-568B :Trắng cam - Cam - Trắng xanh lá - Xanh dương - Trắng xanh dương - Xanh lá - Trắng nâu - Nâu
+- Chuẩn T-568A :Trắng xanh lá - Xanh lá - Trắng cam - Xanh dương - Trắng xanh dương - Cam - Trắng nâu - Nâu
+
+![Alt](/thuctap/anh/Screenshot_75.png)
+
+- Từ đây ta sinh ra 2 kiểu carb thẳng và carb chéo. Carb thẳng là 2 đầu cùng theo chuẩn A hoặc B còn carb chéo thừ là 1 đầu A 1 đầu B
+- Cách phân biệt carb thằng và chéo: cùng nhóm ta dùng carb chéo và khác nhóm ta dùng carb thẳng .Nhưn bây giờ công nghệ tiên tiến ta có thể dùng carb thẳng mà có thể nối tất cả.
+  - Nhóm 1 :switch ,hub
+  - Nhóm 2: Còn lại 
+## Cấu hình Cisco
+### cách cấu hình thiết bị
+- Để cấu hình thiết bị ta có thể cắm carb vào cổng `console` và 1 đầu vào máy tính của chúng ta ,máy tính có phần mềm để cấu hình như secureCRT, Putty, Hyper Terminal.
+- Sisco có 3 bộ nhớ mà ta cần phải nhớ là `Ram`, `NVRam`, `flash`
+  - `Ram`: lưu lại các dữ liệu mà thiết bị đang chạy một cách tạm thời,khi ngắt nguồn thì bộ nhớ sẽ bị xóa sạch
+  - `NVRam`: Lưu lại dữ liệu mà kể cả khi ta tắt nguồn vẫn lưu
+  - `flash` : Lưu lại hệ điều hành của thiết bị
+
+- Ta cũng cần phải nhớ thêm 3 mode nữa là `#`, `config`, `config-if`
+  - `#` là mode người dùng ta có thể hiểu như ta là người dùng muốn xem cái gì đó thì ở mode này
+  - `config` là mode dùng để cấu hình
+  - `config-if` là khi ta vào thẳng các interface để cấu hình
+
+### Thực hành
+- Đặt lại hostname
+```
+Router(config)#hostname [name]
+```
+- Đặt password enable và console
+
+```
+Router(config)#line console 0
+Router(config-line)#password 123456
+```
+```
+Router(config)#enable password 123456
+```
+- Mã hóa password để không hiện khi thực hiện câu lệnh show
+
+```
+Router(config)#service password-encryption 
+```
+- Tính năng tự động đăng xuất Exec-Timeout trên kết nối Console: Do có thể khi ta cấu hình xong mà quên không ngắt kết nối console với timer 1p30s
+
+```
+Router(config)#line console 0
+Router(config-line)#exec-timeout 1 30
+```
+- Khai báo địa chỉ ip trên các cổng
+
+```
+Router(config)#interface GigabitEthernet0/0/0
+Router(config-if)#ip address 192.168.1.1 255.255.255.0
+Router(config-if)#no shutdown 
+```
+ta cũng có thể cấu hình 1 nhóm các cổng bằng cách sau:
+```
+Router(config)#interface range gigabitEthernet 0/0/0-2
+```
+- Các cổng trên router cũng có thể xin ip tự động bằng dhcp
+
+```
+Router(config)#interface GigabitEthernet0/0/1
+Router(config-if)#ip address dhcp
+```
+
+- Tính năng chống trôi dòng lệnh : Khi ta đang cấu hình mà có thông báo thì sẽ bị ảnh hưởng và làm mất thẩm mỹ
+
+```
+Router(config)#line console 0
+Router(config-line)#logging synchronous 
+```
+- Không tự động phân giải tên miên: Khi ta không may gõ một vài chữ linh tinh thì cisco sẽ tự động hiểu rằng tự động phân giải tên miền ,quá trình này sẽ tốn rất nhiều thời gian ,để kết thúc quá trình đó thì ta có thể gõ`Ctrl+shift+6`,để tắt chế độ này ta có thể cấu hình
+
+```
+Router(config)#no ip domain-lookup 
+```
+- Back up file cấu hình và IOS
+  - Để back up file cấu hình ta có 2 sựa lựa chọn là `tftp server` hoặc `ftp server`
+  - `ftp server` là sự lựa chọn tốt hơn vì nó tránh làm mất mát và có khả năng khôi phục được file trong quá trình gửi đi
+  - Để cấu hình `ftp server` ta cần đặt `user name` và `password` còn `tftp server thì không`
+  - Ta cần phải hiểu thêm về bộ nhớ `Ram` và `NVRam`
+  - Ram là bộ nhớ tạm thời nếu mất điện thì sẽ mất hết dữ liệu : file `running config`
+  - NVRam là bộ nhớ mà mất mất điện đi vẫn còn lưu :file `startup config`
+
+
+copy running config vào ftp server
+```
+Router(config)#ip ftp username thanhquang
+Router(config)#ip ftp password 123456
+Router(config)#end
+Router#copy running-config ftp:
+Address or name of remote host []? 192.168.1.2
+Destination filename [Router-confg]? runningconfig.cfg
+```
+copy trở lại router
+```
+Router#copy ftp: running-config 
+Address or name of remote host []? 192.168.1.2
+Source filename []? runningconfig.cfg
+Destination filename [running-config]? 
+```
+
+  - Còn tftp server thì làm  tương tự nhưng không cần đặt user và password
+  - Hệ điều hành đã làm ở trên
+
+
+## Tài liệu tham khảo 
+https://docs.google.com/spreadsheets/d/1KvkRu6_ODhJpgE8sKbHGL2zQRAj7yvF8/edit#gid=1761363795
