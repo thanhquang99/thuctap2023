@@ -177,6 +177,8 @@ no sh
 |Tạo , xóa và cấu hình Vlan|Có|Không|Chỉ trên local|
 |Đồng bộ|Có|Có|không|
 |Forward|Có|Có|Có|
+
+
 Trong VTP thì `revision number` là quan trọng nhất, mỗi khi database thay đổi thì chỉ số `revision number` lại tăng lên ,các switch lấy chỉ số này để thực hiện dồng bộ, cái có chỉ số thấp sẽ đồng bộ theo cái cao.Chính vì như thế nên khi ta thêm 1 switch mới mà có chỉ số này cao vào mạng sẽ rất nguy hiểm,nên tính năng này ít khi sử dụng ,ta thường cấu hình 1 file rồi add vào các switch là đc
 server
 ```
