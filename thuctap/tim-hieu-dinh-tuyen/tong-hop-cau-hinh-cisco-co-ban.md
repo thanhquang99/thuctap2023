@@ -147,5 +147,101 @@ Router(config)#no ip domain-lookup
 
 
 
+
+
+- Cấu hình Vlan : 
+tạo vlan
+```
+vlan 10 
+```
+access port vào vlan
+```
+ỉnt f0/1
+switchport mode access 
+switchport access vlan 10
+no sh
+```
+- Cấu hình trunk : Khi vlan khác switch muốn giao tiếp với nhau cần có 1 carb kết nối 2 vlan lại với nhau,mà khi tăng lên nhiều vlan thì cần phải có nhiều carb . Công nghệ trunk giúp chúng ta gộp tất cả các dây lại thành 1 dây duy nhất mà khi chuyển tin đi nó chỉ cần gắn vlan id vào để nhận biết.
+
+```
+ỉnt f0/2
+switchport mode trunk
+no sh
+
+```
+
+- Cấu hình VTP : VTP là giao thức độc quyên của cisco nó giúp ta đồng bộ các vlan trên các switch khi thêm sửa xóa . Có 3 loại VTP :
+
+||VTP server|VTP client|VTP transparent|
+|--|--------|----------|---------------|
+|Tạo , xóa và cấu hình Vlan|Có|Không|Chỉ trên local|
+|Đồng bộ|Có|Có|không|
+|Forward|Có|Có|Có|
+Trong VTP thì `revision number` là quan trọng nhất, mỗi khi database thay đổi thì chỉ số `revision number` lại tăng lên ,các switch lấy chỉ số này để thực hiện dồng bộ, cái có chỉ số thấp sẽ đồng bộ theo cái cao.Chính vì như thế nên khi ta thêm 1 switch mới mà có chỉ số này cao vào mạng sẽ rất nguy hiểm,nên tính năng này ít khi sử dụng ,ta thường cấu hình 1 file rồi add vào các switch là đc
+server
+```
+Switch(config)#vtp domain thanhquang
+Switch(config)#vtp mode server 
+Switch(config)#vtp password 123456
+```
+Client
+```
+Switch(config)#vtp domain thanhquang
+Switch(config)#vtp mode client 
+Switch(config)#vtp password 123456
+```
+transparent
+```
+Switch(config)#vtp domain thanhquang
+Switch(config)#vtp mode transparent 
+Switch(config)#vtp password 123456
+```
+Ta có thể xem chỉ số revision bằng lệnh `show vtp status `
+ ![Alt](/thuctap/anh/Screenshot_76.png)
+Ta thử tạo vlan 10 và 20 trên server và kiểm tra trên client và trasparent
+- Trên server:
+
+ ![Alt](/thuctap/anh/Screenshot_77.png)
+- Trên server:
+
+ ![Alt](/thuctap/anh/Screenshot_78.png)
+- Trên trasparent
+
+ ![Alt](/thuctap/anh/Screenshot_79.png)
+
+- Vậy là ta đã thấy chỉ trên client là thay đổi còn transparent là không
+- DOT 1Q Tunneling :
+  - IEEE dot1q tunneling là một cơ chế cho phép mang nhiều VLAN của khách hàng trong một tunnel.Khi khách hàng có 2 con router và ở cách xa nhau và được kết nối trunking đến nhà mạng, cơ chế này sẽ cho phép 2 con router giao tiếp với nhau như là cắm 2 con trực tiếp với nhau vậy, nó sẽ không mang thông tin nhà mạng vào.
+- cấu hình trên router1_KH
+
+```
+Router(config)#interface gigabitEthernet 0/0/0
+Router(config-if)#no shutdown 
+```
+```
+Router(config)#interface gigabitEthernet 0/0/0.12
+Router(config-subif)#encapsulation dot1Q 12
+Router(config-subif)#ip address 192.168.1.1 255.255.255.0
+```
+- cấu hình trên router2_KH
+```
+Router(config)#interface gigabitEthernet 0/0/0
+Router(config-if)#no shutdown 
+```
+```
+Router(config)#interface gigabitEthernet 0/0/0.12
+Router(config-subif)#encapsulation dot1Q 12
+Router(config-subif)#ip address 192.168.1.2 255.255.255.0
+```
+- cấu hình trên sw1_NM
+
+```
+
+```
+- cấu hình trên sw2_NM
+- cấu hình trên sw3_NM
+
+- Spanning-tree là giao thức chạy trên thiết bị switches giúp chúng ra giải quyết vấn đề loop ở layer 2.
+
 ## Tài liệu tham khảo 
 https://docs.google.com/spreadsheets/d/1KvkRu6_ODhJpgE8sKbHGL2zQRAj7yvF8/edit#gid=1761363795
