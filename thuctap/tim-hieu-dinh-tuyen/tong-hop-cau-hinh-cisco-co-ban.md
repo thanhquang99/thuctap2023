@@ -264,8 +264,33 @@ các non-root thì cổng nào có Mac cao hơn sẽ bị khóa
 |Active(chủ động)|yes|yes|
 |passive(bị động)|yes|no|
   - PAgP (Port Aggregation Protocol):Là giao thức độc quyền của hãng cisco
-  - Static: Cấu hình thủ công
+||Dersiable|Auto|
+|---|----|----|
+|Dersiable|yes|yes|
+|Auto|yes|no|
+
+  - Static: Cấu hình thủ công và cả 2 đầu phải đều bật
+- cấu hình LACP (ở đây ta có thể chủ động thay dổi passive hay active) và trên 2 con switch làm tương tự. Ở đây tôi cáu hình truyền qua vlan 1 ,mọi người có thể chọn vlan khác bằng lệnh `switchport trunk allowed vlan xxx`
+
+```
+Switch(config)#interface r fastEthernet 0/1-3
+Switch(config-if-range)#switchport mode trunk 
+Switch(config-if-range)#channel-group 1 mode active 
+Switch(config-if-range)#exit 
+Switch(config)#interface port-channel 1
+Switch(config-if)#switchport mode trunk 
+Switch(config-if)#exit 
+Switch(config)#interface vlan 1
+Switch(config-if)#no sh
+Switch(config-if)#ip addr 192.168.1.2 255.255.255.0
+Switch(config-if)#end
+Switch#w m
+```
+- cấu hình PAgP thì ta làm tương tự nhưng thay từ `active` thành `dersiable`
+
 
 
 ## Tài liệu tham khảo 
 https://docs.google.com/spreadsheets/d/1KvkRu6_ODhJpgE8sKbHGL2zQRAj7yvF8/edit#gid=1761363795
+
+https://www.youtube.com/watch?v=fa1ER6Zfqxk

@@ -66,3 +66,6 @@ switchport trunk native vlan 40
 ![Alt](/thuctap/anh/Screenshot_69.png)
 
 ![Alt](/thuctap/anh/Screenshot_70.png)
+
+
+- 
