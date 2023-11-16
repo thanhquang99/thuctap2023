@@ -25,6 +25,8 @@
       - [DOT 1Q Tunneling :](#dot-1q-tunneling-)
     - [STP](#stp)
       - [Etherchannel](#etherchannel)
+      - [NTP](#ntp)
+      - [](#)
   - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
 
 # Tổng hợp cấu hình cisco cơ bản
@@ -288,7 +290,24 @@ Switch#w m
 ```
 - cấu hình PAgP thì ta làm tương tự nhưng thay từ `active` thành `dersiable`
 
+#### NTP
+- NTP: Network time protocol dùng để đồng bộ thời gian các thiết bị mạng trong cùng một hệ thống giúp cho việc backup dữ liệu theo lịch được đảm bảo, quản lý log của hệ thống mạng…..
 
+![Alt](/thuctap/anh/Screenshot_84.png)
+
+- Trên server ta cần bật NTP trên server lên
+- Cài đặt ip như hình
+- Lệnh bật tính năng NTP
+
+```
+Router(config)#ntp server 192.168.1.1
+Router(config)#ntp update-calendar 
+
+```
+- Ta có thể thực hiện lênh show như trên hình để xem thời gian và status của NTP
+![Alt](/thuctap/anh/Screenshot_85.png)
+
+#### 
 
 ## Tài liệu tham khảo 
 https://docs.google.com/spreadsheets/d/1KvkRu6_ODhJpgE8sKbHGL2zQRAj7yvF8/edit#gid=1761363795
