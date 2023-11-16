@@ -214,27 +214,17 @@ Ta thử tạo vlan 10 và 20 trên server và kiểm tra trên client và trasp
 - Vậy là ta đã thấy chỉ trên client là thay đổi còn transparent là không
 - DOT 1Q Tunneling :
   - IEEE dot1q tunneling là một cơ chế cho phép mang nhiều VLAN của khách hàng trong một tunnel.Khi khách hàng có 2 con router và ở cách xa nhau và được kết nối trunking đến nhà mạng, cơ chế này sẽ cho phép 2 con router giao tiếp với nhau như là cắm 2 con trực tiếp với nhau vậy, nó sẽ không mang thông tin nhà mạng vào.
+
+- Lưu ý : Do các switch giả lập măc định encapsulation là dot1Q nên ta không cần cấu hình thêm lệnh`Sw trunk encap dot1q`
+ `
 - cấu hình trên router1_KH
+```
 
 ```
-Router(config)#interface gigabitEthernet 0/0/0
-Router(config-if)#no shutdown 
-```
-```
-Router(config)#interface gigabitEthernet 0/0/0.12
-Router(config-subif)#encapsulation dot1Q 12
-Router(config-subif)#ip address 192.168.1.1 255.255.255.0
-```
+
 - cấu hình trên router2_KH
-```
-Router(config)#interface gigabitEthernet 0/0/0
-Router(config-if)#no shutdown 
-```
-```
-Router(config)#interface gigabitEthernet 0/0/0.12
-Router(config-subif)#encapsulation dot1Q 12
-Router(config-subif)#ip address 192.168.1.2 255.255.255.0
-```
+
+
 - cấu hình trên sw1_NM
 
 ```
