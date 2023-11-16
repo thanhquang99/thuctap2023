@@ -13,6 +13,18 @@
   - [Cấu hình Cisco](#cấu-hình-cisco)
     - [cách cấu hình thiết bị](#cách-cấu-hình-thiết-bị)
     - [Thực hành](#thực-hành)
+      - [Đặt lại hostname](#đặt-lại-hostname)
+      - [Đặt password enable và console](#đặt-password-enable-và-console)
+      - [Mã hóa password để không hiện khi thực hiện câu lệnh show](#mã-hóa-password-để-không-hiện-khi-thực-hiện-câu-lệnh-show)
+      - [Tính năng tự động đăng xuất Exec-Timeout trên kết nối Console:](#tính-năng-tự-động-đăng-xuất-exec-timeout-trên-kết-nối-console)
+      - [Khai báo địa chỉ ip trên các cổng](#khai-báo-địa-chỉ-ip-trên-các-cổng)
+      - [Tính năng chống trôi dòng lệnh : Khi ta đang cấu hình mà có thông báo thì sẽ bị ảnh hưởng và làm mất thẩm mỹ](#tính-năng-chống-trôi-dòng-lệnh--khi-ta-đang-cấu-hình-mà-có-thông-báo-thì-sẽ-bị-ảnh-hưởng-và-làm-mất-thẩm-mỹ)
+      - [Không tự động phân giải tên miên:](#không-tự-động-phân-giải-tên-miên)
+      - [Cấu hình Vlan :](#cấu-hình-vlan-)
+      - [Cấu hình VTP](#cấu-hình-vtp)
+      - [DOT 1Q Tunneling :](#dot-1q-tunneling-)
+    - [STP](#stp)
+      - [Etherchannel](#etherchannel)
   - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
 
 # Tổng hợp cấu hình cisco cơ bản
@@ -79,7 +91,7 @@ Ban đầu máy gửi sẽ không có địa chỉ MAC của máy nhận,vậy �
   - `config-if` là khi ta vào thẳng các interface để cấu hình
 
 ### Thực hành
-- Đặt lại hostname
+#### Đặt lại hostname
 
 
 ```
@@ -87,7 +99,7 @@ Router(config)#hostname [name]
 ```
 
 
-- Đặt password enable và console
+#### Đặt password enable và console
 
 ```
 Router(config)#line console 0
@@ -98,20 +110,21 @@ Router(config-line)#password 123456
 Router(config)#enable password 123456
 ```
 
-- Mã hóa password để không hiện khi thực hiện câu lệnh show
+#### Mã hóa password để không hiện khi thực hiện câu lệnh show
 
 ```
 Router(config)#service password-encryption 
 ```
 
-- Tính năng tự động đăng xuất Exec-Timeout trên kết nối Console: Do có thể khi ta cấu hình xong mà quên không ngắt kết nối console với timer 1p30s
+#### Tính năng tự động đăng xuất Exec-Timeout trên kết nối Console: 
+Do có thể khi ta cấu hình xong mà quên không ngắt kết nối console với timer 1p30s
 
 ```
 Router(config)#line console 0
 Router(config-line)#exec-timeout 1 30
 ```
 
-- Khai báo địa chỉ ip trên các cổng
+#### Khai báo địa chỉ ip trên các cổng
 
 ```
 Router(config)#interface GigabitEthernet0/0/0
@@ -132,14 +145,15 @@ Router(config)#interface GigabitEthernet0/0/1
 Router(config-if)#ip address dhcp
 ```
 
-- Tính năng chống trôi dòng lệnh : Khi ta đang cấu hình mà có thông báo thì sẽ bị ảnh hưởng và làm mất thẩm mỹ
+#### Tính năng chống trôi dòng lệnh : Khi ta đang cấu hình mà có thông báo thì sẽ bị ảnh hưởng và làm mất thẩm mỹ
 
 ```
 Router(config)#line console 0
 Router(config-line)#logging synchronous 
 ```
 
-- Không tự động phân giải tên miên: Khi ta không may gõ một vài chữ linh tinh thì cisco sẽ tự động hiểu rằng tự động phân giải tên miền ,quá trình này sẽ tốn rất nhiều thời gian ,để kết thúc quá trình đó thì ta có thể gõ`Ctrl+shift+6`,để tắt chế độ này ta có thể cấu hình
+#### Không tự động phân giải tên miên: 
+Khi ta không may gõ một vài chữ linh tinh thì cisco sẽ tự động hiểu rằng tự động phân giải tên miền ,quá trình này sẽ tốn rất nhiều thời gian ,để kết thúc quá trình đó thì ta có thể gõ`Ctrl+shift+6`,để tắt chế độ này ta có thể cấu hình
 
 ```
 Router(config)#no ip domain-lookup 
@@ -149,12 +163,12 @@ Router(config)#no ip domain-lookup
 
 
 
-- Cấu hình Vlan : 
-tạo vlan
+#### Cấu hình Vlan : 
+- tạo vlan
 ```
 vlan 10 
 ```
-access port vào vlan
+- access port vào vlan
 ```
 ỉnt f0/1
 switchport mode access 
@@ -170,7 +184,8 @@ no sh
 
 ```
 
-- Cấu hình VTP : VTP là giao thức độc quyên của cisco nó giúp ta đồng bộ các vlan trên các switch khi thêm sửa xóa . Có 3 loại VTP :
+#### Cấu hình VTP 
+- VTP là giao thức độc quyên của cisco nó giúp ta đồng bộ các vlan trên các switch khi thêm sửa xóa . Có 3 loại VTP :
 
 ||VTP server|VTP client|VTP transparent|
 |--|--------|----------|---------------|
@@ -179,7 +194,7 @@ no sh
 |Forward|Có|Có|Có|
 
 
-Trong VTP thì `revision number` là quan trọng nhất, mỗi khi database thay đổi thì chỉ số `revision number` lại tăng lên ,các switch lấy chỉ số này để thực hiện dồng bộ, cái có chỉ số thấp sẽ đồng bộ theo cái cao.Chính vì như thế nên khi ta thêm 1 switch mới mà có chỉ số này cao vào mạng sẽ rất nguy hiểm,nên tính năng này ít khi sử dụng ,ta thường cấu hình 1 file rồi add vào các switch là đc
+- Trong VTP thì `revision number` là quan trọng nhất, mỗi khi database thay đổi thì chỉ số `revision number` lại tăng lên ,các switch lấy chỉ số này để thực hiện dồng bộ, cái có chỉ số thấp sẽ đồng bộ theo cái cao.Chính vì như thế nên khi ta thêm 1 switch mới mà có chỉ số này cao vào mạng sẽ rất nguy hiểm,nên tính năng này ít khi sử dụng ,ta thường cấu hình 1 file rồi add vào các switch là đc
 server
 ```
 Switch(config)#vtp domain thanhquang
@@ -212,28 +227,45 @@ Ta thử tạo vlan 10 và 20 trên server và kiểm tra trên client và trasp
  ![Alt](/thuctap/anh/Screenshot_79.png)
 
 - Vậy là ta đã thấy chỉ trên client là thay đổi còn transparent là không
-- DOT 1Q Tunneling :
+#### DOT 1Q Tunneling :
   - IEEE dot1q tunneling là một cơ chế cho phép mang nhiều VLAN của khách hàng trong một tunnel.Khi khách hàng có 2 con router và ở cách xa nhau và được kết nối trunking đến nhà mạng, cơ chế này sẽ cho phép 2 con router giao tiếp với nhau như là cắm 2 con trực tiếp với nhau vậy, nó sẽ không mang thông tin nhà mạng vào.
 
-- Lưu ý : Do các switch giả lập măc định encapsulation là dot1Q nên ta không cần cấu hình thêm lệnh`Sw trunk encap dot1q`
- `
-- cấu hình trên router1_KH
-```
+- Lưu ý : Do các switch giả lập măc định encapsulation là dot1Q nên ta không cần cấu hình thêm .
+### STP 
+- Spanning-tree là giao thức chạy trên thiết bị switches giúp chúng ra giải quyết vấn đề loop ở layer 2
+- Tính năng này luôn tự động bật trên giả lập
+- Ta có thể hiểu như này khi sw1 nhận được broadcast thì nó sẽ gửi ra tất cả các cổng đang bật(trừ chính nó) và đến với sw2 và sw3 nó lại gửi bản tin broad cast đến tất cả các cổng đang bật(Trừ chính nó) thì nó sẽ tạo ra vòng lặp vô hạn từ Sw1 đến SW2 rồi đến SW3 rồi lại về SW1
+- Để tránh tình trạng này thì STP sẽ đóng 1 port trên 1 switch lại. Để tìm ra port cần đóng thì nó tuân thủ theo quy tắc
+  - SW sẽ có MAC và priority (Mặc định là 32768,có thể thay đổi bằng tay )
+  - Do priority mặc định luôn bằng nhau nên nó sẽ xét MAC thấp nhất làm root ,các cổng nối vào root được giữ nguyên không khóa ,cổng nối  
+các non-root thì cổng nào có Mac cao hơn sẽ bị khóa 
 
-```
+ ![Alt](/thuctap/anh/Screenshot_81.png)
+ - Các trạng thái port phải trải qua trong giao thức spanning-tree
 
-- cấu hình trên router2_KH
+ ![Alt](/thuctap/anh/Screenshot_82.png)
+  - Port trong chế độ listening 15s, trong giai đoạn này nó sẽ nhận và gửi BPDU, nhưng không học mac address hay truyền dữ liệu
+  - Port trong chế độ learning 15s, trong giai đoạn này nó sẽ nhận và gửi BPDU, học mac address nhưng không truyền dữ liệu
+  - Sau đó port chuyển sang chế độ forwarding là có thể truyền được dữ liệu
 
+- Port fast :Thường được cấu hình trên các port nối với thiết bị cuối là pc, phone. Port fast giúp cổng bỏ qua trạng thái listening và learning, port chuyển qua thẳng chế độ forwarding chính vì lý do này nên chỉ cấu hình chức năng port fast ở những cổng chắc chắn là cắm tới pc, phone các thiết bị cuối.
+- Uplink fast :Thường được cấu hình trên các switch biên access nối trực tiếp với các end devices. Khi cấu hình uplink fast port block sẽ lên luôn không làm giám đoạn mạng, không cần chờ đợi 15s chế độ listening, 15s learning
+- Backbone fast :Chức năng này thì cấu hình trên switch nào cũng được. Khi sử dụng chức năng trên switch thì sẽ bỏ qua 20s max age trong quá trình spanning tree
 
-- cấu hình trên sw1_NM
+#### Etherchannel
+- Là kỹ thuật 2 hay nhiều đường truyền kết nối vật lý thành 1 đường truyền kết nối logic và chúng thường được thực hiện trên switch  ,có thể nói nó có tác dụng nâng cao băng thông .Ta hiểu như thế này nhé, cổng f0/0(SW1) kết nối với cổng f0/0(SW2) thì tốc dộ là 100 mps thì khi ta dùng ehterchannel biến nhiều link thành 1 link logic nó sẽ có tốc độ độ cao gấp nhiều lần
+- Công nghệ EtherChannel có thể bó từ 2 đến 8 link FE, GE, 10GE thành 1 link logical. Khi đó ta đối xử với nó như là một cổng kết nối duy nhất
+- Để cấu hình ẹtherchannel thì các Switch phải đều phải hỗ trợ kỹ thuật EtherChannel và phải được cấu hình EtherChannel đồng nhất giữa các Port kết nối với nhau và Các Port kết nối EtherChannel giữa 2 Switch phải tương đồng với nhau
+- Phân loại etherchannel
+  - LACP (Link Aggregation Control Protocol): Là giao thức giúp các hãng không đồng nhất kết hợp với nhau
 
-```
+||Active(chủ động)|passive(bị động)|
+|---|----|----|
+|Active(chủ động)|yes|yes|
+|passive(bị động)|yes|no|
+  - PAgP (Port Aggregation Protocol):Là giao thức độc quyền của hãng cisco
+  - Static: Cấu hình thủ công
 
-```
-- cấu hình trên sw2_NM
-- cấu hình trên sw3_NM
-
-- Spanning-tree là giao thức chạy trên thiết bị switches giúp chúng ra giải quyết vấn đề loop ở layer 2.
 
 ## Tài liệu tham khảo 
 https://docs.google.com/spreadsheets/d/1KvkRu6_ODhJpgE8sKbHGL2zQRAj7yvF8/edit#gid=1761363795
