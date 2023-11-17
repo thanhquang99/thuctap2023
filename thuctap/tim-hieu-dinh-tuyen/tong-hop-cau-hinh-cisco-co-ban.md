@@ -26,7 +26,7 @@
     - [STP](#stp)
       - [Etherchannel](#etherchannel)
       - [NTP](#ntp)
-      - [](#)
+      - [Syslog (System Logging Protocol)](#syslog-system-logging-protocol)
   - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
 
 # Tổng hợp cấu hình cisco cơ bản
@@ -266,6 +266,8 @@ các non-root thì cổng nào có Mac cao hơn sẽ bị khóa
 |Active(chủ động)|yes|yes|
 |passive(bị động)|yes|no|
   - PAgP (Port Aggregation Protocol):Là giao thức độc quyền của hãng cisco
+
+
 ||Dersiable|Auto|
 |---|----|----|
 |Dersiable|yes|yes|
@@ -307,7 +309,18 @@ Router(config)#ntp update-calendar
 - Ta có thể thực hiện lênh show như trên hình để xem thời gian và status của NTP
 ![Alt](/thuctap/anh/Screenshot_85.png)
 
-#### 
+#### Syslog (System Logging Protocol)
+- Là một giao thức tiêu chuẩn sử dụng để gửi nhật ký hệ thống hay thông báo thay đổi đến một máy chủ hay còn gọi syslog server
+
+![Alt](/thuctap/anh/Screenshot_86.png)
+
+Mô hình này ta có thể cấu hình syslog hay ntp của router hay switch vào server
+
+![Alt](/thuctap/anh/Screenshot_87.png)
+- Trên router và switch đều cấu hình bằng câu lệnh sau:
+```
+thanhquang(config)#logging 192.168.1.1
+```
 
 ## Tài liệu tham khảo 
 https://docs.google.com/spreadsheets/d/1KvkRu6_ODhJpgE8sKbHGL2zQRAj7yvF8/edit#gid=1761363795
