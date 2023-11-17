@@ -292,6 +292,20 @@ Switch#w m
 ```
 - cấu hình PAgP thì ta làm tương tự nhưng thay từ `active` thành `dersiable`
 
+Lưu ý khi ta cấu hình: 
+- Do khi nối dây port1 của sw1 nối port 1 của sw2 nên khi đầu chọn mode trunk cho 2 port thì ok nhưng khi ta chuyển port 1 của 1 sw bất kì thành mode access sẽ không được chấp nhận
+
+![Alt](/thuctap/anh/Screenshot_88.png)
+
+- Khi ta cấu hình port 1 và 2 cùng thuộc po1 thì phải chọn chung chuẩn LACP hoặc PAgp
+
+![Alt](/thuctap/anh/Screenshot_89.png)
+
+- Ta không thể cấu hình port 1 là access port 2 là trunk gộp vào 1 po 
+
+![Alt](/thuctap/anh/Screenshot_91.png)
+
+
 #### NTP
 - NTP: Network time protocol dùng để đồng bộ thời gian các thiết bị mạng trong cùng một hệ thống giúp cho việc backup dữ liệu theo lịch được đảm bảo, quản lý log của hệ thống mạng…..
 
