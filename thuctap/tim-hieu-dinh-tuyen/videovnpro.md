@@ -50,15 +50,15 @@ Ta có thể tắt đi bằng câu lệnh `no cdp run`
 
 ![Alt](/thuctap/anh/Screenshot_23.png)
 
-thiết lập trên router cho phép telnet trên laptop khác `line vty 0-X` trong đó x+1 là số telnet có thể truy cập đến ,tiếp theo ta sẽ đặt password để truy cập.
+- thiết lập trên router cho phép telnet trên laptop khác `line vty 0-X` trong đó x+1 là số telnet có thể truy cập đến ,tiếp theo ta sẽ đặt password để truy cập.
 
 ![Alt](/thuctap/anh/Screenshot_25.png)
 
-Bây giờ ta có thể từ máy tính kết nối trong mạng và tiến hành telnet đến router(ip:192.168.10.1)
+- Bây giờ ta có thể từ máy tính kết nối trong mạng và tiến hành telnet đến router(ip:192.168.10.1)
 
 ![Alt](/thuctap/anh/Screenshot_26.png)
 
-SSH lên router: Để có thể ssh lên router ta cần đảm bảo 2 điều kiện là có public key và privatie key . Để có được thứ đó đầu tiên ta cần đặt tên cho router, sau đó tạo user và password 
+- SSH lên router: Để có thể ssh lên router ta cần đảm bảo 2 điều kiện là có public key và privatie key . Để có được thứ đó đầu tiên ta cần đặt tên cho router, sau đó tạo user và password 
 
 ```
 
