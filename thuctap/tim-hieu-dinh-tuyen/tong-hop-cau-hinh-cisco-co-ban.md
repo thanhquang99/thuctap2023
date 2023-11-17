@@ -276,6 +276,8 @@ các non-root thì cổng nào có Mac cao hơn sẽ bị khóa
   - Static: Cấu hình thủ công và cả 2 đầu phải đều bật
 - cấu hình LACP (ở đây ta có thể chủ động thay dổi passive hay active) và trên 2 con switch làm tương tự. Ở đây tôi cáu hình truyền qua vlan 1 ,mọi người có thể chọn vlan khác bằng lệnh `switchport trunk allowed vlan xxx`
 
+![Alt](/thuctap/anh/Screenshot_92.png)
+
 ```
 Switch(config)#interface r fastEthernet 0/1-3
 Switch(config-if-range)#switchport mode trunk 
