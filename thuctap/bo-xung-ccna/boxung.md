@@ -31,7 +31,10 @@
     - [NAT trong cisco](#nat-trong-cisco)
       - [Định nghĩa về NAT](#định-nghĩa-về-nat)
       - [Phân loại NAT](#phân-loại-nat)
-      - [Kỹ thuật Static NAT](#kỹ-thuật-static-nat)
+      - [Cấu hình Static NAT](#cấu-hình-static-nat)
+      - [Cấu hình dynamic Nat(over load)](#cấu-hình-dynamic-natover-load)
+      - [Cấu hình PAT](#cấu-hình-pat)
+      - [Load balancing](#load-balancing)
 - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
 
 # Bổ xung những thứ còn thiếu khi tìm hiểu về OSI và CCNA
@@ -239,12 +242,95 @@ Nhìn vào hình trên ta phải hiểu rằng control và flag có giá trị b
 - NAT cũng cho phép chia sẻ kết nối internet với nhiều thiết bị trong mạng nội bộ thông qua việc chuyển đổi các địa chỉ IP cục bộ thành địa chỉ IP bên ngoài
 
 #### Phân loại NAT
-- Static NAT 
-- Dynamic NAT 
-- PAT 
+- Static NAT : Là loại nat mà 1 ip private tương đương với 1 ip public (one to one)
+- Dynamic NAT : Là loại nat mà 1 dải 1 ip private tương đương với 1 dải ip public vẫn là one to one nhưng sau 1 thơi gian những ip nào không dùng sẽ tự động xóa đi và thay thế sao cho phù hợp và tiết kiệm nhất
+- PAT :Là kỹ thuật nat mà nhiều ip private tương đương với 1 ip public
+  - Kỹ thuật này không dựa vào ip mà dựa vào port để phân biệt session nòa đang làm việc để chuyển dữ đúng
+  - Hãy nhìn vào bảng inside local và inside global ,nếu có 2 con ip sử dụng cùng 1 port là 1024 thì con ip sau sẽ tự động tăng port là 1025
+  - Có tối đa 65355 port
 
-#### Kỹ thuật Static NAT
+![Alt](/thuctap/anh/Screenshot_106.png)
 
+#### Cấu hình Static NAT
+Các bước cần thực hiện để cấu hình static nat
+- cáu hình chỉ định ip private nào chuyển đổi thành ip public nào
+
+```
+Router(config)#ip nat inside source static ip-private ip-public
+```
+- Cấu hình port nào nat inside
+
+```
+Router(config)#int f0/0
+Router(config-if)#ip nat inside
+```
+- Cấu hình port nào là nat outside
+
+```
+Router(config)#int f0/2
+Router(config-if)#ip nat outside 
+```
+- Để show bảng Nat 
+
+```
+Router#show ip nat translations
+```
+
+#### Cấu hình dynamic Nat(over load)
+- thiết lập pool gồm các ip public sử dụng(sử dụng dải ip .2-.8)
+
+```
+Router(config)#ip nat pool test 103.102.20.2 103.102.20.8 netmask 255.255.255.0
+```
+- thiết lập list các ip private được phép ra ngoài: Cho phép dùng 7 ip private cùng lúc(do ta cấp có 7 ip public)
+
+```
+Router(config)#access-list 7 permit 10.10.10.0 0.0.0.255
+```
+- Thiết lập kết nối giữa chúng : cho 7 ip trong list được Nat ra tương ứng với pool có name là test
+
+```
+Router(config)#ip nat inside source list 7 pool test
+```
+- Định nghĩa các port in/out side
+
+```
+Router(config)#int f0/0
+Router(config-if)#ip nat inside
+Router(config)#int f0/2
+Router(config-if)#ip nat outside 
+```
+
+#### Cấu hình PAT
+- thiết lập list các ip private được phép ra ngoài: Cho phép dùng 10 ip private cùng lúc
+
+```
+Router(config)#access-list 10 permit 192.168.10.0 0.0.0.255
+```
+- thiết lập các ip private sẽ đi qua port nào (port này được gắn ip gì thì có nghĩa là list ip private vừa gắn đó sẽ sử dụng ip public đó)
+
+```
+Router(config)#ip nat inside source list 10 interface s0/0/1 overload
+```
+- Định nghĩa các port in/out side
+
+```
+Router(config)#int f0/0
+Router(config-if)#ip nat inside
+Router(config)#int f0/2
+Router(config-if)#ip nat outside
+```
+#### Load balancing
+- Khi tại một Router có 2 đường tới mạng đích thì ta có thể static route tới cùng 2 mạng đích này. Cụ thể là từ R1 muốn tới mạng 10.0.2.0 /24 thì có thể trỏ tới next hop là 10.0.12.2 /24 hoặc 10.0.21.2 /24, nghĩa là R1 có thể cấu hình 2 câu lệnh ip route tới cùng một mạng đích với IP next hop khác nhau.  
+- Lúc này mọi dữ liệu từ R1 gửi tới mạng 10.0.2.0 /24 sẽ được cân bằng tải qua cả 2 hướng là f0/1 và f0/2. Ưu điểm của cơ chế cân bằng tải này là nếu một interface gặp sự cố thì các lưu lượng sẽ được đổ qua hướng còn lại
+
+![Alt](/thuctap/anh/Screenshot_108.png)
+-  Hoặc trong trường hợp từ R1 có 2 đường mạng 10.0.2.0 /24 thông qua 2 Router khác nhau
+
+![Alt](/thuctap/anh/Screenshot_109.png)
+- Khi R2 và R3 kết nối ra ngoài internet, nếu R1 muốn ra ngoài internet thì cần cấu hình 2 default route
+
+![Alt](/thuctap/anh/Screenshot_110.png)
 
 # Tài liệu tham khảo
 https://viettelco.vn/cac-thanh-phan-linh-kien-co-ban-cua-server-vat-ly/
