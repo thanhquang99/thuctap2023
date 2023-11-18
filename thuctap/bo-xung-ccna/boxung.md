@@ -7,7 +7,7 @@
     - [Ổ cứng SAS/SATA](#ổ-cứng-sassata)
     - [Linh kiện Card RAID](#linh-kiện-card-raid)
     - [Bộ cung cấp nguồn (PSU)](#bộ-cung-cấp-nguồn-psu)
-  - [Raid](#raid)
+  - [Raid (các loại Raid)](#raid-các-loại-raid)
     - [Điều kiện cần khi chạy Raid](#điều-kiện-cần-khi-chạy-raid)
     - [Các RAID phổ biến](#các-raid-phổ-biến)
       - [RAID 0](#raid-0)
@@ -19,6 +19,12 @@
       - [Wlan là gì?](#wlan-là-gì)
       - [Ưu điểm và nhược điểm của Wlan](#ưu-điểm-và-nhược-điểm-của-wlan)
       - [Các chuẩn mạng wlan](#các-chuẩn-mạng-wlan)
+    - [Kỹ thuật AAA](#kỹ-thuật-aaa)
+      - [Định nghĩa](#định-nghĩa)
+      - [Cấu hình Authencation](#cấu-hình-authencation)
+      - [Authorization](#authorization)
+      - [Cơ chế Accounting](#cơ-chế-accounting)
+      - [Giới hạn số lần truy cập thất bại bằng Login Block-For](#giới-hạn-số-lần-truy-cập-thất-bại-bằng-login-block-for)
 - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
 
 # Bổ xung những thứ còn thiếu khi tìm hiểu về OSI và CCNA
@@ -61,7 +67,7 @@
 
 ![Alt](/thuctap/anh/Screenshot_99.png)
 
-## Raid
+## Raid (các loại Raid)
 - là hình thức ghép nhiều ổ đĩa cứng vật lý thành một hệ thống ổ đĩa cứng có chức năng gia tăng tốc độ đọc/ghi dữ liệu hoặc nhằm tăng thêm sự an toàn của dữ liệu chứa trên hệ thống đĩa hoặc kết hợp cả hai chức năng trên.
 ### Điều kiện cần khi chạy Raid
 - Để chạy raid cần tối thiểu một card điều kiển và ít nhất 2 ổ đĩa cứng giống nhau về dung lượng
@@ -136,22 +142,70 @@
 - Chuẩn WIFI 802.11g(Gen 3): Hỗ trợ băng thông lên đến 54Mbps và sử dụng tần số 2.4 Ghz để có phạm vi rộng.
 - Chuẩn WIFI 802.11n(Gen 4): hỗ trợ băng thông mạng tối đa trên lý thuyết lên tới 300Mbps và hoạt động ở cả băng tần 2.4 GHz và 5 GHz
 
+### Kỹ thuật AAA
+#### Định nghĩa
+- AAA là viết tắt của authencation(xác thực), authorization (phân quyền) ,accounting(kiểm toán) 
+  - Authencation(xác thực) :bằng cách cung câp cơ chế xác thực bằng user và password
+  - Authorization :Giới hạn câu lệnh với user
+  - Accountting : Ghi lại nhật ký ai đã đăng nhập và dùng câu lệnh gì
 
+#### Cấu hình Authencation
+```
+Router(config)#aaa new-model
+Router(config)#aaa authentication login thanhquang local
+Router(config)#username thanhquang password 123456
+Router(config)#line vty 0 4
+Router(config-line)#login authentication thanhquang
+```
+#### Authorization
+- Trên Cisco router hỗ trợ 16 cấp độ bảo mật khác nhau từ level 0 - level 15. Level 15 là đặc quyền cao nhất, còn level 0 là đặc quyền thấp nhất
+- Tạo mật khẩu enable cho level 8
+```
+Router(config)#enable secret level 8 123456
+```
+- Phân quyền cho level 8 : Nhìn vào cáu trúc câu lệnh ta dùng từ privilege để xác nhận đặc quyền rồi mới đến tên quyền được cấp còn từ interface hay ip addr ta sẽ không dùng tab để viết tắt được mà phải hiểu các mode gì dùng được cái gì
 
+![Alt](/thuctap/anh/Screenshot_105.png)
 
+```
+Router(config)#privilege exec level 8 configure terminal
+Router(config)#privilege configure level 8 interface
+Router(config)#privilege interface level 8 ip address
+```
 
+- Đăng nhập với level 8: `Router>enable 8`
+- Xem level mình đang đứng: `Router#show privilege `
 
+#### Cơ chế Accounting
+- Bật cơ chế kiểm toán bằng câu lệnh
+```
+Router(config)#archive
+Router(config-archive)#log config
+Router(config-archive-log-cfg)#logging enable
 
+```
 
+- Khi user thực hiện bất kỳ câu lệnh nào trên router thì sẽ được log ghi lại. Để xem được các log đó sử dụng câu lệnh
+```
+Router#show archive log config all
+```
 
+#### Giới hạn số lần truy cập thất bại bằng Login Block-For
+- Câu lệnh giới hạn 60s chỉ được nhập thất bại 2 lần lần 3 phải đúng
+```
+Router(config)#login block-for 600 attempts 3 within 60 
+```
+- Để kiểm tra tham số giới hạn đăng nhập thất bại bằng câu lệnh 
 
+```
+Router#show login
+```
 
+- Kiểm tra địa chỉ IP đang cố gắng đăng nhập thất bại tới router bằng câu lệnh 
 
-
-
-
-
-
+```
+Router#show login failures
+```
 
 
 
