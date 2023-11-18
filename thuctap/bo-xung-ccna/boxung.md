@@ -25,6 +25,13 @@
       - [Authorization](#authorization)
       - [Cơ chế Accounting](#cơ-chế-accounting)
       - [Giới hạn số lần truy cập thất bại bằng Login Block-For](#giới-hạn-số-lần-truy-cập-thất-bại-bằng-login-block-for)
+    - [Giao thức PPP](#giao-thức-ppp)
+      - [Cấu trúc frame của gói tin PPP](#cấu-trúc-frame-của-gói-tin-ppp)
+      - [Quá trình thiết lập kết nối PPP](#quá-trình-thiết-lập-kết-nối-ppp)
+    - [NAT trong cisco](#nat-trong-cisco)
+      - [Định nghĩa về NAT](#định-nghĩa-về-nat)
+      - [Phân loại NAT](#phân-loại-nat)
+      - [Kỹ thuật Static NAT](#kỹ-thuật-static-nat)
 - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
 
 # Bổ xung những thứ còn thiếu khi tìm hiểu về OSI và CCNA
@@ -206,10 +213,37 @@ Router#show login
 ```
 Router#show login failures
 ```
+### Giao thức PPP
+- PPP là giao thức lớp 2 phổ biến cho mạng WAN. Hai thành phần của PPP tồn tại: LCP (Link Control Protocol) đàm phán kết nối và NCP (Network Control Protocol) đóng gói lưu lượng
+- LCP được sử dụng để thiết lập, định cấu hình và kiểm tra kết nối liên kết dữ liệu. Nó linh hoạt trong việc xử lý các kích cỡ khác nhau của các gói, phát hiện một liên kết ngược, lỗi cấu hình và chấm dứt liên kết.
+- NCP được sử dụng để thiết lập và định cấu hình các giao thức lớp Mạng khác nhau. PPP cho phép sử dụng đồng thời nhiều giao thức lớp Mạng
 
+#### Cấu trúc frame của gói tin PPP
 
+![Alt](/thuctap/anh/Screenshot_105.png)
+- FLAG : Có 1 byte với mẫu bit 01111110.
+- ADDRESS : 1 byte được đặt thành 11111111 trong trường hợp phát sóng.
+- CONTROL : 1 byte được đặt thành giá trị không đổi là 11000000.
+- PROTOCOL : 1 hoặc 2 byte xác định loại dữ liệu có trong INFORMATION.
+- INFORMATION :Mang dữ liệu từ lớp mạng. Độ dài tối đa là 1500 byte.
+- FCS : Đây là một chuỗi kiểm tra khung 2 byte hoặc 4 byte để phát hiện lỗi. Mã tiêu chuẩn được sử dụng là CRC (mã dự phòng theo chu kỳ).
 
+Nhìn vào hình trên ta phải hiểu rằng control và flag có giá trị bit không thay đổi
+#### Quá trình thiết lập kết nối PPP
 
+- Một phiên làm việc thông thường sử dụng PPP hoàn toàn tự động và không yêu cầu input của người dùng trong thời gian thực. Nó có bốn giai đoạn: Quá trình thiết lập kết nối PPP qua 4 bước: Thiết lập kết nối và thương lượng cấu hình; quyết định chất lượng kết nối; thương lượng cấu hình giao thức tầng mạng và kết thúc kết nối.
+### NAT trong cisco
+#### Định nghĩa về NAT
+- NAT (Network Address Translation) là một công nghệ được sử dụng trong mạng máy tính để chuyển đổi địa chỉ IP của các thiết bị trong mạng nội bộ thành địa chỉ IP bên ngoài mạng. 
+- NAT cho phép một mạng nội bộ sử dụng ít hoặc không có địa chỉ IP bên ngoài, và do đó giúp tăng cường an ninh mạng bằng cách ẩn danh địa chỉ IP thật sự của các thiết bị nội bộ. 
+- NAT cũng cho phép chia sẻ kết nối internet với nhiều thiết bị trong mạng nội bộ thông qua việc chuyển đổi các địa chỉ IP cục bộ thành địa chỉ IP bên ngoài
+
+#### Phân loại NAT
+- Static NAT 
+- Dynamic NAT 
+- PAT 
+
+#### Kỹ thuật Static NAT
 
 
 # Tài liệu tham khảo
