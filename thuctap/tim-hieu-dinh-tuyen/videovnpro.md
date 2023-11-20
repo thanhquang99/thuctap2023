@@ -8,7 +8,6 @@ Mục lục
   - [Tìm hiểu về Vlan](#tìm-hiểu-về-vlan)
   - [Back up file cấu hình và IOS](#back-up-file-cấu-hình-và-ios)
   - [Tìm hiểu về vlan trunk](#tìm-hiểu-về-vlan-trunk)
-  - [Tìm hiểu về VTP trong vlan trunking](#tìm-hiểu-về-vtp-trong-vlan-trunking)
 - [Tài liệu tham khảo :](#tài-liệu-tham-khảo-)
 
 
@@ -212,7 +211,6 @@ Destination filename [running-config]?
 - Đầu tiên ta đã biết Vlan là chia ra các Lan ảo từ 1 Lan thật , vậy để các Vlan liên lạc với nhau chẳng lẽ ta lại phải nối nhiều đây lên router để chúng liên lạc với nhau? Vlan trunk sinh ra là để giải quyết điều đó, Nó có tác dụng gộp các Vlan thành 1 dây nối và để biết kết nối đó thuộc Vlan nào thì nó sẽ được đánh dấu bằng thẻ tag để phân biệt
 - Để có thể kết nối trunking thì ta phải kết nối vào trunking port
 
-### Tìm hiểu về VTP trong vlan trunking
 
 
 ## Tài liệu tham khảo :
