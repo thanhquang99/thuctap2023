@@ -46,4 +46,20 @@ netplan apply
 - Show ip
 
 ![Alt](/thuctap/anh/Screenshot_130.png)
-- 
+- sửa file card ens33
+
+```
+vi /etc/sysconfig/network-scripts/ifcfg-ens33
+
+```
+- Sửa file cấu hình theo nội dung
+
+![Alt](/thuctap/anh/Screenshot_132.png)
+- reboot lại 
+
+```
+reboot
+```
+- Kết quả:
+
+![Alt](/thuctap/anh/Screenshot_133.png)
