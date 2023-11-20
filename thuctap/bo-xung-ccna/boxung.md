@@ -35,6 +35,11 @@
       - [Cấu hình dynamic Nat(over load)](#cấu-hình-dynamic-natover-load)
       - [Cấu hình PAT](#cấu-hình-pat)
       - [Load balancing](#load-balancing)
+      - [Inter vlan](#inter-vlan)
+        - [Phân loại inter vlan](#phân-loại-inter-vlan)
+        - [Cấu hình inter vlan](#cấu-hình-inter-vlan)
+      - [Port security](#port-security)
+        - [Cấu hình port security](#cấu-hình-port-security)
 - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
 
 # Bổ xung những thứ còn thiếu khi tìm hiểu về OSI và CCNA
@@ -331,6 +336,94 @@ Router(config-if)#ip nat outside
 - Khi R2 và R3 kết nối ra ngoài internet, nếu R1 muốn ra ngoài internet thì cần cấu hình 2 default route
 
 ![Alt](/thuctap/anh/Screenshot_110.png)
+
+#### Inter vlan
+- Ta xét mô hình sau: Ta có 3 vlan và muốn 3 vlan giao tiếp với nhau ta thực hiện như thế nào?
+
+![Alt](/thuctap/anh/Screenshot_134.png)
+
+- Inter vlan là một kỹ thuật cung cấp 1 đường trunk duy nhất kết nối giữa switch và router để mang lưu lượng của nhiều Vlan đi qua và nó được định tuyến bởi router
+##### Phân loại inter vlan
+- Router on a stick : Mỗi Vlan sẽ có 1 đường kết nối riêng đến router
+- Router on a stick on trunking : gom các đường kết nối thành 1 đường trunking giúp tiết kiệm về chi phí
+- Switch layer 3 : Sử dụng nó thay thế cho router để định tuyến đường đi
+
+##### Cấu hình inter vlan
+- Trên router : Ta phải hiểu theo mô hình ở trên thì ta chia cổng g0/0 thành 3 cổng g0/0.10, g0/0/20 và g0/0.30 và gắn ip cho 3 cổng đã chia để định nghĩa các cổng mà vlan đi qua
+
+```
+Router(config)#int gigabitEthernet 0/0.10
+Router(config-subif)#encapsulation dot1Q 10
+Router(config-subif)#ip address 192.168.10.10 255.255.255.0
+Router(config-subif)#no shutdown 
+```
+
+```
+Router(config)#int gigabitEthernet 0/0.20
+Router(config-subif)#encapsulation dot1Q 10
+Router(config-subif)#ip address 192.168.20.10 255.255.255.0
+Router(config-subif)#no shutdown
+```
+
+```
+Router(config)#int gigabitEthernet 0/0.10
+Router(config-subif)#encapsulation dot1Q 10
+Router(config-subif)#ip address 192.168.30.10 255.255.255.0
+Router(config-subif)#no shutdown 
+```
+- Trên switch : Ta tạo ra 3 lan và gắn port cho các vlan đó
+
+```
+Switch(config)#interface fastEthernet 0/1
+Switch(config-if)#switchport mode access
+Switch(config-if)#switchport access vlan 10
+```
+
+```
+Switch(config)#interface fastEthernet 0/1
+Switch(config-if)#switchport mode access
+Switch(config-if)#switchport access vlan 20
+```
+
+```
+Switch(config)#interface fastEthernet 0/1
+Switch(config-if)#switchport mode access
+Switch(config-if)#switchport access vlan 30
+
+```
+- Nhớ lưu lại cấu hình đó :`w m`
+#### Port security
+- là một tính năng giúp bảo mật ,chống lại sự xâm nhập của Mac lạ vào port trong switch layer 2
+- Ta có thể hiểu nó như là ta cố định số máy truy cập ,chỉ định đích danh máy có địa chỉ Mac nào mới được truy cập vào port 
+
+##### Cấu hình port security
+![Alt](/thuctap/anh/Screenshot_134.png)
+
+- Với sơ đồ mạng như trên ta cấu hình thử port security trên f0/3 của sw
+- Bật tính năng port security trên port f0/3
+
+```
+Switch(config)#int f0/3
+Switch(config-if)#switchport port-security 
+```
+- Giới hạn truy cập vào port : chỉ cho phép một kết nối duy nhất
+
+```
+Switch(config-if)# switchport port-security maximum 1
+```
+- Chỉ cho máy có địa chỉ Mac như máy đang kết nôi truy cập
+
+```
+Switch(config-if)#switchport port-security mac-address sticky 
+```
+- Xử lý khi có vi phạm : có 3 mode là protect(sw sẽ khóa cổng đó lại và không gửi thông báo cho người quản trị) ,restrict(sw sẽ khóa cổng đó lại và gửi thông báo cho người quản trị) , shutdown (sw sẽ tắt luôn cổng đó)
+
+```
+Switch(config-if)#switchport port-security violation protect 
+```
+
+- show
+![Alt](/thuctap/anh/Screenshot_135.png)
 
 # Tài liệu tham khảo
 https://viettelco.vn/cac-thanh-phan-linh-kien-co-ban-cua-server-vat-ly/
