@@ -70,3 +70,22 @@ Màu xanh nhạt|UDP|
 
 - Nhìn vào hình ảnh ta có thể hiểu như này: `192.168.68.1` sẽ gửi broadcast đến tất cả các mạng và ai có trùng ip thì sẽ gửi 1 gói tin trả lại và kèm theo địa chỉ Mac
 
+#### Sử dụng wireshark bắt mật khẩu telnet
+- Mô hình ở đây là tôi sử dụng VMware cài ubuntu và đặt địa chỉ ip là `192.168.68.35` sau đó dùng mobaxterm telnet vào và dùng wire shark bắt gói tin
+
+![Alt](/thuctap/anh/Screenshot_136.png)
+- Chọn 1 gói tin bất kỳ và bấm vào TCP stream
+
+![Alt](/thuctap/anh/Screenshot_137.png)
+
+- Kết quả:ta đã có được password và cả user nữa
+
+![Alt](/thuctap/anh/Screenshot_138.png)
+
+- Ta thử sử dụng cách này với ssh xem sao?
+
+
+![Alt](/thuctap/anh/Screenshot_139.png)
+
+
+![Alt](/thuctap/anh/Screenshot_140.png)
