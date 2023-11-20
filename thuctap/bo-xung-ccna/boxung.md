@@ -431,3 +431,5 @@ https://viettelco.vn/cac-thanh-phan-linh-kien-co-ban-cua-server-vat-ly/
 https://docs.google.com/document/d/1hDpw_DYmYLFAOZBukk5j8neCLjioeiGDOq66-s8UPWw/edit
 
 https://www.youtube.com/watch?v=qCpTl6Hj0M4
+
+https://drive.google.com/drive/folders/1jgK20MU3-D9caYRcc9JPbnHs7AxTm-vV
