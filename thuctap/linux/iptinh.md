@@ -63,3 +63,25 @@ reboot
 - Kết quả:
 
 ![Alt](/thuctap/anh/Screenshot_133.png)
+
+## Cấu hình ip động cho centos 7
+- Để cấu hình dhcp ta cũng sửa file ifcfg-ens33
+
+```
+vi /etc/sysconfig/network-scripts/ifcfg-ens33
+```
+- Ta sửa nội dung như trong hình
+
+![Alt](/thuctap/anh/Screenshot_141.png)
+- reset mạng 
+
+```
+systemctl restart network.service
+```
+hoặc 
+```
+service network restart
+```
+- Kết quả:
+
+![Alt](/thuctap/anh/Screenshot_142.png)

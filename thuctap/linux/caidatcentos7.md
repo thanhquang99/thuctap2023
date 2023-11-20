@@ -1,3 +1,7 @@
+- [Hướng dẫn cài đặt centos 7](#hướng-dẫn-cài-đặt-centos-7)
+  - [Cài đặt OS centos 7 vào VMware worksation](#cài-đặt-os-centos-7-vào-vmware-worksation)
+  - [Cài đặt OS ubuntu-server vào VMware worksation](#cài-đặt-os-ubuntu-server-vào-vmware-worksation)
+
 # Hướng dẫn cài đặt centos 7
 - Cài đăt VMware workstation 
 https://www.vmware.com/content/vmware/vmware-published-sites/us/products/workstation-pro/workstation-pro-evaluation.html.html
