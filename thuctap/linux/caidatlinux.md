@@ -58,3 +58,9 @@ Lưu ý có 2 cách cài là `typical` và `custom`. ở custom ta có sẽ có 
 - Để cài centos 8 hoặc 9 thì ta lênt trang chủ [download](https://www.centos.org/download/) và lưu ý rằng centos 8(9) chỉ có 2 cách cài là cài bằng chế độ boot hoặc tải DVD về cài
 - cài bằng chế độ boot thì yêu cầu máy tính (hay vmware) phải có internet vì cài theo chế độ này thì ta sẽ theo kiểu boot file từ internet về chứ file không tồn tại trong máy
 - Cài bằng chế độ DVD thì ta sẽ phải tải file lên tới 12G về máy và tiến hành cài đôi lúc sẽ gây ra sự lãng phí tài nguyên như khi ta chỉ cần sử dụng bản minimal chẳng hạn
+
+![Alt](/thuctap/anh/Screenshot_161.png)
+![Alt](/thuctap/anh/Screenshot_162.png)
+![Alt](/thuctap/anh/Screenshot_163.png)
+![Alt](/thuctap/anh/Screenshot_164.png)
+![Alt](/thuctap/anh/Screenshot_165.png)
