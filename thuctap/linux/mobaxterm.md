@@ -40,6 +40,39 @@ systemctl status sshd
 ![Alt](/thuctap/anh/Screenshot_144.png)
 
 ## Thay đổi port ssh trên linux
+- Ta có thể show port đang sử dụng ssh băng câu lệnh
 
+```
+netstat -tulnp | grep ssh
+```
+hoặc
+```
+grep -i port /etc/ssh/sshd_config
+```
+- Chỉnh sửa file sshd_config
 
+```
+vi /etc/ssh/sshd_config
+```
+- Ta tìm đến chỗ ghi `#port 22` và chỉnh thành `port 22345`
+
+![Alt](/thuctap/anh/Screenshot_154.png)
+
+- Khởi động lại máy chủ SSH
+
+```
+systemctl restart sshd
+```
+- chạy lệnh netstat và đảm bảo rằng daemon ssh hiện đang lắng nghe trên cổng ssh mới (do trước đó dùng mobaxterm để cấu hình nên khi thay đổi port sẽ không thể tiếp tục sử dụng được nữa nên tôi vào vmware cấu hình )
+
+```
+netstat -tulpn | grep ssh
+```
+![Alt](/thuctap/anh/Screenshot_155.png)
+
+- Ta tiến hành ssh vào port 22345 như sau:
+
+![Alt](/thuctap/anh/Screenshot_156.png)
 ## Tài liệu tham khảo 
+
+https://drive.google.com/drive/folders/1jgK20MU3-D9caYRcc9JPbnHs7AxTm-vV

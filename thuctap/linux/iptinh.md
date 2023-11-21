@@ -1,3 +1,8 @@
+- [Cài đặt ip tĩnh trên ubuntu](#cài-đặt-ip-tĩnh-trên-ubuntu)
+  - [Cấu hình bằng NETPLAN](#cấu-hình-bằng-netplan)
+  - [Đặt ip tĩnh centos 7](#đặt-ip-tĩnh-centos-7)
+  - [Cấu hình ip động cho centos 7](#cấu-hình-ip-động-cho-centos-7)
+
 # Cài đặt ip tĩnh trên ubuntu
 - Show ip:`ip a`
 ## Cấu hình bằng NETPLAN
@@ -85,3 +90,4 @@ service network restart
 - Kết quả:
 
 ![Alt](/thuctap/anh/Screenshot_142.png)
+
