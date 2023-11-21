@@ -1,6 +1,7 @@
 - [Hướng dẫn cài đặt mobaxterm](#hướng-dẫn-cài-đặt-mobaxterm)
 - [Hướng dẫn dùng mobaxterm để ssh vào centos 7](#hướng-dẫn-dùng-mobaxterm-để-ssh-vào-centos-7)
   - [Thay đổi port ssh trên linux](#thay-đổi-port-ssh-trên-linux)
+  - [Sửa lỗi SSH không được](#sửa-lỗi-ssh-không-được)
   - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
 
 # Hướng dẫn cài đặt mobaxterm
@@ -73,6 +74,15 @@ netstat -tulpn | grep ssh
 - Ta tiến hành ssh vào port 22345 như sau:
 
 ![Alt](/thuctap/anh/Screenshot_156.png)
+
+## Sửa lỗi SSH không được
+- Ở centos 9 thì nó sẽ không cho phép ssh bằng tài khoản root. Để có thể ssh bằng root thì ta phải sửa file 
+
+```
+vi /etc/ssh/sshd_config
+```
+- Ta sửa flie như trong hình (lưu ý: phải xóa dấu `#` để máy có thể hiểu được rằng đó là câu lênh )
+![Alt](/thuctap/anh/Screenshot_170.png)
 ## Tài liệu tham khảo 
 
 https://drive.google.com/drive/folders/1jgK20MU3-D9caYRcc9JPbnHs7AxTm-vV
