@@ -1,3 +1,18 @@
+- [Tổng hợp các câu lệnh hay dùng](#tổng-hợp-các-câu-lệnh-hay-dùng)
+  - [Các câu lệnh show](#các-câu-lệnh-show)
+    - [pwd](#pwd)
+    - [ls](#ls)
+    - [cat](#cat)
+    - [du](#du)
+  - [Các câu lệnh tìm kiếm](#các-câu-lệnh-tìm-kiếm)
+  - [Các câu lệnh liên quan đến thư mục](#các-câu-lệnh-liên-quan-đến-thư-mục)
+    - [cp](#cp)
+    - [mv](#mv)
+    - [mkdir](#mkdir)
+    - [rmdir](#rmdir)
+    - [rm](#rm)
+- [Tổng hợp các file cần nhớ](#tổng-hợp-các-file-cần-nhớ)
+
 # Tổng hợp các câu lệnh hay dùng
 - Trước khi vào làm việc với máy ta cần phải update hết lên
 
@@ -14,6 +29,71 @@ systemctl start NetworkManager.service
 ```
 netstat -tulpn | grep ssh
 ```
+## Các câu lệnh show
+### pwd
+- show đường dẫn của vị trí đang đứng
+
+### ls
+- Liệt kê các file có trong thư mục hiện tại
+- Nó có một vài option cho ta lựa chọn:
+  - `ls -R ` :liệt kê tất cả các file bao gồm cả thư mục phụ bên trong
+  - `ls -a`: liệt kê tất cả các file bao gồm cả thư mục ẩn
+  - `ls -al` :liệt kê tất cả các kèm theo các thông tin chi tiết như phân quyền, chủ sở hữu ,kích thước ...
+  
+### cat
+- dùng để show nội dùng trong file ra
+- Ta cũng có thể sắp xếp nội dung show theo ý chúng ta như show file 1 rồi đến file 2 bằng
+
+```
+cat file1 file2
+```
+
+### du
+```
+du [option] [path]
+```
+- dùng để xem dung lượng thư mục
+## Các câu lệnh tìm kiếm
+
+
+## Các câu lệnh liên quan đến thư mục
+### cp
+- Dùng để sao chép file 
+- Có 2 cách dùng 
+  - Sao chép file ở thư mục hiện tại đến vị trí khác `cp [tênfile] [đường dẫn muốn đến]`
+  - Sao chép file ở 1 thư mục bất kỳ đến 1 thư mục bất kỳ ` cp [đường dẫn file cần sao chép] [đường dẫn muốn đến]`
+
+### mv
+- Dùng để di chuyển file và ta có cách dùng tương tự như `cp`
+
+### mkdir
+- Tạo thư mục
+- Ta cũng có 1 vài các dùng độc đáo như
+  - Tạo thư mục mới trong thư mục đã có sẵn
+ ```
+mkdir [new foder]/[foder có sẵn]
+```
+
+- Tạo thư mục nằm giữa 2 thư mục
+
+```
+mkdir -p [foder1]/[newfoder]/[foder2]
+```
+### rmdir
+- Dùng để xóa thư mục nhưng chỉ được phép xóa thư mục trống
+
+### rm
+- dùng để xóa 
+- có nhiều option để chọn
+  - `-f` :xóa không cần hỏi
+  - `-i`:hỏi trước khi xóa
+  - `-r`:xóa toàn bộ kể cả thư mục con bên trong
+  - `-d` :xóa thư mục rỗng
+  - `rm -rf` : xóa toàn bộ kể cả file system (rất nguy hiểm)
+
+
+
+
 # Tổng hợp các file cần nhớ
 - `/etc/sysconfig/network-scripts` là file chuyển dùng để cấu hình card mạng của centos
 - `/etc/netplan/` là file cấu hình ip cho ubuntu
