@@ -331,7 +331,7 @@ Nó lưu trữ lại kết quả truy suất nhằm tránh mất thêm thời gi
 #### 6.2.5 cấu trúc của gói tin DNS
 Thông điệp truy vấn DNS bao gồm một `header` và `question record`; thông báo phản hồi DNS bao gồm một `header`, `question record`, `answer records`, các bản ghi có thẩm quyền và các bản ghi bổ sung.
 
-![Alt](/thuctap/anh/Screenshot_45.png)
+![Alt](/thuctap/anh/Screenshot_46.png)
 
 ### 6.3 Giao thức ICMP
 #### 6.3.1 Tổng quan về giao thức ICMP
@@ -342,7 +342,7 @@ Thông điệp truy vấn DNS bao gồm một `header` và `question record`; th
   - Ngay sau khi phát hiện lỗi, ICMP sẽ tạo và gửi thông báo đến IP nguồn ngay lập tức
 - Cấu trúc của gói tin 
 
-![Alt](/thuctap/anh/Screenshot_46.png)
+![Alt](/thuctap/anh/Screenshot_48.png)
 
   - TYPE (8 bit): là một số nguyên 8 bit để xác định thông điệp.
   - CODE (8bit):cung cấp thêm thông tin về kiểu thông điệp.

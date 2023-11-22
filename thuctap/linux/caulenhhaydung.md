@@ -6,16 +6,21 @@
     - [du](#du)
     - [](#)
   - [Các câu lệnh tìm kiếm](#các-câu-lệnh-tìm-kiếm)
-  - [Các câu lệnh liên quan đến thư mục](#các-câu-lệnh-liên-quan-đến-thư-mục)
+  - [Các câu lệnh liên quan đến thư mục và file](#các-câu-lệnh-liên-quan-đến-thư-mục-và-file)
     - [cp](#cp)
     - [mv](#mv)
     - [mkdir](#mkdir)
     - [rmdir](#rmdir)
     - [rm](#rm)
+    - [touch](#touch)
+    - [cat](#cat-1)
+    - [grep](#grep)
   - [Các câu lệnh liên quan đến hệ thống](#các-câu-lệnh-liên-quan-đến-hệ-thống)
     - [shutdown](#shutdown)
     - [reboot](#reboot)
     - [init](#init)
+    - [date](#date)
+    - [df](#df)
   - [Các câu lệnh quan trọng nhất thiết phải nhớ](#các-câu-lệnh-quan-trọng-nhất-thiết-phải-nhớ)
     - [`Systemctl`](#systemctl)
 - [Tổng hợp các file cần nhớ](#tổng-hợp-các-file-cần-nhớ)
@@ -70,7 +75,7 @@ du [option] [path]
 ## Các câu lệnh tìm kiếm
 
 
-## Các câu lệnh liên quan đến thư mục
+## Các câu lệnh liên quan đến thư mục và file
 ### cp
 - Dùng để sao chép file 
 - Có 2 cách dùng 
@@ -104,7 +109,33 @@ mkdir -p [foder1]/[newfoder]/[foder2]
   - `-r`:xóa toàn bộ kể cả thư mục con bên trong
   - `-d` :xóa thư mục rỗng
   - `rm -rf` : xóa toàn bộ kể cả file system (rất nguy hiểm)
+### touch 
+- Dùng để tạo file
+```
+touch file1.txt
+```
+### cat
+- là lệnh dùng để hiển thị nội dung file
+- Ta có 1 số biến thể có thể sử dụng .Do các thông tin của cpu hay ram ở trong file system /proc/ nên ta có thể xem thông tin của nó bằng lệnh cat
+- xem thông tin của cpu
 
+```
+cat /proc/cpuinfo
+```
+- xem thông tin của ram
+
+```
+cat /proc/meminfo
+```
+### grep
+- là lệnh cho phép lọc dữ liệu 
+```
+grep -[options] [string] [file]
+```
+- c : đếm số lần xuất hiện của string trong file
+- n : hiển thị số dòng có chứa string trong file
+- i : tìm kiếm không phân biệt chữ hoa và chữ thường
+- w : tim kiếm chính xác nội dung của string
 ## Các câu lệnh liên quan đến hệ thống
 ### shutdown
 ```
@@ -129,6 +160,22 @@ reboot
 init [number]
 ```
 - `0` :shutdown
+### date 
+- Dùng để xem ngày giờ hệ thống
+
+### df
+- Ta có thể sử dụng lệnh này để xem thông tin ổ cứng
+
+```
+df -[options]
+```
+- a : hiển thị thông tin của các hệ thống tập tin cùng với tất cả
+- h : hiển thị theo mức sử dụng dung lượng ổ cứng theo định dạng dễ đọc
+- k : hiển thị thông tin dung lượng theo kilobytes
+- m : hiển thị thông tin dung lượng theo megabytes
+- i : hiển thị thông tin dung lượng theo inodes
+- T : hiển thị loại file system ( ext4 , xfs ,...)
+- t : hiển thị thông tin dựa trên loại file system
 
 ## Các câu lệnh quan trọng nhất thiết phải nhớ
 ### `Systemctl`
