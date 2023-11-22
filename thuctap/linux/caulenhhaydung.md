@@ -23,6 +23,7 @@
     - [df](#df)
   - [Các câu lệnh quan trọng nhất thiết phải nhớ](#các-câu-lệnh-quan-trọng-nhất-thiết-phải-nhớ)
     - [`Systemctl`](#systemctl)
+  - [Hướng dẫn sử dụng Netstat](#hướng-dẫn-sử-dụng-netstat)
 - [Tổng hợp các file cần nhớ](#tổng-hợp-các-file-cần-nhớ)
 - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
 
@@ -237,8 +238,23 @@ systemctl show service-name
 ```
 systemctl status service-name
 ```
+## Hướng dẫn sử dụng Netstat
+- Netstat : (Network static) là một công cụ dùng để theo dõi các kết nối vào ra của mạng ,nó rất hữu ích trong việc khắc phục sự cố liên quan đến mạng
+- Download netstat
 
-
+```
+yum install -y net-tools
+```
+```
+netstat -[option]
+```
+- a: Hiển thị toàn bộ các kết nối 
+- e : hiển thị các số liệu thống kê cụ thể
+- n : hiển thị các kết nối TCP
+- o : hiển thị các kết nối TCP bao gồm cả ID
+- s : hiển thị các số liệu liệu thống kê cho các giao thức.Trường hợp này Protocol có thể là tcp, udp, udpv6, tcpv6.
+- s :hiển thị các số liệu liệu thống kê cho các giao thức.Như mặc định thì các số liệu thống kê được hiển thị cho các giao thức TCP, IP, UDP và ICMP.
+- r : hiển thị bảng định tuyến
 # Tổng hợp các file cần nhớ
 - `/etc/sysconfig/network-scripts` là file chuyển dùng để cấu hình card mạng của centos
 - `/etc/netplan/` là file cấu hình ip cho ubuntu
