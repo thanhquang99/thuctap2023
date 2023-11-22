@@ -1,5 +1,5 @@
 - [Tổng hợp các câu lệnh hay dùng](#tổng-hợp-các-câu-lệnh-hay-dùng)
-  - [Các câu lệnh show](#các-câu-lệnh-show)
+  - [Các câu lệnh show trong linux](#các-câu-lệnh-show-trong-linux)
     - [pwd](#pwd)
     - [ls](#ls)
     - [cat](#cat)
@@ -36,7 +36,7 @@ systemctl start NetworkManager.service
 ```
 netstat -tulpn | grep ssh
 ```
-## Các câu lệnh show
+## Các câu lệnh show trong linux
 ### pwd
 - show đường dẫn của vị trí đang đứng
 
