@@ -63,7 +63,6 @@ Muc lục
       - [6.2.5 cấu trúc của gói tin DNS](#625-cấu-trúc-của-gói-tin-dns)
     - [6.3 Giao thức ICMP](#63-giao-thức-icmp)
       - [6.3.1 Tổng quan về giao thức ICMP](#631-tổng-quan-về-giao-thức-icmp)
-      - [6.3.2 các loại ICMP thường thấy](#632-các-loại-icmp-thường-thấy)
     - [6.4 Giao thức RIP](#64-giao-thức-rip)
   - [7. Tài liệu tham khảo](#7-tài-liệu-tham-khảo)
 
@@ -347,8 +346,6 @@ Thông điệp truy vấn DNS bao gồm một `header` và `question record`; th
   - TYPE (8 bit): là một số nguyên 8 bit để xác định thông điệp.
   - CODE (8bit):cung cấp thêm thông tin về kiểu thông điệp.
   - CHECKSUM(16 bit) : ICMP checksum như IP, nhưng ICMP checksum chỉ tính đến thông điệp ICMP.
-#### 6.3.2 các loại ICMP thường thấy
-- ICMP echo 
 
 ### 6.4 Giao thức RIP
 ![Alt](/thuctap/anh/Screenshot_64.png)
