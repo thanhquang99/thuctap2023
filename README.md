@@ -13,3 +13,14 @@
 
 [7.Tổng hợp cấu hình cisco cơ bản](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/tim-hieu-dinh-tuyen/tong-hop-cau-hinh-cisco-co-ban.md)
 [8.Bổ xung những chi tiết còn thiếu trong CCNA](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/bo-xung-ccna/boxung.md)
+
+[9.Giấy phép mã nguồn mở](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/giayphepmanguonmo.md)
+
+[10.Cài đặt linux](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/caidatlinux.md)
+
+[11. Đặt ip tĩnh linux](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/iptinh.md)
+
+[12.Cài đặt và sử dụng mobaxterm](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/mobaxterm.md)
+
+[13.Reset password linux khi quên mật khẩu](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/reset-password-linux.md)
+[14.Các câu lệnh hay dùng trong linux](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/caulenhhaydung.md)
