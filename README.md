@@ -23,4 +23,5 @@
 [12.Cài đặt và sử dụng mobaxterm](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/mobaxterm.md)
 
 [13.Reset password linux khi quên mật khẩu](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/reset-password-linux.md)
+
 [14.Các câu lệnh hay dùng trong linux](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/caulenhhaydung.md)
