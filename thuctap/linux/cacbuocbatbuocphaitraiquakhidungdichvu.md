@@ -3,10 +3,3 @@
 - B2:Cài đặt và kiểm tra cài đặt , ta xem file đó đã tải về ở đâu 
 - B3 :Kiểm tra xem dịch vụ đã được bật chưa . Ta có thể xem nó bằng câu lệnh liên quan đến status
 # Ta có thể sử dụng các câu lệnh liên quan đến `systemctl` để kiểm tra
-## Cấu trúc câu lệnh
-```
-systemctl [option] command [unit]
-```
-- `systemctl` : dùng để quản lý ,điều khiển dịch vị trong linux
-- option:
-  - 

@@ -4,8 +4,8 @@
     - [ls](#ls)
     - [cat](#cat)
     - [du](#du)
-    - [](#)
   - [Các câu lệnh tìm kiếm](#các-câu-lệnh-tìm-kiếm)
+    - [find](#find)
   - [Các câu lệnh liên quan đến thư mục và file](#các-câu-lệnh-liên-quan-đến-thư-mục-và-file)
     - [cp](#cp)
     - [mv](#mv)
@@ -71,8 +71,20 @@ du [option] [path]
   - `-k` : hiển thị dung lượng theo Kb
   - `-m` : hiển thị dung lượng theo Mb
 
-### 
 ## Các câu lệnh tìm kiếm
+### find
+- Là lệnh tìm kiếm mạnh nhất với nhiều tham số nhưng thường tốn thời gian hơn các lệnh khác
+```
+# find [không_gian_tìm_kiếm] [tiêu_chuẩn_tìm_kiếm (options)]
+```
+- Trong đó [không_gian_tìm_kiếm] :là chỉ định thư mục tìm kiếm trong đó
+- (options)
+  - name [file_name]
+  - atime :access time
+  - mtime : modify time
+  - ctime :change time
+  - perm [number_mode] : quyền hạn permission của file
+  - size n ( n là kích cỡ cần tìm )
 
 
 ## Các câu lệnh liên quan đến thư mục và file
@@ -136,6 +148,10 @@ grep -[options] [string] [file]
 - n : hiển thị số dòng có chứa string trong file
 - i : tìm kiếm không phân biệt chữ hoa và chữ thường
 - w : tim kiếm chính xác nội dung của string
+- v :tìm kiếm các dòng mà không có nội dung của string
+
+Ví dụ :tìm kiếm các dòng mà không có kí tự `#` trong file `sshd_config` 
+![Alt](/thuctap/anh/Screenshot_185.png)
 ## Các câu lệnh liên quan đến hệ thống
 ### shutdown
 ```
