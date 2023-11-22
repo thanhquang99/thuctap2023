@@ -16,7 +16,8 @@
     - [shutdown](#shutdown)
     - [reboot](#reboot)
     - [init](#init)
-    - [](#-1)
+  - [Các câu lệnh quan trọng nhất thiết phải nhớ](#các-câu-lệnh-quan-trọng-nhất-thiết-phải-nhớ)
+    - [`Systemctl`](#systemctl)
 - [Tổng hợp các file cần nhớ](#tổng-hợp-các-file-cần-nhớ)
 - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
 
@@ -129,7 +130,51 @@ init [number]
 ```
 - `0` :shutdown
 
-### 
+## Các câu lệnh quan trọng nhất thiết phải nhớ
+### `Systemctl`
+- `systemctl` : là câu lệnh dùng để quản lý các chương trình hệ thống trong linux ,ta có thể reset,enable với các chương trình trong hệ thống
+- Để show các chương trình mà `systemctl` đang quản lý ta sử dụng lệnh
+
+```
+systemctl list-inits
+```
+- Để show các chương trình chạy loại service thì ta dunngf lệnh
+
+```
+systemctl list-inits --t service
+```
+- Để khởi động dịch vụ 
+
+```
+systemctl start service-name
+```
+- Để dừng dịch vụ
+
+```
+systemctl stop service-name
+```
+- Để dịch vụ luôn bật khi khởi động lại máy
+
+```
+systemctl enable service-name
+```
+
+- Để dịch vụ luôn tắt kể cả khi khởi động lại máy
+
+```
+systemctl disable service-name
+```
+- Để xem các thông tin chi tiết về dịch vụ
+
+```
+systemctl show service-name
+```
+- Để xem trạng thái của dịch vụ 
+
+```
+systemctl status service-name
+```
+
 
 # Tổng hợp các file cần nhớ
 - `/etc/sysconfig/network-scripts` là file chuyển dùng để cấu hình card mạng của centos
