@@ -4,6 +4,7 @@
     - [ls](#ls)
     - [cat](#cat)
     - [du](#du)
+    - [](#)
   - [Các câu lệnh tìm kiếm](#các-câu-lệnh-tìm-kiếm)
   - [Các câu lệnh liên quan đến thư mục](#các-câu-lệnh-liên-quan-đến-thư-mục)
     - [cp](#cp)
@@ -11,7 +12,13 @@
     - [mkdir](#mkdir)
     - [rmdir](#rmdir)
     - [rm](#rm)
+  - [Các câu lệnh liên quan đến hệ thống](#các-câu-lệnh-liên-quan-đến-hệ-thống)
+    - [shutdown](#shutdown)
+    - [reboot](#reboot)
+    - [init](#init)
+    - [](#-1)
 - [Tổng hợp các file cần nhớ](#tổng-hợp-các-file-cần-nhớ)
+- [Tài liệu tham khảo](#tài-liệu-tham-khảo)
 
 # Tổng hợp các câu lệnh hay dùng
 - Trước khi vào làm việc với máy ta cần phải update hết lên
@@ -53,6 +60,12 @@ cat file1 file2
 du [option] [path]
 ```
 - dùng để xem dung lượng thư mục
+- option :
+  - `-s` : in kích thước tổng
+  - `-k` : hiển thị dung lượng theo Kb
+  - `-m` : hiển thị dung lượng theo Mb
+
+### 
 ## Các câu lệnh tìm kiếm
 
 
@@ -91,10 +104,37 @@ mkdir -p [foder1]/[newfoder]/[foder2]
   - `-d` :xóa thư mục rỗng
   - `rm -rf` : xóa toàn bộ kể cả file system (rất nguy hiểm)
 
+## Các câu lệnh liên quan đến hệ thống
+### shutdown
+```
+shutdown [options] [time] [wall]
+```
+- option:
+  - `h`: shutdown
+  - `r`: restart
+- time:
+  - `now`: ngay bây giờ
+  - `+ phút` : sau bao nhiêu phút nữa
+  - `giờ:phút` :ấn định thời gian
 
+### reboot
+```
+reboot
+```
+- reboot lại máy
 
+### init
+```
+init [number]
+```
+- `0` :shutdown
+
+### 
 
 # Tổng hợp các file cần nhớ
 - `/etc/sysconfig/network-scripts` là file chuyển dùng để cấu hình card mạng của centos
 - `/etc/netplan/` là file cấu hình ip cho ubuntu
 - `/etc/ssh/sshd_config` file cấu hình ssh có cả cấu hình port nữa
+
+# Tài liệu tham khảo
+https://github.com/QuocCuong97/Linux/blob/master/docs/Basic%20Linux/08_Basic_Commands.md
