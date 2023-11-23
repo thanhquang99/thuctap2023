@@ -1,6 +1,7 @@
 - [Tìm hiểu về file fstab](#tìm-hiểu-về-file-fstab)
   - [Cấu trúc tổ chức trong file /etc/fstab](#cấu-trúc-tổ-chức-trong-file-etcfstab)
 - [Tìm hiểu về cách mount](#tìm-hiểu-về-cách-mount)
+  - [Thực hành mount ổ cứng vào phân vùng](#thực-hành-mount-ổ-cứng-vào-phân-vùng)
 - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
 
 # Tìm hiểu về file fstab
@@ -50,23 +51,95 @@ cat /etc/fstab
   - `default`: tương đương với các quyền rw , suid , dev , exec , auto , nouser , async
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Tìm hiểu về cách mount
+- Cấu trúc lệnh
+
+```
+mount [options] [device_name] [mount_point]
+```
+- Options:
+  - -v : chế độ chi tiết , cung cấp thêm thông tin về những gì mount định thực hiện
+  - -w : mount hệ thống tập tin với quyền đọc và ghi
+  - -r : mount hệ thống tập tin chỉ có quyền đọc
+  - -t : xác định lại hệ thống tập tin được mount . Những loại hợp lệ là ext2 , ext3 , ext4 , vfat , iso9600 ,...
+  - -a : mount tất cả các hệ thống tập tin được khai báo trong fstab
+
+## Thực hành mount ổ cứng vào phân vùng
+- kiểm tra phân vùng có sẵn
+
+```
+lsblk
+```
+
+![Alt](/thuctap/anh/Screenshot_213.png)
+
+- Tôi sẽ đặt ra bài toán như thế này: máy của tôi đang ổ đĩa có dung lượng là 20G và tôi lắp thêm 1 ổ đĩa mới có dung lượng là 5G vào .Để dùng được 5G này tôi phải mount ổ 5G này đến 1 thư mục trong hệ thống linux .Bạn tưởng tượng rằng máy tính của bạn lắp thêm 1 ổ đĩa mới vào thì nó sẽ là ổ đĩa D để bạn dùng lưu trữ dữ liệu,nhưng khi làm với linux thì nó sẽ không tự động tạo ra ổ D như thế mà nó chỉ bảo là có ổ đĩa D đã được thêm vào nhưng bạn không có quyền gì với nó việc của bạn cần làm là mount nó đến 1 thu mục mà khi bạn thao tác gì với thư mục đó thì nó sẽ đc lưu vào ổ đĩa mới
+
+- Tôi tiến hành cấp ổ đĩa ảo cho máy của mình và kiểm tra bằng lệnh `lsblk`
+
+
+![Alt](/thuctap/anh/Screenshot_214.png)
+
+![Alt](/thuctap/anh/Screenshot_215.png)
+
+- Ta tiến hành tạo một thư mục để sử dụng ổ đĩa sdb 
+
+```
+root@thanhquang:/home# mkdir use-sdb1
+
+```
+- Để mount được ta cần phải phân vùng cho ổ sdb đã
+
+```
+parted /dev/sdb
+(parted) mklabel gpt
+(parted) mkpart primary 0GB 5GB
+(parted) quit
+```
+
+![Alt](/thuctap/anh/Screenshot_216.png)
+
+- Định dạng lại filesystem cho phân vùng
+
+```
+mkfs.xfs /dev/sdb1
+```
+
+![Alt](/thuctap/anh/Screenshot_217.png)
+
+- Thực hiện lệnh mount
+
+```
+mount /dev/sdb1 /home/use-sdb1
+```
+
+- Kiểm tra kết quả
+
+![Alt](/thuctap/anh/Screenshot_218.png)
+
+- Chỉnh sửa file fstab để khi reboot không mất
+
+```
+vi /etc/fstab
+```
+
+```
+/dev/sdb1  /home/use-sdb1 xfs defaults 0 0
+```
+
+![Alt](/thuctap/anh/Screenshot_219.png)
+
+- Ta tiến hành reboot và kiểm tra lại 
+
+![Alt](/thuctap/anh/Screenshot_220.png)
+
+- Ta có thể thực hiện unmount
+
+```
+umount /dev/sdb1 /home/use-sdb1
+```
+
+![Alt](/thuctap/anh/Screenshot_221.png)
 # Tài liệu tham khảo
 
 https://github.com/QuocCuong97/Linux/blob/master/docs/Basic%20Linux/23_Mount_Devices.md
