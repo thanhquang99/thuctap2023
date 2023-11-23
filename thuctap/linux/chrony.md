@@ -4,6 +4,7 @@
 - [Cấu hình chrony làm NTP server](#cấu-hình-chrony-làm-ntp-server)
 - [cấu hình chrony trên NTP client](#cấu-hình-chrony-trên-ntp-client)
 - [Kiểm tra lại tổng quát](#kiểm-tra-lại-tổng-quát)
+- [Giải thích các lệnh trong file `chrony`](#giải-thích-các-lệnh-trong-file-chrony)
 - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
 
 # Chrony là gì
@@ -82,17 +83,7 @@ cat /etc/chrony/chrony.conf | egrep -v '^$|^#'
 ```
 
 ![Alt](/thuctap/anh/Screenshot_197.png)
-- Xác định xem trong file chrony có những gì
-  - server Xác định các NTP Server bạn muốn sử dụng
-  - prefer Đối với nhiều NTP Server chúng ta có thể chỉ đinh ưu tiên kết nối từ NTP Server nào trước thay vì để hệ thống tự lựa chọn
-  - driftfile  File lưu trữ  tốc độ mà đồng hồ hệ thống tăng / giảm thời gian
-  - makestep Cho phép đồng hồ hệ thống không cập nhật trong 3 bản cập nhật đầu tiên nếu độ lệch của nó nó lơn hơn 1s
-  - rtcsync Cho phép đồng bộ hóa kernel của đồng hồ thời gian thực (RTC)
-  - maxupdateskew Ngăn chặn việc thay đổi đột ngột nhiều lần làm ảnh hưởng hệ thống
-  - logdir Vị trí file log
-  - allow Cho phép Client truy cập NTP từ mạng cục bộ
-  - keyfile Tệp có chứa mật khẩu để xác thực kết nối giữa Client và Server cho phép chronyc đăng nhập vào chronyd và thông báo cho chronyd về sự hiện diện của liên kết với Internet.
-  - generatecommandkey Tạo mật khẩu ngẫu nhiên tự động khi bắt đầu chronyd đầu tiên
+- [Xác định xem trong file chrony có những gì]()
 
 # Cấu hình chrony làm NTP server
 - Ta cho phép dải mạng từ client truy cập vào bằng cách dùng vi và thêm câu lệnh `allow 192.168.10.0/24` vào file chrony.conf
@@ -169,6 +160,21 @@ chronyc tracking
 - Stop Chrony và kiểm tra
 
 ![Alt](/thuctap/anh/Screenshot_210.png)
+
+# Giải thích các lệnh trong file `chrony`
+
+![Alt](/thuctap/anh/Screenshot_222.png)
+
+- Vùng 1: 4 dòng trong vùng 1 nó định nghĩa xem máy sẽ đồng bộ thời gian từ đâu ,như trên hình nó sẽ lấy các pool của ubuntu để đồng bộ thời gian theo từ trên xuống dưới
+- vùng 2 :chỉ định tệp chưa mật khẩu khi server và client thực hiện kết nối với nhau
+- vùng 3: file lưu trữ tốc độ mà đồng hồ hệ thống tăng giảm
+- vùng 4: chỉ ra file lưu trữ file log
+- vùng 5:chỉ ra thời gian tối đa cho phép 2 máy bị lệch để cập nhật
+- vùng 6:Đồng bộ hóa máy với thời gian thực trên vùng 1
+- vùng 7: Nếu 3 bản cập nhật đầu tiên mà đồng hồ hệ thống không lệch 1s so với bản cập nhật thì không cần cập nhật
+- Vùng 8: cho phép các ip có địa chỉ mạng như trên tham gia
+
+
 # Tài liệu tham khảo 
 
 https://news.cloud365.vn/cai-dat-chrony-tren-ubuntu-18-04/
