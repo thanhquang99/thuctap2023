@@ -38,6 +38,11 @@ ufw allow ntp
 ufw status
 ```
 
+```
+systemctl enable firewalld
+firewall-cmd --add-service=ntp --permanent 
+firewall-cmd --reload
+```
 ![Alt](/thuctap/anh/Screenshot_194.png)
 
 - trên hình ta thấy port 123 của ntp đã allow
@@ -167,3 +172,5 @@ chronyc tracking
 # Tài liệu tham khảo 
 
 https://news.cloud365.vn/cai-dat-chrony-tren-ubuntu-18-04/
+
+https://news.cloud365.vn/cai-dat-chrony-tren-centos-rhel-7/
