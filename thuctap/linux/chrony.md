@@ -3,6 +3,7 @@
 - [cài đặt chrony trên cả 2 server](#cài-đặt-chrony-trên-cả-2-server)
 - [Cấu hình chrony làm NTP server](#cấu-hình-chrony-làm-ntp-server)
 - [cấu hình chrony trên NTP client](#cấu-hình-chrony-trên-ntp-client)
+- [Kiểm tra lại tổng quát](#kiểm-tra-lại-tổng-quát)
 - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
 
 # Chrony là gì
@@ -123,20 +124,46 @@ hwclock --systohc
 ```
 vi /etc/chrony.conf
 ```
-- Nội dung cần sửa trong vi
-  - thêm `server 192.168.10.21 iburst maxsources 1`
-  - Sửa theo hình ảnh bên dưới thành `/etc/chrony.conf`
+- Nội dung cần sửa trong vi: thay thế những dòng khoanh trong hình bằng `server 192.168.10.21 iburst`
 
 ![Alt](/thuctap/anh/Screenshot_203.png)
 
-![Alt](/thuctap/anh/Screenshot_204.png)
+![Alt](/thuctap/anh/Screenshot_205.png)
 
 - Khởi động lại chrony
 
 ```
 systemctl enable chronyd.service
 ```
-- 
+- Kiểm tra đồng bộ sử dụng timedatectl
+
+![Alt](/thuctap/anh/Screenshot_206.png)
+
+- Set đồng bộ thời gian cho đồng hồ của BIOS (Đồng hồ phần cứng)
+
+```
+hwclock --systohc
+```
+# Kiểm tra lại tổng quát
+- Kiểm tra verify kết nối
+
+```
+chronyc tracking
+```
+![Alt](/thuctap/anh/Screenshot_207.png)
+
+- `chronyc sources -v`
+
+![Alt](/thuctap/anh/Screenshot_208.png)
+
+- `chronyc sourcestats`
+
+
+![Alt](/thuctap/anh/Screenshot_209.png)
+
+- Stop Chrony và kiểm tra
+
+![Alt](/thuctap/anh/Screenshot_210.png)
 # Tài liệu tham khảo 
 
 https://news.cloud365.vn/cai-dat-chrony-tren-ubuntu-18-04/
