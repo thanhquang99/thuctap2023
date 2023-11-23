@@ -29,7 +29,7 @@ vi [đường dẫn của file]
 - `:set nu` đánh dấu tất cả các dòng
 - `Xdd` xóa dòng thứ X
 - `Yyy` sao chép dòng thứ Y
-- `XG` trỏ đến dòng thứ x
+- `:x` trỏ đến dòng thứ x
 - `h` di chuyển sang trái 1 kí tự
 - `l` di chuyển sang phải 1 ký tự
 - `j` di chuyển xuống dòng dưới
