@@ -83,7 +83,7 @@ cat /etc/chrony/chrony.conf | egrep -v '^$|^#'
 ```
 
 ![Alt](/thuctap/anh/Screenshot_197.png)
-- [Xác định xem trong file chrony có những gì]()
+- [Xác định xem trong file chrony có những gì](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/chrony.md#gi%E1%BA%A3i-th%C3%ADch-c%C3%A1c-l%E1%BB%87nh-trong-file-chrony)
 
 # Cấu hình chrony làm NTP server
 - Ta cho phép dải mạng từ client truy cập vào bằng cách dùng vi và thêm câu lệnh `allow 192.168.10.0/24` vào file chrony.conf
