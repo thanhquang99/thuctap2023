@@ -325,6 +325,15 @@ trong đó VAR là tên biến còn value là giá trị của biến
 ![Alt](/thuctap/anh/Screenshot_270.png)
 
 ## file globbing
+- sự khác biệt giữa `*` `?` : `*` có thể thay thế cho nhiều kí tự còn `?` chỉ thay thế cho 1 kí tự
+
+![Alt](/thuctap/anh/Screenshot_271.png)
+
+- `[]` cung cấp cho ta sự lựa chọn ,chỉ cần q trong những từ trong ngoặc phù hợp là được 
+
+![Alt](/thuctap/anh/Screenshot_272.png)
+
+- Ta có thể viết gọn các số từ 1 đến 9 thành 1-9 hoặc từ a đến z thành a-z
 
 
 
