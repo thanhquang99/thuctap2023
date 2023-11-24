@@ -25,3 +25,29 @@
 [13.Reset password linux khi quên mật khẩu](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/reset-password-linux.md)
 
 [14.Các câu lệnh hay dùng trong linux](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/caulenhhaydung.md)
+
+
+[15.Tìm hiểu cách sử dụng IP Public, Virtual ip, Virtual host, File htaccess, IP local, file host](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/Timhieuveip.md)
+
+[16.Cài đăt Chrony (Network Time Protocol)](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/chrony.md)
+
+[17.Tìm hiểu Mount & Fstab](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/mount.md)
+
+[SSH keypair](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/sshkeypair.md)
+
+[]()
+
+[]()
+
+[]()
+
+[]()
+
+
+
+
+
+
+
+
+
