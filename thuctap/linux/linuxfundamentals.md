@@ -21,6 +21,22 @@
     - [Hiển thị nội dung file](#hiển-thị-nội-dung-file)
   - [Shell expansion](#shell-expansion)
     - [Tìm hiểu đơn giản](#tìm-hiểu-đơn-giản)
+    - [command](#command)
+      - [External commands và Builtin commands](#external-commands-và-builtin-commands)
+  - [Các toán tử điều khiển](#các-toán-tử-điều-khiển)
+    - [`;`](#)
+    - [`&`](#-1)
+    - [`&&`](#-2)
+    - [`||`](#-3)
+    - [`#`](#-4)
+    - [`\`](#-5)
+  - [Các biến trong shell](#các-biến-trong-shell)
+    - [`$`](#-6)
+    - [Biến môi trường](#biến-môi-trường)
+  - [Các tùy chọn trong shell](#các-tùy-chọn-trong-shell)
+    - [shell option](#shell-option)
+  - [shell history](#shell-history)
+  - [file globbing](#file-globbing)
 - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
 # Linux history
 - Năm 1969 Dennis Ritchie và Ken
@@ -170,11 +186,147 @@ Nói một cách đơn giản, shell là một chương trình nhận lệnh t�
 
 ![Alt](/thuctap/anh/Screenshot_245.png)
 
-- Để
+- Để loại bỏ khoảng trắng thì ta phải thêm dấu ngoặc kép vào 
 
+![Alt](/thuctap/anh/Screenshot_246.png)
 
+- Ta cũng có thể hiển thị xuống dòng bằng option `-e` và dấu `/n`
 
+![Alt](/thuctap/anh/Screenshot_247.png)
+
+### command
+#### External commands và Builtin commands
+- External commands :là lệnh bên ngoài và là những lệnh có hệ nhị phân riêng và nằm ở đâu đó trong file system
+- Builtin commands : là lệnh có sẵn và là một phần không thể thiếu của shell bản thân chương trình
+
+- Ta có thể xem lệnh nào là External commands và Builtin commands bằng lệnh type và cũng biết được nơi mà câu lệnh được đặt
+
+![Alt](/thuctap/anh/Screenshot_248.png)
+
+- Ta có thể xem đường dẫn đặt các câu lệnh bằng lệnh `which`
+
+![Alt](/thuctap/anh/Screenshot_249.png)
+
+- Ta có thể đặt bí danh cho lệnh để dễ nhớ và mỗi khi cần dùng đến lệnh chỉ cần gọi bí danh thay vì lệnh
+
+```
+ alias dog=cat
+```
   
+![Alt](/thuctap/anh/Screenshot_250.png)
+
+- ta có thể tận dụng alias để làm ngắn gọn câu lênh ví dụ`clear=c` thì khi ta gõ `c` enter thì đã xóa rồi không cần gõ dài dòng làm gì
+
+- Ta có thể tìm bí danh đã được gắn bằng câu lệnh `alias + bí danh` những câu lệnh nào 
+- để xóa bí danh ta sử dụng lệnh `unalias`
+
+![Alt](/thuctap/anh/Screenshot_251.png)
+
+## Các toán tử điều khiển 
+### `;`
+- Khi bạn sử dụng dấu `;` để ngăn cách các câu lệnh cùng 1 dòng thì máy sẽ hiểu là thực hiện tuần tự các câu lệnh đến khi kết thúc
+
+![Alt](/thuctap/anh/Screenshot_252.png)
+### `&`
+- Khi bạn thêm dấu `&` ở cuối câu lệnh thì máy sẽ hiểu rằng sau khi thực hiện xong câu lệnh và đang đợi bạn gõ câu lệnh tiếp theo
+
+![Alt](/thuctap/anh/Screenshot_253.png)
+
+### `&&`
+- Dùng để thực hiện xong câu lệnh 1 rồi đến câu lệnh 2
+
+![Alt](/thuctap/anh/Screenshot_254.png)
+
+### `||`
+- Nó có nghĩa là hoặc .hoặc làm cái này hoặc làm cái kia,nếu cái trước không đúng thì mới xét đến cái sau
+
+![Alt](/thuctap/anh/Screenshot_255.png)
+
+### `#`
+- Ta dùng nó đẻ viết comment hay giải thích câu lệnh
+
+![Alt](/thuctap/anh/Screenshot_256.png)
+
+### `\`
+-  dùng khi ta muốn thêm kí tự đặc biệt mà không muốn hiểu kí tự đó như 1 câu lệnh
+
+![Alt](/thuctap/anh/Screenshot_257.png)
+
+## Các biến trong shell
+### `$`
+- Ta hiểu nó như là tên gọi của biến vậy ví dụ như khi ta đặt x=name thì khi ta gọi $x thì nó sẽ hiểu là name
+- ví dụ : Đặt name=quang và gọi biến đó ra
+
+![Alt](/thuctap/anh/Screenshot_258.png)
+
+- Ta có thể sử dụng lệnh `set` và `unset` để đặt tên biến và xóa nó đi
+
+![Alt](/thuctap/anh/Screenshot_259.png)
+
+### Biến môi trường
+- Biến môi trường là biến mà đã được định nghĩa sẵn rồi mà chúng ta không cần phải định nghĩa bằng set nữa, nó đã được thiết lập sẵn khi chạy hệ điều hành rồi
+
+![Alt](/thuctap/anh/Screenshot_260.png)
+
+- Ta có thể dung lệnh `env` để xem các biến môi trường
+
+![Alt](/thuctap/anh/Screenshot_261.png)
+
+- Làm thế nào để tạo ra một biến môi trường .Ta có thể sử dụng lệnh `export`
+
+```
+export VAR="value"
+```
+trong đó VAR là tên biến còn value là giá trị của biến
+
+![Alt](/thuctap/anh/Screenshot_262.png)
+
+- lưu ý : ta chỉ có thể dùng biến thay thế cho 1 cụm từ chứ ko phải 1 vài từ trong 1 cụm từ
+
+
+## Các tùy chọn trong shell
+- Shell có thể được nhúng trên các dòng lệnh nhưng nó chỉ có tác dụng ngay lúc đó thôi . hãy nhìn vào ví dụ để hiểu rõ
+
+![Alt](/thuctap/anh/Screenshot_263.png)
+
+- ta đã nhúng shell vào câu lệnh echo nhưng biến var1 chỉ có tác dụng ngay lúc đó thôi
+
+- hãy lưu ý dấu tích ngược nó dùng có thể dùng để chạy một loạt các câu lệnh
+- hãy nhìn vào hình và phân tích
+
+![Alt](/thuctap/anh/Screenshot_264.png)
+
+- Câu dòng lênh này sẽ in ra kết quả mà trong dấu tích ngược trả về là in ra những file mà có chư pass
+### shell option
+- Theo mặc định shell sẽ hiểu các biến mà chưa được đặt sẽ là biến trống ,không có giá trị ,ta có thể loại bỏ điều này bằng lệnh `set -u` và đặt lại bằng lệnh `set +u`
+
+![Alt](/thuctap/anh/Screenshot_265.png)
+
+## shell history
+- shell history sẽ giúp bạn dễ dàng nhắc lại các câu lệnh trước đó
+
+- ta có thể xem các câu lệnh đã thực hiện trước đó bằng `!!` và tìm kiếm câu lệnh có từ gì đấy bằng dấu `![từ]`
+
+![Alt](/thuctap/anh/Screenshot_266.png)
+
+- Ta có thể xem 20 câu lệnh trước đó bằng lệnh `history 20`
+- hay để xem câu lệnh số 2 thì `!2`
+
+![Alt](/thuctap/anh/Screenshot_267.png)
+
+- ta có thể dùng `ctrl +r` để tìm kiếm các lệnh đã dùng bằng cách gõ các từ trùng
+
+![Alt](/thuctap/anh/Screenshot_268.png)
+
+- Ta có thể xem size lịch sử tối đa có thể lưu
+- và chỉnh sửa size của nó
+- hay xem file history được lưu ở đâu
+
+![Alt](/thuctap/anh/Screenshot_270.png)
+
+## file globbing
+
+
 
 
 
