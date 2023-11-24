@@ -37,6 +37,8 @@
     - [shell option](#shell-option)
   - [shell history](#shell-history)
   - [file globbing](#file-globbing)
+  - [pipes and commands](#pipes-and-commands)
+    - [stdin, stdout, and stderr](#stdin-stdout-and-stderr)
 - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
 # Linux history
 - Năm 1969 Dennis Ritchie và Ken
@@ -334,6 +336,31 @@ trong đó VAR là tên biến còn value là giá trị của biến
 ![Alt](/thuctap/anh/Screenshot_272.png)
 
 - Ta có thể viết gọn các số từ 1 đến 9 thành 1-9 hoặc từ a đến z thành a-z
+
+```
+paul@RHELv4u4:~/test$ ls [A-Z]ile?
+file1 file2 file3 File4
+paul@RHELv4u4:~/test$ ls [a-z]ile?
+file1 file2 file3 File4
+paul@RHELv4u4:~/test$ echo $LANG
+en_US.UTF-8
+paul@RHELv4u4:~/test$ LANG=C
+paul@RHELv4u4:~/test$ echo $LANG
+C
+paul@RHELv4u4:~/test$ ls [a-z]ile?
+file1 file2 file3
+paul@RHELv4u4:~/test$ ls [A-Z]ile?
+File4
+paul@RHELv4u4:~/test$
+
+```
+Hãy nhìn vào ví dụ này khi ta thay biến `LANG` hay language thif a-z hay 1-9 sẽ không còn khả dụng nữa
+
+##  pipes and commands
+### stdin, stdout, and stderr
+
+![Alt](/thuctap/anh/Screenshot_273.png)
+
 
 
 
