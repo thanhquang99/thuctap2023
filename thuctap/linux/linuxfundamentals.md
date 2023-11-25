@@ -39,6 +39,7 @@
   - [file globbing](#file-globbing)
   - [pipes and commands](#pipes-and-commands)
     - [stdin, stdout, and stderr](#stdin-stdout-and-stderr)
+    - [noclobber](#noclobber)
 - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
 # Linux history
 - Năm 1969 Dennis Ritchie và Ken
@@ -361,10 +362,20 @@ Hãy nhìn vào ví dụ này khi ta thay biến `LANG` hay language thif a-z ha
 
 ![Alt](/thuctap/anh/Screenshot_273.png)
 
+- Đây chính là 3 luồng điều diễn ra trong bash 
+  - Luồng 1 là standard in :là dữ liệu chuẩn đầu vào
+  - Luồng 2 là standard out :là dữ liệu đầu ra chuẩn ,chỉ khi có kết quả thì mới đến luồng này
+  - Luồng 3 là standard error : khi đầu ra bị sai sẽ đưa vào luồng này
+  - Hãy tưởng tượng rằng nếu câu lệnh bị lỗi thì sẽ có thông báo là lỗi còn câu lệnh đúng thì nó sẽ thực hiện và trả ra kết quả
 
+### noclobber
+- Ta có thể sử dụng câu lệnh echo để thêm nội dung vào file và để ngăn chặn điều đó ta sử dụng noclobber
 
+```
+set -o noclobber
+```
 
-
+![Alt](/thuctap/anh/Screenshot_274.png)
 
 
 
