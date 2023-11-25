@@ -52,6 +52,23 @@
     - [wc (word counting)](#wc-word-counting)
     - [sort](#sort)
     - [uniq](#uniq)
+    - [comm](#comm)
+    - [od](#od)
+    - [sed](#sed)
+  - [basic Unix tools](#basic-unix-tools)
+    - [find](#find)
+    - [locate](#locate)
+    - [date](#date)
+    - [Cal](#cal)
+    - [sleep](#sleep)
+    - [time](#time)
+    - [gzip và gunzip](#gzip-và-gunzip)
+    - [zcat và zmore](#zcat-và-zmore)
+    - [bzip2 vaf bunzip2](#bzip2-vaf-bunzip2)
+    - [bzcat và bzmore](#bzcat-và-bzmore)
+  - [Biểu thức](#biểu-thức)
+    - [grep](#grep-1)
+    - [rename](#rename-1)
 - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
 # Linux history
 - Năm 1969 Dennis Ritchie và Ken
@@ -439,12 +456,115 @@ set -o noclobber
 
 ![Alt](/thuctap/anh/Screenshot_281.png)
 
+### comm
+- Dùng để so sánh file ,nó sẽ xuất ra 2 cột ,cột 1 file 1 có file 2 không có, cột 2 cả 2 file cùng có và dòng chú thích về dòng khác biệt
+
+![Alt](/thuctap/anh/Screenshot_282.png)
+
+### od
+- là câu lệnh xuất dữ liệu dưới dnagj số bát phân ,nó cũng có thể xuất ra dưới dạng số thập lục phân hay thập phân
+- b : duói dạng bát phân
+- c : dưới dạng ascii
+
+![Alt](/thuctap/anh/Screenshot_283.png)
+
+### sed
+
+- Câu lệnh sed dùng để thay thế chữ trong file
+- cấu trúc câu lệnh sed
+
+```
+sed 's/[từ được thay]/[từ thay]/'
+```
+
+![Alt](/thuctap/anh/Screenshot_285.png)
+
+- Nhưng sed chỉ có thể thay thế ngay từ đầu tiên thôi còn nếu muốn thay thế tất cả các từ xuất hiện ta phải thêm chứ g vào cuối
 
 
+```
+sed 's/[từ được thay]/[từ thay]/g'
+```
+
+- Ta có thể xóa kí tự nào đó ra khỏi 
+
+```
+sed '/[từ cần xóa]/d'
+```
+![Alt](/thuctap/anh/Screenshot_286.png)
+
+- Ta hãy nhớ thêm option -i nữa khi muốn thay đổi hẳn nội dung file
+
+![Alt](/thuctap/anh/Screenshot_287.png)
 
 
+- Ta có thể tìm hiểu thêm 1 số chức năng khác [ở đây](https://github.com/thanhquang99/thuctap/blob/master/bash_script/part7.md)
+
+## basic Unix tools
+### find 
+- Ta có thể tìm kiếm bằng câu lệnh find kết hợp với `>` để thêm điều kiện
+
+![Alt](/thuctap/anh/Screenshot_288.png)
+
+Tìm trong file /etc/ có file nào có dạng etcfiles.txt
+
+![Alt](/thuctap/anh/Screenshot_289.png)
+
+### locate
+- gần giống với find nó cũng dùng để định vị đường dẫn đén file chỉ định và trong file chỉ định có chứa những cái gì
+
+![Alt](/thuctap/anh/Screenshot_290.png)
+
+### date
+- câu lệnh xem ngày giờ
+
+![Alt](/thuctap/anh/Screenshot_291.png)
+
+### Cal
+- Câu lệnh xem lịch
+
+![Alt](/thuctap/anh/Screenshot_292.png)
+
+### sleep
+- Câu lệnh tạm thời dừng mọi việc trong thời gian ấn định
+- tạm dừng 5s
+
+```
+sleep 5
+```
+### time
+- Dùng để hiển thị chênh lệch thời gian so với chuẩn
+
+![Alt](/thuctap/anh/Screenshot_293.png)
+
+### gzip và gunzip
+- khi ổ đĩa của bạn cần tiết kiệm tài nguyên bạn cần phải nén file lại thì hãy nghĩ đến nó 1 là nén 1 là giải nén
+
+![Alt](/thuctap/anh/Screenshot_294.png)
+
+### zcat và zmore
+- các file được nén bằng gzip có thể được xem bằng zcat và zmore
+
+![Alt](/thuctap/anh/Screenshot_295.png)
+
+### bzip2 vaf bunzip2 
+- là bản nâng cấp của gzip
+
+### bzcat và bzmore
+- dùng để xem bản nén bzip2
+
+## Biểu thức
+### grep
+- Ta hãy hiểu rằng bất kỳ một câu lệnh đều sẽ có thêm cách dùng ví dụ như khi dùng câu lệnh grep để tìm kiếm thì ta còn có lựa chọn tìm kiếm những dòng mà không có kí tự đấy
+- Một vài ký tự đặc biệt cần nhớ
+  - `$` : ví dụ 1$ ám chỉ từ có kết thúc bằng ký tự 1
+  - `^`: ví dụ 1^ ám chỉ từ có bắt đầu bằng ký tự 1 
+  - `\\b` :từ trong ngoặc
 
 
+![Alt](/thuctap/anh/Screenshot_296.png)
+
+### rename
 
 
 
