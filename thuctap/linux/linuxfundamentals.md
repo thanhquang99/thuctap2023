@@ -40,6 +40,18 @@
   - [pipes and commands](#pipes-and-commands)
     - [stdin, stdout, and stderr](#stdin-stdout-and-stderr)
     - [noclobber](#noclobber)
+    - [`2>&1`](#21)
+  - [input tiêu chuẩn](#input-tiêu-chuẩn)
+    - [`<`](#-7)
+    - [`<<`](#-8)
+    - [`<<<`](#-9)
+  - [filter](#filter)
+    - [grep](#grep)
+    - [cut](#cut)
+    - [tr(trim)](#trtrim)
+    - [wc (word counting)](#wc-word-counting)
+    - [sort](#sort)
+    - [uniq](#uniq)
 - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
 # Linux history
 - Năm 1969 Dennis Ritchie và Ken
@@ -374,8 +386,63 @@ Hãy nhìn vào ví dụ này khi ta thay biến `LANG` hay language thif a-z ha
 ```
 set -o noclobber
 ```
-
 ![Alt](/thuctap/anh/Screenshot_274.png)
+
+### `2>&1`
+- Ta hiểu rằng `2` chính là đầu ra lỗi
+- `1` chính là đầu ra tiêu chuẩn
+- Nên `2>&1` ngụ ý rằng hãy coi tất cả những lỗi như là không có gì ta có thể hiểu đơn giản hơn là không in ra thông báo lỗi nữa
+
+![Alt](/thuctap/anh/Screenshot_275.png)
+
+## input tiêu chuẩn
+### `<`
+- Ta có thể sử dụng `<` với hàm ý chỉ đây chính là input (bình thường khi gõ lệnh ta sẽ không cần mà máy vẫn có thể hiểu được)
+
+### `<<`
+- với ký tự này ta hiểu rằng ta có thể nhập thêm rất nhiều input cho đến khi có từ giống với từ sau ký tự `<<` thì mới kết thúc lệnh
+
+### `<<<`
+- Ta hiểu rằng nó sẽ truyền trục tiếp 1 chuỗi đến câu lệnh 
+
+![Alt](/thuctap/anh/Screenshot_276.png)
+
+## filter
+### grep
+- Câu lệnh này dùng để lọc thông tin .chi tiết [tại đây](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/caulenhhaydung.md#grep)
+
+### cut
+- Lệnh `cut` dùng để hiển thị ra các kí tự mà ta chỉ định và trong lệnh `cut` một vài option như
+- b cắt theo vị trí byte
+- C cắt theo vị trí kí tự
+- f trích xuất theo 1 trường cụ thể 
+
+![Alt](/thuctap/anh/Screenshot_277.png)
+
+### tr(trim)
+- trương tự như lệnh cut thì lệnh `tr` lại là ngược lại của lệnh `cut`. `cut` thì hiển thị cái đã chọn còn `tr` thì loại bỏ hoặc thay thế cái đã chọn
+
+![Alt](/thuctap/anh/Screenshot_278.png)
+
+### wc (word counting)
+- lệnh này dùng để đếm số dòng ,string ,số kí tự
+
+![Alt](/thuctap/anh/Screenshot_279.png)
+
+### sort
+- Là lệnh dùng để sắp xếp dòng theo tiêu chuẩn alphabetical, a-z
+
+![Alt](/thuctap/anh/Screenshot_280.png)
+
+### uniq
+- Bạn có thể xóa bỏ các dòng trùng nhau liên tiếp với lệnh này
+
+![Alt](/thuctap/anh/Screenshot_281.png)
+
+
+
+
+
 
 
 
