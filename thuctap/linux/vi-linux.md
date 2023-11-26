@@ -34,6 +34,9 @@ vi [đường dẫn của file]
 - `l` di chuyển sang phải 1 ký tự
 - `j` di chuyển xuống dòng dưới
 - `k` di chuyển lên dòng trên
+- `$` đi đến cuối dòng hiện tại
+- `gg` đi đến dòng đầu tiên
+- `shift +g` đi đế dòng cuối
 
 ## Chỉnh sửa trong vi
 - Ta chỉnh sưa trong vi như chỉnh sửa trong word thông thường (xóa thì là backspace, xuống dòng là enter)

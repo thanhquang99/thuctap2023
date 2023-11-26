@@ -78,6 +78,33 @@
     - [if then else](#if-then-else)
     - [if then elif](#if-then-elif)
     - [for loop](#for-loop)
+    - [while loop](#while-loop)
+    - [until loop](#until-loop)
+  - [scripting parameters](#scripting-parameters)
+    - [read](#read)
+    - [sourcing a config file](#sourcing-a-config-file)
+    - [getopts](#getopts)
+  - [more scripting](#more-scripting)
+    - [eval](#eval)
+    - [(( ))](#-)
+    - [let](#let)
+    - [case](#case)
+    - [shell functions](#shell-functions)
+  - [local user management](#local-user-management)
+    - [whoami](#whoami)
+    - [who](#who)
+    - [W](#w)
+    - [id](#id)
+    - [su và các biến thể của su](#su-và-các-biến-thể-của-su)
+  - [user management](#user-management)
+    - [/etc/passwd](#etcpasswd)
+    - [root](#root)
+    - [useradd](#useradd)
+    - [/etc/default/useradd](#etcdefaultuseradd)
+    - [userdel](#userdel)
+    - [usermod](#usermod)
+    - [login shell](#login-shell)
+    - [chsh](#chsh)
 - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
 # Linux history
 - Năm 1969 Dennis Ritchie và Ken
@@ -658,26 +685,163 @@ do
 done
 ```
 
+![Alt](/thuctap/anh/Screenshot_301.png)
+
+### while loop 
+- Trong khi điều kiện vẫn đúng thì vẫn tiếp tục thực hiện lệnh bên dưới
+- 
+```
+i=100;
+while [ $i -ge 0 ] ;
+do
+ echo Counting down, from 100 to 0, now at $i;
+ let i--;
+done
+
+```
+### until loop
+- Cho đến khi điều kiện sai thì ngừng thực hiện lênh
+
+```
+let i=100;
+until [ $i -le 0 ] ;
+do
+ echo Counting down, from 100 to 1, now at $i;
+ let i--;
+done
+```
+
+## scripting parameters
+- ta có thể truyền giá trị của biến kết hợp lúc chạy file. Hãy nhìn vào ví dụ sau để hiểu rõ hơn. và đặc biến $0 ám chỉ tên file
+
+![Alt](/thuctap/anh/Screenshot_302.png)
+
+### read
+- Đây là lệnh nhập giá trị vào biến
+
+```
+#!/bin/bash
+echo -n Enter a number:
+read number
+```
+
+![Alt](/thuctap/anh/Screenshot_303.png)
+
+### sourcing a config file
+- Sử dụng file bash trong file bash
+- Ta hãy nhìn ví dụ này để phân tích
 
 
+![Alt](/thuctap/anh/Screenshot_304.png)
 
+- Nhìn vào hình ảnh ta thấy file12 dùng đẻ nhập giá trị cho biến number còn file2s đã lấy file12 để giảm thiểu công việc và để gọi được file12 thì sẽ dùng lệnh `. ./file12`
 
+### getopts
 
+![Alt](/thuctap/anh/Screenshot_306.png)
+- Lệnh getopts kết hợp vòng lặp while sẽ cung cấp cho ta những option để thực hiện
+- Hãy phân tích hình ảnh trên . khi bạn chạy fileA với option -a thì kết quả sẽ nhận đc 1 a cái khác cũng tương tự
 
+## more scripting
+### eval
+- Dùng để lưu trữ lệnh trong 1 biến ,hay thay thế lệnh
 
+![Alt](/thuctap/anh/Screenshot_307.png)
 
+### (( ))
+- cho phép đánh giá các biểu thức số
 
+![Alt](/thuctap/anh/Screenshot_308.png)
 
+### let
+- Là lệnh dùng để tính toán giá trị biểu thức số học
 
+![Alt](/thuctap/anh/Screenshot_309.png)
 
+### case
+- Đôi khi ta có thể dùng case để đơn giản câu lệnh if else
+- Phân tích ví dụ bên dưới ta thấy nếu kết quả trùng với kết quả của case thì sẽ làm việc bên dưới
 
+![Alt](/thuctap/anh/Screenshot_310.png)
 
+### shell functions
+- Trong một chương trình có những hàm được sử dụng nhiều lần ta có thể viết 1 function riêng cho nó khi nòa dùng chỉ việc gọi ra thôi
 
+```
+function [tên function] {Nội dung function}
+```
 
+![Alt](/thuctap/anh/Screenshot_311.png)
+
+## local user management
+
+### whoami
+- Lệnh dùng để xem bạn đang thuộc user nào
+
+### who
+- Lệnh cung cấp thông tin cho bạn về những người đã đăng nhập vào hệ thống
+
+### W
+- Cho bạn biết ai đã đăng nhập và đang làm gì
+
+### id
+Lệnh id sẽ cung cấp cho bạn id người dùng, id nhóm chính và danh sách các nhóm bạn thuộc về
+
+![Alt](/thuctap/anh/Screenshot_312.png)
+
+### su và các biến thể của su
+- `su user-khác` : chuyển sang tài khoản khác thực hiện lệnh
+- `su -` : khi không có tên người dùng khác được cung cấp thì root sẽ được chọn
+- `-m user-khác` : chạy lệnh với quyền của user khác
+- `  sudo su -` : tiến hành login tk khác
+
+## user management
+### /etc/passwd
+- cơ sở dữ liệu của người dùng trên local sẽ được chứa trong file /etc/passwd
+
+![Alt](/thuctap/anh/Screenshot_313.png)
+
+### root
+- Đây được coi là người có quyền cao nhất ,nó có mọi quyền được cung cấp
+
+### useradd
+- Đây là lệnh dùng để add user 
+- Ta có 1 số tùy chọn khi thêm user
+  - `-m` : đồng thời tạo thư mục ở home
+  - `-d` : tên thư mục tạo ở home
+  - `-c` : thêm mô tả về thư mục đó
+
+![Alt](/thuctap/anh/Screenshot_314.png)
+
+### /etc/default/useradd
+- Đây là file chứa các tùy chọn mặc định của useradd . Ta có thể xem bằng lệnh `useradd -D.`
+
+![Alt](/thuctap/anh/Screenshot_315.png)
+
+### userdel
+- Dùng để xóa user ,kèm theo option `-r` để xóa cả thư mục mà user này tạo ra
+
+###  usermod
+- Dùng để thực hiện sửa đổi thuộc tính người dùng
+- Ví dụ tôi sẽ sửa mô tả khi tạo user khuongquang trước đó
+
+![Alt](/thuctap/anh/Screenshot_316.png)
+
+### login shell
+- Tệp /etc/passwd chỉ định shell đăng nhập cho người dùng. Và ta có thể sửa đổi điều đó
+
+![Alt](/thuctap/anh/Screenshot_317.png)
+
+### chsh
+- Người dùng có thể chỉnh sửa login shell của họ bằng lệnh chch
+
+```
+chsh -s /bin/thanhquang
+```
 
 
 
 
 # Tài liệu tham khảo
 
-https://linux-training.be/linuxfun.pdf
+https://linux-training.be/linuxfun.pdf 
