@@ -68,7 +68,16 @@
     - [bzcat và bzmore](#bzcat-và-bzmore)
   - [Biểu thức](#biểu-thức)
     - [grep](#grep-1)
-    - [rename](#rename-1)
+  - [trình soạn thảo vi](#trình-soạn-thảo-vi)
+  - [scripting](#scripting)
+    - [comment](#comment)
+    - [Varb](#varb)
+    - [sourcing a script](#sourcing-a-script)
+  - [scripting loops](#scripting-loops)
+    - [test](#test)
+    - [if then else](#if-then-else)
+    - [if then elif](#if-then-elif)
+    - [for loop](#for-loop)
 - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
 # Linux history
 - Năm 1969 Dennis Ritchie và Ken
@@ -564,10 +573,90 @@ sleep 5
 
 ![Alt](/thuctap/anh/Screenshot_296.png)
 
-### rename
+## trình soạn thảo vi
+- Các bạn có thể tìm hiểu thêm [ở đây](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/vi-linux.md)
 
+## scripting
+- Khi nhiều các câu lệnh được gộp lại thì người ta gọi nó là bash shell
 
+- Đầu tiên ta phải tìm hiểu quá trình tạo ra bash
+  - tạo file
+  - cấp quyền file để file có thể chạy `chmod +x [tên file]`
+  - viết nội dung file. Có 1 lưu ý rằng câu lệnh bắt buộc phải có ở dòng đầu tiên trong bash `#!/bin/bash` để hướng dẫn một shell chạy tập lệnh ở đâu
 
+### comment
+- Để ám chỉ 1 dòng là chú thích hay bình luận thì dòng đó sẽ bắt đầu bằng dấu `#`
+### Varb
+- Để gắn các biến thì ta làm tương như bình thường
+
+```
+[tên biến]=[giá trị biến]
+```
+
+### sourcing a script
+- Để chạy tệp bash ta có 2 cách dùng
+
+```
+source ./[tên file]
+./[tên file]
+
+```
+- Một cách khác để chạy tập bash 
+
+```
+bash [tên file]
+```
+- Ta có thể thêm tiền tố -x để xem có những lệnh nào trong file
+
+![Alt](/thuctap/anh/Screenshot_297.png)
+
+![Alt](/thuctap/anh/Screenshot_298.png)
+
+- ta có thể sử dụng `#!/bin/bash--` để Để cải thiện tính bảo mật của tập lệnh và tránh giả mạo trình thông dịch
+
+## scripting loops
+### test
+- là lệnh kiểm tra kết quả đúng sai nếu đúng trả về 1 sai trả về 2 hoặc true và false cũng được tính
+
+![Alt](/thuctap/anh/Screenshot_299.png)
+
+### if then else
+- Ý nghĩa của lệnh này là nếu đúng điều kiện của if thì làm việc của else
+
+```
+if <some-condition>
+then
+<some-commands>
+else
+<some-commands>
+fi
+```
+
+###  if then elif
+- elif sẽ tạo ra thêm 1 điều kiện nữa
+```
+if [ <some-condition> ]
+then
+ <some-commands>
+elif [<some-condition> ]
+then
+ <some-commands>
+else
+ <some-commands>
+fi
+```
+
+![Alt](/thuctap/anh/Screenshot_299.png)
+
+### for loop
+- Đây là câu lệnh lặp . nó tạo ra 1 vòng lặp ,nếu cứ lặp 1 lần  thì câu lệnh sẽ được thực hiện 1 lần
+
+```
+for var in list
+do
+<some-commands-here>
+done
+```
 
 
 
