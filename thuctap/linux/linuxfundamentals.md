@@ -32,6 +32,7 @@
     - [`\`](#-5)
   - [Các biến trong shell](#các-biến-trong-shell)
     - [`$`](#-6)
+    - [$PS1](#ps1)
     - [Biến môi trường](#biến-môi-trường)
   - [Các tùy chọn trong shell](#các-tùy-chọn-trong-shell)
     - [shell option](#shell-option)
@@ -365,6 +366,8 @@ Nói một cách đơn giản, shell là một chương trình nhận lệnh t�
 
 ![Alt](/thuctap/anh/Screenshot_259.png)
 
+### $PS1
+
 ### Biến môi trường
 - Biến môi trường là biến mà đã được định nghĩa sẵn rồi mà chúng ta không cần phải định nghĩa bằng set nữa, nó đã được thiết lập sẵn khi chạy hệ điều hành rồi
 
@@ -496,9 +499,7 @@ set -o noclobber
 
 ## filter
 ### grep
-- Câu lệnh này dùng để lọc thông tin .chi tiết [tại đây]
-- 
-- (https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/caulenhhaydung.md#grep)
+- Câu lệnh này dùng để lọc thông tin .chi tiết [tại đây](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/caulenhhaydung.md#grep)
 
 ### cut
 - Lệnh `cut` dùng để hiển thị ra các kí tự mà ta chỉ định và trong lệnh `cut` một vài option như
