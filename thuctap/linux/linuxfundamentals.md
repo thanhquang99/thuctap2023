@@ -108,6 +108,37 @@
   - [user passwords](#user-passwords)
     - [passwd](#passwd)
     - [shadow file](#shadow-file)
+    - [Mã hóa với openssl](#mã-hóa-với-openssl)
+    - [Mã hóa với crypt](#mã-hóa-với-crypt)
+    - [/etc/login.defs](#etclogindefs)
+    - [chage](#chage)
+    - [disabling a password](#disabling-a-password)
+  - [groups](#groups)
+    - [groupadd](#groupadd)
+    - [group file](#group-file)
+    - [groups](#groups-1)
+    - [groupmod](#groupmod)
+    - [groupdel](#groupdel)
+    - [gpasswd](#gpasswd)
+  - [file security](#file-security)
+    - [Quyền sở hữu tập tin](#quyền-sở-hữu-tập-tin)
+    - [chgrp (change group)](#chgrp-change-group)
+    - [chown (change own)](#chown-change-own)
+    - [Các quyền của file](#các-quyền-của-file)
+    - [chmod (change modify)](#chmod-change-modify)
+    - [umask](#umask)
+    - [Một số cách cấp quyền khác](#một-số-cách-cấp-quyền-khác)
+    - [Nâng cao](#nâng-cao)
+      - [sticky bit](#sticky-bit)
+      - [setgid bit](#setgid-bit)
+  - [access control lists](#access-control-lists)
+    - [acl in /etc/fstab](#acl-in-etcfstab)
+    - [getfacl](#getfacl)
+    - [setfacl](#setfacl)
+  - [file link](#file-link)
+    - [inode](#inode)
+    - [hard links](#hard-links)
+    - [symbolic links](#symbolic-links)
 - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
 # Linux history
 - Năm 1969 Dennis Ritchie và Ken
@@ -848,8 +879,202 @@ chsh -s /bin/thanhquang
 
 ### shadow file
 - user password được mã hóa và lưu trên file `/etc/shadow` và file này chỉ được đọc dưới quyền root
-- 
+- Việc mã hóa này được thực hiện bởi các hàm mã hóa
 
+![Alt](/thuctap/anh/Screenshot_318.png)
+
+### Mã hóa với openssl 
+- Ta có thể biết nếu mật khẩu mà openssl nếu mã hóa sẽ là gì với câu lệnh
+
+```
+openssl passwd [tên file]
+```
+- Bạn có thể thêm salt  vào nếu muốn thêm tiền tố ở đầu
+
+![Alt](/thuctap/anh/Screenshot_319.png)
+
+### Mã hóa với crypt
+
+### /etc/login.defs
+- Đây là file mặc định của cài đặt user ,passwd. Nó bao gồm tất cả các cài đặt .
+
+![Alt](/thuctap/anh/Screenshot_320.png)
+
+### chage
+- Lệnh này có thể chỉnh sửa 1 số thiết lập cho tài khoản người dùng
+- Có 1 số option như:
+  - `E` :đặt ngày hết hạn cho tài khoản
+  - `m`: mật khẩu có thời gian tối thiểu
+  - `M`: mật khẩu có thời gian tối đa
+  - `l`: liệt kê các cài đặt ra
+
+![Alt](/thuctap/anh/Screenshot_321.png)
+
+### disabling a password
+- Bạn có thể lock tài khoản của người dùng nào đó với quyền root bằng lệnh 
+```
+usermod -L [name]
+```
+- Và để mở khóa ta cũng dùng usermod
+
+```
+usermod -U [name]
+```
+
+![Alt](/thuctap/anh/Screenshot_322.png)
+
+## groups
+
+###  groupadd
+- Dùng để tạo group với mục đích các thành viên trong group sẽ có 1 điểm chung gì đó
+
+### group file
+- file lưu trữ group ở ` /etc/group`
+
+### groups
+- liệt kê các group mà user đang tham gia
+
+### groupmod
+- Bạn có thể thay đổi tên group
+
+### groupdel
+- Xóa group
+
+### gpasswd
+- Đây là lệnh ủy quyền kiểm soát nhóm cho 1 user, user có thể là bất kỳ ai và không nhất thiết phải tồn tại trong nhóm đó
+- Thông tin của người quản trị sẽ có trong file `/etc/gshadow`
+
+## file security
+### Quyền sở hữu tập tin
+- Trên thực tế mọi tập tin sẽ đều có chủ sở hữu ,nó sẽ bao gồm user và group sở hữu tập tin đó
+
+- Ta có thể sử dụng lệnh `ls -lh` để xem
+
+![Alt](/thuctap/anh/Screenshot_323.png)
+
+### chgrp (change group)
+- Bạn có thể thay đổi group của tập tin bằng lệnh chgrp
+
+![Alt](/thuctap/anh/Screenshot_324.png)
+
+### chown (change own)
+- Dùng để thay đổi chủ sở hữu file
+
+![Alt](/thuctap/anh/Screenshot_325.png)
+
+### Các quyền của file
+|tên quyền|Mục đích|
+|---------|--------|
+|r(read)|đây là quyền được đọc file .lệnh cat là ví dụ của quyền này|
+|w(write)|đây là quyền được chỉnh sửa .Lệnh vi là ví dụ của quyền này|
+|x(execute)|đây là quyền thực thi.khi ta chạy bash bằng lệnh `./` cần quyền này|
+
+![Alt](/thuctap/anh/Screenshot_326.png)
+
+- ô thứ nhất ám chỉ quyền của chủ sở hữu. ký hiệu là u
+- ô thứ 2 ám chỉ quyền của các user cùng group. ký hiệu là g
+- ô thứ 3 ám chỉ quyền của các user khác. ký hiệu là o
+
+### chmod (change modify)
+- Đây là lệnh thay đổi quyền sử dụng của file
+- Cấu trúc lệnh
+
+```
+chmod [u/g/0][+/-][r/w/x] [tên file]
+```
+
+![Alt](/thuctap/anh/Screenshot_327.png)
+
+- Mỗi quyền sẽ có 1 giá trị tương ứng với nó
+
+|tên quyền|giá trị(thập phân)|
+|---------|------------------|
+|-|0|
+|r|4|
+|W|2|
+|x|1|
+
+- Từ bảng trên ta nhận thấy rằng tổng của 3 quyền bất kỳ sẽ là một số không trùng lặp và để biểu diễn ngắn gọn 3 quyền ta có thể dùng 1 số để biểu diễn
+- ví dụ 700 : rwx------ ;761 :rwxrw---x
+
+### umask
+- khi bạn tạo một tập tin bất kỳ mà không ám chỉ nó có quyền gì thì nó lấy umask làm chuẩn .
+
+![Alt](/thuctap/anh/Screenshot_328.png)
+
+- Nhìn hình ta thấy có số 0022 .Số này có ý nghĩa gì.777-022=755 ý là các file có quyền mặc định là 755
+
+### Một số cách cấp quyền khác
+- `mkdir -m` : vừa tạo thư mục vừa cấp quyền
+
+
+### Nâng cao
+#### sticky bit
+- Đây là một bit đặc biệt ,nó có tác dụng làm cho các user khác có thể sửa file nhưng tuyệt đối không thể xóa file và chỉ có chủ sở hữu mới làm được điều đó
+
+![Alt](/thuctap/anh/Screenshot_329.png)
+
+![Alt](/thuctap/anh/Screenshot_330.png)
+
+#### setgid bit
+- setgid có thể được sử dụng trên các thư mục để đảm bảo rằng tất cả các tệp trong thư mục đều được sở hữu
+bởi chủ sở hữu nhóm của thư mục
+
+
+
+
+
+
+
+## access control lists
+### acl in /etc/fstab
+- file system dùng để hỗ trợ cho access control listvà phải được mount trong /etc/fstab
+
+### getfacl
+- Đây là lệnh xem access control list của file chỉ định
+- Nó sẽ được lưu trữ trong file `/usr/bin/getfacl`
+
+![Alt](/thuctap/anh/Screenshot_331.png)
+
+### setfacl
+- Đây là lệnh dùng để thay đổi acls của file
+
+```
+ setfacl -m g:tennis:6 file33
+```
+- cấp quyền 6 cho nhóm tennis trên file 33
+- Tùy chọn -x của lệnh setfacl sẽ xóa mục nhập acl khỏi tệp 
+- Tùy chọn -b của lệnh setfacl sẽ xóa acl khỏi tệp
+
+## file link
+### inode
+- Các tập tin không chỉ lưu trữ mỗi nội dung trong file mà nó còn lưu trữ cả ngày tạo, tên tệp ,chủ sở hữu nữa.Tất cả các nội dung này được lưu trong file inode
+- Lệnh ls -l đã cho ta biết tất cả điều đó.Ta chỉ hiểu rằng có tồn tại inode file thôi
+- Một vài hình ảnh về inode
+
+![Alt](/thuctap/anh/Screenshot_332.png)
+
+### hard links
+- hard link là một dạng dữ liễu trong 1 file có thể được 1 file khác trỏ thẳng đến.
+
+```
+ln (Đường dẫn file gốc) (Đường dẫn file mới)
+```
+
+![Alt](/thuctap/anh/Screenshot_333.png)
+
+### symbolic links
+- Laf link tham chiếu , khác với hard link là tạo ra thêm 1 file thì symbolic links sẽ chỉ tạo tham chiếu dẫn đến file nên kích thước sẽ nhẹ hơn
+
+```
+ln -s [target file] [Symbolic filename]
+```
+
+![Alt](/thuctap/anh/Screenshot_334.png)
+
+- Ta có thể dùng lệnh rm để xóa linh như bình thường
+
+![Alt](/thuctap/anh/Screenshot_335.png)
 
 
 # Tài liệu tham khảo
