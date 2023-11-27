@@ -11,8 +11,8 @@
 - chrony là dịch vụ đồng bộ hóa thời gian giúp tương thích với nhiều hệ điề hành khác nhau như linux, mac os...
 - Mô hình tối thiểu của chrony 
 
-![Alt](/thuctap/anh/Screenshot_191.png)
-- Bắt buộc phải có 1 máy làm NTP server để các client lấy thời gian từ đây đồng bộ và NTP client lấy time từ server vào học theo
+![Alt](/thuctap/anh/no1.jpg)
+- Bắt buộc phải có 1 máy làm NTP server để các client lấy thời gian từ đây đồng bộ và NTP server lấy time từ các pool của ubuntu trên internet
 
 # Chuẩn bị trước khi cài đặt 
 - Set timezone ở server
