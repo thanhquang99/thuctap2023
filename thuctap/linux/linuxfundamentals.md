@@ -604,7 +604,11 @@ Tìm trong file /etc/ có file nào có dạng etcfiles.txt
 ![Alt](/thuctap/anh/Screenshot_289.png)
 
 ### locate
-- gần giống với find nó cũng dùng để định vị đường dẫn đén file chỉ định và trong file chỉ định có chứa những cái gì
+- lầ câu lệnh dùng để tìm kiếm file theo tên và nó sẽ chỉ ra đường dẫn tới các file đó
+
+```
+locate -i \[tên file]
+```
 
 ![Alt](/thuctap/anh/Screenshot_290.png)
 
