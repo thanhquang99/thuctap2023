@@ -26,13 +26,15 @@
   - [Các toán tử điều khiển](#các-toán-tử-điều-khiển)
     - [`;`](#)
     - [`&`](#-1)
-    - [`&&`](#-2)
-    - [`||`](#-3)
-    - [`#`](#-4)
-    - [`\`](#-5)
+    - [`$?`](#-2)
+    - [`&&`](#-3)
+    - [`||`](#-4)
+    - [`#`](#-5)
+    - [`\`](#-6)
   - [Các biến trong shell](#các-biến-trong-shell)
-    - [`$`](#-6)
+    - [`$`](#-7)
     - [$PS1](#ps1)
+    - [$PATH](#path)
     - [Biến môi trường](#biến-môi-trường)
   - [Các tùy chọn trong shell](#các-tùy-chọn-trong-shell)
     - [shell option](#shell-option)
@@ -42,10 +44,11 @@
     - [stdin, stdout, and stderr](#stdin-stdout-and-stderr)
     - [noclobber](#noclobber)
     - [`2>&1`](#21)
+    - [`&>`](#-8)
   - [input tiêu chuẩn](#input-tiêu-chuẩn)
-    - [`<`](#-7)
-    - [`<<`](#-8)
-    - [`<<<`](#-9)
+    - [`<`](#-9)
+    - [`<<`](#-10)
+    - [`<<<`](#-11)
   - [filter](#filter)
     - [grep](#grep)
     - [cut](#cut)
@@ -335,6 +338,11 @@ Nói một cách đơn giản, shell là một chương trình nhận lệnh t�
 
 ![Alt](/thuctap/anh/Screenshot_253.png)
 
+### `$?`
+- Đây là một biến đặc biệt lưu lại giá trị trả về của câu lệnh trước đó.`$?`=0 nếu câu lệnh trước đó thực hiện được.`$?`=1 nếu câu lênh trước đó bị lỗi
+
+![Alt](/thuctap/anh/Screenshot_337.png)
+
 ### `&&`
 - Dùng để thực hiện xong câu lệnh 1 rồi đến câu lệnh 2
 
@@ -367,6 +375,9 @@ Nói một cách đơn giản, shell là một chương trình nhận lệnh t�
 ![Alt](/thuctap/anh/Screenshot_259.png)
 
 ### $PS1 
+
+### $PATH
+- Biến này xác định nơi shell đang tìm kiếm và thực thi
 
 ### Biến môi trường
 - Biến môi trường là biến mà đã được định nghĩa sẵn rồi mà chúng ta không cần phải định nghĩa bằng set nữa, nó đã được thiết lập sẵn khi chạy hệ điều hành rồi
@@ -484,6 +495,15 @@ set -o noclobber
 - Nên `2>&1` ngụ ý rằng hãy coi tất cả những lỗi như là không có gì ta có thể hiểu đơn giản hơn là không in ra thông báo lỗi nữa
 
 ![Alt](/thuctap/anh/Screenshot_275.png)
+
+### `&>`
+- Nó sẽ đưa cả đầu ra chuẩn và đầu ra lỗi vào file chỉ định
+- Hãy phân tích ví dụ
+
+![Alt](/thuctap/anh/Screenshot_336.png)
+
+- Khi đầu ra là chuẩn thì ta cat file sẽ cho ra đầu ra chuẩn của lệnh còn khi đầu ra là lỗi thì nó đã xóa đầu ra chuẩn và thay vào đó là đầu ra lỗi
+
 
 ## input tiêu chuẩn
 ### `<`
@@ -879,7 +899,7 @@ Lệnh id sẽ cung cấp cho bạn id người dùng, id nhóm chính và danh 
 ### su và các biến thể của su
 - `su user-khác` : chuyển sang tài khoản khác thực hiện lệnh
 - `su -` : khi không có tên người dùng khác được cung cấp thì root sẽ được chọn
-- `-m user-khác` : chạy lệnh với quyền của user khác
+- `sudo [tên file] -m user-khác` : chạy file với quyền của user khác
 - `  sudo su -` : tiến hành login tk khác
 
 ## user management
