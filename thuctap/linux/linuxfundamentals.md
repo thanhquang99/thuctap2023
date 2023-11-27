@@ -150,7 +150,7 @@ Thompson ,họ đã không vui dẫn đến kết quả họ đã phát triển 
 - 2015 đến nay linux đã phát triển rất phổ biến và trải rộng trên khắp thế giới
 
 # Distro
-- Hiện tại Linux đã có rất nhiều distro và có kể đén các ông lớn như: REDHAT, UBUNTU ,DEBIAN ,...
+- Hiện tại Linux đã có rất nhiều distro và có kể đến các ông lớn như: REDHAT, UBUNTU ,DEBIAN ,...
 
 |Distro|Mục đích sử dụng|
 |------|----------------|
@@ -163,7 +163,7 @@ Thompson ,họ đã không vui dẫn đến kết quả họ đã phát triển 
 
 # Licensing
 - Vấn đề bản quyền là vấn đề chúng ta rất muốn biết đúng không
-- Ta có thể xem các giấy phép [ở trên đấy](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/giayphepmanguonmo.md)
+- Ta có thể xem các giấy phép [ở đây](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/giayphepmanguonmo.md)
 
 # Các câu lệnh được sử dụng như thế nào
 ## Man page
@@ -190,7 +190,7 @@ Phần này sẽ học về các câu lệnh liên quan đến thư mục như p
 ![Alt](/thuctap/anh/Screenshot_232.png)
 
 ### cd ~
-khi bạn gõ `cd`=`cd ~` nó sẽ đua bạn về thư mục chính của bạn
+khi bạn gõ `cd ~` nó sẽ đua bạn về thư mục chính của bạn
 
 ![Alt](/thuctap/anh/Screenshot_233.png)
 
@@ -230,7 +230,7 @@ khi bạn gõ `cd`=`cd ~` nó sẽ đua bạn về thư mục chính của bạn
 ![Alt](/thuctap/anh/Screenshot_237.png)
 
 ### file
-- là câu lệnh giúp ta biết chi tiết về file hơn
+- là câu lệnh giúp ta tìm tên file mà chưa rõ đầy đủ tên file
 
 ![Alt](/thuctap/anh/Screenshot_238.png)
 
@@ -288,7 +288,7 @@ Nói một cách đơn giản, shell là một chương trình nhận lệnh t�
 
 ![Alt](/thuctap/anh/Screenshot_245.png)
 
-- Để loại bỏ khoảng trắng thì ta phải thêm dấu ngoặc kép vào 
+- Để hiển thị khoảng trắng thì ta phải thêm dấu ngoặc kép vào 
 
 ![Alt](/thuctap/anh/Screenshot_246.png)
 
@@ -496,7 +496,9 @@ set -o noclobber
 
 ## filter
 ### grep
-- Câu lệnh này dùng để lọc thông tin .chi tiết [tại đây](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/caulenhhaydung.md#grep)
+- Câu lệnh này dùng để lọc thông tin .chi tiết [tại đây]
+- 
+- (https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/caulenhhaydung.md#grep)
 
 ### cut
 - Lệnh `cut` dùng để hiển thị ra các kí tự mà ta chỉ định và trong lệnh `cut` một vài option như
@@ -682,7 +684,7 @@ bash [tên file]
 ![Alt](/thuctap/anh/Screenshot_299.png)
 
 ### if then else
-- Ý nghĩa của lệnh này là nếu đúng điều kiện của if thì làm việc của else
+- Ý nghĩa của lệnh này là nếu đúng điều kiện của if thì làm việc của then ,những trường hợp không đúng sẽ tính vào công việc cảu else
 
 ```
 if <some-condition>
@@ -771,6 +773,28 @@ read number
 - Nhìn vào hình ảnh ta thấy file12 dùng đẻ nhập giá trị cho biến number còn file2s đã lấy file12 để giảm thiểu công việc và để gọi được file12 thì sẽ dùng lệnh `. ./file12`
 
 ### getopts
+
+```
+!/bin/bash
+while getopts ":afz" option;
+do
+ case $option in
+ a)
+ echo received -a
+ ;;
+ f)
+ echo received -f
+ ;;
+ z)
+ echo received -z
+ ;;
+ *)
+ echo "invalid option -$OPTARG"
+ ;;
+ esac
+done
+
+```
 
 ![Alt](/thuctap/anh/Screenshot_306.png)
 - Lệnh getopts kết hợp vòng lặp while sẽ cung cấp cho ta những option để thực hiện
