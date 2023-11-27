@@ -847,7 +847,8 @@ chsh -s /bin/thanhquang
 ![Alt](/thuctap/anh/Screenshot_317.png)
 
 ### shadow file
-
+- user password được mã hóa và lưu trên file `/etc/shadow` và file này chỉ được đọc dưới quyền root
+- 
 
 
 
