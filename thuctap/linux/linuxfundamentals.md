@@ -366,7 +366,7 @@ Nói một cách đơn giản, shell là một chương trình nhận lệnh t�
 
 ![Alt](/thuctap/anh/Screenshot_259.png)
 
-### $PS1
+### $PS1 
 
 ### Biến môi trường
 - Biến môi trường là biến mà đã được định nghĩa sẵn rồi mà chúng ta không cần phải định nghĩa bằng set nữa, nó đã được thiết lập sẵn khi chạy hệ điều hành rồi
@@ -820,6 +820,34 @@ done
 ### case
 - Đôi khi ta có thể dùng case để đơn giản câu lệnh if else
 - Phân tích ví dụ bên dưới ta thấy nếu kết quả trùng với kết quả của case thì sẽ làm việc bên dưới
+
+```
+echo -n "What animal did you see ? "
+read animal
+case $animal in
+ "lion" | "tiger")
+ echo "You better start running fast!"
+ ;;
+ "cat")
+ echo "Let that mouse go..."
+ ;;
+ "dog")
+ echo "Don't worry, give it a cookie."
+ ;;
+ "chicken" | "goose" | "duck" )
+ echo "Eggs for breakfast!"
+ ;;
+ "liger")
+ echo "Approach and say 'Ah you big fluffy kitty.'"
+ ;;
+ "babelfish")
+ echo "Did it fall out your ear ?"
+ ;;
+ *)
+ echo "You discovered an unknown animal, name it!"
+ ;;
+esac
+```
 
 ![Alt](/thuctap/anh/Screenshot_310.png)
 
