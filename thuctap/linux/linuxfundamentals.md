@@ -105,6 +105,9 @@
     - [usermod](#usermod)
     - [login shell](#login-shell)
     - [chsh](#chsh)
+  - [user passwords](#user-passwords)
+    - [passwd](#passwd)
+    - [shadow file](#shadow-file)
 - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
 # Linux history
 - Năm 1969 Dennis Ritchie và Ken
@@ -830,7 +833,6 @@ Lệnh id sẽ cung cấp cho bạn id người dùng, id nhóm chính và danh 
 ### login shell
 - Tệp /etc/passwd chỉ định shell đăng nhập cho người dùng. Và ta có thể sửa đổi điều đó
 
-![Alt](/thuctap/anh/Screenshot_317.png)
 
 ### chsh
 - Người dùng có thể chỉnh sửa login shell của họ bằng lệnh chch
@@ -838,6 +840,13 @@ Lệnh id sẽ cung cấp cho bạn id người dùng, id nhóm chính và danh 
 ```
 chsh -s /bin/thanhquang
 ```
+## user passwords
+### passwd
+- Để thay đổi password của user đang đăng nhập ta có thể nhập lệnh `passwd` và để chỉ định user thay đổi password thì ta nhập lệnh `passwd [user-name]`, lưu ý để chỉ định được user thì ta phải có quyền root
+
+![Alt](/thuctap/anh/Screenshot_317.png)
+
+### shadow file
 
 
 
