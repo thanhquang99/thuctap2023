@@ -36,7 +36,7 @@
 
 [18.SSH keypair](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/sshkeypair.md)
 
-[]()
+[19. Linux cho người mới bắt đầu](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/linuxfundamentals.md)
 
 []()
 
