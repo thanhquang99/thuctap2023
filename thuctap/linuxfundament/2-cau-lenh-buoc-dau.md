@@ -41,9 +41,104 @@ cd [path]
 - Đây là câu lệnh giúp bạn xem danh sách thư mục
 - Cấu trúc câu lệnh 
 
-```
-ls [options] [path]
-```
+    ```
+    ls [options] [path]
 
+    ```
+    - `Options`:
+      - `-a` show tất cả bao gồm cà file ẩn
+      - `-l` show cho bạn các file dưới dạng chi tiết hơn như phân quyền ,chủ sở hưu hay dung lượng
+      - `-lh` nó cũng tương tự như ls -l nhưng được cho là trình bày đẹp hơn
+
+- Ví dụ:
+
+    ![Alt](/thuctap/anh/Screenshot_236.png)
+
+### 2.4) mkdir (make directory)
+- Dùng để tạo thư mục ,nó tương tự như new forder trong windows vậy
+- Cấu trúc câu lệnh 
+    ```
+    mkdir [options] [tên thư mục]
+
+    ```
+    - `option` :
+      - `-p` tạo thư mục con trong thư mục mới tạo
+
+- Ví dụ :
+
+![Alt](/thuctap/anh/Screenshot_237.png)
+
+### 2.5) rmdir (remove directory)
+- Dùng để xóa thư mục trống
+- Cấu trúc câu lệnh 
+    ```
+    rmdir [options] [tên thư mục]
+
+    ```
+    - `option` :
+      - `-p` xóa cả thư mục con lẫn thư mục mẹ
+
+### 2.6) file
+- Dùng để tìm tên file khi ta biết nó nằm trong thư mục nào mà chưa rõ đầy đủ tên của nó
+- Cấu trúc câu lệnh
+
+    ```
+    file [path/tên file cần tìm]
+    ```
+- Ví dụ
+    ![Alt](/thuctap/anh/Screenshot_238.png)
+
+### 2.7) touch
+
+- là câu lệnh tạo ra file mới 
+- Cấu trúc câu lệnh
+
+    ```
+    touch [options] [tên file]
+    ```
     - `options`:
-    - `-a` :show tất cả bao gồm cà file ẩn
+      - `-t` : Tạo file kèm theo việc chỉnh sửa thời gian tạo file
+
+- Ví dụ
+
+![Alt](/thuctap/anh/Screenshot_239.png)
+
+### 2.8) rm (remove)
+- Câu lệnh dùng để xóa file hay thư mục
+- Cấu trúc lệnh
+    ```
+    rm [options] [tên file]
+    ```
+    - `options`:
+      - `-i` :hỏi trước khi xóa
+      - `-rf`: xóa file hay thư mục mà bên trong chứa nội dung
+
+### 2.8) cp (copy)
+
+- Dùng để copy file / thư mục
+- Cấu trúc lệnh
+
+    ```
+    cp [options] source destination
+    ```
+    - `options`:
+      - `-r` , `-R` : sao chép toàn bộ thư mục
+      - `-n` : ép buộc lệnh copy không được ghi đè nếu file nguồn và file đích cùng tên
+      - `-f` : ép buộc lệnh copy ghi đè nếu file nguồn và file đích cùng tên
+
+- Ví dụ :
+
+![Alt](/thuctap/anh/Screenshot_346.png)
+
+### rename
+- Dùng khi ta muốn đổi tên nhiều file cùng 1 lúc
+
+## Đường dẫn tuyệt đối và đường dẫn tương đối
+- Đường dẫn tuyệt đối là đường dẫn lấy thư mục root làm chuẩn và bắt đầu bằng dấu `/`
+- Đường dẫn tương đối là đường dẫn lấy vị trí thư mục bạn đang đứng làm chuẩn
+- Ví dụ
+  - Đường dẫn tuyết đối
+    - `/etc/sysctl.d/`
+  - Đường dẫn tương đối
+    - ![Alt](/thuctap/anh/Screenshot_347.png)
+
