@@ -8,7 +8,7 @@
 - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
 
 # Chrony là gì
-- chrony là dịch vụ đồng bộ hóa thời gian giúp tương thích với nhiều hệ điề hành khác nhau như linux, mac os...
+- chrony là dịch vụ đồng bộ hóa thời gian giúp tương thích với nhiều hệ điều hành khác nhau như linux, mac os...
 - Mô hình tối thiểu của chrony 
 
 ![Alt](/thuctap/anh/Screenshot_345.png)
