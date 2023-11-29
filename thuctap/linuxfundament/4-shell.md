@@ -23,4 +23,17 @@ alias [bí danh]=[tên lệnh]
 alias c=clear
 ```
 - Một vài công dụng khác của lệnh alias
-  - 
+  - `alias [string] ` :xem có alias nào sử dụng từ trùng với string đó không
+  - `unalias [bí danh]` :dùng để gỡ bí danh đã gắn
+  - Ta không chỉ có thể viết tắt toàn bộ lệnh mà có thể viết tắt 1 phần của lệnh bằng `alias` .
+
+- Ví dụ : ta muốn tìm dòng không có kí hiệu `#` bằng lệnh `grep -v` ta có thể gõ 
+
+```
+alias loai='grep -v'
+loai "#" /etc/fstab
+```
+
+![Alt](/thuctap/anh/Screenshot_351.png)
+
+

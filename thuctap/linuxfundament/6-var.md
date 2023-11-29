@@ -1,0 +1,74 @@
+# Tìm hiểu về các biến trong shell
+- Shell chia ra thành các biến môi trường và biến người dung
+  - Biến môi trường là biến mặc định khi ta bắt đầu chạy với hệ điều hành 
+  - Biến người dùng là biến mà người dùng tự gắn thêm khi sử dụng os
+
+- Để gọi các biến thì đầu bắt dầu bằng `$[tên biến]` kể cả biến người dùng hay biến môi trường
+
+# Biến môi trường
+## Xem biến môi trường ở đâu?
+- Để xem biến môi trường ta sử dụng lênh `env`
+
+![Alt](/thuctap/anh/Screenshot_360.png)
+
+## Cách tạo ra một biến môi trường
+- Ta dùng lệnh `export ` để tạo tạo ra biến môi trường 
+
+```
+export [tên biến]=[giá trị biến]
+```
+
+![Alt](/thuctap/anh/Screenshot_262.png)
+
+## Một vài biến đặc biệt
+### `$PATH`
+- Ta có thể xem biến này bằng lệnh `echo $PATH`
+- Nó sẽ cung cấp cho ta các đường dẫn đến vị trí các câu lệnh được tìm thấy
+
+![Alt](/thuctap/anh/Screenshot_361.png)
+
+- Khi bạn thực hiện 1 câu lệnh thì nó sẽ lần lượt dò từng đường dẫn xem liệu file chứa câu lệnh đó được đặt ở đâu và mở file chứa câu lệnh đó và thực hiện
+
+### `$PS1`
+- Ta có thể xem biến bằng lệnh
+
+```
+[thanhquang@localhost ~]$ echo $PS1
+[\u@\h \W]\$
+[thanhquang@localhost ~]$
+
+```
+- Đây là biến thể hiện sự biểu diễn chỗi nhắc về máy và vị trí đứng của bạn
+
+![Alt](/thuctap/anh/Screenshot_362.png)
+- Ta có thể nhìn vào ảnh và thấy bất kỳ 1 dòng lệnh nào sẽ biểu diễn theo thứ tự `user-hostname-working dir`
+- Thay đổi $PS1 
+
+```
+export PS1="[\T][\u@\h \W]\$ "
+```
+- Một vài option của PS1;
+  - `\T`: Giờ-phút-giây theo định dạng 12 giờ.
+  - `\u`: tên tài khoản bạn đang sử dụng.
+  - `\h`: tên máy chủ của bạn
+  - `\W`: thư mục cuối cùng trong thư mục bạn đang làm việc hiện tại (basename of the current working directory)
+- Kết quả :
+
+![Alt](/thuctap/anh/Screenshot_363.png)
+
+# Biến người dùng
+## Cách tạo biến người dùng
+- Ta có thể dùng `set` hoặc `unset` để thiết lập biến người dùng .Hoặc ta có thể bỏ `set` mà máy vẫn hiểu ta đang thiết lập biến người dùng
+
+```
+set [tên biến=[giá trị biến]]
+unset [tên biến]
+```
+
+## Biến chưa được định nghĩa
+- Mặc định các biến chưa được định nghĩa khi ta gọi nó ra thì nó sẽ là giá trị rỗng
+- Để tránh cho các biến rỗng vẫn có giá trị ta có thể sử dụng `set -u ` và `set +u` 
+- Ví dụ
+
+![Alt](/thuctap/anh/Screenshot_265.png)
+

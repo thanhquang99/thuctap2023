@@ -2,6 +2,7 @@
   - [Cấu hình bằng NETPLAN](#cấu-hình-bằng-netplan)
   - [Đặt ip tĩnh centos 7](#đặt-ip-tĩnh-centos-7)
   - [Cấu hình ip động cho centos 7](#cấu-hình-ip-động-cho-centos-7)
+  - [Trường hợp test thử các lỗi sai](#trường-hợp-test-thử-các-lỗi-sai)
 
 # Cài đặt ip tĩnh trên ubuntu
 - Show ip:`ip a`
@@ -91,3 +92,10 @@ service network restart
 
 ![Alt](/thuctap/anh/Screenshot_142.png)
 
+## Trường hợp test thử các lỗi sai
+- file cấu hình file netplan bị sai . khi ta chạy lệnh `netplan apply` sẽ có thông báo là lệnh sai
+
+![Alt](/thuctap/anh/Screenshot_350.png)
+- Khi ta sửa file cấu hình `ifcfg-ens33` của centos thành sai thì khi `service network restart` hay `systemctl restart network` thì file vẫn chạy bình thường 
+  - nếu cấu hình sai cấu trúc ip thì nó sẽ coi như là card ens33 chưa có ip 
+  - nếu cấu hình ip mà không cùng vnet thì ip vẫn sẽ được nhận và chỉ không thể ping ra ngoài internet thôi (Nesu ping được hãy xem lại default-gateway vì những ip nào không xác định sẽ được chuyển qua default-gateway .bạn có thể thay đổi nó thử xem)

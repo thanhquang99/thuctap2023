@@ -1,0 +1,72 @@
+# 1)Các ký tự đặc biệt
+## `;`
+- Ký tự này dùng để ngăn cách cách lệnh trong shell .nó sẽ thực hiện tuần tự lệnh 1 xong đến lệnh 2,3...
+
+```
+command1 ;command2 ;command3
+```
+- ví dụ
+
+![Alt](/thuctap/anh/Screenshot_352.png)
+
+## `$?`
+- Đây là kí hiệu của giá trị trả về kết quả của câu lệnh trước đó. Nếu câu lệnh trước đó là đúng thì `$?=0`còn nếu câu lệnh trước đó là sai thì `$?=1`
+- ví dụ
+
+![Alt](/thuctap/anh/Screenshot_337.png)
+
+## `#`
+- Ký tự này tượng chưng cho việc bắt đầu 1 câu comment 
+- ví dụ
+
+![Alt](/thuctap/anh/Screenshot_256.png)
+
+## `\`
+- đây là kú đăc biệt giúp câu lệnh hiểu các ký tự sau nó như là 1 string chứ không phải là lệnh 
+
+- Ví dụ
+
+![Alt](/thuctap/anh/Screenshot_358.png)
+- ta còn 1 biến thể khi sử dụng `echo` kết hợp `\` ở cuối câu. có tác dụng để ta viết thêm từ vào lênh echo
+
+![Alt](/thuctap/anh/Screenshot_359.png)
+
+## 
+# Toán tử điều khiển
+## `&&`
+- Toán tử này được hiểu như là `và` vậy .thường dùng để kiểm tra xem input có thỏa mãn tất cà điều kiện đặt ra không hoặc có thể thực hiện . 
+- Ta cũng có thể sử dụng nó để ghép nối các câu lệnh ,nhưng sẽ không thể đồng thời cùng lúc được nhé
+- ví dụ
+    ![Alt](/thuctap/anh/Screenshot_354.png)
+
+## `||`
+- ta hiểu nó như là một toán tử logic hoặc trong các bài toán lập trình vậy chỉ cần 1 trong 2 điều kiện đúng là được
+- ví dụ
+    ![Alt](/thuctap/anh/Screenshot_355.png)
+    - phân tích ví dụ này ta thấy rằng lệnh xóa test 1 hoặc tạo test3 làm 1 trong 2 mà lệnh xóa test 1 đã thực hiện được thì nó sẽ không làm lệnh sau nữa chỉ khi lệnh 1 không có ý nghĩa
+
+## kết hợp `&&` và `||`
+- ta sẽ liên tưởng nó đến câu lệnh if-else vậy
+
+```
+command1 && commnad2 ||command3
+```
+![Alt](/thuctap/anh/Screenshot_356.png)
+
+## `|` 
+- Nó cho phép sử dụng ouput câu lệnh đằng trước làm input cho câu lệnh đằng sau
+
+```
+command1 | command2
+```
+- Ví dụ
+
+![Alt](/thuctap/anh/Screenshot_357.png)
+
+
+## `&`
+- Tác dụng của kí tự này giúp bạn thực thi lệnh khác đồng thời kể cả khi lệnh đầu tiên đang chạy
+
+- ví dụ bạn thực hiện lệnh `sleep 20` và lệnh `ls -l` đồng thời `cd /home`
+
+![Alt](/thuctap/anh/Screenshot_353.png)
