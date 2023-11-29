@@ -1,0 +1,24 @@
+# Shell history
+- Shell history giups bạn có thể dễ dàng xem lại lịch sử các câu lệnh trước đó
+
+# `!!`
+- Khi ta gõ `!!` thì sẽ xem được câu lệnh trước đó đã thực hiện là gì
+
+# `![từ]`
+- Tìm câu lệnh đã thực hiện mà có từ giống
+
+# `history [số]`
+- ta có thể nhập `history 20` để xem 20 câu lệnh trước đó đã dùng
+
+# `![số]`
+- Ta có thể nhập `!2` để thực hiện câu lệnh thứ 2 trong lịch sử các câu lệnh
+
+# `ctrl +r`
+- dùng để tìm kiếm lệnh. khi ta gõ `ctrl +r` thì sẽ có 1 dòng cho ta điền từ trùng với lệnh và nó sẽ hiện ra câu lệnh hoàn chỉnh, nó giúp đỡ chúng ta về mặt giao diện
+
+![Alt](/thuctap/anh/Screenshot_268.png)
+
+# `$HISTSIZE`
+- Đây là biến mà lưu trữ số câu lệnh tối đa có thể lưu lại được
+
+![Alt](/thuctap/anh/Screenshot_270.png)
