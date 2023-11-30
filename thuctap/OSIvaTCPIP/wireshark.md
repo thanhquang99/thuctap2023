@@ -59,9 +59,11 @@ Màu xanh nhạt|UDP|
 - Ngoài ra ta còn có thấy cờn `FIN,ACK` để thể hiện kết thúc quá trình truyền tin tin cậy
 
 ### Phân tích gói tin UDP
+
 ![Alt](/thuctap/anh/Screenshot_60.png)
 - Giao thức UDP là truyền theo kiểu tổng lực nên không có cờ ACK ta chỉ thấy port nguồn và đích cùng với kích thước gói tin thôi
 ### Phân tích gói tin ARP
+
 ![Alt](/thuctap/anh/Screenshot_61.png)
 
 ![Alt](/thuctap/anh/Screenshot_62.png)
@@ -69,6 +71,33 @@ Màu xanh nhạt|UDP|
 ![Alt](/thuctap/anh/Screenshot_62.png)
 
 - Nhìn vào hình ảnh ta có thể hiểu như này: `192.168.68.1` sẽ gửi broadcast đến tất cả các mạng và ai có trùng ip thì sẽ gửi 1 gói tin trả lại và kèm theo địa chỉ Mac
+
+### Phân tích gói tin HTTPS
+- Trong wireshark không có bộ lục gói tin HTTP mà ta sẽ lọc theo cụm từ `tcp.port==443` .Vì do port 443 mặc định dùng giao thức https
+
+    ![Alt](/thuctap/anh/Screenshot_370.png)
+
+- Phân tích các gói tin trong hình ảnh ta thẩy rằng giao thức https là giao thức được mã hóa nên nó cần có sự hỗ trợ của tls để mã hóa và cung cấp đường truyền an toàn 
+  - TLS sẽ mở 1 đường kết nối (1 cặp port mới) và phiên bản TLS để tạo ra phiên
+  - TCP sẽ được gửi để xác nhận là đã nhận được gói tin và yêu cầu gửi gói tin tiếp theo
+### Phân tích gói tin DHCP
+- Quá trình cấp 1 địa IP bằng dhcp( đầu tiên tôi dùng lệnh `ipconfig/release` và tiến hành bắt lại wifi để có thể xem quá trình nhận được 1 dhcp ip như nào) 
+  - DHCP release : giải phóng địa chỉ IP hiện tại
+  - DHCP discover : Máy tính sẽ gửi broadcast để hỏi xem server là ai và yêu cầu cấp 1 địa chỉ IP kèm , trong bản tin có đính kèm MAC của máy
+  - DHCP offer : server sẽ gửi lại cho máy tính 1 offer về địa chỉ IP có thể cấp
+  - DHCP request : máy tính sẽ trả lời xem có đồng ý hay không
+  - DHCP ack : server gửi bản tin tiến hành cấp ip
+
+    ![Alt](/thuctap/anh/Screenshot_365.png)
+    ![Alt](/thuctap/anh/Screenshot_366.png)
+    ![Alt](/thuctap/anh/Screenshot_367.png)
+    ![Alt](/thuctap/anh/Screenshot_368.png)
+    ![Alt](/thuctap/anh/Screenshot_369.png)
+### Phân tích gói tin DNS
+![Alt](/thuctap/anh/Screenshot_371.png)
+- Hãy nhìn vào 2 dòng được đánh dấu trong hình
+  - Đầu tiên máy tính sẽ gửi lên `8.8.8.8` 1 gói tin hỏi xem tên miền windows.com trỏ đến ip nào
+  - Tiếp theo `8.8.8.8` sẽ gửi về máy tính 1 gói tin trả lời ip đang dùng của tên miền windows.com 
 
 #### Sử dụng wireshark bắt mật khẩu telnet
 - Mô hình ở đây là tôi sử dụng VMware cài ubuntu và đặt địa chỉ ip là `192.168.68.35` sau đó dùng mobaxterm telnet vào và dùng wire shark bắt gói tin
