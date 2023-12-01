@@ -27,16 +27,16 @@
 
 [14.Các câu lệnh hay dùng trong linux](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/caulenhhaydung.md)
 
+[15.Linux cho người mới bắt đầu](https://github.com/thanhquang99/thuctap2023/tree/main/thuctap/linuxfundament)
 
-[15.Tìm hiểu cách sử dụng IP Public, Virtual ip, Virtual host, File htaccess, IP local, file host](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/Timhieuveip.md)
+[16.Tìm hiểu cách sử dụng IP Public, Virtual ip, Virtual host, File htaccess, IP local, file host](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/Timhieuveip.md)
 
-[16.Cài đăt Chrony (Network Time Protocol)](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/chrony.md)
+[17.Cài đăt Chrony (Network Time Protocol)](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/chrony.md)
 
-[17.Tìm hiểu Mount & Fstab](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/mount.md)
+[18.Tìm hiểu Mount & Fstab](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/mount.md)
 
-[18.SSH keypair](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/sshkeypair.md)
+[19.SSH keypair](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/sshkeypair.md)
 
-[19. Linux cho người mới bắt đầu](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/linuxfundamentals.md)
 
 []()
 
