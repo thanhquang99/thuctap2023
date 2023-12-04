@@ -1,6 +1,8 @@
 - [Cài đặt ip tĩnh trên ubuntu](#cài-đặt-ip-tĩnh-trên-ubuntu)
   - [Cấu hình bằng NETPLAN](#cấu-hình-bằng-netplan)
   - [Đặt ip tĩnh centos 7](#đặt-ip-tĩnh-centos-7)
+    - [sửa file cấu hình](#sửa-file-cấu-hình)
+    - [sử dụng lênh nmcli](#sử-dụng-lênh-nmcli)
   - [Cấu hình ip động cho centos 7](#cấu-hình-ip-động-cho-centos-7)
   - [Trường hợp test thử các lỗi sai](#trường-hợp-test-thử-các-lỗi-sai)
 
@@ -48,6 +50,7 @@ netplan apply
 
 ![Alt](/thuctap/anh/Screenshot_131.png)
 ## Đặt ip tĩnh centos 7
+### sửa file cấu hình
 
 - Show ip
 
@@ -69,6 +72,40 @@ reboot
 - Kết quả:
 
 ![Alt](/thuctap/anh/Screenshot_133.png)
+
+### sử dụng lênh nmcli
+- đầu tiên ta kiểm tra trạng thái bằng lệnh
+
+```
+nmcli device status
+```
+
+![Alt](/thuctap/anh/Screenshot_395.png)
+
+- Đặt ip address,gateway,dns
+
+```
+nmcli con mod ens33 ipv4.addr 192.168.10.20/24
+nmcli con mod ens33 ipv4.gateway 192.168.10.2
+nmcli con mod ens33 ipv4.dns 8.8.8.8
+```
+- Chuyển ip sang thủ công
+
+```
+nmcli con mod ipv4.method manual
+```
+- Bật kết nối tự dộng
+
+```
+nmcli con mod ens33 connection.autoconnect yes
+```
+- khởi động lại và kiểm tra trạng thái
+
+```
+systemctl restart network
+nmcli device status
+ip a
+```
 
 ## Cấu hình ip động cho centos 7
 - Để cấu hình dhcp ta cũng sửa file ifcfg-ens33
