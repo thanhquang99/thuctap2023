@@ -74,10 +74,11 @@ nmcli con mod ens33 ipv4.method manual
 nmcli con mod ens33 connection.autoconnect yes
 ```
 
-- Những cấu hình mới sẽ lưu vào bộ nhớ tạm chứ không thể áp dụng ngay khi ta `systemctl restart NetworkManager` như centos 7. Để có thể áp dụng được cấu hình mới ta cần reboot lại máy
+- Những cấu hình mới sẽ lưu vào bộ nhớ tạm chứ không thể áp dụng ngay khi ta `systemctl restart NetworkManager` như centos 7. Để có thể áp dụng được cấu hình mới ta cần bật tắt lại card mạng
 
 ```
-reboot
+sudo ifdown ens33
+sudo ifup ens33
 ```
 ## Đặt ip tĩnh centos 7
 ### sửa file cấu hình
@@ -111,7 +112,11 @@ nmcli device status
 ```
 
 ![Alt](/thuctap/anh/Screenshot_395.png)
+- Đổi tên connection trong nmcli
 
+```
+nmcli con mod [tên cũ] connection.id [tên mới]
+```
 - Đặt ip address,gateway,dns
 
 ```
