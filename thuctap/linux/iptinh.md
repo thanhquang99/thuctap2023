@@ -1,5 +1,6 @@
 - [Cài đặt ip tĩnh trên ubuntu](#cài-đặt-ip-tĩnh-trên-ubuntu)
   - [Cấu hình bằng NETPLAN](#cấu-hình-bằng-netplan)
+  - [Cấu hình bằng nmcli trong network manager](#cấu-hình-bằng-nmcli-trong-network-manager)
   - [Đặt ip tĩnh centos 7](#đặt-ip-tĩnh-centos-7)
     - [sửa file cấu hình](#sửa-file-cấu-hình)
     - [sử dụng lênh nmcli](#sử-dụng-lênh-nmcli)
@@ -49,6 +50,36 @@ netplan apply
 ![Alt](/thuctap/anh/Screenshot_129.png)
 
 ![Alt](/thuctap/anh/Screenshot_131.png)
+
+## Cấu hình bằng nmcli trong network manager
+- Do ubuntu ưu tiên sử dụng netplan hơn Network Manager nên ta cần phải chỉnh sửa file netplan thêm dong `renderer: NetworkManager` :
+
+```
+sudo vi /etc/netplan/00-installer-config.yaml
+```
+
+```
+network:
+  version: 2
+  renderer: NetworkManager
+
+```
+- Bây giờ ta có thể sử dụng câu lệnh nmcli để bắt dầu cấu hình
+
+```
+nmcli con mod ens33 ipv4.addr 192.168.10.21/24
+nmcli con mod ens33 ipv4.gateway 192.168.10.2
+nmcli con mod ens33 ipv4.dns 8.8.8.8
+nmcli con mod ens33 ipv4.method manual
+nmcli con mod ens33 connection.autoconnect yes
+```
+
+- Những cấu hình mới sẽ lưu vào bộ nhớ tạm chứ không thể áp dụng ngay khi ta `systemctl restart NetworkManager` như centos 7. Để có thể áp dụng được cấu hình mới ta cần bật tắt lại card mạng
+
+```
+sudo ifdown ens33
+sudo ifup ens33
+```
 ## Đặt ip tĩnh centos 7
 ### sửa file cấu hình
 
