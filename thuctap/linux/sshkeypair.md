@@ -1,4 +1,5 @@
 - [SSH hoạt động như thế nào](#ssh-hoạt-động-như-thế-nào)
+- [Cấu trúc lệnh ssh](#cấu-trúc-lệnh-ssh)
 - [SSH key pair](#ssh-key-pair)
 - [Thực hành](#thực-hành)
 - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
@@ -10,6 +11,14 @@
 - Bước 2 server sẽ gửi 1 cái public key cho client (nó dùng để chứng minh danh tính của nó cho client ,server là ai)
 - Bước 3 server và client sẽ thỏa thuận tham số rồi mở kênh bảo mật (ở bước này ta có thể hiểu như là thỏa thuận version ,loại mã hóa được sử dụng,...)
 - Bước 4 người dùng đăng nhập vào hệ điều hành máy chủ
+
+# Cấu trúc lệnh ssh
+    ```
+    ssh -p port user@server-address
+    ```
+  - Trong đó port chính là port của dịch vụ ssh (thường là 22)
+  - user: tên user mà bạn muốn đăng nhập vào(user này chính là tài khoản có trên server)
+  - server-addess :là ip hoặc tên miền của server
 
 # SSH key pair
 - Người ta nhận thấy khi ssh mà đăng nhập bằng user và password có thể không an toàn hay có thể bị nhìn lén hoặc khi copy vào 1 file nào đó mà bị mất sẽ đẫn đến mất khả năng bảo mật
