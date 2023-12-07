@@ -88,3 +88,5 @@
 https://maychuviet.vn/idrac-la-gi-huong-dan-cai-dat-va-su-dung-idrac/
 
 https://vnpro.vn/thu-vien/tong-quan-ve-lop-vat-ly-cua-cac-chuan-ethernet-4308.html
+
+https://docs.google.com/document/d/1v83RzwSF6YQ82fGN53j3dub-V4SvZ9mfpXghznM3XOk/edit
