@@ -28,9 +28,32 @@
 
 ## 2.5 Card mạng
 - Card mạng được gắn vào Rezer rồi mới gắn vào mainbroad nhằm mục đích chuyển vị trí card mạnh từ nằm dọc sang nằm ngang để phù hợp với kích thước vỏ 
+- Cáp Ethernet được phân loại là Cat5, Cat 5e, Cat6 và UTP
+- những loại Ethernet được sử dụng nhiều nhất:
+  
+|Tốc độ|Tên gọi chung|Tiêu chuẩn IEEE(không chính thức)|Tiêu chuẩn IEEE(chính thức)|
+|---|----|-----|--------|
+|10 Mbps|Ethernet|10BASE-T|802.3|
+|100 Mbps|FastEthernet|100BASE-T|802.3u|
+|1 Gbps|GigabitEthernet|1000BASE-T|802.3ab|
+|10 Gbps|10 GE|10GBASE-T|802.3an|
+
+|Tên|Cấu trúc|Ứng dụng|
+|----|------|--------|
+|Cat5|UTP|Cáp Ethernet 100BASE-TX & 1000BASE-T|
+|Cat5e|UTP|Cáp Ethernet 100BASE-TX & 1000BASE-T|
+|Cat6|STP|Cáp Ethernet 10GBASE-T|
+|Cat6a|STP|Cáp Ethernet 10GBASE-T|
+
+
+![Alt](/thuctap/anh/Screenshot_440.png)
+![Alt](/thuctap/anh/Screenshot_441.png)
+![Alt](/thuctap/anh/Screenshot_442.png)
+![Alt](/thuctap/anh/Screenshot_443.png)
 
 ## 2.6 Nguồn (PSU)
 - Trên máy có 2 nguồn dùng để cung cấp điện liên tục cho server nhằm mục đích lỡ không máy mất điện đột ngột
+- Công suất của thiết bị là 550W
 
 # 3.Tìm hiểu thêm
 
@@ -63,3 +86,5 @@
 - Nhấn F2 hoặc F12 để vào BIOS
 # Tài liệu tham khảo
 https://maychuviet.vn/idrac-la-gi-huong-dan-cai-dat-va-su-dung-idrac/
+
+https://vnpro.vn/thu-vien/tong-quan-ve-lop-vat-ly-cua-cac-chuan-ethernet-4308.html
