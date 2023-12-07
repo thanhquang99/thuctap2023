@@ -1,3 +1,17 @@
+- [1. Tìm hiểu về phần cứng trong server](#1-tìm-hiểu-về-phần-cứng-trong-server)
+- [2. Các thành phần chính của máy chủ](#2-các-thành-phần-chính-của-máy-chủ)
+  - [2.1 Nơi cắm ổ cứng của server (Back plan)](#21-nơi-cắm-ổ-cứng-của-server-back-plan)
+  - [2.2 Quạt tản nhiệt](#22-quạt-tản-nhiệt)
+  - [2.3 CPU và Ram](#23-cpu-và-ram)
+  - [2.4 Card RAID](#24-card-raid)
+  - [2.5 Card mạng](#25-card-mạng)
+  - [2.6 Nguồn (PSU)](#26-nguồn-psu)
+- [3.Tìm hiểu thêm](#3tìm-hiểu-thêm)
+  - [3.1 PCI](#31-pci)
+  - [3.2 IDRAC](#32-idrac)
+  - [3.3 Main BIOS là gì](#33-main-bios-là-gì)
+- [Tài liệu tham khảo](#tài-liệu-tham-khảo)
+
 # 1. Tìm hiểu về phần cứng trong server
 ![Alt](/thuctap/anh/Screenshot_434.png)
 
