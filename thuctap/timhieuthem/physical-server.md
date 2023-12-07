@@ -1,0 +1,65 @@
+# 1. Tìm hiểu về phần cứng trong server
+![Alt](/thuctap/anh/Screenshot_434.png)
+
+![Alt](/thuctap/anh/Screenshot_435.png)
+
+- Đây là hình ảnh thực tế của server
+
+# 2. Các thành phần chính của máy chủ
+## 2.1 Nơi cắm ổ cứng của server (Back plan)
+- Có rất nhiều ổ cứng sẽ được gắn vào các giá rồi được gắn vào server
+- Các giá ổ cứng thường có độ dày là 2,5 inch và 3,5 inch
+
+## 2.2 Quạt tản nhiệt
+- Do server phải hoạt động liên tục nên cần phải liên tục làm mát và quạt tản nhiệt phụ trách việc đó
+
+## 2.3 CPU và Ram
+- CPU chính là bộ xử lý trung tâm của server
+- Ở server này có 2 chỗ cắm CPU và trên mặt CPU có dính thêm tản nhiệt
+- Ram được gắn bên cạnh CPU và trên vỏ máy có quy định về các cắm RAM ứng với 2 CPU như nào 
+- `Lưu ý`: 
+  - không quét bụi chỗ mặt CPU gắn với mainbroad vì chỉ cần dính rác nhỏ vào thì có thể bị hỏng
+  - Nhìn vào ký hiệu tam giác để gắn CPU cho đúng vị trí 
+  - VÍ dụ có 6 RAM thì sẽ cắm 3 RAM cho CPU1 và 3 RAM cho CPU ứng với các số 1,2,3 (xem ở vỏ để biết về sơ đồ)
+
+## 2.4 Card RAID
+- Đây là thiết bị được gắn thêm vào server nhằm tạo ra các RAID với mục đích backup dữ liệu
+- Ta có thể tham khảo thêm về RAID [ở đây](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/bo-xung-ccna/boxung.md#raid-c%C3%A1c-lo%E1%BA%A1i-raid)
+
+## 2.5 Card mạng
+- Card mạng được gắn vào Rezer rồi mới gắn vào mainbroad nhằm mục đích chuyển vị trí card mạnh từ nằm dọc sang nằm ngang để phù hợp với kích thước vỏ 
+
+## 2.6 Nguồn (PSU)
+- Trên máy có 2 nguồn dùng để cung cấp điện liên tục cho server nhằm mục đích lỡ không máy mất điện đột ngột
+
+# 3.Tìm hiểu thêm
+
+## 3.1 PCI
+- PCI được viết tắt từ cụm từ Peripheral Component Interconnect là khái niệm để chỉ chuẩn giao tiếp giữa các linh kiện phần cứng máy tính với nhau.
+- Các chuẩn PCI khác nhau thì cho tốc độ truyền tải dữ liệu khác nhau
+
+## 3.2 IDRAC
+![Alt](/thuctap/anh/Screenshot_438.png)
+
+-  là một phần cứng được tích hợp sẵn trên bo mạch chủ (mainboard) của các dòng máy chủ server Dell.
+-  Nó cung cấp quyền truy cập từ xa vào console (bàn phím và màn hình), cho phép truy cập giao diện BIOS hệ thống qua Internet
+-  hỗ trợ cho người quản trị có thể quản lý máy chủ một cách linh động hơn từ xa mà không cần phải ngồi bên cạnh các server
+-  Cấu hình [theo](https://maychuviet.vn/idrac-la-gi-huong-dan-cai-dat-va-su-dung-idrac/) 
+
+![Alt](/thuctap/anh/Screenshot_439.png)
+- Ta cần làm gì với IDRAC khi bắt đầu khỏi động lại máy
+  - Đặt địa chỉ IP
+  - Thiết lập mật khẩu root
+  - login vào iDRAC thông qua địa chỉ ip và username/pass đã được thiết lập ở trên trang https://ip_idrac
+## 3.3 Main BIOS là gì
+
+- BIOS là viết tắt của từ Basic Input/Output System hay còn gọi là hệ thống đầu vào/ra cơ bản
+- BIOS kiểm soát những chức năng cơ bản của máy tính
+  - Kết nối và chạy driver cho cho các thiết bị ngoại vi như chuột ,máy tính
+  - Đọc thứ tự ổ cứng để khởi động các hệ điều hành, hiển thị tín hiệu lên màn hình
+  - thay đổi thứ tự ổ đĩa khi khởi động
+  - nhiệm vụ của BIOS là “đánh thức” từng linh kiện và kiểm tra xem linh kiện này có hoạt động hay không
+
+- Nhấn F2 hoặc F12 để vào BIOS
+# Tài liệu tham khảo
+https://maychuviet.vn/idrac-la-gi-huong-dan-cai-dat-va-su-dung-idrac/
