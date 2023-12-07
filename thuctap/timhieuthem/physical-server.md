@@ -84,6 +84,8 @@
   - nhiệm vụ của BIOS là “đánh thức” từng linh kiện và kiểm tra xem linh kiện này có hoạt động hay không
 
 - Nhấn F2 hoặc F12 để vào BIOS
+
+
 # Tài liệu tham khảo
 https://maychuviet.vn/idrac-la-gi-huong-dan-cai-dat-va-su-dung-idrac/
 
