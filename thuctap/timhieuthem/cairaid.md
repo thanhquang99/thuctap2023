@@ -1,7 +1,9 @@
 # Raid là gì và tại sao lại phải cài nó
 - RAID là hình thức ghép nhiều ổ đĩa cứng vật lý thành các ổ đĩa logic có chức năng đảm bảo sự an toàn dữ liệu, tránh các trường hợp ổ đĩa bị hỏng thì dữ liệu vẫn còn đó
 - Phân chia các loại RAID [ở đây](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/bo-xung-ccna/boxung.md#raid-c%C3%A1c-lo%E1%BA%A1i-raid)
+- Để tiến hành cài RAID được thì ở BIOS setting cần phải bâth tính năng cho phép ảo hóa
 
+![Alt](/thuctap/anh/Screenshot_471.png)
 # Cài RAID 0
 - Khi bật server lên ta nhấn phím `F2` để vào `system setups` và chọn vào `device settings`
 
