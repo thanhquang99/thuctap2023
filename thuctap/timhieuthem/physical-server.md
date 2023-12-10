@@ -36,6 +36,11 @@
   - Nhìn vào ký hiệu tam giác để gắn CPU cho đúng vị trí 
   - VÍ dụ có 6 RAM thì sẽ cắm 3 RAM cho CPU1 và 3 RAM cho CPU ứng với các số 1,2,3 (xem ở vỏ để biết về sơ đồ)
 
+- Các chuẩn RAM DDR:
+  - DDR5 :  dung lượng RAM tối đa 1 thanh lên đến 128GB/thanh RAM
+  -  DDR4 :dung lượng RAM tối đa 1 thanh lên đến 32GB/thanh RAM
+  -  DDR4 :dung lượng RAM tối đa 1 thanh lên đến 8GB/thanh RAM
+
 ## 2.4 Card RAID
 - Đây là thiết bị được gắn thêm vào server nhằm tạo ra các RAID với mục đích backup dữ liệu
 - Ta có thể tham khảo thêm về RAID [ở đây](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/bo-xung-ccna/boxung.md#raid-c%C3%A1c-lo%E1%BA%A1i-raid)
