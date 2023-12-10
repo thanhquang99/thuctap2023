@@ -13,7 +13,7 @@
 - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
 
 # 1. Tìm hiểu về phần cứng trong server
-![Alt](/thuctap/anh/Screenshot_444.png)
+![Alt](/thuctap/anh/Screenshot_re.png)
 
 ![Alt](/thuctap/anh/Screenshot_435.png)
 
