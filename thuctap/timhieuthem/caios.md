@@ -118,7 +118,7 @@
 
 -  Một số phần cứng và phần mềm cũ hơn có thể không tương thích với UEFI
 
-||UEFI|Legacy Bios|
+||Legacy Bios|UEFI|
 |---|----|--------|
 |Giới hạn về dung lượng|Sử dụng MBR để lưu thông tin vào ổ cứng|UEFI sử dụng bảng phân vùng GUID (GPT)|
 ||Giới hạn tổng phân vùng vật lý chỉ còn 4. Mỗi phân vùng chỉ có thể có kích thước tối đa 2TB| Giới hạn dung lượng lý thuyết của UEFI cho các ổ có khả năng boot là hơn 9 zettabyte|
