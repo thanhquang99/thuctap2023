@@ -92,7 +92,7 @@
 - Ta cần làm gì với IDRAC khi bắt đầu khỏi động lại máy
   - Đặt địa chỉ IP
   - Thiết lập mật khẩu root
-  - login vào iDRAC thông qua địa chỉ ip và username/pass đã được thiết lập ở trên trang https://ip_idrac
+  - login vào iDRAC thông qua địa chỉ ip và username/pass đã được thiết lập ở trên trình duyệt
 ## 3.3 Main BIOS là gì
 
 - BIOS là viết tắt của từ Basic Input/Output System hay còn gọi là hệ thống đầu vào/ra cơ bản
