@@ -30,7 +30,7 @@
 ![Alt](/thuctap/anh/Screenshot_477.png)
 - Chọn dòng thứ 2 khi ta muốn xóa bản OS cũ và thay thế bản OS mới chứ không phải nâng cấp
 
-- Chọn phân vùng chứa hệ điaauf hành
+- Chọn phân vùng chứa hệ điều hành
 
 ![Alt](/thuctap/anh/Screenshot_478.png)
 
