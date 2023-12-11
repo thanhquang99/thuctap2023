@@ -43,7 +43,7 @@
 
 ## 2.4 Card RAID
 - Đây là thiết bị được gắn thêm vào server nhằm tạo ra các RAID với mục đích backup dữ liệu
-- Ta có thể tham khảo thêm về RAID [ở đây](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/bo-xung-ccna/boxung.md#raid-c%C3%A1c-lo%E1%BA%A1i-raid)
+- Ta có thể tham khảo thêm về RAID [ở đây](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/bo-xung-ccna/boxung.md#c%C3%A1c-raid-ph%E1%BB%95-bi%E1%BA%BFn)
 
 ## 2.5 Card mạng
 - Card mạng được gắn vào Rezer rồi mới gắn vào mainbroad nhằm mục đích chuyển vị trí card mạnh từ nằm dọc sang nằm ngang để phù hợp với kích thước vỏ 
