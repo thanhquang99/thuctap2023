@@ -1,3 +1,7 @@
+- [Raid là gì và tại sao lại phải cài nó](#raid-là-gì-và-tại-sao-lại-phải-cài-nó)
+- [Cài RAID 0](#cài-raid-0)
+- [Cài RAID 1 và RAID 5](#cài-raid-1-và-raid-5)
+
 # Raid là gì và tại sao lại phải cài nó
 - RAID là hình thức ghép nhiều ổ đĩa cứng vật lý thành các ổ đĩa logic có chức năng đảm bảo sự an toàn dữ liệu, tránh các trường hợp ổ đĩa bị hỏng thì dữ liệu vẫn còn đó
 - Phân chia các loại RAID [ở đây](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/bo-xung-ccna/boxung.md#raid-c%C3%A1c-lo%E1%BA%A1i-raid)
@@ -56,6 +60,7 @@
 
 ![Alt](/thuctap/anh/Screenshot_458.png)
 
+# Cài RAID 1 và RAID 5
 - Ta tiến hành xóa RAID 0 và cài RAID 1 và RAID 5 tương tự
 
 ![Alt](/thuctap/anh/Screenshot_459.png)

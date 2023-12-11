@@ -1,3 +1,7 @@
+- [Tìm hiểu về IDRAC](#tìm-hiểu-về-idrac)
+  - [Cài đặt IDRAC](#cài-đặt-idrac)
+  - [Một số tính năng trong IDRAC](#một-số-tính-năng-trong-idrac)
+
 # Tìm hiểu về IDRAC
 ## Cài đặt IDRAC 
 - Ta vào `system setups` và chọn `IDRAC setting` để tiến hành cài đặt netwwork và user để tiến hành quản lý `IDRAC` trên trình duyệt web

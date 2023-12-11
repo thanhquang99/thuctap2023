@@ -1,3 +1,9 @@
+- [Chuẩn bị](#chuẩn-bị)
+- [Cài OS windows](#cài-os-windows)
+- [Cài OS linux (centos7)](#cài-os-linux-centos7)
+- [Kiến thức bổ xung](#kiến-thức-bổ-xung)
+  - [UEFI và Legacy BIOS](#uefi-và-legacy-bios)
+
 # Chuẩn bị
 - 1 ổ USB đã cài sẵn OS 
 - Tiến hành cắm USB vào server
