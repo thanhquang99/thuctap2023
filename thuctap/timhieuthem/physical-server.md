@@ -1,6 +1,6 @@
 - [1. Tìm hiểu về phần cứng trong server](#1-tìm-hiểu-về-phần-cứng-trong-server)
 - [2. Các thành phần chính của máy chủ](#2-các-thành-phần-chính-của-máy-chủ)
-  - [2.1 Nơi cắm ổ cứng của server (Back plan)](#21-nơi-cắm-ổ-cứng-của-server-back-plan)
+  - [2.1 Nơi cắm ổ cứng của server (Back plane)](#21-nơi-cắm-ổ-cứng-của-server-back-plane)
   - [2.2 Quạt tản nhiệt](#22-quạt-tản-nhiệt)
   - [2.3 CPU và Ram](#23-cpu-và-ram)
   - [2.4 Card RAID](#24-card-raid)
@@ -20,7 +20,7 @@
 - Đây là hình ảnh thực tế của server
 
 # 2. Các thành phần chính của máy chủ
-## 2.1 Nơi cắm ổ cứng của server (Back plan)
+## 2.1 Nơi cắm ổ cứng của server (Back plane)
 - Có rất nhiều ổ cứng sẽ được gắn vào các giá rồi được gắn vào server
 - Các giá ổ cứng thường có độ dày là 2,5 inch và 3,5 inch
 
