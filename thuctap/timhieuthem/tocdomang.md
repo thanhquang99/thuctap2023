@@ -1,11 +1,10 @@
 # Throughput và bandwith
 ## Định nghĩa
-
-	- Network Bandwidth :đề cập đến lượng dữ liệu tối đa có thể được truyền qua mạng hoặc kênh liên lạc trong một khoảng thời gian nhất định
-	- Throughput :đề cập đến lượng dữ liệu thực tế được truyền qua mạng hoặc kênh liên lạc trong một khoảng thời gian nhất định.
+- Network Bandwidth :đề cập đến lượng dữ liệu tối đa có thể được truyền qua mạng hoặc kênh liên lạc trong một khoảng thời gian nhất định
+- Throughput :đề cập đến lượng dữ liệu thực tế được truyền qua mạng hoặc kênh liên lạc trong một khoảng thời gian nhất định.
 ## Khác biệt:
-	- Thông lượng rất hữu ích khi bạn muốn xem mạng của mình hiện đang chạy nhanh như thế nào
-	- Băng thông là một thước đo quan trọng để đánh giá dung lượng mạng tổng thể
+- Thông lượng rất hữu ích khi bạn muốn xem mạng của mình hiện đang chạy nhanh như thế nào
+- Băng thông là một thước đo quan trọng để đánh giá dung lượng mạng tổng thể
 ## Cách đo băng thông
 lên trang [web](https://www.speedtest.net/) để đo tốc độ băng thông của bạn
 
