@@ -38,7 +38,7 @@
 [19.SSH keypair](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux/sshkeypair.md)
 
 
-[]()
+[20.Linux nâng cao hơn](https://github.com/thanhquang99/thuctap2023/tree/main/thuctap/linux-profession)
 
 []()
 
