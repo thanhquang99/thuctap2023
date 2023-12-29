@@ -144,6 +144,9 @@ sudo ip addr add [ip]/[prefix] dev ens33
   ip addr show
   ```
 - Bật tắt card mạng
+  ```
+  
+  ```
 
 ## Đặt ip tĩnh centos 7
 ### sửa file cấu hình
