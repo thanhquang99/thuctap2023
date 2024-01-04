@@ -129,7 +129,19 @@ sudo ifup ens33
   iface ens33 inet dhcp
   ```
   ![Alt](/thuctap/anh/Screenshot_648.png)
+- Ta có thể đặt ip tĩnh bằng cách chỉnh sửa file như sau:
+  ```
+  auto lo
+  iface lo inet loopback
 
+  auto ens33
+  iface ens33 inet static
+  address 192.168.10.21
+  netmask 255.255.255.0
+  gateway 192.168.10.2
+  broadcast 192.168.10.255
+  dns-nameservers 8.8.8.8 8.8.4.4
+  ```
 - Tiến hành reboot ,kiểm tra IP và ping thử ra internet
   ![Alt](/thuctap/anh/Screenshot_649.png)
 - Giờ ta có thể sử dụng `ifdown` và `ifup` để tắt bật card mạng
