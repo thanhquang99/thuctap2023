@@ -104,3 +104,5 @@
   ![Alt](/thuctap/anh/Screenshot_689.png)
 # Tài liệu tham khảo
 https://github.com/hocchudong/ghichep-nginx/blob/master/docs/nginx-virtualhost.md
+
+https://github.com/huydv398/Linux-tutorial/blob/master/Fundamental/File-Structure&config.md

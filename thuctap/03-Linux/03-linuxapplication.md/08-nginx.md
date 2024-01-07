@@ -5,10 +5,6 @@
   - [4. Tổng quan về các file của Nginx](#4-tổng-quan-về-các-file-của-nginx)
 - [Cấu hình Nginx(/etc/nginx/nginx.conf)](#cấu-hình-nginxetcnginxnginxconf)
   - [1. Giới thiệu về file cấu hình](#1-giới-thiệu-về-file-cấu-hình)
-  - [2. Giải thích file cấu hình](#2-giải-thích-file-cấu-hình)
-    - [2.1 Main block](#21-main-block)
-    - [2.2 event block](#22-event-block)
-    - [2.3 http block](#23-http-block)
 - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
 # Giới thiệu về Nginx
 ## 1. Tổng quan về Nginx
@@ -114,6 +110,16 @@
 - `tcp_nopush     on` : Nginx sẽ gửi dữ liệu phản hồi mà không cần chờ đủ một phần nhất định của dữ liệu hoặc cho đến khi có thêm dữ liệu
 - `keepalive_timeout  65` :  Xác định thời gian chờ trước khi đóng 1 kết nối, ở đây là 65s
 - `include /etc/nginx/conf.d/*.conf` chỉ những file có đuôi `.conf` mới có thể được tham gia block http
+
+## 3. Một số lệnh của Nginx
+- Kiểm tra các file cấu hình đã đúng chưa
+  ```
+  nginx -t
+  ```
+- Restart lại nginx
+  ```
+  nginx -s
+  ```
 # Tài liệu tham khảo
 https://github.com/hocchudong/ghichep-nginx?tab=readme-ov-file
 
