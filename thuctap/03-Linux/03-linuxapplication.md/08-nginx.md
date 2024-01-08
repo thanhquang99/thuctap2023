@@ -31,7 +31,6 @@
 - Reverse Proxy : Nginx có khả năng hoạt động như một máy chủ proxy ngược, điều hướng yêu cầu từ người dùng đến các máy chủ ứng dụng hoặc dịch vụ phía sau một cách hiệu quả.
 - Cân Bằng Tải: Nginx cung cấp tính năng cân bằng tải tự động giữa nhiều máy chủ, giúp phân phối tải và tăng cường sẵn sàng và hiệu suất
 - Mô-đun và Tùy Chọn Cấu Hình Linh Hoạt
-- 
 - Hiệu suất Cao: Nginx được biết đến với khả năng xử lý đồng thời hàng ngàn kết nối với tài nguyên hệ thống tối thiểu.
 ## 4. Tổng quan về các file của Nginx
 - Để cài Nginx (đối với centos 7)
@@ -41,8 +40,9 @@
   yum install nginx -y
   ```
 - Tất cả các thư mục liên quan đến cấu hình của nginx sẽ nằm ở `/etc/nginx` 
+
   ![Alt](/thuctap/anh/Screenshot_685.png)
-  
+
   - `nginx.conf`: Đây là tệp cấu hình chính cho máy chủ Nginx. Mọi thay đổi trong đây sẽ áp dụng cho toàn bộ mọi thứ liên quan đến Nginx
   - `sites-available` :Thư mục chứa các tệp cấu hình trang web . Ở đây bạn có thể thêm các tệp cấu hình nhưng nó vẫn chưa thể hoạt động
   - `sites-enabled` : Thư mục này mới chính là nơi các tệp cấu hình có thể được áp dụng . Thông thường thì ta sẽ tạo một symblink từ sites-available đến sites-enabled nhằm mục đích khi không muốn sử dụng ta chỉ cần ngắt symblink chứ không cần xóa file
