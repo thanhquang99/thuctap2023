@@ -42,6 +42,7 @@
   ```
 - Tất cả các thư mục liên quan đến cấu hình của nginx sẽ nằm ở `/etc/nginx` 
   ![Alt](/thuctap/anh/Screenshot_685.png)
+  
   - `nginx.conf`: Đây là tệp cấu hình chính cho máy chủ Nginx. Mọi thay đổi trong đây sẽ áp dụng cho toàn bộ mọi thứ liên quan đến Nginx
   - `sites-available` :Thư mục chứa các tệp cấu hình trang web . Ở đây bạn có thể thêm các tệp cấu hình nhưng nó vẫn chưa thể hoạt động
   - `sites-enabled` : Thư mục này mới chính là nơi các tệp cấu hình có thể được áp dụng . Thông thường thì ta sẽ tạo một symblink từ sites-available đến sites-enabled nhằm mục đích khi không muốn sử dụng ta chỉ cần ngắt symblink chứ không cần xóa file
