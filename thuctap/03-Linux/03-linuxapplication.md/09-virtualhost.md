@@ -11,7 +11,7 @@
 ## 2. Sở lược về cách tạo virtual host
 - Như đã giới thiệu ở bai bài trước thì các thư mục lưu nội dung trang web sẽ mặc định được lưu ở `/usr/share/html`
 - Yêu cầu cần làm là ta sẽ tạo ra nhiều thư mục lưu nhiều trang web và cấu hình lại nginx để cho có thể trỏ chính xác website đến thư mục lưu của chính nó
-- Những file cấu hình ta cần sửa là chính là `sites-available` và `sites-enabled` và tạo thêm các thư mục lưu trữ trang web ở `/usr/share/nginx`
+- Những file cấu hình ta cần sửa là chính là `sites-available` và `sites-enabled`  đối với ubuntu hoặc `conf.d` đối với centos và tạo thêm các thư mục lưu trữ trang web ở `/usr/share/nginx`
 ## 3. Thực hành
 - Tạo ra 2 file cấu hình virtual host
   ```
