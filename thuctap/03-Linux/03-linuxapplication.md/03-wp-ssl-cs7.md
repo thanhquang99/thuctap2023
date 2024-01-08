@@ -48,9 +48,9 @@
     ```
     sudo mkdir -p /var/www/mail.thanhquang.site/log
     ```
-- Tiếp theo, chỉ định quyền sở hữu thư mục html với biến môi trường `$USER`
+- Tiếp theo, chỉ định quyền sở hữu thư mục html với user apache
     ```
-    sudo chown -R $USER:$USER /var/www/wp1.thanhquang.site/html
+    sudo chown -R apache:apache /var/www
     ```
 - Đảm bảo rằng gốc web của bạn có các quyền mặc định được đặt:
     ```

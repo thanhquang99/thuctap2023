@@ -22,7 +22,7 @@
 
 ## 2. Tiến hành cài đặt
 ### 2.1 Cài đặt LAMP
-- [Hướng dẫn cài đặt LAMP](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/linux-profession/03.LAMP.md)
+- [Hướng dẫn cài đặt LAMP](https://github.com/thanhquang99/thuctap2023/blob/main/thuctap/03-Linux/02-linux-profession/03.LAMP.md)
 
 ### 2.2 Tạo cơ sở dữ liệu cho tài khoản Wordpress
 - Tạo cơ sở dữ liệu cho tài khoản Wordpress
