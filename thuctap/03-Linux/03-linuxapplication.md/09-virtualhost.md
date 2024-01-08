@@ -94,7 +94,7 @@
   ```
 - Ta tiến hành ngắt kết nối internet và chỉnh sửa file host trên window của mình (do đây là tôi dùng VMware và dùng ip private)
   - mở notepate++ bằng quyền admin
-  - Chọn file mở theo đường dẫn `C:\Windows\System32\drivers\etc/hosts`
+  - Chọn file mở theo đường dẫn `C:\Windows\System32\drivers\etc\hosts`
   - Thêm vào nội dung sau:
   ```
   192.168.10.21 vhostthanhquang1.com www.vhostthanhquang1.com www.vhostthanhquang2.com vhostthanhquang2.com
