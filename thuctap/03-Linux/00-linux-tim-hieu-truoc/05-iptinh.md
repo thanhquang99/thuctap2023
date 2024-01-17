@@ -81,7 +81,10 @@ nmcli con mod ens33 connection.autoconnect yes
 ```
 
 - Những cấu hình mới sẽ lưu vào bộ nhớ tạm chứ không thể áp dụng ngay khi ta `systemctl restart NetworkManager` như centos 7. Để có thể áp dụng được cấu hình mới ta cần bật tắt lại card mạng
-
+```
+nmcli con down ens33 && nmcli con up ens33
+```
+hoặc sử dụng ifupdown:
 ```
 sudo ifdown ens33
 sudo ifup ens33
