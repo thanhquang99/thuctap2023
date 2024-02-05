@@ -90,3 +90,4 @@ quang_info = {
 ```
 - Dưới đây là hình ảnh thực tế
   ![Alt](/thuctap/anh/Screenshot_751.png)
+
