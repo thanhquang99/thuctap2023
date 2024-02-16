@@ -1,4 +1,4 @@
-# Python day 3
+# Python day 2
 ## 1. Biến trong Python
 - Để có thể ghi nhớ và sử dụng tiện dụng các giá trị được lặp đi lặp lại nhiều lần ta có thể sử dụng biến để gắn giá trị
 - Quy tắc đặt biến cho python
