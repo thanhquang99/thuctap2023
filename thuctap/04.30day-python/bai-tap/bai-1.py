@@ -19,22 +19,23 @@ danh_sach_qua = [
 
 def hien_thi_danh_sach():
     print("Danh sách hoa quả:")
-    for i, qua in enumerate(danh_sach_qua, 1):
+    for i, qua in enumerate(danh_sach_qua, 1): # Tạo một biến chứa thông tin cho từng quả trong danh_sach_qua
         print(f"{i}. {qua.ten}: {qua.so_luong} quả")
 
 def them_qua():
     ten_qua = input("Nhập tên hoa quả mới: ")
-    try:
-        so_luong = int(input("Nhập số lượng quả: "))
+
+    so_luong_input = input("Nhập số lượng quả: ")
+    
+    if so_luong_input.isdigit():
+        so_luong = int(so_luong_input)
         if so_luong < 0:
             print("Số lượng không hợp lệ. Vui lòng nhập số lượng lớn hơn 0.")
-            return
-    except ValueError:
+        else:
+            danh_sach_qua.append(HoaQua(ten_qua, so_luong))
+            print(f"Đã thêm {so_luong} {ten_qua} vào danh sách.")
+    else:
         print("Số lượng không hợp lệ. Vui lòng nhập một số nguyên.")
-        return
-
-    danh_sach_qua.append(HoaQua(ten_qua, so_luong))
-    print(f"Đã thêm {so_luong} {ten_qua} vào danh sách.")
 
 def kiem_tra_qua():
     ten_qua = input("Nhập tên hoa quả cần kiểm tra: ")
