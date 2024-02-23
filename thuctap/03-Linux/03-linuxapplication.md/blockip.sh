@@ -32,3 +32,6 @@ if [ ${#ip_unbans[@]} -gt 0 ]; then
 fi
 sudo service iptables save
 sudo service iptables reload
+
+# Đây là script kết hợp với crontab chạy 1 phút 1 lần. và đây chỉ là test thôi nên tôi để biến $one_minute_ago là 1 phút trước
+# Nếu các bạn muốn thay đổi thì có thể đặt biến $one_minute_ago thành thời gian theo ý muốn của các bạn và sửa lại thời gian chạy file của crontab trùng với $one_minute_ago
