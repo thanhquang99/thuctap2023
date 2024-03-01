@@ -2,6 +2,7 @@
 # Mô hình OSI và TCP/IP
 
 Trước khi tìm hiểu về 2 mô hình trên chúng ta phải nói rõ là 2 mô hình trên không độc quyền và không do bất cứ một công ty nào kiểm soát
+dfgdfg
 
 Muc lục
 - [Mô hình OSI và TCP/IP](#mô-hình-osi-và-tcpip)
