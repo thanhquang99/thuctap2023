@@ -1,4 +1,6 @@
 # Thêm host và thiết lập ISCSI server
+Mô hình
+![Alt](/thuctap/anh/Screenshot_864.png)
 ## 1. Thêm host vào vcenter
 - Ta tiến hành đăng nhập với tài khoản ta vừa tạo
 - Tiến hành đặt tên data center
