@@ -1,6 +1,15 @@
 # Thêm host và thiết lập ISCSI server
-Mô hình
+Mô hình triển khai
 ![Alt](/thuctap/anh/Screenshot_864.png)
+
+IP Planning
+|Tên máy|Ethernet|IP|Vlan |
+|-------|--------|--|-----|
+|ESXi 01|vmkenal1|192.168.10.91|Vlan 10|
+|ESXi 02|vmkenal1|192.168.10.92|Vlan 10|
+|ADDC <br/> Windows Server 2019|Ethernet|192.168.10.93|Vlan 10|
+|Vcenter|Ethernet|192.168.10.94|Vlan 10|
+|ISCSI storage<br/>Windows Server 2019|Ethernet|192.168.10.95|Vlan 10|
 ## 1. Thêm host vào vcenter
 - Ta tiến hành đăng nhập với tài khoản ta vừa tạo
 - Tiến hành đặt tên data center
@@ -50,3 +59,15 @@ Mô hình
   ![Alt](/thuctap/anh/Screenshot_861.png)
   ![Alt](/thuctap/anh/Screenshot_862.png)
   ![Alt](/thuctap/anh/Screenshot_863.png)
+
+## 3. Hướng dẫn thêm File chứa OS vào ESCSI
+- Để có thể thêm OS vào disk ảo do ESCSI tạo ra thì ta chỉ cần lên máy ESXi 01 hoặc ESXi 02 để tải file từ máy tính mình lên storage là xong
+
+![Alt](/thuctap/anh/Screenshot_868.png)
+
+Tiếp theo ta cần tạo ra một thư mục chứa OS rồi mới upload file lên
+![Alt](/thuctap/anh/Screenshot_869.png)
+
+Bây giờ ta tiến hành chọn vào thư mục đã tạo và upload file
+![Alt](/thuctap/anh/Screenshot_870.png)
+
