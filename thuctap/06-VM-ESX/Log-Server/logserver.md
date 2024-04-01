@@ -3,6 +3,7 @@
   - [2. Cấu hình trên Log Server](#2-cấu-hình-trên-log-server)
   - [3. Cấu hình trên ESXi](#3-cấu-hình-trên-esxi)
   - [4. Kiểm tra kết quả](#4-kiểm-tra-kết-quả)
+  - [5. Cấu hình rsyslog](#5-cấu-hình-rsyslog)
 - [Tài liệu tham khảo](#tài-liệu-tham-khảo)
 # Hướng dẫn đẩy log của ESXi vào server
 ## 1. Mô hình triển khai
@@ -87,7 +88,7 @@ IP planning
   tcpdump -i ens160 port 514 -w log.pcap
   ```
   ![Alt](/thuctap/anh/Screenshot_990.png)
-
+## 5. Cấu hình rsyslog
 
 # Tài liệu tham khảo
 https://wazuh.com/blog/monitoring-vmware-esxi-with-wazuh/
