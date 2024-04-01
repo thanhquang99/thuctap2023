@@ -37,17 +37,20 @@ IP planning
   ```
 - Thêm nội dung sau vào cuối file 
   ```
+  # esxi log
   $ModLoad imudp
-  $UDPpoolRun 514
+  $UDPServerRun 514
   #Storing Messages from a Remote System into a specific File
-  if $fromhost-ip startswith '172.16.66.43' then /var/log/vmware-esxi.log
+  $template RemoteServer, "/var/log/vmware-esxi.log/%fromhost-ip%/%programname%"
+  if $fromhost-ip startswith '172.16.66.43' then ?RemoteServer
   & ~
   ```
   ![Alt](/thuctap/anh/Screenshot_987.png)
 - Giải thích 
   - `$ModLoad imudp` : sử dụng udp để lắng nghe , thu thập log
   - `$UDPpoolRun 514` : sử dụng port 514 với giao thức udp
-  - `if $fromhost-ip startswith '172.16.66.43' then /var/log/vmware-esxi.log` : Nếu các gói tin có nguồn từ từ ip 172.16.66.43 thì lưu vào file log `/var/log/vmware-esxi.log`
+  - `$template RemoteServer, "/var/log/vmware-esxi.log/%fromhost-ip%/%programname%"` : định nghĩa cấu trúc lưu file log
+  - `if $fromhost-ip startswith '172.16.66.43' then ?RemoteServer` : Nếu các gói tin có nguồn từ từ ip 172.16.66.43 thì lưu log theo template ở bước trước
 - Ta tiến hành restart lại dịch vụ `rsyslog`
   ```
   systemctl restart rsyslog
@@ -75,7 +78,8 @@ IP planning
 ## 4. Kiểm tra kết quả
 - Ta tiến hành vào log server để xem log đã được đẩy sang chưa
   ```
-  tail -f /var/log/vmware-esxi.log
+  cd /var/log/vmware-esxi.log
+  tree
   ```
   ![Alt](/thuctap/anh/Screenshot_989.png)
 - Ta sẽ dùng tcpdump bắt các gói tin từ port 514 rồi kiểm tra bằng wireshark
