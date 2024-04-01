@@ -107,6 +107,8 @@ IP planning
 - Thực hiện cấu hình logrotate và kiểm tra
   ```
   logrotate -d /etc/logrotate.d/vmware-esxi.log
+  ```
+- Nếu muốn ngay lập tức tạo file log mới thì sẽ thực hiện lệnh
   logrotate -f /etc/logrotate.d/vmware-esxi.log
   ```
 - Kết quả
