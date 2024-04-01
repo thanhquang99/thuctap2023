@@ -52,6 +52,7 @@ IP planning
   - `$UDPpoolRun 514` : sử dụng port 514 với giao thức udp
   - `$template RemoteServer, "/var/log/vmware-esxi.log/%fromhost-ip%/%programname%"` : định nghĩa cấu trúc lưu file log
   - `if $fromhost-ip startswith '172.16.66.43' then ?RemoteServer` : Nếu các gói tin có nguồn từ từ ip 172.16.66.43 thì lưu log theo template ở bước trước
+  
 - Ta tiến hành restart lại dịch vụ `rsyslog`
   ```
   systemctl restart rsyslog
@@ -89,6 +90,27 @@ IP planning
   ```
   ![Alt](/thuctap/anh/Screenshot_990.png)
 ## 5. Cấu hình rsyslog
+- Sửa file cấu hình logrotate
+  ```
+  vi /etc/logrotate.d/vmware-esxi.log
+  ```
+- Thêm vào nội dung sau:
+  ```
+  /var/log/vmware-esxi.log/* {
+  daily
+  rotate 4
+  create
+  dateext
+  compress
+  }
+  ```
+- Thực hiện cấu hình logrotate và kiểm tra
+  ```
+  logrotate -d /etc/logrotate.d/vmware-esxi.log
+  logrotate -f /etc/logrotate.d/vmware-esxi.log
+  ```
+- Kết quả
+  ![Alt](/thuctap/anh/Screenshot_991.png)
 
 # Tài liệu tham khảo
 https://wazuh.com/blog/monitoring-vmware-esxi-with-wazuh/
