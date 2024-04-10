@@ -19,7 +19,6 @@
 |Host| Máy vật lý cung cấp tài nguyên cho ESXi||
 |vSphere| Sản phẩm ảo hóa của VMware||
 |Cluster| Nhóm máy chủ ESXi có tài nguyên được chia sẻ cho máy ảo||
-|
 
 
 # Tài liệu tham khảo
