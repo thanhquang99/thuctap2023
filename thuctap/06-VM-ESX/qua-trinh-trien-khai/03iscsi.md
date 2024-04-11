@@ -42,6 +42,13 @@ IP Planning
   ![Alt](/thuctap/anh/Screenshot_853.png)
   ![Alt](/thuctap/anh/Screenshot_854.png)
 
+- Cấu hình ISCSI virtual disk
+  ![Alt](/thuctap/anh/Screenshot_1045.png)
+  ![Alt](/thuctap/anh/Screenshot_1046.png)
+  ![Alt](/thuctap/anh/Screenshot_1047.png)
+  ![Alt](/thuctap/anh/Screenshot_1048.png)
+- Tiến hành reset lại máy
+
 - Đây là tất các các bước ta cần để có thể cấu hình iscsi server
 ### 2.2 Cấu hình trên ESXi cần share storage
 - Đầu tiên ta cần add vmkernal NIC để sử dụng cho dịch vụ này
