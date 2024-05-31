@@ -123,7 +123,8 @@ function configure-netbox {
     /opt/netbox/upgrade.sh
 	source /opt/netbox/venv/bin/activate
     cd /opt/netbox/netbox
-    python3 manage.py createsuperuser
+    # Create Superuser
+	DJANGO_SUPERUSER_PASSWORD=$NETBOX_PASSWORD python3 /opt/netbox/netbox/manage.py createsuperuser --no-input --username $NETBOX_USERNAME --email $NETBOX_MAIL
     # Create a symbolic link for cron job
     ln -s /opt/netbox/contrib/netbox-housekeeping.sh /etc/cron.daily
 	# Start Netbox Server
