@@ -63,8 +63,6 @@ function install_graylog {
     sed -i "s|password_secret *=.*|password_secret = $password_secret|" $config_file
     sed -i "s|root_password_sha2 *=.*|root_password_sha2 = $root_password_sha2|" $config_file
     IP=$(hostname -I | awk '{print $1}')
-    #elasticsearch_host="http://admin:${password_opensearch}@$IP:9200"
-    #sed -i "s|#elasticsearch_hosts *=.*|elasticsearch_hosts = $elasticsearch_host|" $config_file
     sudo sed -i 's/#http_bind_address = 127.0.0.1.*/http_bind_address = 0.0.0.0:9000/g' $config_file
     sed -i "s|#http_publish_uri = http://192.168.1.1:9000/|http_publish_uri = http://$IP:9000/|" $config_file
     sudo systemctl daemon-reload
@@ -79,6 +77,7 @@ function install_nginx {
     openssl req -x509 -sha256 -new -nodes -days 3650 -key CA.key -out CA.pem
     openssl genrsa -out localhost.key 2048
     openssl req -new -key localhost.key -out localhost.csr
+    IP=$(hostname -I | awk '{print $1}')
     sudo tee localhost.ext > /dev/null <<EOF
 authorityKeyIdentifier = keyid,issuer
 basicConstraints = CA:FALSE
@@ -102,7 +101,7 @@ server {
 server {
         listen 443 ssl;
         listen [::]:443 ssl;
-        server_name $hostname, ;
+        server_name $hostname;
         # root /var/www/html;
         index index.html index.htm index.nginx-debian.html;
         # SSL Configuration
@@ -136,3 +135,11 @@ ufw allow 80
 ufw allow 443
 ufw allow 9000
 ufw allow 9200
+
+passwd_first=$(cat /var/log/graylog-server/server.log | grep "with username 'admin' and password" | sed "s/.*password '\(.*\)'.*/\1/")
+echo "Link Graylog: https://$hostname"
+echo "Password first login: $passwd_first"
+echo "User Graylog: admin"
+echo "Password Graylog: $password_graylog"
+echo "User OpenSearch: admin"
+echo "Password OpenSearch: $password_opensearch"
