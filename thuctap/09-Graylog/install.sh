@@ -1,12 +1,13 @@
 #!/bin/bash
 
 # Nhập hostname và password từ người dùng
-read -p "Enter hostname: " hostname
-read -s -p "Enter password opensearch (not use @): " password_opensearch
+read -p "Enter DNS name: " hostname
 echo 
+read -s -p "Enter password opensearch (not use @): " password_opensearch
+echo
 read -s -p "Enter password graylog: " password_graylog
 echo
-
+IP=$(hostname -I | awk '{print $1}')
 # Tạo mật khẩu secret
 password_secret=$(</dev/urandom tr -dc A-Z-a-z-0-9 | head -c${1:-96};echo)
 # Tạo hash SHA-256 từ mật khẩu người dùng đã nhập
@@ -33,7 +34,6 @@ function install_mongod {
     sudo apt-mark hold mongodb-org
 }
 
-# Hàm cài đặt OpenSearch
 function install_opensearch {
     sudo apt-get update && sudo apt-get -y install lsb-release ca-certificates curl gnupg2
     curl -o- https://artifacts.opensearch.org/publickeys/opensearch.pgp | sudo gpg --dearmor --batch --yes -o /usr/share/keyrings/opensearch-keyring
@@ -62,11 +62,11 @@ function install_graylog {
     # Thay thế giá trị trong file cấu hình
     sed -i "s|password_secret *=.*|password_secret = $password_secret|" $config_file
     sed -i "s|root_password_sha2 *=.*|root_password_sha2 = $root_password_sha2|" $config_file
-    IP=$(hostname -I | awk '{print $1}')
-    #elasticsearch_host="http://admin:${password_opensearch}@$IP:9200"
-    #sed -i "s|#elasticsearch_hosts *=.*|elasticsearch_hosts = $elasticsearch_host|" $config_file
+    #elasticsearch_host="http://opensearch:${password_opensearch}@$IP:9200"
+    #sed -i "s|#elasticsearch_hosts *=.*|elasticsearch_hosts = http://127.0.0.1:9200|" $config_file
     sudo sed -i 's/#http_bind_address = 127.0.0.1.*/http_bind_address = 0.0.0.0:9000/g' $config_file
     sed -i "s|#http_publish_uri = http://192.168.1.1:9000/|http_publish_uri = http://$IP:9000/|" $config_file
+	sed -i 's/#message_journal_max_size = 5gb/message_journal_max_size = 2gb/' $config_file
     sudo systemctl daemon-reload
     sudo systemctl enable graylog-server.service
     sudo systemctl start graylog-server.service
@@ -102,7 +102,7 @@ server {
 server {
         listen 443 ssl;
         listen [::]:443 ssl;
-        server_name $hostname, ;
+        server_name $hostname;
         # root /var/www/html;
         index index.html index.htm index.nginx-debian.html;
         # SSL Configuration
@@ -137,9 +137,13 @@ ufw allow 443
 ufw allow 9000
 ufw allow 9200
 passwd_first=$(cat /var/log/graylog-server/server.log | grep "with username 'admin' and password" | sed "s/.*password '\(.*\)'.*/\1/")
-echo "Link Graylog: https://$hostname"
-echo "Password first login: $passwd_first"
-echo "User Graylog: admin"
-echo "Password Graylog: $password_graylog"
-echo "User OpenSearch: admin"
-echo "Password OpenSearch: $password_opensearch"
+echo "link graylog: https://$hostname"
+if [ -z "$passwd_first" ]; then
+    echo "Password first login not found"
+else
+    echo "password first login: $passwd_first"
+fi
+echo "user-graylog: admin"
+echo "password-graylog: $password_graylog"
+echo "user opensearch : admin"
+echo "passwd opensearch: $password_opensearch"
