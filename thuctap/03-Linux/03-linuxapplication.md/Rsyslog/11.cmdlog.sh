@@ -4,14 +4,14 @@ function log-root {
     echo "# Command log" >> ~/.bashrc
     echo 'export IP_CLIENT=$(who am i | awk '\''{print $5}'\'')' >> ~/.bashrc
     echo "export HISTTIMEFORMAT=\"\$LOGNAME \$IP_CLIENT %d/%m/%y %T \"" >> ~/.bashrc
-    echo 'export PROMPT_COMMAND='\''RETRN_VAL=$?; logger -p local6.info "$(history 1) [$RETRN_VAL]"'\''' >> ~/.bashrc
+    echo 'export PROMPT_COMMAND='\''RETRN_VAL=$?; logger -p local6.info "$(history 1)[$RETRN_VAL]"'\''' >> ~/.bashrc
 }
 
 function user-log {
     echo "# Command log" >> /etc/skel/.bashrc
     echo 'export IP_CLIENT=$(who am i | awk '\''{print $5}'\'')' >> /etc/skel/.bashrc
     echo "export HISTTIMEFORMAT=\"\$LOGNAME \$IP_CLIENT %d/%m/%y %T \"" >> /etc/skel/.bashrc
-    echo 'export PROMPT_COMMAND='\''RETRN_VAL=$?; logger -p local6.info "$(history 1) [$RETRN_VAL]"'\''' >> /etc/skel/.bashrc
+    echo 'export PROMPT_COMMAND='\''RETRN_VAL=$?; logger -p local6.info "$(history 1)[$RETRN_VAL]"'\''' >> /etc/skel/.bashrc
 }
 
 function rsyslog-config-centos {
