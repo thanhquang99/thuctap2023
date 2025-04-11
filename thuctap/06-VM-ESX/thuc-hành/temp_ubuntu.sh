@@ -18,6 +18,9 @@ apt update -y
 apt dist-upgrade -y
 apt autoremove -y
 
+# cấu hình timezone Việt Nam
+timedatectl set-timezone Asia/Ho_Chi_Minh
+
 # cài đặt gói cơ bản
 apt install -y jq vim git dos2unix zip unzip curl wget dnsutils traceroute swaks open-vm-tools
 
