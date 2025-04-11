@@ -136,3 +136,6 @@ EOL
 #---------------------- xóa lịch sử shell ----------------------#
 
 cat /dev/null > ~/.bash_history && history -c
+
+# Logout
+logout
