@@ -31,7 +31,7 @@ vmware-toolbox-cmd config set deployPkg enable-custom-scripts true
 apt autoremove -y
 apt clean
 
-# dừng rsyslog
+# dừng rsyslog tạm thời để dọn log cũ
 service rsyslog stop
 
 # xóa log hệ thống
@@ -85,7 +85,7 @@ sed -i 's/preserve_hostname: false/preserve_hostname: true/g' /etc/cloud/cloud.c
 truncate -s0 /etc/hostname
 hostnamectl set-hostname localhost
 
-# MOTD đơn giản (không banner, không website)
+# MOTD đơn giản
 cat << 'EOF' > /etc/motd
 ********** Welcome to Thanh Quang **********
 EOF
@@ -103,5 +103,36 @@ ln -s /etc/machine-id /var/lib/dbus/machine-id
 cloud-init clean --logs
 touch /etc/cloud/cloud-init.disabled
 
-# xóa lịch sử shell
+#---------------------- cấu hình CMD LOG ----------------------#
+
+# cấu hình cho root
+echo "# Command log" >> ~/.bashrc
+echo 'export IP_CLIENT=$(who am i | awk '\''{print $5}'\'')' >> ~/.bashrc
+echo 'export HISTTIMEFORMAT="$LOGNAME $IP_CLIENT %d/%m/%y %T "' >> ~/.bashrc
+echo 'export PROMPT_COMMAND='\''RETRN_VAL=$?; logger -p local6.info "$(history 1)[$RETRN_VAL]"'\''' >> ~/.bashrc
+
+# cấu hình cho user mới tạo sau này
+echo "# Command log" >> /etc/skel/.bashrc
+echo 'export IP_CLIENT=$(who am i | awk '\''{print $5}'\'')' >> /etc/skel/.bashrc
+echo 'export HISTTIMEFORMAT="$LOGNAME $IP_CLIENT %d/%m/%y %T "' >> /etc/skel/.bashrc
+echo 'export PROMPT_COMMAND='\''RETRN_VAL=$?; logger -p local6.info "$(history 1)[$RETRN_VAL]"'\''' >> /etc/skel/.bashrc
+
+# cấu hình rsyslog
+echo "local6.* /var/log/cmd.log " >> /etc/rsyslog.d/50-default.conf
+systemctl enable rsyslog
+systemctl restart rsyslog
+
+# logrotate cho cmd.log
+cat << 'EOL' > /etc/logrotate.d/cmdlog
+/var/log/cmd.log {
+    size 100M
+    rotate 4
+    create
+    dateext
+    compress
+}
+EOL
+
+#---------------------- xóa lịch sử shell ----------------------#
+
 cat /dev/null > ~/.bash_history && history -c
